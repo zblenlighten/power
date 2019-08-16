@@ -1,55 +1,74 @@
-# Tools
+# Devops memo
 
-## EC2
+## AWS EC2
 
-### ssh connect EC2
+## ssh connect EC2 from local macbook
 
-- conection from local
+- launch a new instance on EC2:  
+  <code>Amazon Linux 2 AMI (HVM), SSD Volume Type</code>
+
+  Settings: memory, VPC, disk, security group...  
+  Then get <strong>key</strong> file (put in .ssh/).
+
+- connect instance from local
 
   > cd ~  
 cd .ssh  
-chmod 600 Asama-key.pem  
+chmod 600 key.pem  
 cd ~  
-ssh <a>ec2-user@52.194.239.159</a> -i Asama-key.pem  
+ssh <a>ec2-user@{IPv4 Public IP}</a> -i key.pem  
 
 - initial setting of EC2
 
   > sudo su  
+yum update  
 yum install git  
 git --version  
-yum update && yum -y install zsh  
-zsh --version  
+yum -y install zsh  
+zsh  
 yum install util-linux-user  
-cat /etc/shells  
-sudo chsh ec2-user  
-/bin/zsh  
-vim ~/.zshrc  
-source ~/.zshrc
 
   [set theme](https://qiita.com/jesus_isao/items/f440d5980832f3628567)  
 
-- [Mysql on EC2](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/)
+  > vim ~/.zshrc  
+export LC_ALL=C  ([why](http://tihiro.hatenablog.com/entry/2017/10/12/075555))  
+source ~/.zshrc  
+chsh -s /bin/zsh  
+echo $SHELL  
 
-  > yum install mysql mysql-devel  
-wget <a>http://repo.mysql.com/</a>  
-mysql-community-release-el7-5.noarch.rpm  
-sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm  
-yum update  
-yum install mysql-server  
-systemctl start mysql.service  
+  alternative
+  > cat /etc/shells  
+sudo chsh ec2-user  
+/bin/zsh  
+
+- Mysql on EC2  
+
+  [delete mysql in linux](https://help.cloud66.com/maestro/how-to-guides/databases/shells/uninstall-mysql.html)
+
+  > rpm -qa | grep -i "mysql"  
+yum localinstall -y <a>https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm</a>  
+yum install -y mysql-community-server  
+mysqld --version  
+systemctl start mysqld.service  
+systemctl enable mysqld.service  
+
+  [password setting](https://qiita.com/ymasaoka/items/7dc131dc98ba10a39854)  
 
 - connect from local (DBeaver)
 
   > mysql_upgrade  
-service mysql status  
-mysql  
-CREATE USER 'root'@'{IP address}' IDENTIFIED BY '{password}';  
-GRANT ALL PRIVILEGES ON \*.* TO 'root'@'{IP address}' WITH GRANT OPTION;  
+service mysqld status  
+mysql -u root -p  
+CREATE USER 'root'@'{IP}' IDENTIFIED BY '{password}';  
+GRANT ALL PRIVILEGES ON \*.* TO 'root'@'{IP}' WITH GRANT OPTION;  
 FLUSH PRIVILEGES;  
 SELECT Host, User, Password FROM mysql.user;  
 
-  then connected  
-
 - set go environment
 
-  > yum install gcc
+  > yum install gcc  
+
+  install go and <span style="color:Teal">edit go env GOPATH:</span>  
+  > need to export GOENV_DISABLE_GOPATH=1 before eval "$(goenv init -)" [(reference)](https://github.com/syndbg/goenv/issues/72)
+
+  then install beego and just run!
