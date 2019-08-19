@@ -10,14 +10,54 @@
 
 ### Algorithms & Data structure
 
-- Linked list
-- Tree
+- Sorting
+  1. Merge sort
+  2. Quick sort
+  3. Selection sort
+  4. Insertion sort
+  5. Heap sort
+
+- Data structure
+  1. Arrays
+  2. Linked lists
+  3. Stack
+  4. Queue
+  5. Hash table
+
+- Trees
+  1. Binary search trees
+  2. Balanced search trees
+      - AVL tree
+      - Red-black tree
+      - ...
+  3. traversals: preorder, inorder, postorder, BFS, DFS
+
 - Graph
+  1. directed
+  2. undirected
+  3. adjacency matrix
+  4. adjacency list
+  5. traversals: BFS, DFS
+
+- More knowledge
+  1. Binary search
+  2. Bitwise operations
+  3. Tries
+  4. ...
 
 ### Operating system
 
-- Process
-- Thread
+- Process & Thread
+- Linux
+  - Log
+  - Shell
+    - cat
+    - wc
+    - grep
+    - sed
+    - sort
+    - uniq
+    - akw
 
 ### Network
 

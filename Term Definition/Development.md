@@ -13,6 +13,7 @@
 ### Basic
 
 - MVC
+- Waterfall / Sprints/ Agile
 
 ### Infrastructure
 
@@ -26,6 +27,7 @@
 - CI/CD
   - Jenkins
 - Database
+  - <strong>Tuning</strong>
 
 ### Backend
 
@@ -39,8 +41,9 @@
 - HTML
 - CSS
 - JavaScript
+  - Node.js
+    - npm
   - Vue
-    - Nuxt
 
 ### System design
 
