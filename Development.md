@@ -1,4 +1,4 @@
-# Memo
+# Knowledge Memo
 
 ## Contents
 
@@ -28,6 +28,9 @@
   - Jenkins
 - Database
   - <strong>Tuning</strong>
+- Distributed
+  - Zookeeper
+  - Data Replicate Center
 
 ### Backend
 

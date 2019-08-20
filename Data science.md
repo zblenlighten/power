@@ -1,4 +1,4 @@
-# Memo
+# Knowledge Memo
 
 ## Contents
 
@@ -22,7 +22,7 @@
     - Principal Component Analysis
 - Geodata
 - Natural Language
-  - Bag of Words (Term Frequency — Inverse Document Frequency)
+  - Bag of Words
     - Tokenization: word segmentation, convert characters to lowercase
     - Remove useless characters, remove stop/rare words
     - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding
@@ -47,7 +47,7 @@
     - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
     - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
   - NPL
-    - TF-IDF
+    - Term Frequency — Inverse Document Frequency
 
 ### Machine learning
 
@@ -92,7 +92,7 @@
     - Relu: hidden layer
     - Tanh: RNN
   - Learning rate
-  - Prevent overfitting
+  - Prevent over-fitting
     - L2 & L1 Regularization
     - Dropout
     - Data augmentation
