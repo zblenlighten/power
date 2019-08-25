@@ -30,7 +30,7 @@
       - AVL tree
       - Red-black tree
       - ...
-  3. traversals: preorder, inorder, postorder, BFS, DFS
+  3. traversals: [preorder](https://leetcode.com/problems/binary-tree-preorder-traversal/), [inorder](https://leetcode.com/problems/binary-tree-inorder-traversal/), [postorder](https://leetcode.com/problems/binary-tree-postorder-traversal/), BFS, DFS
 
 - Graph
   1. directed
@@ -62,8 +62,8 @@
 ### Network
 
 - Microservice architecture
-  - Reverse proxy (load balancing, caching, access blocking, etc.)
-    - API Gateway
+  - <s>Reverse proxy (load balancing, caching, access blocking, etc.)</s>
+    - <s>API Gateway</s>
 - TCP/IP
 - Gateway (routing)
 - HTTP status

@@ -1,8 +1,38 @@
 # Devops memo
 
-## AWS EC2
+## Contents
 
-## ssh connect EC2 from local macbook
+- [CLI](#1-CLI-command-line-interface)
+- [IMA](#2-IMA)
+- [CodeCommit, Code build](#3-codeCommit-codeBuild)
+- [EC2](#4-EC2)
+- [Lambda](#5-Lambda)
+- [CloudWatch](#6-CloudWatch)
+- [Database](#7-RDS-DynamoDB)
+- [Redis](#8-Redis)
+- [S3](#9-S3)
+- [API Gateway](#10-API-gateway)
+- [VPC](#11-VPC)
+- [Batch](#12-Batch)
+- [CloudFront](#13-CloudFront)
+- [SES, SNS](#14-simple-email-service-SES-simple-notification-service-SNS)
+- [ECR, ECS](#15-elastic-container-registry-ECR-elastic-container-service-ECS)
+- [CloudTrail](#16-CloudTrail)
+- [Route53](#17-Route53)
+- [Kinesis](#18-Kinesis)
+- EMR
+
+## 1. CLI (Command Line Interface)
+
+## 2. IMA
+
+&nbsp;&nbsp;&nbsp;&nbsp; IAM enables you to control who can do what in your AWS account
+
+## 3. CodeCommit, CodeBuild
+
+## 4. EC2
+
+### ssh connect EC2 from local macbook
 
 - launch a new instance on EC2
 
@@ -92,3 +122,64 @@
   </code></pre>
 
   [npm "hello world" (with express)](https://medium.com/@adnanrahic/hello-world-app-with-node-js-and-express-c1eb7cfa8a30)
+
+## 5. Lambda
+
+&nbsp;&nbsp;&nbsp;&nbsp; Functions - trigger (connect DB)
+
+## 6. CloudWatch
+
+&nbsp;&nbsp;&nbsp;&nbsp; Logs (also enter from lambda)
+
+## 7. RDS, DynamoDB
+
+1. clusters: Cluster endpoint(server) (database of RDS)
+2. instance: (under the cluster) security group - inbound (like firewall)
+3. snapshot: recovery
+
+## 8. Redis
+
+## 9. S3
+
+&nbsp;&nbsp;&nbsp;&nbsp; bucket
+
+## 10. API Gateway
+
+1. APIs: resources (to find which lambda)
+2. APIs - stages - invoke url(endpoint)
+
+## 11. VPC
+
+1. serverless(edit yml file) - vpc(check network of lambda after deploy) - API Gateway(test)
+2. connect the private network by putty ppk file from EC2
+
+## 12. Batch
+
+1. job queues:
+2. batch - code build - ECR(docker) - Jenkins(pipeline & shell script)
+
+## 13. CloudFront
+
+&nbsp;&nbsp;&nbsp;&nbsp;  mitigation
+
+## 14. Simple Email Service (SES), Simple Notification Service (SNS)
+
+## 15. Elastic Container Registry (ECR), Elastic Container Service (ECS)
+
+&nbsp;&nbsp;&nbsp;&nbsp; Docker
+
+## 16. CloudTrail
+
+&nbsp;&nbsp;&nbsp;&nbsp; Trails, data events - S3
+
+## 17. Route53
+
+&nbsp;&nbsp;&nbsp;&nbsp; domain name management
+
+## 18. Kinesis
+
+&nbsp;&nbsp;&nbsp;&nbsp; kafka
+
+## 19. ???
+
+//TODO

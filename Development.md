@@ -2,17 +2,12 @@
 
 ## Contents
 
-- [Basic](#basic)
 - [Infrastructure](#infrastructure)
 - [Backend](#backend)
 - [Frontend](#frontend)
 - [System design](#system-design)
 
 ## Development
-
-### Basic
-
-- ORM: Object-relational mapping
 
 ### Infrastructure
 
@@ -24,6 +19,7 @@
 - Cache
   - Redis
 - Database
+  - ORM: Object-relational mapping
   - <strong>Tuning</strong>
 - Distributed
   - Zookeeper
@@ -32,21 +28,28 @@
 ### Practice
 
 - WBS: Work breakdown structure
-- Waterfall & Agile (Sprints)
-- CI/CD
-  - Jenkins
-- Methodologies
-  - FDD
+- Methodology
+  - Waterfall
+  - Agile
+    - Sprints
+    - Scrum (ScrumMaster)
+- Development Approach
+  - FDD: Feature-Driven 
     - Git flow
     - Github flow
     - Gitlab flow
-  - TDD
-  - BDD
+  - TDD: Test-Driven
+  - BDD: Behavior-Driven
+- CI/CD
+- Tools (?)
+  - Swagger
+  - WireMock
 
 ### Backend
 
 - Java
   - Spring
+  - Tomcat
 - Go
   - Beego
 
