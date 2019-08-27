@@ -136,7 +136,7 @@
         - p-value: 一个度量样本所提供的证据对null hypothesis的支持程度的概率值，越小越说明不能得出null hypothesis为真的结论
     5. 如果 p-value <= level of significance，则拒绝null hypothesis
     6. 在应用中解读统计结论
-    7. 临界值方法
+    7. <s>临界值方法</s>
 
 - Case
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)

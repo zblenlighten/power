@@ -61,11 +61,9 @@
   - Node.js
     - npm
   - Vue
-  - DOM: Document Object Model
 
 ### System design
 
-- MVC: Model, View, Controller
 - CAP: Consistency, Availability, Partition tolerance
 - Case:
 

@@ -61,13 +61,57 @@
 
 ### Network
 
+#### Internet Protocol Suite
+
+1. Physical Layer
+2. Link Layer
+    - MAC address
+3. Network Layer
+    - Internet Protocol (IP): IPv4, IPv6
+    - [Address Resolution Protocol (ARP)](https://en.wikipedia.org/wiki/Address_Resolution_Protocol)
+4. Transport Layer
+    - Socket: IP + port
+    - Transmission Control Protocol (TCP)
+5. Application Layer
+    - HTTP (TCP/IP)
+    - HTTP/2
+      - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
+
+#### What happens when type in a URL?
+
+1. Capacitive touchscreen → CPU → OS kernel → OS GUI → browser
+2. Browser:
+    - <strong>DNS resolution</strong>: cache (browser, OS, router)/DNS server → IP address
+    - <strong>TCP three-way handshake</strong>
+    - <strong>HTTP request</strong>
+      - Request message: request line, request header fields, empty line, message body
+
+3. Network Interface Card (NIC) → Wifi router → Internet → Host
+4. Host:
+    - Load balancer
+    - Virtual IP
+    - Inverse proxy
+    - Web server (Apache, Tomcat, Node.js, etc.)
+      - MVC: Model, View, Controller
+    - Web framework
+5. Server → Client:
+    - <strong>The server handles the request and sends back an HTTP response</strong>
+      - HTTP status
+        - 2xx (Successful): The request was successfully received, understood and accepted
+        - 3xx (Redirection): Further action needs to be taken in order to complete the request
+        - 4xx (Client Error): The request contains bad syntax or cannot be fulfilled
+        - 5xx (Server Error): The server failed to fulfill an apparently valid request
+    - <strong>The browser displays the HTML content</strong>: [Chromium](https://www.chromium.org/developers/design-documents/multi-process-architecture)
+      - Parsing HTML to construct the DOM tree (DOM: Document Object Model)
+      - Turning CSS into the CSS Object Model
+      - Use the constructed DOM and CSSOM to create a render tree (contains only the nodes required to render the page)
+      - Layout the render tree (computes the exact position and size of each object)
+      - Paint the render tree (takes in the final render tree and renders the pixels to the screen)
+    - <strong>TCP four-way handshake</strong>
+6. Browser → LCD screen
+
+- CDN: Content delivery network
 - Microservice architecture
   - <s>Reverse proxy (load balancing, caching, access blocking, etc.)</s>
     - <s>API Gateway</s>
-- TCP/IP
-- Gateway (routing)
-- HTTP status
-  - 2xx (Successful): The request was successfully received, understood and accepted
-  - 3xx (Redirection): Further action needs to be taken in order to complete the request
-  - 4xx (Client Error): The request contains bad syntax or cannot be fulfilled
-  - 5xx (Server Error): The server failed to fulfill an apparently valid request
+- <s>Gateway (routing)</s>
