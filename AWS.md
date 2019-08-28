@@ -26,7 +26,7 @@
 
 ## 2. IMA
 
-&nbsp;&nbsp;&nbsp;&nbsp; IAM enables you to control who can do what in your AWS account
+&emsp; IAM enables you to control who can do what in your AWS account
 
 ## 3. CodeCommit, CodeBuild
 
@@ -125,11 +125,11 @@
 
 ## 5. Lambda
 
-&nbsp;&nbsp;&nbsp;&nbsp; Functions - trigger (connect DB)
+&emsp; Functions - trigger (connect DB)
 
 ## 6. CloudWatch
 
-&nbsp;&nbsp;&nbsp;&nbsp; Logs (also enter from lambda)
+&emsp; Logs (also enter from lambda)
 
 ## 7. RDS, DynamoDB
 
@@ -141,7 +141,7 @@
 
 ## 9. S3
 
-&nbsp;&nbsp;&nbsp;&nbsp; bucket
+&emsp; bucket
 
 ## 10. API Gateway
 
@@ -160,25 +160,25 @@
 
 ## 13. CloudFront
 
-&nbsp;&nbsp;&nbsp;&nbsp;  mitigation
+&emsp;  mitigation
 
 ## 14. Simple Email Service (SES), Simple Notification Service (SNS)
 
 ## 15. Elastic Container Registry (ECR), Elastic Container Service (ECS)
 
-&nbsp;&nbsp;&nbsp;&nbsp; Docker
+&emsp; Docker
 
 ## 16. CloudTrail
 
-&nbsp;&nbsp;&nbsp;&nbsp; Trails, data events - S3
+&emsp; Trails, data events - S3
 
 ## 17. Route53
 
-&nbsp;&nbsp;&nbsp;&nbsp; domain name management
+&emsp; domain name management
 
 ## 18. Kinesis
 
-&nbsp;&nbsp;&nbsp;&nbsp; kafka
+&emsp; kafka
 
 ## 19. ???
 
