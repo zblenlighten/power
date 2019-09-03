@@ -16,6 +16,7 @@
   3. Selection sort
   4. Insertion sort
   5. Heap sort
+  6. External sort
 
 - Data structure
   1. Arrays
@@ -43,7 +44,10 @@
   1. Binary search
   2. Bitwise operations
   3. Tries
-  4. ...
+  4. Bitmap
+  5. Backtracking
+  6. Dynamic programing
+  7. ...
 
 ### Operating system
 
@@ -109,9 +113,3 @@
       - Paint the render tree (takes in the final render tree and renders the pixels to the screen)
     - <strong>TCP four-way handshake</strong>
 6. Browser → LCD screen
-
-- CDN: Content delivery network
-- Microservice architecture
-  - <s>Reverse proxy (load balancing, caching, access blocking, etc.)</s>
-    - <s>API Gateway</s>
-- <s>Gateway (routing)</s>
