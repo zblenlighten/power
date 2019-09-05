@@ -72,14 +72,16 @@
     - MAC address
 3. Network Layer
     - Internet Protocol (IP): IPv4, IPv6
+      - [Network address translation (NAT)](https://en.wikipedia.org/wiki/Network_address_translation)
     - [Address Resolution Protocol (ARP)](https://en.wikipedia.org/wiki/Address_Resolution_Protocol)
 4. Transport Layer
     - Socket: IP + port
     - Transmission Control Protocol (TCP)
 5. Application Layer
     - HTTP (TCP/IP)
-    - HTTP/2
+      - HTTP/2
       - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
+    - WebSocket
 
 #### What happens when type in a URL?
 
@@ -95,7 +97,7 @@
     - Load balancer
     - Virtual IP
     - Inverse proxy
-    - Web server (Apache, Tomcat, Node.js, etc.)
+    - Web server: Apache, Tomcat, Node.js, Common Gateway Interface (CGI), etc.
       - MVC: Model, View, Controller
     - Web framework
 5. Server → Client:

@@ -16,7 +16,8 @@
 - WBS: Work breakdown structure
   - Feature (list)
   - User story
-  - Website wireframe design
+    - What - Why - Acceptance Criteria (AC)
+  - Website wireframe design (Adobe XD)
   - Database design
   - Coding & QA
   - Release
@@ -44,7 +45,11 @@
     - Kafka
     - ActiveMQ
   - Search engine
-    - Elasticsearch
+    - Elasticsearch (Solr)
+      - Lucene (Inverted index)
+      - Restful API (HTTP)
+      - Distributed (Master - slave)
+      - ELK: logs
 - Distributed
   - Zookeeper
   - Data Replicate Center
@@ -75,8 +80,13 @@
 - Language
   - Java
     - Spring
+  - Python
+    - Django
+    - webpy
   - Go
     - Beego
+  - Ruby
+    - Rails
 
 ### Frontend
 
@@ -89,7 +99,12 @@
 
 ### System design
 
-- CAP: Consistency, Availability, Partition tolerance
+- trade-offs:
+  - Performance vs scalability
+  - Latency vs throughput
+  - Availability vs consistency
+    - CAP: Consistency, Availability, Partition tolerance
+
 - Case:
 
   //TODO
