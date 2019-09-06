@@ -49,6 +49,8 @@
   6. Dynamic programing
   7. ...
 
+- [Big-O](https://www.bigocheatsheet.com/)
+
 ### Operating system
 
 - Process & Thread

@@ -8,7 +8,7 @@
 - [EC2](#4-EC2)
 - [Lambda](#5-Lambda)
 - [CloudWatch](#6-CloudWatch)
-- [Database](#7-RDS-DynamoDB)
+- [Database](#7-RDS-DynamoDB-Quantum-Ledger-Database-QLDB)
 - [Redis](#8-Redis)
 - [S3](#9-S3)
 - [API Gateway](#10-API-gateway)
@@ -131,7 +131,7 @@
 
 &emsp; Logs (also enter from lambda)
 
-## 7. RDS, DynamoDB
+## 7. RDS, DynamoDB, Quantum Ledger Database (QLDB)
 
 1. clusters: Cluster endpoint(server) (database of RDS)
 2. instance: (under the cluster) security group - inbound (like firewall)

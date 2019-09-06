@@ -23,9 +23,7 @@
   - Release
 - Methodology
   - Waterfall
-  - Agile
-    - Sprints
-    - Scrum (ScrumMaster)
+  - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
 - Development Approach
   - FDD: Feature-Driven
     - Git flow
