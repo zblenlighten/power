@@ -91,6 +91,14 @@
 - kMeans
 - FP-growth
 
+#### Recommender system
+
+- Content-based
+- Collaborative filtering (CF)
+  - Item based
+  - User based
+- Neural Collaborative Filtering (NCF)
+
 #### Evaluation
 
 //TODO
