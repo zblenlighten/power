@@ -109,4 +109,9 @@
 
 - Case:
 
+  1. 网络爬虫
+      - BFS & DFS (Overhead time) by Scheduler (Priorirt queue存储已经发现但是尚未下载的URL)
+      - 页面分析和URL提取 (解析Javascript)
+      - URL表 (上千台服务器时：明确每台下载服务器的分工，向散列表发送询问判断URL是否下载)
+
   //TODO
