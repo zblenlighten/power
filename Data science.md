@@ -35,15 +35,24 @@
     - Interval
     - Ratio
   - Dimensionality reduction
-    - Principal Component Analysis
+    - Principal Component Analysis (PCA)
+    - Linear Discriminant Analysis (LDA)
+    - Singular Value Decomposition (SVD)
 - Geodata
 - Natural Language
-  - Bag of Words
+  - Bag of Words & N-gram: Term Frequency — Inverse Document Frequency (tf–idf)
     - Tokenization: word segmentation, convert characters to lowercase
     - Remove useless characters, remove stop/rare words
     - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding
     - Named-entity recognition: entity insertion and extraction
     - ...
+  - Topic model
+    - Probabilistic latent semantic analysis (pLSA)
+    - Latent Dirichlet allocation (LDA)
+  - Word embedding
+    - Word2Vec
+      - Continues bag of words (CBOW)
+      - Skip-gram
 - Image
   - Image augmentation
     - Crop
@@ -63,7 +72,9 @@
     - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
     - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
   - NPL
-    - Term Frequency — Inverse Document Frequency
+    - Bag of Words & N-gram: article vector (每一个维度为该词的tf–idf) → Cosine distance
+    - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance
+    - ...
 
 ### Machine learning
 
