@@ -34,10 +34,14 @@
 
 ### Infrastructure
 
-- Microservice architecture
-  - API Gateway
-  - Kubernetes
+- Architecture
+  - <s>Monolithic</s>
+  - Microservice
+    - Kubernetes
     - Docker
+  - Serverless
+    - AWS Lambda (Faas)
+- API Gateway
 - Service Function
   - Message broker
     - Kafka

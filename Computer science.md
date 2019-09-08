@@ -100,9 +100,9 @@
 
 3. Network Interface Card (NIC) → Wifi router → Internet → Host
 4. Host:
-    - Load balancer
-    - Virtual IP
-    - Inverse proxy
+    - Inverse proxy: Nginx
+      - Load balancer
+      - Virtual IP
     - Web server: Apache, Tomcat, Node.js, Common Gateway Interface (CGI), etc.
       - MVC: Model, View, Controller
     - Web framework
