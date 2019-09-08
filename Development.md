@@ -21,6 +21,7 @@
   - Database design
   - Coding & QA
   - Release
+  - Maintenance & Iterative and incremental development
 - Methodology
   - Waterfall
   - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
@@ -40,7 +41,7 @@
     - Kubernetes
     - Docker
   - Serverless
-    - AWS Lambda (Faas)
+    - AWS Lambda (FaaS)
 - API Gateway
 - Service Function
   - Message broker
