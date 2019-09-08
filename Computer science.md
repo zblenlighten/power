@@ -57,13 +57,16 @@
 - Linux
   - Log
   - Shell
-    - cat
-    - wc
-    - grep
-    - sed
-    - sort
-    - uniq
-    - akw
+    - 文件管理: cat, awk
+    - 文档编辑: wc, grep, sed, sort, uniq
+    - 文件传输
+    - 磁盘管理
+    - 磁盘维护
+    - 网络通讯
+    - 系统管理
+    - 系统设置
+    - 备份压缩
+    - 设备管理
 
 ### Network
 

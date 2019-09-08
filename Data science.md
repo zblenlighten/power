@@ -16,7 +16,11 @@
 - Frame the problem and look at the big picture
 - Get the data (automate)
 - Explore the data to gain insights (field expert)
-- Prepare the data to better expose the underlying data patterns: 1. data clean, 2. feature selection, 3. [feature engineering](https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114#83e6), 4. feature scaling
+- Prepare the data to better expose the underlying data patterns
+  1. data clean
+  2. feature selection
+  3. [feature engineering](https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114#83e6)
+  4. feature scaling
 - Explore many different models and short-list the promising ones
 - Fine-tune
 - Present your solution
