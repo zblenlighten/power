@@ -5,6 +5,7 @@
 - [Algorithms & Data structure](#algorithms-&-data-structure)
 - [Operating system](#operating-system)
 - [Network](#network)
+- [Wiki](#wiki)
 
 ## Computer science
 
@@ -120,3 +121,7 @@
       - Paint the render tree (takes in the final render tree and renders the pixels to the screen)
     - <strong>TCP four-way handshake</strong>
 6. Browser → LCD screen
+
+### Wiki
+
+&emsp; [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)
