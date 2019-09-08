@@ -2,6 +2,7 @@
 
 ## Contents
 
+- [Project Checklist](#project-checklist)
 - [Data processing](#data-processing)
 - [Machine learning](#machine-learning)
 - [Deep learning](#deep-learning)
@@ -9,6 +10,17 @@
 - [Data visualization](#data-visualization)
 
 ## Data science
+
+### Project Checklist
+
+- Frame the problem and look at the big picture
+- Get the data (automate)
+- Explore the data to gain insights (field expert)
+- Prepare the data to better expose the underlying data patterns: 1. data clean, 2. feature selection, 3. [feature engineering](https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114#83e6), 4. feature scaling
+- Explore many different models and short-list the promising ones
+- Fine-tune
+- Present your solution
+- Launch, monitor and maintain your system
 
 ### Data processing
 
@@ -74,10 +86,6 @@
 
 - kMeans
 - FP-growth
-
-#### Feature Engineer
-
-[Some text](https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114#83e6)
 
 #### Evaluation
 
