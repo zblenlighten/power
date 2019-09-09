@@ -61,17 +61,15 @@
 - Process & Thread
 - Linux
   - Log
-  - Shell
-    - 文件管理: cat, awk
-    - 文档编辑: wc, grep, sed, sort, uniq
-    - 文件传输
-    - 磁盘管理
-    - 磁盘维护
-    - 网络通讯
-    - 系统管理
-    - 系统设置
-    - 备份压缩
-    - 设备管理
+  - [Shell](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/)
+    - Files and Directories: cat, grep
+    - File Editors
+    - Manipulating data: wc, sed, sort, uniq, awk
+    - Compressed files
+    - Information
+    - Status
+    - Messages between Users
+    - Networking
 
 ### Network
 
