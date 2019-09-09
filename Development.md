@@ -97,8 +97,8 @@
   - Node.js
     - npm
   - Vue
-  - Rich Text Editor (Froala)
-  - SVG (Rappid)
+  - Rich Text Editor: Froala
+  - Business Process Model and Notation (BPMN): Rappid
 
 ### System design
 

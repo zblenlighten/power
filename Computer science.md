@@ -12,19 +12,23 @@
 ### Algorithms & Data structure
 
 - Sorting
-  1. Merge sort
-  2. Quick sort
-  3. Selection sort
-  4. Insertion sort
-  5. Heap sort
-  6. External sort
+
+| Name  | Average  | Worst  | Stable  | Method  |
+|---|---|---|---|---|
+| 1. Merge sort  | n·log(n)  | n·log(n)  | Yes  | Merging  |
+| 2. Quick sort  | n·log(n)  | n^2  | Typical not  | Partitioning  |
+| 3. Selection sort  | n^2  | n^2  | No  | Selection  |
+| 4. Heap sort  | n·log(n)  | n·log(n)  | No  | Selection  |
+| 5. Insertion sort  | n^2  | n^2  | Yes  | Insertion  |
+| 6. Shell sort  |   |   | No  | Insertion  |
+  7. External sort
 
 - Data structure
   1. Arrays
   2. Linked lists
   3. Stack
   4. Queue
-  5. Hash table
+  5. Hash table ([perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function))
 
 - Trees
   1. Binary search trees
