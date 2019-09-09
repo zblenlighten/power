@@ -59,6 +59,9 @@
 ### Operating system
 
 - Process & Thread
+- Deadlock
+- The linking process exposed: Static library (.lib) & Dynamic-link library (.dll)
+- [Inter process communication](https://en.wikipedia.org/wiki/Inter-process_communication) (IPC)
 - Linux
   - Log
   - [Shell](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/)
