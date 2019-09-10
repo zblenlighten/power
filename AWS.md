@@ -174,7 +174,7 @@
 
 ## 17. Route53
 
-&emsp; domain name management
+&emsp; domain name management and router allocation
 
 ## 18. Kinesis
 

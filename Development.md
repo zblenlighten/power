@@ -44,7 +44,7 @@
     - AWS Lambda (FaaS)
 - API Gateway
 - Service Function
-  - Message broker
+  - Message broker (Message queue)
     - Kafka
     - ActiveMQ
   - Search engine
@@ -64,6 +64,7 @@
   - Swagger
   - WireMock
   - Google Analysis
+  - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
 
 ### Database
 
@@ -99,6 +100,13 @@
   - Vue
   - Rich Text Editor: Froala
   - Business Process Model and Notation (BPMN): Rappid
+- WWW standards
+  - CSS
+  - DOM: Document Object Model
+  - HTML
+  - SVG
+  - XML
+  - CSP: [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html)
 
 ### System design
 

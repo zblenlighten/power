@@ -66,13 +66,14 @@
   - Log
   - [Shell](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/)
     - Files and Directories: cat, grep
+    - Manipulating data: wc, sed, sort, uniq, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html)
     - File Editors
-    - Manipulating data: wc, sed, sort, uniq, awk
     - Compressed files
     - Information
     - Status
     - Messages between Users
     - Networking
+    - [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
 
 ### Network
 
@@ -119,7 +120,7 @@
         - 4xx (Client Error): The request contains bad syntax or cannot be fulfilled
         - 5xx (Server Error): The server failed to fulfill an apparently valid request
     - <strong>The browser displays the HTML content</strong>: [Chromium](https://www.chromium.org/developers/design-documents/multi-process-architecture)
-      - Parsing HTML to construct the DOM tree (DOM: Document Object Model)
+      - Parsing HTML to construct the DOM tree
       - Turning CSS into the CSS Object Model
       - Use the constructed DOM and CSSOM to create a render tree (contains only the nodes required to render the page)
       - Layout the render tree (computes the exact position and size of each object)
