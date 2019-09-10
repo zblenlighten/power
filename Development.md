@@ -32,6 +32,10 @@
     - Gitlab flow
   - TDD: Test-Driven
   - BDD: Behavior-Driven
+- Other
+  - GDPR
+  - i18n
+  - Karte
 
 ### Infrastructure
 
@@ -52,7 +56,8 @@
       - Lucene (Inverted index)
       - Restful API (HTTP)
       - Distributed (Master - slave)
-      - ELK: logs
+  - Log monitoring
+    - ELK: Elasticsearch, Logstash, Kibana
 - Distributed
   - Zookeeper
   - Data Replicate Center
@@ -61,6 +66,7 @@
     - Jenkins
   - Version control
 - <s>Tools</s>
+  - Terraform (?)
   - Swagger
   - WireMock
   - Google Analysis
