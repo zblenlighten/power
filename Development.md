@@ -117,7 +117,8 @@
   - SVG
   - XML
 - Authentication
-  - OAuth 2.0: token
+  - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html): token
+  - [JSON Web Token](ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
 - Security
   - Cryptographic hash function: MD5
   - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)

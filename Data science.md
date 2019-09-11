@@ -73,7 +73,7 @@
     - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
   - NPL
     - Bag of Words & N-gram: article vector (每一个维度为该词的tf–idf) → Cosine distance
-    - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance
+    - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance / Euclidean distance (WMD: Word Mover's Distance)
     - ...
 
 ### Machine learning

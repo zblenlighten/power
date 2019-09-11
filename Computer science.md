@@ -5,7 +5,7 @@
 - [Algorithms and Data structure](#algorithms-and-data-structure)
 - [Operating system](#operating-system)
 - [Network](#network)
-- [Japanese Wiki](#wiki)
+- [Wiki](#wiki)
 
 ## Computer science
 
@@ -130,5 +130,16 @@
 6. Browser → LCD screen
 
 ### Wiki
+
+| Power of 2  | Accurate value  | Approximate value  | Size |
+|---|---|---|---|
+| 7  | 128  |   |   |
+| 8  | 256  |   |   |
+| 10  | 1024  | thousand  | 1K  |
+| 16  | 65 536  |   | 64K  |
+| 20  | 1 048 576  | million  | 1MB  |
+| 30  | 1 073 741 824  | billion  | 1GB  |
+| 32  | 4 294 967 296  |   | 4GB  |
+| 40  |   | trillion  | 1TB  |
 
 &emsp; [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)
