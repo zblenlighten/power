@@ -2,26 +2,27 @@
 
 ## Contents
 
-- [Algorithms & Data structure](#algorithms-&-data-structure)
+- [Algorithms and Data structure](#algorithms-and-data-structure)
 - [Operating system](#operating-system)
 - [Network](#network)
-- [Wiki](#wiki)
+- [Japanese Wiki](#wiki)
 
 ## Computer science
 
-### Algorithms & Data structure
+### Algorithms and Data structure
 
 - Sorting
 
-| Name  | Average  | Worst  | Stable  | Method  |
+| Name  | Average  | Worst  | Stable (array) | Method  |
 |---|---|---|---|---|
-| 1. Merge sort  | n·log(n)  | n·log(n)  | Yes  | Merging  |
-| 2. Quick sort  | n·log(n)  | n^2  | Typical not  | Partitioning  |
-| 3. Selection sort  | n^2  | n^2  | No  | Selection  |
-| 4. Heap sort  | n·log(n)  | n·log(n)  | No  | Selection  |
-| 5. Insertion sort  | n^2  | n^2  | Yes  | Insertion  |
-| 6. Shell sort  |   |   | No  | Insertion  |
-  7. External sort
+| 1. Bubble sort  | n^2  | n^2  | Yes  | Exchanging  |
+| 2. Merge sort  | n·log(n)  | n·log(n)  | Yes  | Merging  |
+| 3. Quick sort  | n·log(n)  | n^2  | Typical not  | Partitioning  |
+| 4. Selection sort  | n^2  | n^2  | No  | Selection  |
+| 5. Heap sort  | n·log(n)  | n·log(n)  | No  | Selection  |
+| 6. Insertion sort  | n^2  | n^2  | Yes  | Insertion  |
+| 7. Shell sort  |   |   | No  | Insertion  |
+  8. External sort
 
 - Data structure
   1. Arrays
@@ -93,7 +94,7 @@
     - HTTP (TCP/IP)
       - HTTP/2
       - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
-    - WebSocket
+    - <s>WebSocket</s>
 
 #### What happens when type in a URL?
 

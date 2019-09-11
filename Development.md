@@ -15,8 +15,8 @@
 
 - WBS: Work breakdown structure
   - Feature (list)
-  - User story
-    - What - Why - Acceptance Criteria (AC)
+  - [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
+    - Who, What, Why, Acceptance Criteria (AC)
   - Website wireframe design (Adobe XD)
   - Database design
   - Coding & QA
@@ -74,11 +74,15 @@
 
 ### Database
 
-- SQL DB
+- SQL DBMS
+  - SnowFlake
   - ORM: Object-relational mapping
   - <strong>Tuning</strong>
-- Cache
-  - Redis
+- [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
+  - Key-value: Dynamo, Redis, ZooKeeper
+  - Document: MongoDB
+  - Wide-column
+  - Graph
 
 ### Backend
 
@@ -112,7 +116,13 @@
   - HTML
   - SVG
   - XML
-  - CSP: [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html)
+- Authentication
+  - OAuth 2.0: token
+- Security
+  - Cryptographic hash function: MD5
+  - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
+  - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
+    - cookie
 
 ### System design
 
@@ -129,4 +139,6 @@
       - Page analysis and URL extraction (parsing Javascript)
       - URL table (In the case of thousands of servers: 明确每台下载服务器的分工，向散列表发送询问判断URL是否下载)
 
-  //TODO
+  2. URL shortening
+      - Key-value store
+      - URL redirection
