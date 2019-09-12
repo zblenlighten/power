@@ -156,10 +156,10 @@
 - Confusion Matrix
 - F1 Score
   - Precision
-  - Recall (True Positive Rate)
+  - Recall: True Positive Rate = TP / (TP + FN)
 - Area Under the Receiver Operating Characteristic Curve (ROC-AUC Score)
-  - Sensitivity (True Positive Rate)
-  - Specificity (False Positive Rate)
+  - Sensitivity: True Positive Rate = TP / (TP + FN)
+  - Specificity: False Positive Rate = FP / (FP + TN)
 - Root Mean Squared Error (RMSE)
 - Mean absolute Error (MAE)
 - Other:
@@ -174,8 +174,8 @@
 
 - Knowledge
   - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
-    - Type I error: null hypothesis是正确的，却拒绝了null hypothesis（拒真错误，错杀好人, False Positive）
-    - Type II error: null hypothesis是错误的，却没有拒绝null hypothesis（放走坏人, False Negative）
+    - Type I error: null hypothesis是正确的，却拒绝了null hypothesis（拒真错误，错杀好人, False Positive Rate: FP / (FP + TN)）
+    - Type II error: null hypothesis是错误的，却没有拒绝null hypothesis（放走坏人, False Negative Rate: FN / (FN + TP)）
   - 假设检验的步骤
     1. 提出null hypothesis和alternative hypothesis
     2. 指定检验中的level of significance（一般取0.05和0.01）
