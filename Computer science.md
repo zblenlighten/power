@@ -59,7 +59,7 @@
 
 ### Operating system
 
-- Process & Thread
+- Process & Thread (multithreading)
 - Deadlock
 - The linking process exposed: Static library (.lib) & Dynamic-link library (.dll)
 - [Inter process communication](https://en.wikipedia.org/wiki/Inter-process_communication) (IPC)

@@ -7,7 +7,6 @@
 - [Machine learning](#machine-learning)
 - [Deep learning](#deep-learning)
 - [Statistics](#statistics)
-- [Data visualization](#data-visualization)
 
 ## Data science
 
@@ -47,8 +46,8 @@
     - Named-entity recognition: entity insertion and extraction
     - ...
   - Topic model
-    - Probabilistic latent semantic analysis (pLSA)
-    - Latent Dirichlet allocation (LDA)
+    - Probabilistic Latent Semantic Analysis (pLSA)
+    - Latent Dirichlet Allocation (LDA)
   - Word embedding
     - Word2Vec
       - Continues bag of words (CBOW)
@@ -75,6 +74,42 @@
     - Bag of Words & N-gram: article vector (每一个维度为该词的tf–idf) → Cosine distance
     - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance / Euclidean distance (WMD: Word Mover's Distance)
     - ...
+
+### Deep learning
+
+- Neural network
+  - Feed forward
+  - Gradient descent
+  - Global minimum
+  - Back propagation
+- Fine-tune
+  - Random initialization
+  - Activation function
+    - Softmax: multiclass
+    - Sigmoid: binary
+    - Linear: regression
+    - Relu: hidden layer
+    - Tanh: RNN
+  - Learning rate
+  - Prevent over-fitting
+    - L2 & L1 Regularization
+    - Dropout
+    - Data augmentation
+    - Early stopping
+  - Gradient descent optimization
+    - Adam
+  - Residual block & Batch normalization
+  - [Hyperparameter optimization](https://en.wikipedia.org/wiki/Hyperparameter_optimization)
+- Models
+  - Computer vision
+    - VGG16
+    - CRNN
+    - YOLO
+- [Feature engineer](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Feature_Engineering_For_Deep_Learning?lang=en)
+- Generative adversarial network
+- Application
+  - Alpha Go
+    - Monte Carlo Tree Search
 
 ### Machine learning
 
@@ -108,47 +143,31 @@
 - Collaborative filtering (CF)
   - Item based
   - User based
+- Latent Factor Model (LFM): top N recommendation
 - Neural Collaborative Filtering (NCF)
+- Evaluation
+  - Offline
+  - Online: A/B test
+- Cold start: new community, new item, new user
 
 #### Evaluation
 
-//TODO
-
-### Deep learning
-
-- Neural network
-  - Feed forward
-  - Gradient descent
-  - Global minimum
-  - Back propagation
-- Models
-  - Computer vision
-    - VGG16
-    - CRNN
-    - YOLO
-- Fine-tune
-  - Random initialization
-  - Activation function
-    - Softmax: multiclass
-    - Sigmoid: binary
-    - Linear: regression
-    - Relu: hidden layer
-    - Tanh: RNN
-  - Learning rate
-  - Prevent over-fitting
-    - L2 & L1 Regularization
-    - Dropout
-    - Data augmentation
-    - Early stopping
-  - Gradient descent optimization
-    - Adam
-  - Residual block & Batch normalization
-  - [Hyperparameter optimization](https://en.wikipedia.org/wiki/Hyperparameter_optimization)
-- [Feature engineer](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Feature_Engineering_For_Deep_Learning?lang=en)
-- Generative adversarial network
-- Application
-  - Alpha Go
-    - Monte Carlo Tree Search
+- Confusion Matrix
+- F1 Score
+  - Precision
+  - Recall (True Positive Rate)
+- Area Under the Receiver Operating Characteristic Curve (ROC-AUC Score)
+  - Sensitivity (True Positive Rate)
+  - Specificity (False Positive Rate)
+- Root Mean Squared Error (RMSE)
+- Mean absolute Error (MAE)
+- Other:
+  - Log Loss
+  - Gain and Lift Charts
+  - Kolmogorov Smirnov Chart
+  - Concordant – Discordant Ratio
+- Multi-classification: F1 score, Average Accuracy, Log-loss
+- Cross Validation
 
 ### Statistics
 
@@ -173,7 +192,3 @@
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
   - [Simpson's paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox)
   - [St. Petersburg paradox](https://en.wikipedia.org/wiki/St._Petersburg_paradox)
-
-### Data visualization
-
-// TODO
