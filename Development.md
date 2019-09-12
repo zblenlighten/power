@@ -50,7 +50,10 @@
 - Service Function
   - Message broker (Message queue)
     - Kafka
-    - ActiveMQ
+      - Concepts: cluster, topics, record (key, value, timestamp)
+      - Core APIs: Producer, Consumer, Streams, Connector
+      - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
+    - ActiveMQ, RabbitMQ
   - Search engine
     - Elasticsearch (Solr)
       - Lucene (Inverted index)
@@ -58,19 +61,19 @@
       - Distributed (Master - slave)
   - Log monitoring
     - ELK: Elasticsearch, Logstash, Kibana
-- Distributed
+- Distributed systems
   - Zookeeper
   - Data Replicate Center
 - DevOps
   - CI/CD
     - Jenkins
   - Version control
-- <s>Tools</s>
-  - Terraform (?)
-  - Swagger
-  - WireMock
-  - Google Analysis
+- Tools
   - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
+  - Terraform
+  - Swagger
+  - WireMock (?)
+  - Google Analysis
 
 ### Database
 
@@ -79,7 +82,7 @@
   - ORM: Object-relational mapping
   - <strong>Tuning</strong>
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
-  - Key-value: Dynamo, Redis, ZooKeeper
+  - Key-value: Dynamo, Redis
   - Document: MongoDB
   - Wide-column
   - Graph
@@ -120,7 +123,7 @@
   - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html): token
   - [JSON Web Token](ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
 - Security
-  - Cryptographic hash function: MD5
+  - Cryptographic hash function: MD5 (rainbow table)
   - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
   - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
     - cookie

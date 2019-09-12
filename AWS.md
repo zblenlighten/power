@@ -1,36 +1,38 @@
 # Devops memo
 
+[A practical guide](https://github.com/open-guides/og-aws)
+
 ## Contents
 
-- [CLI](#1-CLI-command-line-interface)
-- [IMA](#2-IMA)
-- [CodeCommit, Code build](#3-codeCommit-codeBuild)
-- [EC2](#4-EC2)
-- [Lambda](#5-Lambda)
-- [CloudWatch](#6-CloudWatch)
-- [Database](#7-RDS-DynamoDB-Quantum-Ledger-Database-QLDB)
-- [Redis](#8-Redis)
-- [S3](#9-S3)
-- [API Gateway](#10-API-gateway)
-- [VPC](#11-VPC)
-- [Batch](#12-Batch)
-- [CloudFront](#13-CloudFront)
-- [SES, SNS](#14-simple-email-service-SES-simple-notification-service-SNS)
-- [ECR, ECS](#15-elastic-container-registry-ECR-elastic-container-service-ECS)
-- [CloudTrail](#16-CloudTrail)
-- [Route53](#17-Route53)
-- [Kinesis](#18-Kinesis)
+- [CLI](#CLI-command-line-interface)
+- [IMA](#IMA)
+- [EC2](#EC2)
+- [CodeCommit, Code build](#codeCommit-codeBuild)
+- [Container](#Elastic-Kubernetes-Service-EKS-elastic-container-registry-ECR-elastic-container-service-ECS)
+- [WAF, Shield](#WAF-Shield)
+- [CloudFront](#CloudFront)
+- [Route53](#Route53)
+- [VPC](#VPC)
+- [API Gateway, Elastic Load Balancing](#API-gateway-Elastic-Load-Balancing)
+- [Lambda](#Lambda)
+- [Batch](#Batch)
+- [SES, SNS](#simple-email-service-SES-simple-notification-service-SNS)
+- [CloudTrail](#CloudTrail)
+- [CloudWatch](#CloudWatch)
+- [S3](#S3)
+- [Database](#RDS-DynamoDB-Quantum-Ledger-Database-QLDB)
+- [Cache](#Redis-ElastiCache)
+- [Amazon MQ](#Amazon-MQ)
+- [Kinesis](#Kinesis)
 - EMR
 
-## 1. CLI (Command Line Interface)
+## CLI (Command Line Interface)
 
-## 2. IMA
+## IMA
 
 &emsp; IAM enables you to control who can do what in your AWS account
 
-## 3. CodeCommit, CodeBuild
-
-## 4. EC2
+## EC2
 
 ### ssh connect EC2 from local macbook
 
@@ -123,61 +125,63 @@
 
   [npm "hello world" (with express)](https://medium.com/@adnanrahic/hello-world-app-with-node-js-and-express-c1eb7cfa8a30)
 
-## 5. Lambda
+## CodeCommit, CodeBuild
 
-&emsp; Functions - trigger (connect DB)
+## Elastic Kubernetes Service (EKS), Elastic Container Registry (ECR), Elastic Container Service (ECS)
 
-## 6. CloudWatch
+## WAF, Shield
+
+## CloudFront
+
+&emsp;  mitigation
+
+## Route53
+
+&emsp; domain name management and router allocation
+
+## VPC
+
+1. serverless(edit yml file) - vpc(check network of lambda after deploy) - API Gateway(test)
+2. connect the private network by putty ppk file from EC2
+
+## API Gateway, Elastic Load Balancing
+
+1. APIs: resources (to find which lambda)
+2. APIs - stages - invoke url(endpoint)
+
+## Lambda
+
+&emsp; Serverless: Functions - trigger (connect DB)
+
+## Batch
+
+1. job queues:
+2. batch - code build - ECR(docker) - Jenkins(pipeline & shell script)
+
+## Simple Email Service (SES), Simple Notification Service (SNS)
+
+## CloudTrail
+
+&emsp; Trails, data events - S3
+
+## CloudWatch
 
 &emsp; Logs (also enter from lambda)
 
-## 7. RDS, DynamoDB, Quantum Ledger Database (QLDB)
+## S3
+
+&emsp; bucket
+
+## RDS, DynamoDB, Quantum Ledger Database (QLDB)
 
 1. clusters: Cluster endpoint(server) (database of RDS)
 2. instance: (under the cluster) security group - inbound (like firewall)
 3. snapshot: recovery
 
-## 8. Redis
+## Redis, ElastiCache
 
-## 9. S3
+## Amazon MQ
 
-&emsp; bucket
-
-## 10. API Gateway
-
-1. APIs: resources (to find which lambda)
-2. APIs - stages - invoke url(endpoint)
-
-## 11. VPC
-
-1. serverless(edit yml file) - vpc(check network of lambda after deploy) - API Gateway(test)
-2. connect the private network by putty ppk file from EC2
-
-## 12. Batch
-
-1. job queues:
-2. batch - code build - ECR(docker) - Jenkins(pipeline & shell script)
-
-## 13. CloudFront
-
-&emsp;  mitigation
-
-## 14. Simple Email Service (SES), Simple Notification Service (SNS)
-
-## 15. Elastic Container Registry (ECR), Elastic Container Service (ECS)
-
-&emsp; Docker
-
-## 16. CloudTrail
-
-&emsp; Trails, data events - S3
-
-## 17. Route53
-
-&emsp; domain name management and router allocation
-
-## 18. Kinesis
+## Kinesis
 
 &emsp; kafka
-
-## 19. //TODO

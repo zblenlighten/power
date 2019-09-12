@@ -45,7 +45,6 @@
     - Remove useless characters, remove stop/rare words
     - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding
     - Named-entity recognition: entity insertion and extraction
-    - ...
   - Topic model
     - Probabilistic Latent Semantic Analysis (pLSA)
     - Latent Dirichlet Allocation (LDA)
@@ -106,6 +105,7 @@
     - VGG16
     - CRNN
     - YOLO
+    - ...
 - [Feature engineer](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Feature_Engineering_For_Deep_Learning?lang=en)
 - Generative adversarial network
 - Application
@@ -155,8 +155,8 @@
 
 - Confusion Matrix
 - F1 Score
-  - Precision
-  - Recall: True Positive Rate = TP / (TP + FN)
+  - Precision = TP / (TP + FP)
+  - Recall = TP / (TP + FN)
 - Area Under the Receiver Operating Characteristic Curve (ROC-AUC Score)
   - Sensitivity: True Positive Rate = TP / (TP + FN)
   - Specificity: False Positive Rate = FP / (FP + TN)
