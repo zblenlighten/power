@@ -4,9 +4,10 @@
 
 - [Project Checklist](#project-checklist)
 - [Data processing](#data-processing)
-- [Machine learning](#machine-learning)
 - [Deep learning](#deep-learning)
+- [Machine learning](#machine-learning)
 - [Statistics](#statistics)
+- <s>[Data visualization](#data-visualization)</s>
 
 ## Data science
 
@@ -173,8 +174,8 @@
 
 - Knowledge
   - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
-    - Type I error: null hypothesis是正确的，却拒绝了null hypothesis（拒真错误，错杀好人, false positive）
-    - Type II error: null hypothesis是错误的，却没有拒绝null hypothesis（放走坏人, false negative）
+    - Type I error: null hypothesis是正确的，却拒绝了null hypothesis（拒真错误，错杀好人, False Positive）
+    - Type II error: null hypothesis是错误的，却没有拒绝null hypothesis（放走坏人, False Negative）
   - 假设检验的步骤
     1. 提出null hypothesis和alternative hypothesis
     2. 指定检验中的level of significance（一般取0.05和0.01）
