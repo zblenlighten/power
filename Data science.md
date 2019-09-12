@@ -29,11 +29,7 @@
 ### Data processing
 
 - Structured data
-  - Foundation
-    - Nominal
-    - Ordinal
-    - Interval
-    - Ratio
+  - Nominal, Ordinal, Interval, Ratio
   - Dimensionality reduction
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
@@ -54,14 +50,7 @@
       - Skip-gram
 - Image
   - Image augmentation
-    - Crop
-    - Symmetry
-    - Rotation
-    - Scale
-    - Noise
-    - Hue
-    - Obstruction
-    - Blur
+    - Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
   - Label
 - Correlation
   - Distances
@@ -107,7 +96,7 @@
     - YOLO
     - ...
 - [Feature engineer](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Feature_Engineering_For_Deep_Learning?lang=en)
-- Generative adversarial network
+- Generative adversarial network (GAN)
 - Application
   - Alpha Go
     - Monte Carlo Tree Search
@@ -136,7 +125,7 @@
 #### Unsupervised learning
 
 - kMeans
-- FP-growth
+- FP-growth, Apriori
 
 #### Recommender system
 

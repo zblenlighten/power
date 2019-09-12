@@ -98,22 +98,21 @@
 
 #### What happens when type in a URL?
 
-1. Capacitive touchscreen → CPU → OS kernel → OS GUI → browser
+1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Browser
 2. Browser:
     - <strong>DNS resolution</strong>: cache (browser, OS, router)/DNS server → IP address
     - <strong>TCP three-way handshake</strong>
     - <strong>HTTP request</strong>
       - Request message: request line, request header fields, empty line, message body
-
-3. Network Interface Card (NIC) → Wifi router → Internet → Host
-4. Host:
+3. Browser → Network Interface Card (NIC) → Wifi router → Internet → Host server
+4. Host server:
     - Inverse proxy: Nginx
       - Load balancer
       - Virtual IP
     - Web server: Apache, Tomcat, Node.js, Common Gateway Interface (CGI), etc.
-      - MVC: Model, View, Controller
     - Web framework
-5. Server → Client:
+      - MVC: Model, View, Controller
+5. Host server → Host client:
     - <strong>The server handles the request and sends back an HTTP response</strong>
       - HTTP status
         - 2xx (Successful): The request was successfully received, understood and accepted
