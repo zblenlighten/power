@@ -55,7 +55,9 @@
   6. Dynamic programing
   7. ...
 
-- [Big-O](https://www.bigocheatsheet.com/)
+- Time complexity
+  - General [Big-O](https://www.bigocheatsheet.com/)
+  - [Python](https://wiki.python.org/moin/TimeComplexity)
 
 ### Operating system
 
@@ -81,7 +83,7 @@
 #### Internet Protocol Suite
 
 1. Physical Layer
-2. Link Layer
+2. Data Link Layer
     - MAC address
 3. Network Layer
     - Internet Protocol (IP): IPv4, IPv6
@@ -90,7 +92,7 @@
 4. Transport Layer
     - Socket: IP + port
     - Transmission Control Protocol (TCP)
-5. Application Layer
+7. Application Layer
     - HTTP (TCP/IP)
       - HTTP/2
       - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
@@ -107,7 +109,7 @@
 3. Browser → Network Interface Card (NIC) → Wifi router → Internet → Host server
 4. Host server:
     - Inverse proxy: Nginx
-      - Load balancer
+      - Load balancer (Consistent hashing)
       - Virtual IP
     - Web server: Apache, Tomcat, Node.js, Common Gateway Interface (CGI), etc.
     - Web framework
@@ -130,7 +132,7 @@
 
 ### Wiki
 
-| Power of 2  | Accurate value  | Approximate value  | Size |
+| Power (of 2)  | Exact value  | Approximate value  | Bytes |
 |---|---|---|---|
 | 7  | 128  |   |   |
 | 8  | 256  |   |   |
@@ -138,7 +140,27 @@
 | 16  | 65 536  |   | 64K  |
 | 20  | 1 048 576  | million  | 1MB  |
 | 30  | 1 073 741 824  | billion  | 1GB  |
-| 32  | 4 294 967 296  |   | 4GB  |
+| 32(int32: 4 bytes)  | 4 294 967 296  |   | 4GB  |
 | 40  |   | trillion  | 1TB  |
+
+```
+Latency Comparison Numbers
+--------------------------
+L1 cache reference                           0.5 ns
+Branch mispredict                            5   ns
+L2 cache reference                           7   ns                      14x L1 cache
+Mutex lock/unlock                           25   ns
+Main memory reference                      100   ns                      20x L2 cache, 200x L1 cache
+Compress 1K bytes with Zippy            10,000   ns       10 us
+Send 1 KB bytes over 1 Gbps network     10,000   ns       10 us
+Read 4 KB randomly from SSD*           150,000   ns      150 us          ~1GB/sec SSD
+Read 1 MB sequentially from memory     250,000   ns      250 us
+Round trip within same datacenter      500,000   ns      500 us
+Read 1 MB sequentially from SSD*     1,000,000   ns    1,000 us    1 ms  ~1GB/sec SSD, 4X memory
+Disk seek                           10,000,000   ns   10,000 us   10 ms  20x datacenter roundtrip
+Read 1 MB sequentially from 1 Gbps  10,000,000   ns   10,000 us   10 ms  40x memory, 10X SSD
+Read 1 MB sequentially from disk    30,000,000   ns   30,000 us   30 ms 120x memory, 30X SSD
+Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
+```
 
 &emsp; [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)

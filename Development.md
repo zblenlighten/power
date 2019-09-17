@@ -4,7 +4,7 @@
 
 - [Practice](#practice)
 - [Infrastructure](#infrastructure)
-- [Database](#database)
+- [Data store](#data-store)
 - [Backend](#backend)
 - [Frontend](#frontend)
 - [System design](#system-design)
@@ -40,7 +40,7 @@
 ### Infrastructure
 
 - Architecture
-  - <s>Monolithic</s>
+  - Monolith
   - Microservice
     - Kubernetes
     - Docker
@@ -53,6 +53,12 @@
       - Concepts: cluster, topics, record (key, value, timestamp)
       - Core APIs: Producer, Consumer, Streams, Connector
       - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
+      - Reasons to fast:
+        - Avoids Random Disk Access (sequential write)
+        - Memory Mapped Files (mmap)
+        - Zero Copy (sendfile)
+        - Batch Data in Chunks
+        - Can Scale Horizontally
     - ActiveMQ, RabbitMQ
   - Search engine
     - Elasticsearch (Solr)
@@ -61,7 +67,9 @@
       - Distributed (Master - slave)
   - Log monitoring
     - ELK: Elasticsearch, Logstash, Kibana
-- Distributed systems
+- Distributed
+  - Hadoop
+    - MapReduce
   - Zookeeper
   - Data Replicate Center
 - DevOps
@@ -75,23 +83,33 @@
   - WireMock (?)
   - Google Analysis
 
-### Database
+### Data store
+
+- Components
+  - Concurrency control
+    - Pessimistic locking
+    - Optimistic locking
+  - SnowFlake
+  - Sharding: response time (a type of horizontal partition)
+  - <strong>Tuning</strong>
+
+- [Cache](https://en.wikipedia.org/wiki/Cache_(computing))
+  - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
 
 - SQL DBMS
-  - SnowFlake
   - ORM: Object-relational mapping
-  - <strong>Tuning</strong>
+
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
-  - Key-value: Dynamo, Redis
+  - Key-value: LevelDB, Dynamo, Redis
   - Document: MongoDB
-  - Wide-column
+  - Wide-column: HBase
   - Graph
 
 ### Backend
 
 - Server Content
   - Static sites
-    - CDN: Content delivery network
+    - Content delivery network (CDN): push, pull
   - Dynamic sites
     - JSP/Servlet
 - Language
@@ -130,19 +148,28 @@
 
 ### System design
 
+- steps:
+  - Use case, constraints and assumptions
+
 - trade-offs:
   - Performance vs scalability
   - Latency vs throughput
   - Availability vs consistency
     - CAP: Consistency, Availability, Partition tolerance
 
-- Case:
+- cases:
 
-  1. Web Crawler
+  1. Web crawler
       - BFS & DFS (Overhead time) by Scheduler (Priority queue stores URLs that have been discovered but not yet downloaded)
       - Page analysis and URL extraction (parsing Javascript)
       - URL table (In the case of thousands of servers: 明确每台下载服务器的分工，向散列表发送询问判断URL是否下载)
 
-  2. URL shortening
+  2. Search engine
+      - PageRank
+
+  3. URL shortening
+      - Distributed ID Generator
       - Key-value store
-      - URL redirection
+      - URL redirection (302)
+
+  4. Twitter / News feed
