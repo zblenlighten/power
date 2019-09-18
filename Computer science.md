@@ -47,13 +47,16 @@
   5. traversals: BFS, DFS
 
 - More knowledge
-  1. Binary search
-  2. Bitwise operations
+  1. Topological sorting
+  2. Binary search
   3. Tries
-  4. Bitmap
-  5. Backtracking
-  6. Dynamic programing
-  7. ...
+  4. Bitwise operations
+  5. Bitmap
+  6. Backtracking
+  7. Dynamic programing
+  8. Greedy
+  9. Union find
+  10. ...
 
 - Time complexity
   - General [Big-O](https://www.bigocheatsheet.com/)
@@ -162,5 +165,12 @@ Read 1 MB sequentially from 1 Gbps  10,000,000   ns   10,000 us   10 ms  40x mem
 Read 1 MB sequentially from disk    30,000,000   ns   30,000 us   30 ms 120x memory, 30X SSD
 Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
 ```
+
+| Operation  | SQL  | HTTP  | RESTful WS  | DDS  |
+|---|---|---|---|---|
+| <strong>C</strong>reate | INSERT | PUT / POST | POST | write |
+| <strong>R</strong>ead (Retrieve) | SELECT | GET | GET | read / take |
+| <strong>U</strong>pdate (Modify) | UPDATE | PUT / POST / PATCH | PUT | write |
+| <strong>D</strong>elete (Destroy) | DELETE | DELETE | DELETE | dispose |
 
 &emsp; [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)

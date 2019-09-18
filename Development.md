@@ -32,10 +32,7 @@
     - Gitlab flow
   - TDD: Test-Driven
   - BDD: Behavior-Driven
-- Other
-  - GDPR
-  - i18n
-  - Karte
+- Other: GDPR, i18n, Karte...
 
 ### Infrastructure
 
