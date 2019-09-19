@@ -47,7 +47,7 @@
   5. traversals: BFS, DFS
 
 - More knowledge
-  1. Topological sorting
+  1. Topological sort
   2. Binary search
   3. Tries
   4. Bitwise operations

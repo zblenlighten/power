@@ -34,7 +34,9 @@
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
     - Singular Value Decomposition (SVD)
+
 - Geodata
+
 - Natural Language
   - Bag of Words & N-gram: Term Frequency — Inverse Document Frequency (tf–idf)
     - Tokenization: word segmentation, convert characters to lowercase
@@ -48,10 +50,12 @@
     - Word2Vec
       - Continues bag of words (CBOW)
       - Skip-gram
+
 - Image
   - Image augmentation
     - Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
   - Label
+
 - Correlation
   - Distances
   - Ranking
@@ -71,6 +75,7 @@
   - Gradient descent
   - Global minimum
   - Back propagation
+
 - Fine-tune
   - Random initialization
   - Activation function
@@ -89,14 +94,18 @@
     - Adam
   - Residual block & Batch normalization
   - [Hyperparameter optimization](https://en.wikipedia.org/wiki/Hyperparameter_optimization)
+
 - Models
   - Computer vision
     - VGG16
     - CRNN
     - YOLO
     - ...
+
 - [Feature engineer](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Feature_Engineering_For_Deep_Learning?lang=en)
+
 - Generative adversarial network (GAN)
+
 - Application
   - Alpha Go
     - Monte Carlo Tree Search
@@ -115,10 +124,15 @@
 
 - Bagging
   - Random forest
+
 - Boosting
   - Adaboost
 
 #### Regression
+
+// TODO
+
+#### Few-shot learning
 
 // TODO
 
@@ -149,14 +163,18 @@
 - Area Under the Receiver Operating Characteristic Curve (ROC-AUC Score)
   - Sensitivity: True Positive Rate = TP / (TP + FN)
   - Specificity: False Positive Rate = FP / (FP + TN)
+
 - Root Mean Squared Error (RMSE)
 - Mean absolute Error (MAE)
+
 - Other:
   - Log Loss
   - Gain and Lift Charts
   - Kolmogorov Smirnov Chart
   - Concordant – Discordant Ratio
+
 - Multi-classification: F1 score, Average Accuracy, Log-loss
+
 - Cross Validation
 
 ### Statistics

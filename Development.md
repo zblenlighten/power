@@ -22,9 +22,11 @@
   - Coding & QA
   - Release
   - Maintenance & Iterative and incremental development
+
 - Methodology
   - Waterfall
   - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
+
 - Development Approach
   - FDD: Feature-Driven
     - Git flow
@@ -32,6 +34,7 @@
     - Gitlab flow
   - TDD: Test-Driven
   - BDD: Behavior-Driven
+
 - Other: GDPR, i18n, Karte...
 
 ### Infrastructure
@@ -43,7 +46,9 @@
     - Docker
   - Serverless
     - AWS Lambda (FaaS)
+
 - API Gateway
+
 - Service Function
   - Message broker (Message queue)
     - Kafka
@@ -64,15 +69,18 @@
       - Distributed (Master - slave)
   - Log monitoring
     - ELK: Elasticsearch, Logstash, Kibana
+
 - Distributed
   - Hadoop
     - MapReduce
   - Zookeeper
   - Data Replicate Center
+
 - DevOps
   - CI/CD
     - Jenkins
   - Version control
+
 - Tools
   - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
   - Terraform
@@ -109,6 +117,7 @@
     - Content delivery network (CDN): push, pull
   - Dynamic sites
     - JSP/Servlet
+
 - Language
   - Java
     - Spring
@@ -128,15 +137,18 @@
   - Vue
   - Rich Text Editor: Froala
   - Business Process Model and Notation (BPMN): Rappid
+
 - WWW standards
   - CSS
   - DOM: Document Object Model
   - HTML
   - SVG
   - XML
+
 - Authentication
   - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html): token
   - [JSON Web Token](ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
+
 - Security
   - Cryptographic hash function: MD5 (rainbow table)
   - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
@@ -155,7 +167,6 @@
     - CAP: Consistency, Availability, Partition tolerance
 
 - cases:
-
   1. Web crawler
       - BFS & DFS (Overhead time) by Scheduler (Priority queue stores URLs that have been discovered but not yet downloaded)
       - Page analysis and URL extraction (parsing Javascript)
