@@ -67,7 +67,7 @@
 - Process & Thread (multithreading)
 - Deadlock
 - The linking process exposed: Static library (.lib) & Dynamic-link library (.dll)
-- [Inter process communication](https://en.wikipedia.org/wiki/Inter-process_communication) (IPC)
+- Inter process communication (IPC)
 - Linux
   - Log
   - [Shell](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/)
@@ -90,8 +90,8 @@
     - MAC address
 3. Network Layer
     - Internet Protocol (IP): IPv4, IPv6
-      - [Network address translation (NAT)](https://en.wikipedia.org/wiki/Network_address_translation)
-    - [Address Resolution Protocol (ARP)](https://en.wikipedia.org/wiki/Address_Resolution_Protocol)
+      - Network address translation (NAT)
+    - Address Resolution Protocol (ARP)
 4. Transport Layer
     - Socket: IP + port
     - Transmission Control Protocol (TCP)
@@ -112,7 +112,7 @@
 3. Browser → Network Interface Card (NIC) → Wifi router → Internet → Host server
 4. Host server:
     - Inverse proxy: Nginx
-      - Load balancer (Consistent hashing)
+      - Load balancer ([consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing))
       - Virtual IP
     - Web server: Apache, Tomcat, Node.js, Common Gateway Interface (CGI), etc.
     - Web framework

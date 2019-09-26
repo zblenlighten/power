@@ -7,6 +7,7 @@
 - [Deep learning](#deep-learning)
 - [Machine learning](#machine-learning)
 - [Statistics](#statistics)
+- [Deployment](#deployment)
 - <s>[Data visualization](#data-visualization)</s>
 
 ## Data science
@@ -114,13 +115,13 @@
 
 #### Classification
 
-| Name  | Advantage  | Disadvantage  | Application  | Remarks  |
-|---|---|---|---|---|
-| kNN  | 精度高，对异常值不敏感，无数据输入假定  | 计算复杂度高，空间复杂度高  | 改进配对效果，识别手写数字  |   |
-| Decision tree  | 计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据  | 可能过拟合  | 预测隐形眼镜类型  |   |
-| Naive bayesian  | 在数据较少的情况下仍然有效，可以处理多类别问题  | 对于输入数据的准备方式较为敏感  | 过滤垃圾邮件/恶意留言，从个人广告用词中获取区域倾向  |   |
-| Logistic regression  | 计算代价不高，易于理解和实现  | 容易欠拟合，分类精度可能不高  | 从疝气病症预测病马的死亡率  |   |
-| Support Vector Machine  | 泛化错误率低，计算开销不大，结果易解释  | 对参数调节和核函数的选择敏感，原始分类器仅适用于二分类问题  | 识别手写数字（更少的内存）  |   |
+| Name  | Advantage  | Disadvantage  | Application  |
+|---|---|---|---|
+| kNN  | 精度高，对异常值不敏感，无数据输入假定  | 计算复杂度高，空间复杂度高  | 改进配对效果，识别手写数字  |
+| Decision tree  | 计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据  | 可能过拟合  | 预测隐形眼镜类型  |
+| Naive bayesian  | 在数据较少的情况下仍然有效，可以处理多类别问题  | 对于输入数据的准备方式较为敏感  | 过滤垃圾邮件/恶意留言，从个人广告用词中获取区域倾向  |
+| Logistic regression  | 计算代价不高，易于理解和实现  | 容易欠拟合，分类精度可能不高  | 从疝气病症预测病马的死亡率  |
+| Support Vector Machine  | 泛化错误率低，计算开销不大，结果易解释  | 对参数调节和核函数的选择敏感，原始分类器仅适用于二分类问题  | 识别手写数字（更少的内存）  |
 
 - Bagging
   - Random forest
@@ -200,3 +201,32 @@
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
   - [Simpson's paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox)
   - [St. Petersburg paradox](https://en.wikipedia.org/wiki/St._Petersburg_paradox)
+
+### Deployment
+
+- Questions of note
+  - Do you need to be able to serve predictions in real time (and if so, do you mean like, within a dozen milliseconds or after a second or two), or will delivery of predictions 30 minutes or a day after the input data is received suffice?
+  - How often do you expect to update your models?
+  - What will the demand for predictions be (i.e. traffic)?
+  - What size of data are you dealing with?
+  - What sort(s) of algorithms do you expect to use (and do you really need them)
+  - Are you in a regulated environment where the ability to audit your system is important?
+  - Does your company have product-market fit? (i.e. do you need to prepare for the system’s original purpose to radically change)
+  - Can this task be done without ML?
+  - How large and experienced is your team - including data scientists, engineers and DevOps?
+
+- Potential ML system architecture approaches
+
+|   | REST API  | Shared DB  | Streaming  | Mobile App  |
+|---|---|---|---|---|
+| Training  | Batch  | Batch  | Streaming  | Streaming  |
+| Prediction  |   | Batch  | Streaming  |   |
+| Prediction result delivery  | Via REST API  | Though the shared DB  | Streaming via message queue  | Via in-process API on mobile  |
+| Latency for prediction  | So so  | High  | Very low  | Low  |
+| System management difficulty  | So so  | Easy  | Very hard  | So so  |
+
+- Examples
+  - Google: [TFX](https://www.tensorflow.org/tfx)
+  - Facebook: [FBLearner Flow](https://engineering.fb.com/core-data/introducing-fblearner-flow-facebook-s-ai-backbone/)
+
+### Data visualization

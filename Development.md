@@ -4,6 +4,7 @@
 
 - [Practice](#practice)
 - [Infrastructure](#infrastructure)
+- [Service Function](#service-function)
 - [Data store](#data-store)
 - [Backend](#backend)
 - [Frontend](#frontend)
@@ -34,6 +35,7 @@
     - Gitlab flow
   - TDD: Test-Driven
   - BDD: Behavior-Driven
+  - DDD: Domain-Driven
 
 - Other: GDPR, i18n, Karte...
 
@@ -41,7 +43,7 @@
 
 - Architecture
   - Monolith
-  - Microservice
+  - Microservice (Evolutionary architecture)
     - Kubernetes
     - Docker
   - Serverless
@@ -49,26 +51,11 @@
 
 - API Gateway
 
-- Service Function
-  - Message broker (Message queue)
-    - Kafka
-      - Concepts: cluster, topics, record (key, value, timestamp)
-      - Core APIs: Producer, Consumer, Streams, Connector
-      - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
-      - Reasons to fast:
-        - Avoids Random Disk Access (sequential write)
-        - Memory Mapped Files (mmap)
-        - Zero Copy (sendfile)
-        - Batch Data in Chunks
-        - Can Scale Horizontally
-    - ActiveMQ, RabbitMQ
-  - Search engine
-    - Elasticsearch (Solr)
-      - Lucene (Inverted index)
-      - Restful API (HTTP)
-      - Distributed (Master - slave)
-  - Log monitoring
-    - ELK: Elasticsearch, Logstash, Kibana
+- DevOps
+  - Continuous integration / Continuous delivery (CI/CD)
+    - Jenkins
+  - Version control
+  - Single vs. Multi-tenant
 
 - Distributed
   - Hadoop
@@ -76,17 +63,36 @@
   - Zookeeper
   - Data Replicate Center
 
-- DevOps
-  - CI/CD
-    - Jenkins
-  - Version control
-
 - Tools
   - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
   - Terraform
   - Swagger
   - WireMock (?)
   - Google Analysis
+
+### Service Function
+
+- Message broker (Message queue)
+  - Kafka
+    - Concepts: cluster, topics, record (key, value, timestamp)
+    - Core APIs: Producer, Consumer, Streams, Connector
+    - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
+    - Reasons to fast:
+      - Avoids Random Disk Access (sequential write)
+      - Memory Mapped Files (mmap)
+      - Zero Copy (sendfile)
+      - Batch Data in Chunks
+      - Can Scale Horizontally
+  - ActiveMQ, RabbitMQ
+
+- Search engine
+  - Elasticsearch (Solr)
+    - Lucene (Inverted index)
+    - Restful API (HTTP)
+    - Distributed (Master - slave)
+
+- Log monitoring
+  - ELK: Elasticsearch, Logstash, Kibana
 
 ### Data store
 
@@ -118,16 +124,12 @@
   - Dynamic sites
     - JSP/Servlet
 
-- Language
-  - Java
-    - Spring
-  - Python
-    - Django
-    - webpy
-  - Go
-    - Beego
-  - Ruby
-    - Rails
+- Framework
+  - Spring
+  - Flask
+  - Beego
+  - Rails
+  - ...
 
 ### Frontend
 
