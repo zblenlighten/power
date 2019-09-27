@@ -1,5 +1,7 @@
 # Knowledge Memo
 
+[state-of-the-art](http://www.jiqizhixin.com/sota) model
+
 ## Contents
 
 - [Project Checklist](#project-checklist)
