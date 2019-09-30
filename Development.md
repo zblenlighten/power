@@ -139,6 +139,7 @@
   - Vue
   - Rich Text Editor: Froala
   - Business Process Model and Notation (BPMN): Rappid
+  - Team Collaboration: Miro
 
 - WWW standards
   - CSS
