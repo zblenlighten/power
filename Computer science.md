@@ -49,8 +49,8 @@
 - More knowledge
   1. Topological sort
   2. Binary search
-  3. Tries
-  4. Bitwise operations
+  3. Tries ([Implementation](https://leetcode.com/problems/implement-trie-prefix-tree/solution/))
+  4. Bitwise operations ([Python](https://wiki.python.org/moin/BitwiseOperators))
   5. Bitmap
   6. Backtracking
   7. Dynamic programing
