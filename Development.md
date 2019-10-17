@@ -69,6 +69,7 @@
   - Swagger
   - WireMock (?)
   - Google Analysis
+  - Team Collaboration: Miro
 
 ### Service Function
 
@@ -93,6 +94,10 @@
 
 - Log monitoring
   - ELK: Elasticsearch, Logstash, Kibana
+
+- Workflow management system
+  - Airflow
+    - Celery
 
 ### Data store
 
@@ -137,9 +142,9 @@
   - Node.js
     - npm
   - Vue
+    - Vuex
   - Rich Text Editor: Froala
   - Business Process Model and Notation (BPMN): Rappid
-  - Team Collaboration: Miro
 
 - WWW standards
   - CSS

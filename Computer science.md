@@ -85,10 +85,10 @@
 
 #### Internet Protocol Suite
 
-1. Physical Layer
-2. Data Link Layer
+1. Physical Layer: Hub
+2. Data Link Layer: Switch
     - MAC address
-3. Network Layer
+3. Network Layer: Routing
     - Internet Protocol (IP): IPv4, IPv6
       - Network address translation (NAT)
     - Address Resolution Protocol (ARP)
