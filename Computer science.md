@@ -88,7 +88,7 @@
 1. Physical Layer: Hub
 2. Data Link Layer: Switch
     - MAC address
-3. Network Layer: Routing
+3. Network Layer: Router
     - Internet Protocol (IP): IPv4, IPv6
       - Network address translation (NAT)
     - Address Resolution Protocol (ARP)
@@ -99,6 +99,7 @@
     - HTTP (TCP/IP)
       - HTTP/2
       - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
+    - DHCP (UDP)
     - <s>WebSocket</s>
 
 #### What happens when type in a URL?
