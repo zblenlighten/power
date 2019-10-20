@@ -44,12 +44,23 @@
 - Architecture
   - Monolith
   - Microservice (Evolutionary architecture)
+    - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-wordpress-tutorial.html)
     - Kubernetes
-    - Docker
+    - Service discovery (SDP)
   - Serverless
     - AWS Lambda (FaaS)
 
-- API Gateway
+- Distributed
+  - Protocols
+    - Paxos: for solving consensus in a network
+  - Frameworks
+    - Hadoop
+      - MapReduce
+  - Softwares
+    - Zookeeper
+    - Consul
+  - Data storage
+    - Data Replicate Center
 
 - DevOps
   - Continuous integration / Continuous delivery (CI/CD)
@@ -57,11 +68,7 @@
   - Version control
   - Single vs. Multi-tenant
 
-- Distributed
-  - Hadoop
-    - MapReduce
-  - Zookeeper
-  - Data Replicate Center
+- API Gateway
 
 - Tools
   - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
@@ -165,8 +172,12 @@
 
 ### System design
 
-- steps:
-  - Use case, constraints and assumptions
+- <s>steps</s>:
+  - <s>Use case, constraints and assumptions</s>
+
+- if the system...
+  - goes slow: <strong>scalability</strong>, performance
+  - goes down: <strong>resiliency</strong> (single point of failure (SPOF) ), availability, stability
 
 - trade-offs:
   - Performance vs scalability

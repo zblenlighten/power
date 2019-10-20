@@ -94,7 +94,7 @@
     - Address Resolution Protocol (ARP)
 4. Transport Layer
     - Socket: IP + port
-    - Transmission Control Protocol (TCP)
+    - Transmission Control Protocol ([TCP](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html))
 7. Application Layer
     - HTTP (TCP/IP)
       - HTTP/2
