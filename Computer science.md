@@ -67,8 +67,7 @@
   11. ...
 
 - Time complexity
-  - General [Big-O](https://www.bigocheatsheet.com/)
-  - [Python](https://wiki.python.org/moin/TimeComplexity)
+  - General [Big-O](https://www.bigocheatsheet.com/) ([Python](https://wiki.python.org/moin/TimeComplexity))
 
 ### Operating system
 
@@ -126,7 +125,7 @@
 3. Browser → Network Interface Card (NIC) → Wifi router → Internet → Host server
 4. Host server:
     - Inverse proxy: Nginx
-      - Load balancer ([consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing))
+      - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing))
       - Virtual IP
     - Web server: Apache, Tomcat, Node.js, Common Gateway Interface (CGI), etc.
     - Web framework
