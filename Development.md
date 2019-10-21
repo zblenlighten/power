@@ -15,6 +15,7 @@
 ### Practice
 
 - WBS: Work breakdown structure
+  - POC: Proof of concept
   - Feature (list)
   - [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
     - Who, What, Why, Acceptance Criteria (AC)
@@ -70,8 +71,15 @@
 
 - API Gateway
 
+- Operation and maintenance
+  - Application performance management (APM)
+    - Dapper
+  - Monitoring
+    - Zabbix
+
 - Tools
   - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
+  - ELK: Elasticsearch, Logstash, Kibana
   - Terraform
   - Swagger
   - WireMock (?)
@@ -99,10 +107,7 @@
     - Restful API (HTTP)
     - Distributed (Master - slave)
 
-- Log monitoring
-  - ELK: Elasticsearch, Logstash, Kibana
-
-- Workflow management system
+- Workflow management
   - Airflow
     - Celery
 

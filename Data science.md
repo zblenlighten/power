@@ -67,7 +67,7 @@
     - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
     - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
   - NPL
-    - Bag of Words & N-gram: article vector (每一个维度为该词的tf–idf) → Cosine distance
+    - Bag of Words & N-gram: article vector (each dimension is the tf–idf of the word) → Cosine distance
     - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance / Euclidean distance (WMD: Word Mover's Distance)
     - ...
 
@@ -186,18 +186,17 @@
   - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
     - Type I error: null hypothesis是正确的，却拒绝了null hypothesis（拒真错误, 错杀好人, False Positive Rate: FP / (FP + TN) ）
     - Type II error: null hypothesis是错误的，却没有拒绝null hypothesis（取伪错误, 放走坏人, False Negative Rate: FN / (FN + TP) ）
-  - 假设检验的步骤
-    1. 提出null hypothesis和alternative hypothesis
-    2. 指定检验中的level of significance（一般取0.05和0.01）
-        - Level of significance: 当作为一个等式的null hypothesis为真时，犯Type I error的概率
+  - Steps in Hypothesis Testing
+    1. Specify the null hypothesis and alternative hypothesis
+    2. Set the Significance Level (0.05 or 0.01)
+        - Significance Level: 当作为一个等式的null hypothesis为真时，犯Type I error的概率
     3. 收集样本数据并计算检验统计量的值
         - one-tail test
         - two-tail test
     4. 利用检验统计量的值计算p-value
         - p-value: 一个度量样本所提供的证据对null hypothesis的支持程度的概率值，越小越说明不能得出null hypothesis为真的结论
-    5. 如果 p-value <= level of significance，则拒绝null hypothesis
-    6. 在应用中解读统计结论
-    7. <s>临界值方法</s>
+    5. If p-value <= Significance Level, then null hypothesis is rejected
+    6. Drawing a Conclusion
 
 - Case
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)

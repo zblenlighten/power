@@ -40,9 +40,12 @@
   2. Self-balancing binary search tree
       - <strong>AVL tree</strong>
       - Red-black tree
-      - B-tree
       - ...
-  3. traversals: [preorder](https://leetcode.com/problems/binary-tree-preorder-traversal/), [inorder](https://leetcode.com/problems/binary-tree-inorder-traversal/), [postorder](https://leetcode.com/problems/binary-tree-postorder-traversal/), BFS, DFS
+  3. B tree
+      - B+ tree
+  4. Trie ([Implementation](https://leetcode.com/articles/implement-trie-prefix-tree/))
+  5. Heap
+  6. traversals: [preorder](https://leetcode.com/problems/binary-tree-preorder-traversal/), [inorder](https://leetcode.com/problems/binary-tree-inorder-traversal/), [postorder](https://leetcode.com/problems/binary-tree-postorder-traversal/), BFS, DFS
 
 - Graph
   1. directed
@@ -51,20 +54,19 @@
   4. adjacency list
   5. traversals: BFS, DFS
   6. Shortest path problem: Dijkstra's algorithm, Floyd–Warshall algorithm
-  7. Minimum spanning tree: Prim's algorithm, Kruskal's algorithm
+  7. Minimum spanning tree (MST): Prim's algorithm, Kruskal's algorithm
 
 - More knowledge
   1. Topological sort
-  2. Binary search
-  3. Tries ([Implementation](https://leetcode.com/problems/implement-trie-prefix-tree/solution/))
+  2. Bitmap
+  3. Binary search
   4. Bitwise operations ([Python](https://wiki.python.org/moin/BitwiseOperators))
-  5. Bitmap
-  6. Backtracking
-  7. Dynamic programing
-  8. Union find
-  9. Greedy
-  10. [Regular expression](https://regexr.com/)
-  11. ...
+  5. Backtracking
+  6. Dynamic programing
+  7. Union find
+  8. Greedy
+  9. [Regular expression](https://regexr.com/)
+  10. ...
 
 - Time complexity
   - General [Big-O](https://www.bigocheatsheet.com/) ([Python](https://wiki.python.org/moin/TimeComplexity))
@@ -72,10 +74,16 @@
 ### Operating system
 
 - Garbage Collection
+  - Java (JVM heap parts)
+    - Young Generation: minor GC
+      - Eden
+      - Survivor
+      - semi-Spaces
+    - Old or Tenured Generation: major GC
+    - Permanent Generation
   - Python
     - Reference counting
     - Tracing: Mark-and-sweep, Generational GC
-  - <s>Java</s>
 - Process & Thread (multithreading)
 - Deadlock
 - The linking process exposed: Static library (.lib) & Dynamic-link library (.dll)
@@ -125,7 +133,7 @@
 3. Browser → Network Interface Card (NIC) → Wifi router → Internet → Host server
 4. Host server:
     - Inverse proxy: Nginx
-      - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing))
+      - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
       - Virtual IP
     - Web server: Apache, Tomcat, Node.js, Common Gateway Interface (CGI), etc.
     - Web framework
