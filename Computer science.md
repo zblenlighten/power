@@ -16,26 +16,31 @@
 | Name  | Average  | Worst  | Stable (array) | Method  |
 |---|---|---|---|---|
 | 1. Bubble sort  | n^2  | n^2  | Yes  | Exchanging  |
-| 2. Merge sort  | n·log(n)  | n·log(n)  | Yes  | Merging  |
-| 3. Quick sort  | n·log(n)  | n^2  | Typical not  | Partitioning  |
-| 4. Selection sort  | n^2  | n^2  | No  | Selection  |
-| 5. Heap sort  | n·log(n)  | n·log(n)  | No  | Selection  |
+| 2. Quick sort  | n·log(n)  | n^2  | Typical not  | Partitioning  |
+| 3. Merge sort  | n·log(n)  | n·log(n)  | Yes  | Merging  |
+| 4. Heap sort  | n·log(n)  | n·log(n)  | No  | Selection  |
+| 5. Selection sort  | n^2  | n^2  | No  | Selection  |
 | 6. Insertion sort  | n^2  | n^2  | Yes  | Insertion  |
 | 7. Shell sort  |   |   | No  | Insertion  |
-  8. External sort
+| 8. Counting sort  | n+k  | n+k  | Yes  | Non-comparison  |
+  9. External sort
 
 - Data structure
   1. Arrays
   2. Linked lists
   3. Stack
   4. Queue
-  5. Hash table ([perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function))
+  5. Hash table
+      - [Collision](http://www.ruanyifeng.com/blog/2018/09/hash-collision-and-birthday-attack.html): Open addressing, Separate chaining, 2-choice hashing
+      - [Perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function)
+      - Bloom Filter
 
 - Trees
   1. Binary search trees
-  2. Balanced search trees
-      - AVL tree
+  2. Self-balancing binary search tree
+      - <strong>AVL tree</strong>
       - Red-black tree
+      - B-tree
       - ...
   3. traversals: [preorder](https://leetcode.com/problems/binary-tree-preorder-traversal/), [inorder](https://leetcode.com/problems/binary-tree-inorder-traversal/), [postorder](https://leetcode.com/problems/binary-tree-postorder-traversal/), BFS, DFS
 
@@ -45,6 +50,8 @@
   3. adjacency matrix
   4. adjacency list
   5. traversals: BFS, DFS
+  6. Shortest path problem: Dijkstra's algorithm, Floyd–Warshall algorithm
+  7. Minimum spanning tree: Prim's algorithm, Kruskal's algorithm
 
 - More knowledge
   1. Topological sort
@@ -54,9 +61,10 @@
   5. Bitmap
   6. Backtracking
   7. Dynamic programing
-  8. Greedy
-  9. Union find
-  10. ...
+  8. Union find
+  9. Greedy
+  10. [Regular expression](https://regexr.com/)
+  11. ...
 
 - Time complexity
   - General [Big-O](https://www.bigocheatsheet.com/)
@@ -64,6 +72,11 @@
 
 ### Operating system
 
+- Garbage Collection
+  - Python
+    - Reference counting
+    - Tracing: Mark-and-sweep, Generational GC
+  - <s>Java</s>
 - Process & Thread (multithreading)
 - Deadlock
 - The linking process exposed: Static library (.lib) & Dynamic-link library (.dll)
