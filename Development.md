@@ -162,7 +162,7 @@
 
 - Authentication
   - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html): token
-  - [JSON Web Token](ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
+  - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
 
 - Security
   - Cryptographic hash function: MD5 (rainbow table)
