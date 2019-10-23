@@ -136,7 +136,7 @@
     - Inverse proxy: Nginx
       - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
       - Virtual IP
-    - Web server: Apache, Tomcat, Node.js, Common Gateway Interface (CGI), etc.
+    - Web server: Common Gateway Interface (CGI)...
     - Web framework
       - MVC: Model, View, Controller
 5. Host server → Host client:
@@ -157,7 +157,7 @@
 
 ### Wiki
 
-| Power (of 2)  | Exact value  | Approximate value  | Bytes |
+| Power  | Exact value  | Approximate value  | Bytes |
 |---|---|---|---|
 | 7  | 128  |   |   |
 | 8  | 256  |   |   |
@@ -165,7 +165,7 @@
 | 16  | 65 536  |   | 64K  |
 | 20  | 1 048 576  | million  | 1MB  |
 | 30  | 1 073 741 824  | billion  | 1GB  |
-| 32(int32: 4 bytes)  | 4 294 967 296  |   | 4GB  |
+| 32  | 4 294 967 296  |   | 4GB  |
 | 40  |   | trillion  | 1TB  |
 
 ```
