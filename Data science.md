@@ -10,7 +10,7 @@
 - [Machine learning](#machine-learning)
 - [Statistics](#statistics)
 - [Deployment](#deployment)
-- <s>[Data visualization](#data-visualization)</s>
+- [Data visualization](#data-visualization)
 
 ## Data science
 
@@ -168,7 +168,7 @@
   - Specificity: False Positive Rate = FP / (FP + TN)
 
 - Root Mean Squared Error (RMSE)
-- Mean absolute Error (MAE)
+- Mean absolute error (MAE)
 
 - Other:
   - Log Loss
@@ -231,3 +231,9 @@
   - Facebook: [FBLearner Flow](https://engineering.fb.com/core-data/introducing-fblearner-flow-facebook-s-ai-backbone/)
 
 ### Data visualization
+
+- Design
+  - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
+
+- Case
+  - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)

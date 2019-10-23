@@ -88,6 +88,7 @@
 - Deadlock
 - The linking process exposed: Static library (.lib) & Dynamic-link library (.dll)
 - Inter process communication (IPC)
+  - Remote procedure call (RPC)
 - Linux
   - Log
   - [Shell](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/)

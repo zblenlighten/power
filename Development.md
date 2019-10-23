@@ -4,8 +4,8 @@
 
 - [Practice](#practice)
 - [Infrastructure](#infrastructure)
-- [Service Function](#service-function)
-- [Data store](#data-store)
+- [Distributed system](#distributed-system)
+- [Data storage](#data-storage)
 - [Backend](#backend)
 - [Frontend](#frontend)
 - [System design](#system-design)
@@ -51,18 +51,6 @@
   - Serverless
     - AWS Lambda (FaaS)
 
-- Distributed
-  - Protocols
-    - Paxos: for solving consensus in a network
-  - Frameworks
-    - Hadoop
-      - MapReduce
-  - Softwares
-    - Zookeeper
-    - Consul
-  - Data storage
-    - Data Replicate Center
-
 - DevOps
   - Continuous integration / Continuous delivery (CI/CD)
     - Jenkins
@@ -70,25 +58,46 @@
   - Single vs. Multi-tenant
 
 - API Gateway
+  - Swagger
+
+- Search engine
+  - Elasticsearch (Solr)
+    - Lucene (Inverted index)
+    - Restful API (HTTP)
+    - Distributed (Master - slave)
+  - ELK: Elasticsearch, Logstash, Kibana
 
 - Operation and maintenance
   - Application performance management (APM)
     - Dapper
   - Monitoring
     - Zabbix
+  - Workflow management
+    - Airflow
+      - Celery
 
 - Tools
   - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
-  - ELK: Elasticsearch, Logstash, Kibana
   - Terraform
-  - Swagger
-  - WireMock (?)
+  - <s>WireMock</s>
   - Google Analysis
   - Team Collaboration: Miro
 
-### Service Function
+### Distributed system
 
-- Message broker (Message queue)
+- Protocols
+  - Three-phase commit protocol (3PC)：for solving the atomic commit
+  - Paxos: for solving consensus in a network
+
+- Frameworks
+  - Hadoop
+    - MapReduce
+
+- Softwares
+  - Zookeeper
+  - Consul
+
+- Message broker (Message-oriented middleware: MOM)
   - Kafka
     - Concepts: cluster, topics, record (key, value, timestamp)
     - Core APIs: Producer, Consumer, Streams, Connector
@@ -101,17 +110,10 @@
       - Can Scale Horizontally
   - ActiveMQ, RabbitMQ
 
-- Search engine
-  - Elasticsearch (Solr)
-    - Lucene (Inverted index)
-    - Restful API (HTTP)
-    - Distributed (Master - slave)
+- Data storage
+  - Data Replicate Center
 
-- Workflow management
-  - Airflow
-    - Celery
-
-### Data store
+### Data storage
 
 - Components
   - Concurrency control
@@ -125,7 +127,7 @@
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
 
 - SQL DBMS
-  - ORM: Object-relational mapping
+  - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
 
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
   - Key-value: LevelDB, Dynamo, Redis
@@ -187,8 +189,8 @@
 - trade-offs:
   - Performance vs scalability
   - Latency vs throughput
-  - Availability vs consistency
-    - CAP: Consistency, Availability, Partition tolerance
+  - Availability vs consistency: Consistency, Availability, Partition tolerance (CAP)
+    - CP vs AP (BASE: Basically Avaiable Soft state Eventual consistency)
 
 - cases:
   1. Web crawler
