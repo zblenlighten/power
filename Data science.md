@@ -182,21 +182,24 @@
 
 ### Statistics
 
-- Knowledge
+- Hypothesis Testing
   - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
-    - Type I error: null hypothesis是正确的，却拒绝了null hypothesis（拒真错误, 错杀好人, False Positive Rate: FP / (FP + TN) ）
-    - Type II error: null hypothesis是错误的，却没有拒绝null hypothesis（取伪错误, 放走坏人, False Negative Rate: FN / (FN + TP) ）
-  - Steps in Hypothesis Testing
-    1. Specify the null hypothesis and alternative hypothesis
-    2. Set the Significance Level (0.05 or 0.01)
-        - Significance Level: 当作为一个等式的null hypothesis为真时，犯Type I error的概率
-    3. 收集样本数据并计算检验统计量的值
+    - Type I error: occurs when you reject a <strong>null hypothesis</strong> that is actually true（False Positive → FP / (FP + TN), 拒真错误, 错杀好人）
+    - Type II error: non-rejection of a false <strong>null hypothesis</strong>（False Negative → FN / (FN + TP), 取伪错误, 放走坏人）
+  - Steps
+    1. Specify the <strong>null hypothesis</strong> and <strong>alternative hypothesis</strong>
+    2. Set the Significance Level (common values are 0.05 and 0.01)
+        - Significance Level: the probability of rejecting the <strong>null hypothesis</strong> when it is true (probability of making a Type I error)
+    3. Compute from the observations the observed value of the test statistic
         - one-tail test
         - two-tail test
-    4. 利用检验统计量的值计算p-value
-        - p-value: 一个度量样本所提供的证据对null hypothesis的支持程度的概率值，越小越说明不能得出null hypothesis为真的结论
-    5. If p-value <= Significance Level, then null hypothesis is rejected
-    6. Drawing a Conclusion
+    4. Calculate the <strong>[p-value](https://statisticsbyjim.com/glossary/p-value/)</strong> based on the test statistic
+    5. If <strong>p-value</strong> <= Significance Level, then <strong>null hypothesis</strong> is rejected
+    6. Drawing a conclusion
+  - Examples
+    - Student's t-test
+    - Chi-squared test
+    - F-test (Analysis of variance: ANOVA)
 
 - Case
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
