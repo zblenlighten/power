@@ -182,6 +182,8 @@
 
 ### Statistics
 
+[Tutorial](https://stattrek.com/tutorials/ap-statistics-tutorial.aspx)
+
 - Hypothesis Testing
   - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
     - Type I error: occurs when you reject a <strong>null hypothesis</strong> that is actually true（False Positive → FP / (FP + TN), 拒真错误, 错杀好人）
