@@ -197,7 +197,7 @@
         - two-tail test
     4. Calculate the <strong>[p-value](https://statisticsbyjim.com/glossary/p-value/)</strong> based on the test statistic
     5. If <strong>p-value</strong> <= Significance Level, then <strong>null hypothesis</strong> is rejected
-    6. Drawing a conclusion
+    6. Draw a conclusion
   - Examples
     - Student's t-test
     - Chi-squared test

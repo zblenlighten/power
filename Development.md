@@ -59,13 +59,17 @@
 
 - API Gateway
   - Swagger
+  - <s>WireMock</s>
 
 - Search engine
   - Elasticsearch (Solr)
     - Lucene (Inverted index)
     - Restful API (HTTP)
     - Distributed (Master - slave)
+
+- Log
   - ELK: Elasticsearch, Logstash, Kibana
+  - Graylog
 
 - Operation and maintenance
   - Application performance management (APM)
@@ -79,7 +83,6 @@
 - Tools
   - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
   - Terraform
-  - <s>WireMock</s>
   - Google Analysis
   - Team Collaboration: Miro
 
