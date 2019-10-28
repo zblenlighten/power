@@ -195,4 +195,5 @@ Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
 | <strong>U</strong>pdate (Modify) | UPDATE | PUT / POST / PATCH | PUT | write |
 | <strong>D</strong>elete (Destroy) | DELETE | DELETE | DELETE | dispose |
 
-&emsp; [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)
+&emsp; [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)  
+&emsp; [記号と読み方](https://memotec.net/etc/mark.html)  

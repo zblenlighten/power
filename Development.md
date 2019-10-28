@@ -90,7 +90,7 @@
 ### Distributed system
 
 - Protocols
-  - Three-phase commit protocol (3PC)：for solving the atomic commit
+  - Three-phase commit protocol (3PC)：for solving atomic commit
   - Paxos: for solving consensus in a network
 
 - Frameworks
@@ -191,9 +191,9 @@
   - goes down: <strong>resiliency</strong> (single point of failure (SPOF) ), availability, stability
 
 - trade-offs:
-  - Performance vs scalability
-  - Latency vs throughput
-  - Availability vs consistency: Consistency, Availability, Partition tolerance (CAP)
+  - Performance vs Scalability
+  - Latency vs Throughput
+  - Availability vs Consistency: Consistency, Availability, Partition tolerance (CAP)
     - CP vs AP (BASE: Basically Avaiable Soft state Eventual consistency)
 
 - cases:

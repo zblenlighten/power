@@ -126,7 +126,7 @@
 - Application
   - Alpha Go
     - Monte Carlo Tree Search
-  - Self-driving car (Autonomous Vehicle: AV): SAE's automation level
+  - Self-driving car (AV: Autonomous Vehicle): SAE's automation level
     - Lane departure warning system
 
 ### Machine learning
@@ -186,7 +186,7 @@
 - Root Mean Squared Error (RMSE)
 - Mean absolute error (MAE)
 
-- Other:
+- Others
   - Log Loss
   - Gain and Lift Charts
   - Kolmogorov Smirnov Chart
