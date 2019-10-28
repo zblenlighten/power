@@ -1,6 +1,7 @@
 # Knowledge Memo
 
-[state-of-the-art](http://www.jiqizhixin.com/sota) model
+[state-of-the-art model](https://paperswithcode.com/sota)  
+[state-of-the-art 模型](http://www.jiqizhixin.com/sota)  
 
 ## Contents
 
@@ -59,17 +60,30 @@
     - Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
   - Label
 
-- Correlation
-  - Distances
+- More knowledge
+  - Similarity measure
+    - Euclidean distance
+    - Cosine similarity
+    - Hamming distance
+    - Pearson correlation coefficient
+    - Information entropy
   - Ranking
-  - Similar picture search
-    - Perceptual hashing: pHash, SIFT
-    - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
-    - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
-  - NPL
+  - Natural Language Processing
     - Bag of Words & N-gram: article vector (each dimension is the tf–idf of the word) → Cosine distance
     - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance / Euclidean distance (WMD: Word Mover's Distance)
     - ...
+  - Computer vision
+    - Tasks
+      - Image classification
+      - Object localization
+      - Object detection
+      - Object recognition
+      - Instance segmentation
+      - Video tracking
+    - Similar picture search
+      - Perceptual hashing: pHash, SIFT
+      - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
+      - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
 
 ### Deep learning
 
@@ -105,13 +119,15 @@
     - YOLO
     - ...
 
-- [Feature engineer](https://www.ibm.com/developerworks/community/blogs/jfp/entry/Feature_Engineering_For_Deep_Learning?lang=en)
+- [Feature engineer](https://www.quora.com/Does-deep-learning-reduce-the-importance-of-feature-engineering): Deep Feature Synthesis
 
 - Generative adversarial network (GAN)
 
 - Application
   - Alpha Go
     - Monte Carlo Tree Search
+  - Self-driving car (Autonomous Vehicle: AV): SAE's automation level
+    - Lane departure warning system
 
 ### Machine learning
 

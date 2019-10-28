@@ -15,6 +15,7 @@
 ### Practice
 
 - WBS: Work breakdown structure
+  - RfQ: Request for quotation
   - POC: Proof of concept
   - Feature (list)
   - [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
