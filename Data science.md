@@ -56,7 +56,7 @@
       - Skip-gram
 
 - Image
-  - Image augmentation
+  - [Image augmentation](http://imgaug.readthedocs.io)
     - Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
   - Label
 

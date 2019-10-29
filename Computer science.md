@@ -65,7 +65,7 @@
   6. Dynamic programing
   7. Union find
   8. Greedy
-  9. [Regular expression](https://regexr.com/)
+  9. [Regular expression](https://regexr.com/) ([Python](https://www.runoob.com/python/python-reg-expressions.html))
   10. ...
 
 - Time complexity
