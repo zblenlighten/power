@@ -116,6 +116,7 @@
 4. Transport Layer
     - Socket: IP + port
     - Transmission Control Protocol ([TCP](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html))
+    - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
 7. Application Layer
     - HTTP (TCP/IP)
       - HTTP/2
