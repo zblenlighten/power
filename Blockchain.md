@@ -15,9 +15,7 @@
   - Transaction data (Merkle tree / hash tree): immutable
 
 - Decentralization (centralized example: client-server model)
-  - Peer-to-peer network
-  - Gossip protocol
-  - Nodes: light client, full node, mining
+  - Peer-to-peer network (nodes: light client, full node, mining)
   - Public-key cryptography
 
 - Openness: transparency
@@ -49,12 +47,12 @@
   - Validation phase
 
 - Fabric components
-  - Communication: gRPC
   - Membership service provider (MSP)
     - Certification authorities (CAs)
   - Ordering service: channels
     - solo, kafka
-  - Peer Gossip
+  - Peer gossip
+    - The communication layer for gossip is based on gRPC and utilizes TLS with mutual authentication
   - Ledger: block store, peer transaction manager (PTM)
     - world state (database of current values)
     - blockchain (transaction log, immutable)
