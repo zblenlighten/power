@@ -95,7 +95,7 @@
 
 - Fine-tune
   - Random initialization
-  - Activation function
+  - [Activation function](https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6)
     - Softmax: multiclass
     - Sigmoid: binary
     - Linear: regression
@@ -108,7 +108,7 @@
     - Data augmentation
     - Early stopping
   - Gradient descent optimization
-    - Adam
+    - Adam: Momentum + RMSprop
   - Residual block & Batch normalization
   - [Hyperparameter optimization](https://en.wikipedia.org/wiki/Hyperparameter_optimization)
 
@@ -202,17 +202,17 @@
 
 - Hypothesis Testing
   - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
-    - Type I error: occurs when you reject a <strong>null hypothesis</strong> that is actually true（False Positive → FP / (FP + TN), 拒真错误, 错杀好人）
-    - Type II error: non-rejection of a false <strong>null hypothesis</strong>（False Negative → FN / (FN + TP), 取伪错误, 放走坏人）
+    - Type I error: occurs when you reject a **null hypothesis** that is actually true（False Positive → FP / (FP + TN), 拒真错误, 错杀好人）
+    - Type II error: non-rejection of a false **null hypothesis**（False Negative → FN / (FN + TP), 取伪错误, 放走坏人）
   - Steps
-    1. Specify the <strong>null hypothesis</strong> and <strong>alternative hypothesis</strong>
+    1. Specify the **null hypothesis** and **alternative hypothesis**
     2. Set the Significance Level (common values are 0.05 and 0.01)
-        - Significance Level: the probability of rejecting the <strong>null hypothesis</strong> when it is true (probability of making a Type I error)
+        - Significance Level: the probability of rejecting the **null hypothesis** when it is true (probability of making a Type I error)
     3. Compute from the observations the observed value of the test statistic
         - one-tail test
         - two-tail test
-    4. Calculate the <strong>[p-value](https://statisticsbyjim.com/glossary/p-value/)</strong> based on the test statistic
-    5. If <strong>p-value</strong> <= Significance Level, then <strong>null hypothesis</strong> is rejected
+    4. Calculate the **[p-value](https://statisticsbyjim.com/glossary/p-value/)** based on the test statistic
+    5. If **p-value** <= Significance Level, then **null hypothesis** is rejected
     6. Draw a conclusion
   - Examples
     - Student's t-test

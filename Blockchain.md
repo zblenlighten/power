@@ -56,5 +56,5 @@
   - Ledger: block store, peer transaction manager (PTM)
     - world state (database of current values)
     - blockchain (transaction log, immutable)
-  - Chaincode Execution: Go, Java, Node.js...
-  - Configuration and System Chaincodes
+  - Chaincode execution: Go, Java, Node.js...
+  - Configuration and system chaincodes

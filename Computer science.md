@@ -38,7 +38,7 @@
 - Trees
   1. Binary search trees
   2. Self-balancing binary search tree
-      - <strong>AVL tree</strong>
+      - **AVL tree**
       - Red-black tree
       - ...
   3. B tree
@@ -122,15 +122,15 @@
       - HTTP/2
       - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
     - DHCP (UDP)
-    - <s>WebSocket</s>
+    - ~~WebSocket~~
 
 #### What happens when type in a URL?
 
 1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Browser
 2. Browser:
-    - <strong>DNS resolution</strong>: cache (browser, OS, router)/DNS server → IP address
-    - <strong>TCP three-way handshake</strong>
-    - <strong>HTTP request</strong>
+    - **DNS resolution**: cache (browser, OS, router)/DNS server → IP address
+    - **TCP three-way handshake**
+    - **HTTP request**
       - Request message: request line, request header fields, empty line, message body
 3. Browser → Network Interface Card (NIC) → Wifi router → Internet → Host server
 4. Host server:
@@ -141,19 +141,19 @@
     - Web framework
       - MVC: Model, View, Controller
 5. Host server → Host client:
-    - <strong>The server handles the request and sends back an HTTP response</strong>
+    - **The server handles the request and sends back an HTTP response**
       - HTTP status
         - 2xx (Successful): The request was successfully received, understood and accepted
         - 3xx (Redirection): Further action needs to be taken in order to complete the request
         - 4xx (Client Error): The request contains bad syntax or cannot be fulfilled
         - 5xx (Server Error): The server failed to fulfill an apparently valid request
-    - <strong>The browser displays the HTML content</strong>: [Chromium](https://www.chromium.org/developers/design-documents/multi-process-architecture)
+    - **The browser displays the HTML content**: [Chromium](https://www.chromium.org/developers/design-documents/multi-process-architecture)
       - Parsing HTML to construct the DOM tree
       - Turning CSS into the CSS Object Model
       - Use the constructed DOM and CSSOM to create a render tree (contains only the nodes required to render the page)
       - Layout the render tree (computes the exact position and size of each object)
       - Paint the render tree (takes in the final render tree and renders the pixels to the screen)
-    - <strong>TCP four-way handshake</strong>
+    - **TCP four-way handshake**
 6. Browser → LCD screen
 
 ### Wiki
@@ -191,10 +191,10 @@ Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
 
 | Operation  | SQL  | HTTP  | RESTful WS  | DDS  |
 |---|---|---|---|---|
-| <strong>C</strong>reate | INSERT | PUT / POST | POST | write |
-| <strong>R</strong>ead (Retrieve) | SELECT | GET | GET | read / take |
-| <strong>U</strong>pdate (Modify) | UPDATE | PUT / POST / PATCH | PUT | write |
-| <strong>D</strong>elete (Destroy) | DELETE | DELETE | DELETE | dispose |
+| **C**reate | INSERT | PUT / POST | POST | write |
+| **R**ead (Retrieve) | SELECT | GET | GET | read / take |
+| **U**pdate (Modify) | UPDATE | PUT / POST / PATCH | PUT | write |
+| **D**elete (Destroy) | DELETE | DELETE | DELETE | dispose |
 
 &emsp; [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)  
 &emsp; [記号と読み方](https://memotec.net/etc/mark.html)  

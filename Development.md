@@ -60,13 +60,13 @@
 
 - API Gateway
   - Swagger
-  - <s>WireMock</s>
+  - ~~WireMock~~
 
 - Search engine
   - Elasticsearch (Solr)
     - Lucene (Inverted index)
     - Restful API (HTTP)
-    - Distributed (Master - slave)
+    - Distributed (master - slave)
 
 - Log
   - ELK: Elasticsearch, Logstash, Kibana
@@ -74,7 +74,7 @@
 
 - Operation and maintenance
   - Application performance management (APM)
-    - Dapper
+    - ~~Dapper~~
   - Monitoring
     - Zabbix
   - Workflow management
@@ -125,7 +125,7 @@
     - Optimistic locking
   - SnowFlake
   - Sharding: response time (a type of horizontal partition)
-  - <strong>Tuning</strong>
+  - Database tuning
 
 - [Cache](https://en.wikipedia.org/wiki/Cache_(computing))
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
@@ -183,12 +183,12 @@
 
 ### System design
 
-- <s>steps</s>:
-  - <s>Use case, constraints and assumptions</s>
+- ~~steps~~:
+  - ~~Use case, constraints and assumptions~~
 
 - if the system...
-  - goes slow: <strong>scalability</strong>, performance
-  - goes down: <strong>resiliency</strong> (single point of failure (SPOF) ), availability, stability
+  - goes slow: **scalability**, performance
+  - goes down: **resiliency** (single point of failure (SPOF) ), availability, stability
 
 - trade-offs:
   - Performance vs Scalability
