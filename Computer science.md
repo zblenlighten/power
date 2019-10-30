@@ -90,8 +90,8 @@
 - Inter process communication (IPC)
   - Remote procedure call (RPC)
 - Linux
-  - Log
-  - [Shell](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/)
+  - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
+  - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/)
     - Files and Directories: cat, grep
     - Manipulating data: wc, sed, sort, uniq, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html)
     - File Editors
