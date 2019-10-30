@@ -3,7 +3,6 @@
 ## Contents
 
 - [Knowledge](#knowledge)
-- [Uses](#uses)
 - [Hyperledger Fabric](#hyperledger-fabric)
 
 ## Blockchain
@@ -14,20 +13,21 @@
   - Cryptographic hash
   - Trusted timestamping
   - Transaction data (Merkle tree / hash tree): immutable
+
 - Decentralization (centralized example: client-server model)
   - Peer-to-peer network
   - Gossip protocol
-  - Nodes: Light Client, Full Node, Mining
+  - Nodes: light client, full node, mining
   - Public-key cryptography
+
 - Openness: transparency
 
-### Uses
-
-- Cryptocurrencies
-  - Bitcoin (Satoshi Nakamoto)
-  - Ethereum
-- Smart contracts
-- Financial services
+- Uses
+  - Cryptocurrencies
+    - Bitcoin (Satoshi Nakamoto)
+    - Ethereum
+  - Smart contracts
+  - Financial services
 
 ### Hyperledger Fabric
 
