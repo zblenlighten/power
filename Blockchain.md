@@ -38,7 +38,8 @@
 - Nodes
   - Clients: submit transaction proposals for execution
   - Peers: execute transaction proposals and validate transactions
-    - Endorser, committer, Ledger, KVS, Gossip
+    - Endorser
+    - Committer
   - Ordering Service Nodes (OSN): collectively form the ordering service
 
 - Transaction flow
@@ -54,7 +55,7 @@
   - Peer gossip
     - The communication layer for gossip is based on gRPC and utilizes TLS with mutual authentication
   - Ledger: block store, peer transaction manager (PTM)
-    - world state (database of current values)
+    - world state (Key-Value Store of current values)
     - blockchain (transaction log, immutable)
   - Chaincode execution: Go, Java, Node.js...
   - Configuration and system chaincodes

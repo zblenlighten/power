@@ -147,12 +147,17 @@
   - Dynamic sites
     - JSP/Servlet
 
-- Framework
+- Java
   - Spring
+
+- Python
   - Flask
+
+- Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
   - Beego
+
+- Ruby
   - Rails
-  - ...
 
 ### Frontend
 
