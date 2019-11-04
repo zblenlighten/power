@@ -16,6 +16,7 @@
 
 - Decentralization (centralized example: client-server model)
   - Peer-to-peer network (nodes: light client, full node, mining)
+  - Best-effort delivery (contrast: reliable delivery)
   - Public-key cryptography
 
 - Openness: transparency
