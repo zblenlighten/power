@@ -60,7 +60,11 @@
   - Version control
   - Single vs. Multi-tenant
 
-- API Gateway
+- API
+  - Gateway
+    - Core: portal features, security, load balance, protocol transformation, routing, orchestration
+    - Admin: API lifecycle (draft, publish, upgrade, etc)
+    - Monitor: analytics, monitoring
   - Swagger
   - ~~WireMock~~
 
@@ -71,8 +75,10 @@
     - Distributed (master - slave)
 
 - Log
-  - ELK: Elasticsearch, Logstash, Kibana
-  - Graylog
+  - Tools
+    - ELK: Elasticsearch, Logstash, Kibana
+    - Graylog
+  - Stream
 
 - Operation and maintenance
   - Application performance management (APM)
@@ -83,7 +89,7 @@
     - Airflow
       - Celery
 
-- Tools
+- Other
   - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
   - Terraform
   - Google Analysis
