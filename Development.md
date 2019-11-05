@@ -44,6 +44,7 @@
 ### Infrastructure
 
 - Architecture
+  - What: organize business, technology and staff to drive business growth
   - Monolith
   - Microservice (Evolutionary architecture)
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-wordpress-tutorial.html)
@@ -51,6 +52,7 @@
     - Service discovery (SDP)
   - Serverless
     - AWS Lambda (FaaS)
+  - Event Driven
 
 - DevOps
   - Continuous integration / Continuous delivery (CI/CD)
