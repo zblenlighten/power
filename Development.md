@@ -62,9 +62,10 @@
 
 - API
   - Gateway
-    - Core: portal features, security, load balance, protocol transformation, routing, orchestration
+    - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
     - Admin: API lifecycle (draft, publish, upgrade, etc)
-    - Monitor: analytics, monitoring
+    - Monitor: logging for analytics and monitoring
+    - Open source: Kong, Traefik, Ambassador, Zuul
   - Swagger
   - ~~WireMock~~
 
