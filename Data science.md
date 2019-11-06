@@ -162,16 +162,22 @@
 
 #### Recommender system
 
-- Content-based
-- Collaborative filtering (CF)
-  - Item based
-  - User based
-- Latent Factor Model (LFM): top N recommendation
-- Neural Collaborative Filtering (NCF)
+- Match
+  - Content-based
+  - CF: Collaborative filtering (NCF: Neural Collaborative Filtering)
+    - Item based
+    - User based
+    - Cold start: new community, new item, new user)
+
+- Ranking ([CTR](https://zhuanlan.zhihu.com/p/61154299)): depends on business needs and development stage
+  - XGBoost
+  - FM, FFM, DeepFM ([说明](https://blog.csdn.net/john_xyz/article/details/78933253))
+  - [DNN](https://zhuanlan.zhihu.com/p/35484389): FNN, PNN, AFM, ect
+  - Wide&Deep
+
 - Evaluation
   - Offline
   - Online: A/B test
-- Cold start: new community, new item, new user
 
 #### Evaluation
 
