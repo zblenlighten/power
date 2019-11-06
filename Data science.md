@@ -63,6 +63,7 @@
 - More knowledge
   - Similarity measure
     - Euclidean distance
+    - Jaccard index
     - Cosine similarity
     - Hamming distance
     - Pearson correlation coefficient
