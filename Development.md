@@ -54,12 +54,6 @@
     - AWS Lambda (FaaS)
   - Event Driven
 
-- DevOps
-  - Continuous integration / Continuous delivery (CI/CD)
-    - Jenkins
-  - Version control
-  - Single vs. Multi-tenant
-
 - API
   - Gateway
     - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
@@ -76,10 +70,18 @@
     - Distributed (master - slave)
 
 - Log
-  - Tools
-    - ELK: Elasticsearch, Logstash, Kibana
-    - Graylog
-  - Stream
+  - ELK: Elasticsearch, Logstash, Kibana
+  - Graylog
+
+- Stream
+  - Spark: MapReduce, Resilient Distributed Dataset (RDD)
+  - Flink
+
+- DevOps
+  - Continuous integration / Continuous delivery (CI/CD)
+    - Jenkins
+  - Version control
+  - Single vs. Multi-tenant
 
 - Operation and maintenance
   - Application performance management (APM)
@@ -101,10 +103,6 @@
 - Protocols
   - Three-phase commit protocol (3PC)：for solving atomic commit
   - Paxos: for solving consensus in a network
-
-- Frameworks
-  - Hadoop
-    - MapReduce
 
 - Softwares
   - Zookeeper

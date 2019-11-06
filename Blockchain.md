@@ -23,7 +23,7 @@
 
 - Uses
   - Cryptocurrencies
-    - Bitcoin (Satoshi Nakamoto)
+    - Bitcoin ([Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem))
     - Ethereum
   - Smart contracts
   - Financial services
@@ -42,6 +42,7 @@
     - Endorser
     - Committer
   - Ordering Service Nodes (OSN): collectively form the ordering service
+  - Pruned nodes: remove non-critical information from local storage to have a lighter footprint
 
 - Transaction flow
   - Execution phase
