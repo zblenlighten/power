@@ -110,15 +110,14 @@
     - Early stopping
   - Gradient descent optimization
     - Adam: Momentum + RMSprop
-  - Residual block & Batch normalization
-  - [Hyperparameter optimization](https://en.wikipedia.org/wiki/Hyperparameter_optimization)
+  - Residual block & [Batch normalization](https://towardsdatascience.com/batch-normalization-theory-and-how-to-use-it-with-tensorflow-1892ca0173ad)
+  - Hyperparameter optimization
 
 - Models
-  - Computer vision
-    - VGG16
-    - CRNN
-    - YOLO
-    - ...
+  - [Keras](https://keras.io/applications/) (VGG16)
+  - [YOLO](https://medium.com/@jonathan_hui/real-time-object-detection-with-yolo-yolov2-28b1b93e2088) (IoU: Intersection over Union)
+  - CRNN ([ctc](https://github.com/tensorflow/tensorflow/blob/679f95e9d8d538c3c02c0da45606bab22a71420e/tensorflow/python/kernel_tests/ctc_loss_op_test.py))
+  - ...
 
 - [Feature engineer](https://www.quora.com/Does-deep-learning-reduce-the-importance-of-feature-engineering): Deep Feature Synthesis
 
