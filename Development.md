@@ -4,7 +4,6 @@
 
 - [Practice](#practice)
 - [Infrastructure](#infrastructure)
-- [Distributed system](#distributed-system)
 - [Data storage](#data-storage)
 - [Backend](#backend)
 - [Frontend](#frontend)
@@ -63,19 +62,36 @@
   - Swagger
   - ~~WireMock~~
 
+- Distributed algorithms
+  - Three-phase commit protocol (3PC)：for solving atomic commit
+  - Paxos: for solving consensus in a network
+
+- Message broker (Message-oriented middleware: MOM)
+  - Kafka
+    - Concepts: cluster, topics, record (key, value, timestamp)
+    - Core APIs: Producer, Consumer, Streams, Connector
+    - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
+    - Reasons to fast:
+      - Avoids Random Disk Access (sequential write)
+      - Memory Mapped Files (mmap)
+      - Zero Copy (sendfile)
+      - Batch Data in Chunks
+      - Can Scale Horizontally
+  - ActiveMQ, RabbitMQ
+
 - Search engine
   - Elasticsearch (Solr)
     - Lucene (Inverted index)
     - Restful API (HTTP)
     - Distributed (master - slave)
 
-- Log
-  - ELK: Elasticsearch, Logstash, Kibana
-  - Graylog
-
 - Stream
   - Spark: MapReduce, Resilient Distributed Dataset (RDD)
   - Flink
+
+- Log
+  - ELK: Elasticsearch, Logstash, Kibana
+  - Graylog
 
 - DevOps
   - Continuous integration / Continuous delivery (CI/CD)
@@ -97,32 +113,6 @@
   - Terraform
   - Google Analysis
   - Team Collaboration: Miro
-
-### Distributed system
-
-- Protocols
-  - Three-phase commit protocol (3PC)：for solving atomic commit
-  - Paxos: for solving consensus in a network
-
-- Softwares
-  - Zookeeper
-  - Consul
-
-- Message broker (Message-oriented middleware: MOM)
-  - Kafka
-    - Concepts: cluster, topics, record (key, value, timestamp)
-    - Core APIs: Producer, Consumer, Streams, Connector
-    - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
-    - Reasons to fast:
-      - Avoids Random Disk Access (sequential write)
-      - Memory Mapped Files (mmap)
-      - Zero Copy (sendfile)
-      - Batch Data in Chunks
-      - Can Scale Horizontally
-  - ActiveMQ, RabbitMQ
-
-- Data storage
-  - Data Replicate Center
 
 ### Data storage
 

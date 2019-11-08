@@ -263,4 +263,5 @@
   - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
 
 - Case
+  - [Seeing Theory](https://seeing-theory.brown.edu/)
   - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)

@@ -84,7 +84,7 @@
   - Python
     - Reference counting
     - Tracing: Mark-and-sweep, Generational GC
-- Process & Thread (multithreading)
+- Process (PID) & Thread (multithreading)
 - Deadlock
 - The linking process exposed: Static library (.lib) & Dynamic-link library (.dll)
 - Inter process communication (IPC)
