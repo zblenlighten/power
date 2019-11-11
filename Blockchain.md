@@ -10,25 +10,21 @@
 ### Knowledge
 
 - Block
-  - Cryptographic hash
-  - Trusted timestamping
-  - Transaction data (immutable): Merkle tree / hash tree
+  - Headers
+  - Transactions (distributed immutable ledger): Merkle tree (Cryptographic hash)
+
+- Fork
+  - Accidental fork
+  - Intentional fork
+    - Hard fork (incompatible)
+    - Soft fork
 
 - Decentralization (centralized example: client-server model)
-  - Peer-to-peer network (nodes: light client, full node, mining)
+  - Peer-to-peer network (nodes: light client, full node, miner node)
   - Best-effort delivery (contrast: reliable delivery)
-  - Public-key cryptography
+  - Public-key cryptography (UTXO represents a chain of ownership: Unspent Transaction Output)
 
-- Openness: transparency
-
-- Uses
-  - Cryptocurrencies
-    - Bitcoin ([Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem))
-    - Ethereum
-  - Smart contracts
-  - Financial services
-
-- Consensus (ensure all participating nodes come to an agreement about the true and valid state of the network)
+- Consensus Protocol (ensure all participating nodes come to an agreement about the true and valid state of the network)
   - Purposes
     - Verify the legitimacy of a transaction, avoid double-spending
     - Create new digital currencies by rewarding miners
@@ -44,6 +40,15 @@
     - Energy efficiency, security and reduced risk of centralization
   - Proof of burn
     - The more coins burned by the miner, the bigger the ensuing virtual mining rig
+
+- Openness: transparency
+
+- Uses
+  - Bitcoin ([Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem)) → SHA-256
+  - Ethereum → Keccak 256 (SHA-3)
+    - Accounts
+      - EOA: Externally Owned Accounts (private keys) → ECC: Elliptic Curve Cryptography
+      - contract accounts (contract code)
 
 ### Hyperledger Fabric
 
