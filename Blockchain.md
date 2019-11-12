@@ -24,9 +24,9 @@
   - Best-effort delivery (contrast: reliable delivery)
   - Public-key cryptography (UTXO represents a chain of ownership: Unspent Transaction Output)
 
-- Consensus Protocol (ensure all participating nodes come to an agreement about the true and valid state of the network)
+- Consensus Protocol
   - Purposes
-    - Verify the legitimacy of a transaction, avoid double-spending
+    - Verify the legitimacy of a transaction, ensure all participating nodes come to an agreement about the true and valid state of the network, avoid double-spending
     - Create new digital currencies by rewarding miners
   - Proof of work (Bitcoin mining: Hashcash)
     - Transactions are bundled together into a block

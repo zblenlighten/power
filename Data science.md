@@ -54,6 +54,8 @@
     - Word2Vec
       - Continues bag of words (CBOW)
       - Skip-gram
+  - Transformer models
+    - [Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3)
 
 - Image
   - [Image augmentation](http://imgaug.readthedocs.io)

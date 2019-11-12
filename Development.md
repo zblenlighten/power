@@ -58,7 +58,9 @@
     - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
     - Admin: API lifecycle (draft, publish, upgrade, etc)
     - Monitor: logging for analytics and monitoring
-    - Open source: Kong, Traefik, Ambassador, Zuul
+    - Kong, Traefik, Ambassador, Zuul
+  - Manager
+    - [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts)
   - Swagger
   - ~~WireMock~~
 
@@ -89,24 +91,25 @@
   - Spark: MapReduce, Resilient Distributed Dataset (RDD)
   - Flink
 
-- Log
-  - ELK: Elasticsearch, Logstash, Kibana
-  - Graylog
+- Monitoring (Operation and maintenance)
+  - Logging (Event)
+    - Collection → Transport → Storage → Analysis → Alerting
+    - ELK: Elasticsearch, Logstash, Kibana
+    - Graylog
+  - Metric ([types](https://prometheus.io/docs/concepts/metric_types/))
+  - Tracing
+  - Tools
+    - Prometheus (service oriented)
+    - Zabbix (ip oriented)
+    - ~~Dapper (APM: Application performance management)~~
+    - ~~Airflow (Workflow management)~~
+      - ~~Celery~~
 
 - DevOps
   - Continuous integration / Continuous delivery (CI/CD)
     - Jenkins
   - Version control
   - Single vs. Multi-tenant
-
-- Operation and maintenance
-  - Application performance management (APM)
-    - ~~Dapper~~
-  - Monitoring
-    - Zabbix
-  - Workflow management
-    - Airflow
-      - Celery
 
 - Other
   - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
@@ -135,6 +138,9 @@
   - Document: MongoDB
   - Wide-column: HBase
   - Graph
+
+- Hadoop
+  - Hadoop Distributed File System (HDFS): MapReduce
 
 ### Backend
 

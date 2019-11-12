@@ -84,11 +84,19 @@
   - Python
     - Reference counting
     - Tracing: Mark-and-sweep, Generational GC
-- Process (PID) & Thread (multithreading)
-- Deadlock
+
+- Process (PID) & Thread (multi-threading)
+  - Deadlock (concurrent computing)
+  - Inter process communication (IPC)
+    - Remote procedure call (RPC)
+
 - The linking process exposed: Static library (.lib) & Dynamic-link library (.dll)
-- Inter process communication (IPC)
-  - Remote procedure call (RPC)
+
+- Access control list (ACL)
+  - Filesystem ACL
+  - Networking ACL
+  - SQL ACL
+
 - Linux
   - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
   - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/)
