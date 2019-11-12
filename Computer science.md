@@ -69,7 +69,7 @@
   10. ...
 
 - Time complexity
-  - General [Big-O](https://www.bigocheatsheet.com/) ([Python](https://wiki.python.org/moin/TimeComplexity))
+  - General [Big-O](https://linux.cn/article-7480-1.html) ([Python](https://wiki.python.org/moin/TimeComplexity))
 
 ### Operating system
 
