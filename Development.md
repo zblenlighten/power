@@ -150,6 +150,16 @@
   - Dynamic sites
     - JSP/Servlet
 
+- Authentication
+  - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html): token
+  - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
+
+- Security
+  - Cryptographic hash function: MD5 (rainbow table)
+  - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
+  - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
+    - cookie
+
 - Java
   - Spring
 
@@ -178,16 +188,7 @@
   - HTML
   - SVG
   - XML
-
-- Authentication
-  - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html): token
-  - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
-
-- Security
-  - Cryptographic hash function: MD5 (rainbow table)
-  - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
-  - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
-    - cookie
+  - SOAP: Simple Object Access Protocol
 
 ### System design
 

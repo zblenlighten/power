@@ -47,7 +47,7 @@
   - Bitcoin ([Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem)) → SHA-256
   - Ethereum → Keccak 256 (SHA-3)
     - Accounts
-      - EOA: Externally Owned Accounts (private keys) → ECC: Elliptic Curve Cryptography
+      - EOA: externally owned accounts (private keys) → ECC: Elliptic Curve Cryptography
       - contract accounts (contract code)
 
 ### Hyperledger Fabric
