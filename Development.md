@@ -88,8 +88,13 @@
     - Distributed (master - slave)
 
 - Stream
-  - Spark: MapReduce, Resilient Distributed Dataset (RDD)
+  - Spark: Resilient Distributed Dataset (RDD)
   - Flink
+
+- Batch
+  - MapReduce
+  - Airflow (Workflow management)
+    - ~~Celery~~
 
 - Monitoring (Operation and maintenance)
   - Logging (Event)
@@ -102,8 +107,6 @@
     - Prometheus (service oriented)
     - Zabbix (ip oriented)
     - ~~Dapper (APM: Application performance management)~~
-    - ~~Airflow (Workflow management)~~
-      - ~~Celery~~
 
 - DevOps
   - Continuous integration / Continuous delivery (CI/CD)
