@@ -150,7 +150,11 @@
   - Dynamic sites
     - JSP/Servlet
 
-- Authentication
+- Authentication: you are who you say you are
+  - OpenID
+  - Public-key cryptography
+
+- Authorization: you are permitted to do what you are trying to do
   - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html): token
   - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
 
