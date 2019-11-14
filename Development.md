@@ -152,6 +152,7 @@
 
 - Authentication: you are who you say you are
   - OpenID
+  - Cryptographic hash function: MD5 (rainbow table)
   - Public-key cryptography
 
 - Authorization: you are permitted to do what you are trying to do
@@ -189,7 +190,6 @@
   - SOAP: Simple Object Access Protocol
 
 - Security
-  - Cryptographic hash function: MD5 (rainbow table)
   - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
   - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
     - cookie
