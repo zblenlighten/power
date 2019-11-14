@@ -197,12 +197,5 @@ Read 1 MB sequentially from disk    30,000,000   ns   30,000 us   30 ms 120x mem
 Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
 ```
 
-| Operation  | SQL  | HTTP  | RESTful WS  | DDS  |
-|---|---|---|---|---|
-| **C**reate | INSERT | PUT / POST | POST | write |
-| **R**ead (Retrieve) | SELECT | GET | GET | read / take |
-| **U**pdate (Modify) | UPDATE | PUT / POST / PATCH | PUT | write |
-| **D**elete (Destroy) | DELETE | DELETE | DELETE | dispose |
-
 &emsp; [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)  
 &emsp; [記号と読み方](https://memotec.net/etc/mark.html)  
