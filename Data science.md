@@ -58,8 +58,7 @@
     - [Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3)
 
 - Image
-  - [Image augmentation](http://imgaug.readthedocs.io)
-    - Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
+  - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
   - Label
 
 - More knowledge
@@ -71,6 +70,12 @@
     - Pearson correlation coefficient
     - Information entropy
   - Ranking
+    - [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html)
+    - [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html)
+    - [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html)
+    - [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html)
+    - [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html)
+    - [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
   - Natural Language Processing
     - Bag of Words & N-gram: article vector (each dimension is the tf–idf of the word) → Cosine distance
     - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance / Euclidean distance (WMD: Word Mover's Distance)
@@ -231,6 +236,7 @@
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
   - [Simpson's paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox)
   - [St. Petersburg paradox](https://en.wikipedia.org/wiki/St._Petersburg_paradox)
+  - [三个反直觉的概率问题](https://www.itcodemonkey.com/article/15500.html)
 
 ### Deployment
 
@@ -255,7 +261,8 @@
 | Latency for prediction  | So so  | High  | Very low  | Low  |
 | System management difficulty  | So so  | Easy  | Very hard  | So so  |
 
-- Examples
+- References
+  - [Architect a ML pipeline](https://towardsdatascience.com/architecting-a-machine-learning-pipeline-a847f094d1c7)
   - Google: [TFX](https://www.tensorflow.org/tfx)
   - Facebook: [FBLearner Flow](https://engineering.fb.com/core-data/introducing-fblearner-flow-facebook-s-ai-backbone/)
 

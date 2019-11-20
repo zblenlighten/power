@@ -21,7 +21,7 @@
     - Who, What, Why, Acceptance Criteria (AC)
   - Website wireframe design (Adobe XD)
   - Database design
-  - Coding & QA
+  - Development & QA
   - Release
   - Maintenance & Iterative and incremental development
 
@@ -46,7 +46,7 @@
   - What: organize business, technology and staff to drive business growth
   - Monolith
   - Microservice (Evolutionary architecture)
-    - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-wordpress-tutorial.html)
+    - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
     - Kubernetes
     - Service discovery (SDP)
   - Serverless
@@ -127,23 +127,29 @@
     - Pessimistic locking
     - Optimistic locking
   - SnowFlake
-  - Sharding: response time (a type of horizontal partition)
-  - Database tuning
+  - Scaling
+    - Read/Write Split (read/write master database and read-only slaves)
+    - [Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding): speed up query response time (a type of horizontal partition)
 
 - [Cache](https://en.wikipedia.org/wiki/Cache_(computing))
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
+  - Cache coherence: Distributed lock manager (DLM): Chubby, ZooKeeper
 
 - SQL DBMS
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
 
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
-  - Key-value: LevelDB, Dynamo, Redis
+  - Key-value: LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
   - Document: MongoDB
   - Wide-column: HBase
   - Graph
 
 - Hadoop
   - Hadoop Distributed File System (HDFS): MapReduce
+
+- Comparison
+  - Database: Oracle, Mysql, PostgreSQL
+  - Data warehouse: Redshift, Hive, Greenplum (OLTP: Online analytical processing Database)
 
 ### Backend
 
@@ -227,3 +233,6 @@
       - URL redirection (302)
 
   4. Twitter / News feed
+
+- references
+  - [服务端高并发分布式架构演进之路](https://segmentfault.com/a/1190000018626163)

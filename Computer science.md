@@ -129,8 +129,11 @@
     - HTTP (TCP/IP)
       - HTTP/2
       - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
-    - DHCP (UDP)
+    - Dynamic Host Configuration Protocol (DHCP): User Datagram Protocol (UDP)
     - ~~WebSocket~~
+    - Communication
+      - client → server: pull/get
+      - server/publisher → client: push
 
 #### What happens when type in a URL?
 
@@ -142,9 +145,9 @@
       - Request message: request line, request header fields, empty line, message body
 3. Browser → Network Interface Card (NIC) → Wifi router → Internet → Host server
 4. Host server:
-    - Inverse proxy: Nginx
-      - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
-      - Virtual IP
+    - Inverse proxy
+    - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
+      - Nginx
     - Web server: Common Gateway Interface (CGI)...
     - Web framework
       - MVC: Model, View, Controller
@@ -163,6 +166,9 @@
       - Paint the render tree (takes in the final render tree and renders the pixels to the screen)
     - **TCP four-way handshake**
 6. Browser → LCD screen
+
+- References
+  - [一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830)
 
 ### Wiki
 
