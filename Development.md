@@ -196,7 +196,6 @@
   - HTML
   - SVG
   - XML
-  - SOAP: Simple Object Access Protocol
 
 - Security
   - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
