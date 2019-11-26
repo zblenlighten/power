@@ -16,13 +16,11 @@
 - WBS: Work breakdown structure
   - RfQ: Request for quotation
   - POC: Proof of concept
-  - Feature (list)
-  - [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
+  - Feature (list) & [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
     - Who, What, Why, Acceptance Criteria (AC)
   - Website wireframe design (Adobe XD)
-  - Database design
-  - Development & QA
-  - Release
+  - Software architecture design (Database, ...)
+  - Coding, testing, pull request, release
   - Maintenance & Iterative and incremental development
 
 - Methodology
@@ -51,7 +49,7 @@
     - Service discovery (SDP)
   - Serverless
     - AWS Lambda (FaaS)
-  - Event Driven
+  - ~~Event Driven~~
 
 - API
   - Gateway
@@ -139,7 +137,7 @@
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
 
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
-  - Key-value: LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
+  - Key-value: **LevelDB**, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
   - Document: MongoDB
   - Wide-column: HBase
   - Graph
@@ -163,6 +161,7 @@
   - OpenID
   - Cryptographic hash function: MD5 (rainbow table)
   - Public-key cryptography
+  - Hash-based message authentication code (HMAC)
 
 - Authorization: you are permitted to do what you are trying to do
   - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html): token
@@ -184,10 +183,10 @@
 
 - JavaScript
   - Node.js
-    - npm
   - Vue
+    - Model–view–viewmodel (MVVM)
     - Vuex
-  - Rich Text Editor: Froala
+  - Rich Text Editor
   - Business Process Model and Notation (BPMN): Rappid
 
 - WWW standards

@@ -11,18 +11,13 @@
 
 - Block
   - Headers
-  - Transactions (distributed immutable ledger): Merkle tree (Cryptographic hash)
+  - Transactions (distributed immutable ledger): Merkle tree → Cryptographic hash
 
 - Fork
   - Accidental fork
   - Intentional fork
     - Hard fork (incompatible)
     - Soft fork
-
-- Decentralization (centralized example: client-server model)
-  - Peer-to-peer network (nodes: light client, full node, miner node)
-  - Best-effort delivery (contrast: reliable delivery)
-  - Public-key cryptography (UTXO represents a chain of ownership: Unspent Transaction Output)
 
 - Consensus Protocol
   - Purposes
@@ -31,7 +26,7 @@
   - Proof of work (Bitcoin mining: Hashcash)
     - Transactions are bundled together into a block
     - Miners verify transactions within each block are legitimate
-    - Miners solve proof-of-work problem: inverse hashing (by computational resources)
+    - Miners solve proof-of-work problem (inverse hashing) by computational resources
     - A cryptocurrency prize provided by the protocol (reward) is given to the first miner who solves each blocks problem
     - Verified transactions are stored in the public blockchain
   - Proof of stake
@@ -40,6 +35,11 @@
     - Energy efficiency, security and reduced risk of centralization
   - Proof of burn
     - The more coins burned by the miner, the bigger the ensuing virtual mining rig
+
+- Decentralization (centralized example: client-server model)
+  - Peer-to-peer network (nodes: light client, full node, miner node)
+  - Best-effort delivery (contrast: reliable delivery)
+  - Public-key cryptography (Unspent Transaction Output (UTXO) represents a chain of ownership)
 
 - Openness: transparency
 
