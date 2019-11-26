@@ -159,7 +159,7 @@
 
 - Authentication: you are who you say you are
   - OpenID
-  - Cryptographic hash function: MD5 (rainbow table)
+  - Cryptographic hash function: MD5 (rainbow table), Secure Hash Algorithm (SHA)
   - Public-key cryptography
   - Hash-based message authentication code (HMAC)
 
