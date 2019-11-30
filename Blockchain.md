@@ -38,7 +38,7 @@
 
 - Decentralization (centralized example: client-server model)
   - Peer-to-peer network (nodes: light client, full node, miner node)
-  - Best-effort delivery (contrast: reliable delivery)
+  - Best-effort delivery (vs: reliable delivery)
   - Public-key cryptography (Unspent Transaction Output (UTXO) represents a chain of ownership)
 
 - Openness: transparency

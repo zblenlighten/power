@@ -73,7 +73,7 @@
 
 ### Operating system
 
-- Garbage Collection
+- Garbage Collection (Implicit Memory Allocator, vs: Explicit Allocator)
   - Java (JVM heap parts)
     - Young Generation: minor GC
       - Eden
@@ -85,17 +85,19 @@
     - Reference counting
     - Tracing: Mark-and-sweep, Generational GC
 
-- Process (PID) & Thread (multi-threading)
-  - Deadlock (concurrent computing)
+- Process & Thread
   - Inter process communication (IPC)
     - Remote procedure call (RPC)
+  - Deadlock (concurrency)
 
-- The linking process exposed: Static library (.lib) & Dynamic-link library (.dll)
-
-- Access control list (ACL)
-  - Filesystem ACL
-  - Networking ACL
-  - SQL ACL
+- I/O
+  - Blocking (vs: Non-blocking)：connection is blocked until there is some data to read or the data is fully written
+  - Synchronous (vs: Asynchronous)：code executing in sequence
+  - File
+    - Regular file
+    - Directory
+      - Linking: Static library (.lib) & Dynamic-link library (.dll)
+    - Socket
 
 - Linux
   - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
@@ -110,6 +112,11 @@
     - Networking
     - [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
 
+- Access control list (ACL)
+  - Filesystem ACL
+  - Networking ACL
+  - SQL ACL
+
 ### Network
 
 #### Internet Protocol Suite
@@ -117,23 +124,30 @@
 1. Physical Layer: Hub
 2. Data Link Layer: Switch
     - MAC address
+    - Network Interface Card (NIC)
 3. Network Layer: Router
     - Internet Protocol (IP): IPv4, IPv6
       - Network address translation (NAT)
     - Address Resolution Protocol (ARP)
 4. Transport Layer
     - Socket: IP + port
-    - Transmission Control Protocol ([TCP](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html))
+      - Transmission Control Protocol ([TCP](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html))
+      - User Datagram Protocol (UDP)
+      - Call: connect, bind, listen, accept, send, recv
+      - **Echo server**
     - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
+      - OpenSSL
+      - Network security services (NSS)
 7. Application Layer
-    - HTTP (TCP/IP)
+    - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): request & response
       - HTTP/2
       - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
-    - Dynamic Host Configuration Protocol (DHCP): User Datagram Protocol (UDP)
-    - ~~WebSocket~~
+      - **Web server**: Common Gateway Interface (CGI)
+    - File Transfer Protocol (FTP)
+    - Dynamic Host Configuration Protocol (DHCP)
     - Communication
       - client → server: pull/get
-      - server/publisher → client: push
+      - server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
 
 #### What happens when type in a URL?
 
@@ -143,12 +157,11 @@
     - **TCP three-way handshake**
     - **HTTP request**
       - Request message: request line, request header fields, empty line, message body
-3. Browser → Network Interface Card (NIC) → Wifi router → Internet → Host server
+3. Browser → NIC → Wifi router → Global IP Network (Internet) → NIC → Host server
 4. Host server:
     - Inverse proxy
     - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
       - Nginx
-    - Web server: Common Gateway Interface (CGI)...
     - Web framework
       - MVC: Model, View, Controller
 5. Host server → Host client:
@@ -168,6 +181,7 @@
 6. Browser → LCD screen
 
 - References
+  - [curl指南1](http://www.ruanyifeng.com/blog/2011/09/curl.html), [curl指南2](https://www.ruanyifeng.com/blog/2019/09/curl-reference.html)
   - [一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830)
 
 ### Wiki

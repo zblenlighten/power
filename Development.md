@@ -59,8 +59,9 @@
     - Kong, Traefik, Ambassador, Zuul
   - Manager
     - [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts)
-  - Swagger
   - ~~WireMock~~
+  - Swagger
+  - [API Design](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf) (backward compatibility and new releases)
 
 - Distributed algorithms
   - Three-phase commit protocol (3PC)：for solving atomic commit
@@ -185,6 +186,9 @@
   - Node.js
   - Vue
     - Model–view–viewmodel (MVVM)
+      - Model: JavaScript
+      - View: HTML
+      - two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416)）
     - Vuex
   - Rich Text Editor
   - Business Process Model and Notation (BPMN): Rappid
