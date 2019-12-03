@@ -85,10 +85,15 @@
     - Reference counting
     - Tracing: Mark-and-sweep, Generational GC
 
-- Process & Thread
+- Process & Thread (task execution)
   - Inter process communication (IPC)
     - Remote procedure call (RPC)
-  - Deadlock (concurrency)
+  - Concurrency
+    - Process (fork, exec, waitpid, IPC)
+    - I/O multiplexing
+    - Multithreading
+    - Can be achieved via context-switching in a single core, and parallelism in a multi-core
+    - Deadlock: Mutual exclusion, Hold and wait or resource holding, No preemption, Circular wait
 
 - I/O
   - Blocking (vs: Non-blocking)：connection is blocked until there is some data to read or the data is fully written
@@ -100,8 +105,9 @@
     - Socket
 
 - Linux
+  - [User space vs. Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)
   - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
-  - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/)
+  - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([命令大全](https://man.linuxde.net/))
     - Files and Directories: cat, grep
     - Manipulating data: wc, sed, sort, uniq, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html)
     - File Editors
@@ -181,7 +187,7 @@
 6. Browser → LCD screen
 
 - References
-  - [curl指南1](http://www.ruanyifeng.com/blog/2011/09/curl.html), [curl指南2](https://www.ruanyifeng.com/blog/2019/09/curl-reference.html)
+  - curl(client + url): [指南1](http://www.ruanyifeng.com/blog/2011/09/curl.html), [指南2](https://www.ruanyifeng.com/blog/2019/09/curl-reference.html)
   - [一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830)
 
 ### Wiki

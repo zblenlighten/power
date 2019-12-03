@@ -49,7 +49,6 @@
     - Service discovery (SDP)
   - Serverless
     - AWS Lambda (FaaS)
-  - ~~Event Driven~~
 
 - API
   - Gateway
@@ -59,9 +58,9 @@
     - Kong, Traefik, Ambassador, Zuul
   - Manager
     - [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts)
-  - ~~WireMock~~
   - Swagger
   - [API Design](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf) (backward compatibility and new releases)
+  - ~~WireMock~~
 
 - Distributed algorithms
   - Three-phase commit protocol (3PC)：for solving atomic commit
@@ -75,7 +74,7 @@
     - Reasons to fast:
       - Avoids Random Disk Access (sequential write)
       - Memory Mapped Files (mmap)
-      - Zero Copy (sendfile)
+      - Zero Copy ([原理](https://www.jianshu.com/p/2581342317ce))
       - Batch Data in Chunks
       - Can Scale Horizontally
   - ActiveMQ, RabbitMQ
@@ -95,7 +94,7 @@
   - Airflow (Workflow management)
     - ~~Celery~~
 
-- Monitoring (Operation and maintenance)
+- Monitoring
   - Logging (Event)
     - Collection → Transport → Storage → Analysis → Alerting
     - ELK: Elasticsearch, Logstash, Kibana
@@ -111,6 +110,9 @@
   - Continuous integration / Continuous delivery (CI/CD)
     - Jenkins
   - Version control
+  - Configuration
+    - Ansible
+    - Puppet
   - Single vs. Multi-tenant
 
 - Other
