@@ -19,7 +19,7 @@
   - Feature (list) & [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
     - Who, What, Why, Acceptance Criteria (AC)
   - Website wireframe design (Adobe XD)
-  - Software architecture design (Database, ...)
+  - Software architecture design
   - Coding, testing, pull request, release
   - Maintenance & Iterative and incremental development
 
@@ -51,7 +51,7 @@
     - AWS Lambda (FaaS)
 
 - API
-  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Zuul, Traefik, Ambassador, ...
+  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Zuul, ...
   - Gateway
     - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
     - Admin: API lifecycle (draft, publish, upgrade, etc)
@@ -173,10 +173,11 @@
     - JSP/Servlet
 
 - Authentication: you are who you say you are
-  - OpenID
+  - ~~OpenID~~
   - Cryptographic hash function: MD5 (rainbow table), Secure Hash Algorithm (SHA)
   - Public-key cryptography
   - Hash-based message authentication code (HMAC)
+  - Kerberos (kinit, rlogin, ...)
 
 - Authorization: you are permitted to do what you are trying to do
   - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html): token
