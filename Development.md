@@ -51,20 +51,21 @@
     - AWS Lambda (FaaS)
 
 - API
+  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Zuul, Traefik, Ambassador, ...
   - Gateway
     - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
     - Admin: API lifecycle (draft, publish, upgrade, etc)
     - Monitor: logging for analytics and monitoring
-    - Kong, Traefik, Ambassador, Zuul
-  - Manager
-    - [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts)
   - Swagger
   - [API Design](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf) (backward compatibility and new releases)
   - ~~WireMock~~
 
-- Distributed algorithms
+- Distributed system
   - Three-phase commit protocol (3PC)：for solving atomic commit
   - Paxos: for solving consensus in a network
+  - RPC
+    - Dubbo
+    - gRPC
 
 - Message broker (Message-oriented middleware: MOM)
   - Kafka
@@ -123,7 +124,10 @@
 
 ### Data storage
 
-- Components
+- Knowledge
+  - Engines
+    - log-structure storage (SSTable → LSM Tree)
+    - page-oriented storage (B tree)
   - Concurrency control
     - Pessimistic locking
     - Optimistic locking
@@ -132,12 +136,19 @@
     - Read/Write Split (read/write master database and read-only slaves)
     - [Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding): speed up query response time (a type of horizontal partition)
 
-- [Cache](https://en.wikipedia.org/wiki/Cache_(computing))
-  - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
-  - Cache coherence: Distributed lock manager (DLM): Chubby, ZooKeeper
+- File System
+  - Linux (inode)
+  - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
+  - Hadoop Distributed File System (HDFS): MapReduce/Spark
+    - DataNode
+    - NameNode
 
-- SQL DBMS
+- RDBMS
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
+  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (InnoDB, MyIsam)
+  - PrepareStatement
+    - Get pre compiled and access plan cached in database
+    - Prevents SQL Injection attacks
 
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
   - Key-value: **LevelDB**, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
@@ -145,10 +156,11 @@
   - Wide-column: HBase
   - Graph
 
-- Hadoop
-  - Hadoop Distributed File System (HDFS): MapReduce
+- [Cache](https://en.wikipedia.org/wiki/Cache_(computing))
+  - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
+  - Cache coherence: Distributed lock manager (DLM): Chubby, ZooKeeper
 
-- Comparison
+- Business Intelligence
   - Database: Oracle, Mysql, PostgreSQL
   - Data warehouse: Redshift, Hive, Greenplum (OLTP: Online analytical processing Database)
 

@@ -74,13 +74,14 @@
 ### Operating system
 
 - Garbage Collection (Implicit Memory Allocator, vs: Explicit Allocator)
-  - Java (JVM heap parts)
+  - Java (JVM heap)
     - Young Generation: minor GC
       - Eden
-      - Survivor
-      - semi-Spaces
-    - Old or Tenured Generation: major GC
-    - Permanent Generation
+      - From (Survivor)
+      - To
+    - Old Generation: major GC
+    - Permanent Generation: full GC
+    - Collector: G1 (Serial, Parallel, CMS)
   - Python
     - Reference counting
     - Tracing: Mark-and-sweep, Generational GC
@@ -94,10 +95,13 @@
     - Multithreading
     - Can be achieved via context-switching in a single core, and parallelism in a multi-core
     - Deadlock: Mutual exclusion, Hold and wait or resource holding, No preemption, Circular wait
+    - Time-sharing: CPU
+    - Sharding: RAM
 
 - I/O
   - Blocking (vs: Non-blocking)：connection is blocked until there is some data to read or the data is fully written
-  - Synchronous (vs: Asynchronous)：code executing in sequence
+    - Possible causes: I/O, lock, network request, database connection
+  - Synchronous (vs: Asynchronous)：code executing in sequence (one at a time)
   - File
     - Regular file
     - Directory
@@ -117,6 +121,7 @@
     - Messages between Users
     - Networking
     - [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
+    - [Explain shell](https://www.explainshell.com/)
 
 - Access control list (ACL)
   - Filesystem ACL
@@ -129,10 +134,10 @@
 
 1. Physical Layer: Hub
 2. Data Link Layer: Switch
-    - MAC address
+    - **MAC** address
     - Network Interface Card (NIC)
 3. Network Layer: Router
-    - Internet Protocol (IP): IPv4, IPv6
+    - Internet Protocol (**IP**)
       - Network address translation (NAT)
     - Address Resolution Protocol (ARP)
 4. Transport Layer
@@ -140,7 +145,7 @@
       - Transmission Control Protocol ([TCP](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html))
       - User Datagram Protocol (UDP)
       - Call: connect, bind, listen, accept, send, recv
-      - **Echo server**
+      - Echo server
     - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
       - OpenSSL
       - Network security services (NSS)
@@ -148,7 +153,7 @@
     - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): request & response
       - HTTP/2
       - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
-      - **Web server**: Common Gateway Interface (CGI)
+      - Web server: Common Gateway Interface (CGI)
     - File Transfer Protocol (FTP)
     - Dynamic Host Configuration Protocol (DHCP)
     - Communication
