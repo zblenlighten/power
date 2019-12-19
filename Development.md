@@ -51,7 +51,7 @@
     - AWS Lambda (FaaS)
 
 - API
-  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Zuul, ...
+  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul, ...
   - Gateway
     - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
     - Admin: API lifecycle (draft, publish, upgrade, etc)
@@ -137,7 +137,7 @@
     - [Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding): speed up query response time (a type of horizontal partition)
 
 - File System
-  - Linux (inode)
+  - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
   - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
   - Hadoop Distributed File System (HDFS): MapReduce/Spark
     - DataNode
@@ -151,7 +151,7 @@
     - Prevents SQL Injection attacks
 
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
-  - Key-value: **LevelDB**, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
+  - Key-value: LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
   - Document: MongoDB
   - Wide-column: HBase
   - Graph
@@ -163,6 +163,9 @@
 - Business Intelligence
   - Database: Oracle, Mysql, PostgreSQL
   - Data warehouse: Redshift, Hive, Greenplum (OLTP: Online analytical processing Database)
+
+- References
+  - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
 
 ### Backend
 

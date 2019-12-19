@@ -111,7 +111,7 @@
 - Linux
   - [User space vs. Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)
   - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
-  - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([命令大全](https://man.linuxde.net/))
+  - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([命令大全](https://man.linuxde.net/), [Explain shell](https://www.explainshell.com/))
     - Files and Directories: cat, grep
     - Manipulating data: wc, sed, sort, uniq, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html)
     - File Editors
@@ -121,7 +121,6 @@
     - Messages between Users
     - Networking
     - [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
-    - [Explain shell](https://www.explainshell.com/)
 
 - Access control list (ACL)
   - Filesystem ACL
@@ -154,6 +153,7 @@
       - HTTP/2
       - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
       - Web server: Common Gateway Interface (CGI)
+      - Client IP: X-Real-IP Header, X-Forwarded-For Header, remote_addr
     - File Transfer Protocol (FTP)
     - Dynamic Host Configuration Protocol (DHCP)
     - Communication
@@ -172,7 +172,7 @@
 4. Host server:
     - Inverse proxy
     - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
-      - Nginx
+      - Nginx (epoll)
     - Web framework
       - MVC: Model, View, Controller
 5. Host server → Host client:
@@ -192,6 +192,7 @@
 6. Browser → LCD screen
 
 - References
+  - systemd: [一](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html), [二](https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html), [三](http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html)
   - curl(client + url): [指南1](http://www.ruanyifeng.com/blog/2011/09/curl.html), [指南2](https://www.ruanyifeng.com/blog/2019/09/curl-reference.html)
   - [一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830)
 
@@ -228,5 +229,6 @@ Read 1 MB sequentially from disk    30,000,000   ns   30,000 us   30 ms 120x mem
 Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
 ```
 
-&emsp; [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)  
-&emsp; [記号と読み方](https://memotec.net/etc/mark.html)  
+&emsp;(1) [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)  
+&emsp;(2) [記号と読み方](https://memotec.net/etc/mark.html)  
+&emsp;(3) [Falsehoods CS Students (Still) Believe Upon Graduating](https://www.netmeister.org/blog/cs-falsehoods.html)
