@@ -1,5 +1,13 @@
 # Knowledge Memo
 
+## Blogs
+
+- [Netflix](https://medium.com/netflix-techblog)
+- [Airbnb](https://medium.com/airbnb-engineering)
+- [Uber](https://eng.uber.com/)
+- [Linkedin](https://engineering.linkedin.com/blog)
+- [Facebook](https://engineering.fb.com)
+
 ## Contents
 
 - [Practice](#practice)
@@ -81,7 +89,7 @@
   - ActiveMQ, RabbitMQ
 
 - Search engine
-  - Elasticsearch (Solr)
+  - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (Solr)
     - Lucene (Inverted index)
     - Restful API (HTTP)
     - Distributed (master - slave)
@@ -112,7 +120,7 @@
     - Jenkins
   - Version control
   - Configuration
-    - Ansible
+    - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Puppet
   - Single vs. Multi-tenant
 
@@ -173,18 +181,7 @@
   - Static sites
     - Content delivery network (CDN): push, pull
   - Dynamic sites
-    - JSP/Servlet
-
-- Authentication: you are who you say you are
-  - ~~OpenID~~
-  - Cryptographic hash function: MD5 (rainbow table), Secure Hash Algorithm (SHA)
-  - Public-key cryptography
-  - Hash-based message authentication code (HMAC)
-  - Kerberos (kinit, rlogin, ...)
-
-- Authorization: you are permitted to do what you are trying to do
-  - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html): token
-  - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
+    - JSP/Servlet: Tomcat
 
 - Java
   - Spring

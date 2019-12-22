@@ -122,11 +122,6 @@
     - Networking
     - [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
 
-- Access control list (ACL)
-  - Filesystem ACL
-  - Networking ACL
-  - SQL ACL
-
 ### Network
 
 #### Internet Protocol Suite
@@ -154,6 +149,10 @@
       - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
       - Web server: Common Gateway Interface (CGI)
       - Client IP: X-Real-IP Header, X-Forwarded-For Header, remote_addr
+    - RESTful ([API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html))
+      - Resources: Uniform Resource Identifier (URI)
+      - Representation: [MIME type / content type](https://en.wikipedia.org/wiki/Media_type)
+      - State Transfer: request methods
     - File Transfer Protocol (FTP)
     - Dynamic Host Configuration Protocol (DHCP)
     - Communication
@@ -190,6 +189,29 @@
       - Paint the render tree (takes in the final render tree and renders the pixels to the screen)
     - **TCP four-way handshake**
 6. Browser → LCD screen
+
+- Network security
+  - Cryptography
+    - Symmetric-key algorithm
+    - Public-key cryptography
+    - Cryptographic hash function
+      - Common functions: MD5 (rainbow table), Secure Hash Algorithm (SHA)
+      - MAC functions: Hash-based message authentication code (HMAC)
+  - Authentication (verifies you are who you say you are)
+    - Login form
+    - HTTP authentication
+  - Authorization ( decides if you have permission to access a resource)
+    - URL access controls
+    - Access control list (ACL)
+      - Filesystem ACL
+      - Networking ACL
+      - SQL ACL
+  - Protocols
+    - Central Authentication Service (CAS): single sign-on (SSO)
+    - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
+    - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
+    - ~~OpenID~~
+    - Kerberos (kinit, rlogin, ...)
 
 - References
   - systemd: [一](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html), [二](https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html), [三](http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html)
