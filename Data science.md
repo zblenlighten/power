@@ -97,7 +97,7 @@
 
 - Neural network
   - Feed forward
-  - Gradient descent
+  - Gradient descent (vs: gradient ascent)
   - Global minimum
   - Back propagation
 

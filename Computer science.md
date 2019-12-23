@@ -200,7 +200,7 @@
   - Authentication (verifies you are who you say you are)
     - Login form
     - HTTP authentication
-  - Authorization ( decides if you have permission to access a resource)
+  - Authorization (decides if you have permission to access a resource)
     - URL access controls
     - Access control list (ACL)
       - Filesystem ACL
