@@ -112,7 +112,7 @@
   - [User space vs. Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)
   - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
   - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([命令大全](https://man.linuxde.net/), [Explain shell](https://www.explainshell.com/))
-    - Files and Directories: cat, grep
+    - Files and Directories: cat, grep, find
     - Manipulating data: wc, sed, sort, uniq, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html)
     - File Editors
     - Compressed files
@@ -144,14 +144,23 @@
       - OpenSSL
       - Network security services (NSS)
 7. Application Layer
-    - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): request & response
-      - HTTP/2
-      - [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
-      - Web server: Common Gateway Interface (CGI)
-      - Client IP: X-Real-IP Header, X-Forwarded-For Header, remote_addr
+    - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): HTTP/2, [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html), ...
+      - HTTP Headers
+        - [Content type / MIME type](https://en.wikipedia.org/wiki/Media_type)
+        - Client IP: X-Real-IP Header, X-Forwarded-For Header, remote_addr
+      - HTTP request methods: GET, POST, ...
+      - HTTP status response codes
+        - 2xx (Successful): The request was successfully received, understood and accepted
+        - 3xx (Redirection): Further action needs to be taken in order to complete the request
+        - 4xx (Client Error): The request contains bad syntax or cannot be fulfilled
+        - 5xx (Server Error): The server failed to fulfill an apparently valid request
+      - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
+      - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
+        - cookie
+      - [A typical HTTP session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
     - RESTful ([API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html))
       - Resources: Uniform Resource Identifier (URI)
-      - Representation: [MIME type / content type](https://en.wikipedia.org/wiki/Media_type)
+      - Representation: MIME type
       - State Transfer: request methods
     - File Transfer Protocol (FTP)
     - Dynamic Host Configuration Protocol (DHCP)
@@ -172,15 +181,11 @@
     - Inverse proxy
     - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
       - Nginx (epoll)
+    - Web server: Common Gateway Interface (CGI)
     - Web framework
       - MVC: Model, View, Controller
 5. Host server → Host client:
     - **The server handles the request and sends back an HTTP response**
-      - HTTP status
-        - 2xx (Successful): The request was successfully received, understood and accepted
-        - 3xx (Redirection): Further action needs to be taken in order to complete the request
-        - 4xx (Client Error): The request contains bad syntax or cannot be fulfilled
-        - 5xx (Server Error): The server failed to fulfill an apparently valid request
     - **The browser displays the HTML content**: [Chromium](https://www.chromium.org/developers/design-documents/multi-process-architecture)
       - Parsing HTML to construct the DOM tree
       - Turning CSS into the CSS Object Model

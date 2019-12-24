@@ -103,7 +103,7 @@
   - Airflow (Workflow management)
     - ~~Celery~~
 
-- Monitoring
+- Monitor
   - Logging (Event)
     - Collection → Transport → Storage → Analysis → Alerting
     - ELK: Elasticsearch, Logstash, Kibana
@@ -156,7 +156,7 @@
   - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (InnoDB, MyIsam)
   - PrepareStatement
     - Get pre compiled and access plan cached in database
-    - Prevents SQL Injection attacks
+    - Prevent SQL Injection attacks
 
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
   - Key-value: LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
@@ -214,11 +214,6 @@
   - HTML
   - SVG
   - XML
-
-- Security
-  - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
-  - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
-    - cookie
 
 ### System design
 
