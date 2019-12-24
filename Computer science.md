@@ -144,20 +144,23 @@
       - OpenSSL
       - Network security services (NSS)
 7. Application Layer
-    - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): HTTP/2, [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html), ...
-      - HTTP Headers
+    - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
+      - Headers
         - [Content type / MIME type](https://en.wikipedia.org/wiki/Media_type)
         - Client IP: X-Real-IP Header, X-Forwarded-For Header, remote_addr
-      - HTTP request methods: GET, POST, ...
-      - HTTP status response codes
+      - Request 
+        - Methods: GET, POST, ...
+        - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages): request line, request header fields, empty line, message body
+      - Status response codes
         - 2xx (Successful): The request was successfully received, understood and accepted
         - 3xx (Redirection): Further action needs to be taken in order to complete the request
         - 4xx (Client Error): The request contains bad syntax or cannot be fulfilled
         - 5xx (Server Error): The server failed to fulfill an apparently valid request
-      - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
+      - Security
+        - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
       - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
         - cookie
-      - [A typical HTTP session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
+      - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
     - RESTful ([API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html))
       - Resources: Uniform Resource Identifier (URI)
       - Representation: MIME type
@@ -175,7 +178,6 @@
     - **DNS resolution**: cache (browser, OS, router)/DNS server → IP address
     - **TCP three-way handshake**
     - **HTTP request**
-      - Request message: request line, request header fields, empty line, message body
 3. Browser → NIC → Wifi router → Global IP Network (Internet) → NIC → Host server
 4. Host server:
     - Inverse proxy
