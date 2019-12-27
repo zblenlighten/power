@@ -34,6 +34,9 @@
       - [Collision](http://www.ruanyifeng.com/blog/2018/09/hash-collision-and-birthday-attack.html): Open addressing, Separate chaining, 2-choice hashing
       - [Perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function)
       - Bloom Filter
+      - Fingerprint
+        - Pseudorandom number generator (PRNG): Mersenne Twister
+        - [Content ID system](https://en.wikipedia.org/wiki/Content_ID_(system))
 
 - Trees
   1. Binary search trees
@@ -111,10 +114,14 @@
 - Linux
   - [User space vs. Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)
   - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
+  - Distribution
+    - Debian → Ubuntu
+    - Fedora → Red Hat → CentOS
+    - Android
   - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([命令大全](https://man.linuxde.net/), [Explain shell](https://www.explainshell.com/))
     - Files and Directories: cat, grep, find
     - Manipulating data: wc, sed, sort, uniq, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html)
-    - File Editors
+    - File Editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
     - Compressed files
     - Information
     - Status
@@ -148,7 +155,7 @@
       - Headers
         - [Content type / MIME type](https://en.wikipedia.org/wiki/Media_type)
         - Client IP: X-Real-IP Header, X-Forwarded-For Header, remote_addr
-      - Request 
+      - Request
         - Methods: GET, POST, ...
         - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages): request line, request header fields, empty line, message body
       - Status response codes
@@ -182,7 +189,6 @@
 4. Host server:
     - Inverse proxy
     - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
-      - Nginx (epoll)
     - Web server: Common Gateway Interface (CGI)
     - Web framework
       - MVC: Model, View, Controller
@@ -200,7 +206,7 @@
 - Network security
   - Cryptography
     - Symmetric-key algorithm
-    - Public-key cryptography
+    - Public-key cryptography: RSA, Rabin, ElGamal, ...
     - Cryptographic hash function
       - Common functions: MD5 (rainbow table), Secure Hash Algorithm (SHA)
       - MAC functions: Hash-based message authentication code (HMAC)
@@ -217,7 +223,7 @@
     - Central Authentication Service (CAS): single sign-on (SSO)
     - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
     - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
-    - ~~OpenID~~
+    - OpenID
     - Kerberos (kinit, rlogin, ...)
 
 - References

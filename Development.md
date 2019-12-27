@@ -5,7 +5,7 @@
 - [Netflix](https://medium.com/netflix-techblog)
 - [Airbnb](https://medium.com/airbnb-engineering)
 - [Uber](https://eng.uber.com/)
-- [Linkedin](https://engineering.linkedin.com/blog)
+- [LinkedIn](https://engineering.linkedin.com/blog)
 - [Facebook](https://engineering.fb.com)
 
 ## Contents
@@ -37,9 +37,6 @@
 
 - Development Approach
   - FDD: Feature-Driven
-    - Git flow
-    - Github flow
-    - Gitlab flow
   - TDD: Test-Driven
   - BDD: Behavior-Driven
   - DDD: Domain-Driven
@@ -51,10 +48,14 @@
 - Architecture
   - What: organize business, technology and staff to drive business growth
   - Monolith
-  - Microservice (Evolutionary architecture)
-    - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
-    - Kubernetes
-    - Service discovery (SDP)
+  - Microservices (Evolutionary architecture)
+    - Style
+      - A suite of small services
+      - Bare minimum of centralized management of these services
+    - Service Mesh
+      - Istio
+    - Protocol
+      - Service discovery (SDP)
   - Serverless
     - AWS Lambda (FaaS)
 
@@ -86,7 +87,7 @@
       - Zero Copy ([原理](https://www.jianshu.com/p/2581342317ce))
       - Batch Data in Chunks
       - Can Scale Horizontally
-  - ActiveMQ, RabbitMQ
+  - ActiveMQ, RabbitMQ, ...
 
 - Search engine
   - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (Solr)
@@ -116,18 +117,23 @@
     - ~~Dapper (APM: Application performance management)~~
 
 - DevOps
+  - Version control
+    - Git
   - Continuous integration / Continuous delivery (CI/CD)
     - Jenkins
-  - Version control
+  - Container
+    - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
+    - Kubernetes
   - Configuration
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Puppet
+  - Load balancer
+    - Nginx (epoll)
   - Single vs. Multi-tenant
 
-- Other
-  - [Vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
+- Tools
   - Terraform
-  - Google Analysis
+  - ~~Google Analysis~~
   - Team Collaboration: Miro
 
 ### Data storage
@@ -140,9 +146,8 @@
     - Pessimistic locking
     - Optimistic locking
   - SnowFlake
-  - Scaling
+  - [Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding)
     - Read/Write Split (read/write master database and read-only slaves)
-    - [Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding): speed up query response time (a type of horizontal partition)
 
 - File System
   - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
@@ -168,9 +173,15 @@
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
   - Cache coherence: Distributed lock manager (DLM): Chubby, ZooKeeper
 
-- Business Intelligence
-  - Database: Oracle, Mysql, PostgreSQL
-  - Data warehouse: Redshift, Hive, Greenplum (OLTP: Online analytical processing Database)
+- Comparison
+  - Transaction processing systems (OLTP: online transaction precessing)
+    - Row-oriented
+    - Database: Oracle, Mysql, PostgreSQL
+  - Analytic systems (OLAP: Online analytical processing)
+    - Column-oriented
+    - Database (Data warehouse): Teradata, Redshift, Hive, Greenplum
+    - High availability and low latency
+    - Business Intelligence: optimization for analytic access patterns
 
 - References
   - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
@@ -222,13 +233,13 @@
 
 - if the system...
   - goes slow: **scalability**, performance
-  - goes down: **resiliency** (single point of failure (SPOF) ), availability, stability
+  - goes down: **resiliency** (SPOF: single point of failure), availability, stability
 
 - trade-offs:
   - Performance vs Scalability
   - Latency vs Throughput
   - Availability vs Consistency: Consistency, Availability, Partition tolerance (CAP)
-    - CP vs AP (BASE: Basically Avaiable Soft state Eventual consistency)
+    - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
 
 - cases:
   1. Web crawler
@@ -238,6 +249,7 @@
 
   2. Search engine
       - PageRank
+      - Search Engine Optimizer
 
   3. URL shortening
       - Distributed ID Generator
