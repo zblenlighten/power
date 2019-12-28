@@ -93,13 +93,16 @@
   - Inter process communication (IPC)
     - Remote procedure call (RPC)
   - Concurrency
-    - Process (fork, exec, waitpid, IPC)
-    - I/O multiplexing
-    - Multithreading
-    - Can be achieved via context-switching in a single core, and parallelism in a multi-core
-    - Deadlock: Mutual exclusion, Hold and wait or resource holding, No preemption, Circular wait
-    - Time-sharing: CPU
-    - Sharding: RAM
+    - Construct concurrent programs
+      - Process (fork, exec, waitpid, IPC)
+      - I/O multiplexing
+      - Multithreading
+    - Deadlock
+      - Possible causes: Mutual exclusion, Hold and wait or resource holding, No preemption, Circular wait
+    - How concurrency is achieved: via context-switching in a single core, and parallelism in a multi-core
+    - Hardware
+      - CPU: Time-sharing
+      - RAM: Sharding
 
 - I/O
   - Blocking (vs: Non-blocking)：connection is blocked until there is some data to read or the data is fully written
@@ -112,7 +115,7 @@
     - Socket
 
 - Linux
-  - [User space vs. Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)
+  - [User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)
   - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
   - Distribution
     - Debian → Ubuntu

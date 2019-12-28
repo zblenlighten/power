@@ -10,38 +10,15 @@
 
 ## Contents
 
-- [Practice](#practice)
 - [Infrastructure](#infrastructure)
+- [Modes of dataflow](#modes-of-dataflow)
 - [Data storage](#data-storage)
 - [Backend](#backend)
 - [Frontend](#frontend)
 - [System design](#system-design)
+- [Practice](#practice)
 
 ## Development
-
-### Practice
-
-- WBS: Work breakdown structure
-  - RfQ: Request for quotation
-  - POC: Proof of concept
-  - Feature (list) & [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
-    - Who, What, Why, Acceptance Criteria (AC)
-  - Website wireframe design (Adobe XD)
-  - Software architecture design
-  - Coding, testing, pull request, release
-  - Maintenance & Iterative and incremental development
-
-- Methodology
-  - Waterfall
-  - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
-
-- Development Approach
-  - FDD: Feature-Driven
-  - TDD: Test-Driven
-  - BDD: Behavior-Driven
-  - DDD: Domain-Driven
-
-- Other: GDPR, i18n, Karte...
 
 ### Infrastructure
 
@@ -59,16 +36,6 @@
   - Serverless
     - AWS Lambda (FaaS)
 
-- API
-  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul, ...
-  - Gateway
-    - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
-    - Admin: API lifecycle (draft, publish, upgrade, etc)
-    - Monitor: logging for analytics and monitoring
-  - Swagger
-  - [API Design](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf) (backward compatibility and new releases)
-  - ~~WireMock~~
-
 - Distributed system
   - Three-phase commit protocol (3PC)：for solving atomic commit
   - Paxos: for solving consensus in a network
@@ -76,33 +43,21 @@
     - Dubbo
     - gRPC
 
-- Message broker (Message-oriented middleware: MOM)
-  - Kafka
-    - Concepts: cluster, topics, record (key, value, timestamp)
-    - Core APIs: Producer, Consumer, Streams, Connector
-    - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
-    - Reasons to fast:
-      - Avoids Random Disk Access (sequential write)
-      - Memory Mapped Files (mmap)
-      - Zero Copy ([原理](https://www.jianshu.com/p/2581342317ce))
-      - Batch Data in Chunks
-      - Can Scale Horizontally
-  - ActiveMQ, RabbitMQ, ...
+- API
+  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul, ...
+  - Gateway
+    - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
+    - Admin: API lifecycle (draft, publish, upgrade, etc)
+    - Monitor: logging for analytics and monitoring
+  - Swagger
+  - [API Design](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf)
+  - ~~WireMock~~
 
 - Search engine
   - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (Solr)
     - Lucene (Inverted index)
-    - Restful API (HTTP)
+    - Restful API
     - Distributed (master - slave)
-
-- Stream
-  - Spark: Resilient Distributed Dataset (RDD)
-  - Flink
-
-- Batch
-  - MapReduce
-  - Airflow (Workflow management)
-    - ~~Celery~~
 
 - Monitor
   - Logging (Event)
@@ -129,12 +84,51 @@
     - Puppet
   - Load balancer
     - Nginx (epoll)
-  - Single vs. Multi-tenant
+  - Single vs Multi-tenant
 
 - Tools
   - Terraform
   - ~~Google Analysis~~
   - Team Collaboration: Miro
+
+### Modes of dataflow
+
+- Rolling upgrades
+  - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
+  - Serialization: from data structures in memory to self-contained sequence of bytes (i.e. JSON document) write to file or send over network (vs: Parsing / Deserialization)
+  - Binary schema driven formats
+
+- Scenarios
+  - Database: sending a message to your future self
+  - Service calls (RPC and REST APIs)
+  - Asynchronous message passing (via message broker or actor)
+
+- Message broker (Message-oriented middleware: MOM)
+  - Type
+    - AMQP/JMS style message broker
+    - Log based message broker
+  - Software
+    - Kafka
+      - Concepts: cluster, topics, record (key, value, timestamp)
+      - Core APIs: Producer, Consumer, Streams, Connector
+      - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
+      - Reasons to fast:
+        - Avoids Random Disk Access (sequential write)
+        - Memory Mapped Files (mmap)
+        - Zero Copy ([原理](https://www.jianshu.com/p/2581342317ce))
+        - Batch Data in Chunks
+        - Can Scale Horizontally
+    - ActiveMQ
+    - RabbitMQ
+
+- Batch
+  - MapReduce
+  - Airflow (Workflow management)
+    - ~~Celery~~
+
+- Stream
+  - Spark: Resilient Distributed Dataset (RDD)
+  - Flink
 
 ### Data storage
 
@@ -158,7 +152,7 @@
 
 - RDBMS
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
-  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (InnoDB, MyIsam)
+  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (i.e. InnoDB, MyIsam)
   - PrepareStatement
     - Get pre compiled and access plan cached in database
     - Prevent SQL Injection attacks
@@ -171,7 +165,7 @@
 
 - [Cache](https://en.wikipedia.org/wiki/Cache_(computing))
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
-  - Cache coherence: Distributed lock manager (DLM): Chubby, ZooKeeper
+  - Cache coherence: Distributed lock manager (DLM) (i.e. Chubby, ZooKeeper)
 
 - Comparison
   - Transaction processing systems (OLTP: online transaction precessing)
@@ -197,14 +191,7 @@
 - Java
   - Spring
 
-- Python
-  - Flask
-
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
-  - Beego
-
-- Ruby
-  - Rails
 
 ### Frontend
 
@@ -217,7 +204,7 @@
       - two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416)）
     - Vuex
   - Rich Text Editor
-  - Business Process Model and Notation (BPMN): Rappid
+  - BPMN: Business Process Model and Notation (i.e. Rappid)
 
 - WWW standards
   - CSS
@@ -260,3 +247,27 @@
 
 - references
   - [服务端高并发分布式架构演进之路](https://segmentfault.com/a/1190000018626163)
+
+### Practice
+
+- WBS: Work breakdown structure
+  - RfQ: Request for quotation
+  - POC: Proof of concept
+  - Feature (list) & [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
+    - Who, What, Why, Acceptance Criteria (AC)
+  - Website wireframe design (i.e. Adobe XD)
+  - Software architecture design
+  - Coding, testing, pull request, release
+  - Maintenance & Iterative and incremental development
+
+- Methodology
+  - Waterfall
+  - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
+
+- Development Approach
+  - FDD: Feature-Driven
+  - TDD: Test-Driven
+  - BDD: Behavior-Driven
+  - DDD: Domain-Driven
+
+- Other: GDPR, i18n, Karte...
