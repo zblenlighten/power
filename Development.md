@@ -36,13 +36,6 @@
   - Serverless
     - AWS Lambda (FaaS)
 
-- Distributed system
-  - Three-phase commit protocol (3PC)：for solving atomic commit
-  - Paxos: for solving consensus in a network
-  - RPC
-    - Dubbo
-    - gRPC
-
 - API
   - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul, ...
   - Gateway
@@ -53,9 +46,23 @@
   - [API Design](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf)
   - ~~WireMock~~
 
+- Distributed system
+  - Three-phase commit protocol (3PC)：for solving atomic commit
+  - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
+  - Thrift
+  - Flume
+  - Hadoop
+    - Hadoop Distributed File System (HDFS)
+    - Hadoop MapReduce
+    - HBase
+  - RPC
+    - Dubbo
+    - gRPC
+
 - Search engine
   - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (Solr)
-    - Lucene (Inverted index)
+    - Lucene
+      - Inverted index
     - Restful API
     - Distributed (master - slave)
 
@@ -76,6 +83,7 @@
     - Git
   - Continuous integration / Continuous delivery (CI/CD)
     - Jenkins
+    - Webhook
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
     - Kubernetes
@@ -121,13 +129,10 @@
     - ActiveMQ
     - RabbitMQ
 
-- Batch
-  - MapReduce
+- Batch & Stream
   - Airflow (Workflow management)
-    - ~~Celery~~
-
-- Stream
   - Spark: Resilient Distributed Dataset (RDD)
+  - Storm
   - Flink
 
 ### Data storage
@@ -146,7 +151,7 @@
 - File System
   - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
   - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
-  - Hadoop Distributed File System (HDFS): MapReduce/Spark
+  - HDFS
     - DataNode
     - NameNode
 
@@ -165,7 +170,7 @@
 
 - [Cache](https://en.wikipedia.org/wiki/Cache_(computing))
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
-  - Cache coherence: Distributed lock manager (DLM) (i.e. Chubby, ZooKeeper)
+  - Cache coherence: Distributed lock manager (DLM)
 
 - Comparison
   - Transaction processing systems (OLTP: online transaction precessing)
@@ -186,10 +191,23 @@
   - Static sites
     - Content delivery network (CDN): push, pull
   - Dynamic sites
-    - JSP/Servlet: Tomcat
+    - JSP/Servlet: Apache Tomcat (services provided by the Servlet container)
+      - Request & Response
+      - Session & Cookie
+      - Event: changing the state of an object
+      - Filter (authentication)
+      - ErrorHandler
+      - JDBC
+      - Development: registration, uploading & downloading files, sending email, writing image, ...
 
 - Java
   - Spring
+    - Aspect oriented programming (AOP)
+      - Request / Response
+      - Web layer: controller, exception handler, filter, view template
+      - Service layer (application & infrastructure)
+      - Repository layer
+      - Data source
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
@@ -215,20 +233,17 @@
 
 ### System design
 
-- ~~steps~~:
-  - ~~Use case, constraints and assumptions~~
-
-- if the system...
+- If the system...
   - goes slow: **scalability**, performance
   - goes down: **resiliency** (SPOF: single point of failure), availability, stability
 
-- trade-offs:
+- Trade-offs:
   - Performance vs Scalability
   - Latency vs Throughput
   - Availability vs Consistency: Consistency, Availability, Partition tolerance (CAP)
     - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
 
-- cases:
+- Cases:
   1. Web crawler
       - BFS & DFS (Overhead time) by Scheduler (Priority queue stores URLs that have been discovered but not yet downloaded)
       - Page analysis and URL extraction (parsing Javascript)
@@ -243,12 +258,14 @@
       - Key-value store
       - URL redirection (302)
 
-  4. Twitter / News feed
-
-- references
+- References
   - [服务端高并发分布式架构演进之路](https://segmentfault.com/a/1190000018626163)
 
 ### Practice
+
+- Programming style
+  - [Java Style](https://google.github.io/styleguide/javaguide.html)
+  - [Python Style](https://google.github.io/styleguide/pyguide.html)
 
 - WBS: Work breakdown structure
   - RfQ: Request for quotation
@@ -269,5 +286,3 @@
   - TDD: Test-Driven
   - BDD: Behavior-Driven
   - DDD: Domain-Driven
-
-- Other: GDPR, i18n, Karte...

@@ -11,7 +11,7 @@
 - [Machine learning](#machine-learning)
 - [Statistics](#statistics)
 - [Deployment](#deployment)
-- [Data visualization](#data-visualization)
+- [Data analysis](#data-analysis)
 
 ## Data science
 
@@ -50,11 +50,14 @@
   - Topic model
     - Probabilistic Latent Semantic Analysis (pLSA)
     - Latent Dirichlet Allocation (LDA)
-  - Word embedding
+  - Embedding
     - Word2Vec
       - Continues bag of words (CBOW)
       - Skip-gram
-  - Transformer models
+      - Negative sampling
+    - Item2vec
+    - Graph Embedding
+  - Transformer (Attention)
     - [Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3)
 
 - Image
@@ -70,12 +73,7 @@
     - Pearson correlation coefficient
     - Information entropy
   - Ranking
-    - [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html)
-    - [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html)
-    - [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html)
-    - [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html)
-    - [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html)
-    - [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
+    - Case: [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
   - Natural Language Processing
     - Bag of Words & N-gram: article vector (each dimension is the tf–idf of the word) → Cosine distance
     - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance / Euclidean distance (WMD: Word Mover's Distance)
@@ -107,7 +105,7 @@
     - Softmax: multiclass
     - Sigmoid: binary
     - Linear: regression
-    - Relu: hidden layer
+    - ReLU: hidden layer
     - Tanh: RNN
   - Learning rate
   - Prevent over-fitting
@@ -138,15 +136,16 @@
 
 ### Machine learning
 
-#### Classification
+#### Supervised learning
 
 | Name  | Advantage  | Disadvantage  | Application  |
 |---|---|---|---|
-| kNN  | 精度高，对异常值不敏感，无数据输入假定  | 计算复杂度高，空间复杂度高  | 改进配对效果，识别手写数字  |
-| Decision tree  | 计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据  | 可能过拟合  | 预测隐形眼镜类型  |
-| Naive bayesian  | 在数据较少的情况下仍然有效，可以处理多类别问题  | 对于输入数据的准备方式较为敏感  | 过滤垃圾邮件/恶意留言，从个人广告用词中获取区域倾向  |
-| Logistic regression  | 计算代价不高，易于理解和实现  | 容易欠拟合，分类精度可能不高  | 从疝气病症预测病马的死亡率  |
-| Support Vector Machine  | 泛化错误率低，计算开销不大，结果易解释  | 对参数调节和核函数的选择敏感，原始分类器仅适用于二分类问题  | 识别手写数字（更少的内存）  |
+| k Nearest Neighbor  | High accuracy, insensitive to outliers, no assumptions about data  | Computationally expensive, requires a lot of memory  | Improving matches from a dating site，handwriting recognition  |
+| Linear regression  | Easy to interpret results, computationally inexpensive  | Poorly models nonlinear data  | Predicting the age of an abalone, forecasting the price of LEGO sets  |
+| Logistic regression  | Computationally inexpensive, easy to implement, knowledge representation easy to interpret  | Prone to underfitting, may have low accuracy  | Estimating horse fatalities from colic  |
+| Decision tree  | Computationally cheap to use, easy for humans to understand learned results, missing values OK, can deal with irrelevant features  | Prone to overfitting  | Predicting contact lens type  |
+| Support Vector Machine  | Low generalization error, computationally inexpensive, easy to interpret results  | Sensitive to tuning parameters and kernel choice, natively only handles binary classification  | Handwriting classification (keep the same performance with less memory used)  |
+| Naive Bayes  | Works with a small amount of data, handles multiple classes  | Sensitive to how the input data is prepared  | Filtering spam email / malicious posts, revealing local attitudes from personal ads  |
 
 - Bagging
   - Random forest
@@ -154,9 +153,9 @@
 - Boosting
   - Adaboost
 
-#### Regression
-
-// TODO
+- Further topic
+  - Multiple regression
+  - Bayesian decision theory
 
 #### Few-shot learning
 
@@ -169,14 +168,20 @@
 
 #### Recommender system
 
-- Match
+- Framework
+  - Online serving
+  - Distributed computing
+  - Stream computing
+  - Data highway
+
+- Match / Retrieval
   - Content-based
   - CF: Collaborative filtering (NCF: Neural Collaborative Filtering)
     - Item based
     - User based
-    - Cold start: new community, new item, new user)
+    - Cold start: new community, new item, new user
 
-- Ranking ([CTR](https://zhuanlan.zhihu.com/p/61154299)): depends on business needs and development stage
+- Ranking ([CTR](https://zhuanlan.zhihu.com/p/61154299): Click Through Rate): depends on business needs and development stage
   - XGBoost
   - FM, FFM, DeepFM ([说明](https://blog.csdn.net/john_xyz/article/details/78933253))
   - [DNN](https://zhuanlan.zhihu.com/p/35484389): FNN, PNN, AFM, ect
@@ -186,18 +191,26 @@
   - Offline
   - Online: A/B test
 
+- Case
+  - YouTube
+    - Candidate Generation
+    - Ranking
+
 #### Evaluation
+
+- Cross Validation
 
 - Confusion Matrix
 - F1 Score
   - Precision = TP / (TP + FP)
   - Recall = TP / (TP + FN)
-- Area Under the Receiver Operating Characteristic Curve (ROC-AUC Score)
-  - Sensitivity: True Positive Rate = TP / (TP + FN)
-  - Specificity: False Positive Rate = FP / (FP + TN)
+- Receiver Operating Characteristic (AUC: Area Under the ROC Curve)
+  - True Positive Rate = TP / (TP + FN)
+  - False Positive Rate = FP / (FP + TN)
+- Precision-Recall (PR) curve
 
-- Root Mean Squared Error (RMSE)
-- Mean absolute error (MAE)
+- RMSE: Root Mean Squared Error (MSE: Mean squared error)
+- MAPE: Mean Absolute Percent Error (MAE: Mean absolute error)
 
 - Others
   - Log Loss
@@ -206,8 +219,6 @@
   - Concordant – Discordant Ratio
 
 - Multi-classification: F1 score, Average Accuracy, Log-loss
-
-- Cross Validation
 
 ### Statistics
 
@@ -251,6 +262,9 @@
   - Can this task be done without ML?
   - How large and experienced is your team - including data scientists, engineers and DevOps?
 
+- Incremental learning
+- Online learning
+
 - Potential ML system architecture approaches
 
 |   | REST API  | Shared DB  | Streaming  | Mobile App  |
@@ -266,11 +280,21 @@
   - Google: [TFX](https://www.tensorflow.org/tfx)
   - Facebook: [FBLearner Flow](https://engineering.fb.com/core-data/introducing-fblearner-flow-facebook-s-ai-backbone/)
 
-### Data visualization
+### Data analysis
 
-- Design
-  - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
+- Pirate Funnel
 
-- Case
-  - [Seeing Theory](https://seeing-theory.brown.edu/)
-  - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)
+| Element  | Function  | Relevant metrics  |
+|---|---|---|
+| Acquisition  | Generate attention through a variety of means, both organic and inorganic  | Traffic, mentions, cost per click, search results, cost of acquisition, open rate  |
+| Activation  | Turn the resulting drive-by visitors into users who are somehow enrolled  | Enrollments, signups, completed onboarding process, used the service at least once, subscriptions  |
+| Retention  | Convince users to come back repeatedly, exhibiting sticky behavior  | Engagement, time since last visit, daily and monthly active use, churns  |
+| Revenue  | Business outcomes (which vary by your business model: purchases, ad clicks, content creation, subscriptions, etc.)  | Customer lifetime value, conversion rate, shopping cart size, click-through revenue  |
+| Referral  | Viral and word-of-mouth invitations to other potential users  | Invites sent, viral coefficient, viral cycle time  |
+
+- Data visualization
+  - About design
+    - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
+  - Case
+    - [Seeing Theory](https://seeing-theory.brown.edu/)
+    - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)

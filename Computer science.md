@@ -136,26 +136,26 @@
 
 #### Internet Protocol Suite
 
-1. Physical Layer: Hub
-2. Data Link Layer: Switch
+1. Physical Layer: Hub → Bit
+2. Data Link Layer: Switch → Frame
     - **MAC** address
     - Network Interface Card (NIC)
-3. Network Layer: Router
+3. Network Layer: Router → Datagram
     - Internet Protocol (**IP**)
       - Network address translation (NAT)
     - Address Resolution Protocol (ARP)
-4. Transport Layer
-    - Socket: IP + port
-      - Transmission Control Protocol ([TCP](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html))
-      - User Datagram Protocol (UDP)
-      - Call: connect, bind, listen, accept, send, recv
-      - Echo server
+4. Transport Layer → Segment
+    - Transmission Control Protocol ([TCP](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html))
+    - User Datagram Protocol (UDP)
     - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
       - OpenSSL
       - Network security services (NSS)
-7. Application Layer
+    - Socket: IP + port
+      - Call: connect, bind, listen, accept, send, recv
+      - Echo server
+7. Application Layer → Message
     - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
-      - Headers
+      - Header
         - [Content type / MIME type](https://en.wikipedia.org/wiki/Media_type)
         - Client IP: X-Real-IP Header, X-Forwarded-For Header, remote_addr
       - Request
@@ -171,20 +171,22 @@
       - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
         - cookie
       - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
-    - RESTful ([API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html))
-      - Resources: Uniform Resource Identifier (URI)
-      - Representation: MIME type
-      - State Transfer: request methods
+      - RESTful ([API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html))
+        - Resources: Uniform Resource Identifier (URI) = URL + URN
+        - Representation: MIME type
+        - State Transfer: request methods
     - File Transfer Protocol (FTP)
+    - Simple Mail Transfer Protocol (SMTP)
+    - Domain Name System (DNS)
     - Dynamic Host Configuration Protocol (DHCP)
     - Communication
       - client → server: pull/get
-      - server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
+      - push server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
 
 #### What happens when type in a URL?
 
-1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Browser
-2. Browser:
+1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Web browser
+2. Web browser:
     - **DNS resolution**: cache (browser, OS, router)/DNS server → IP address
     - **TCP three-way handshake**
     - **HTTP request**
@@ -192,6 +194,7 @@
 4. Host server:
     - Inverse proxy
     - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
+    - Web application firewall (WAF)
     - Web server: Common Gateway Interface (CGI)
     - Web framework
       - MVC: Model, View, Controller
@@ -204,7 +207,7 @@
       - Layout the render tree (computes the exact position and size of each object)
       - Paint the render tree (takes in the final render tree and renders the pixels to the screen)
     - **TCP four-way handshake**
-6. Browser → LCD screen
+6. Web browser → LCD screen
 
 - Network security
   - Cryptography
