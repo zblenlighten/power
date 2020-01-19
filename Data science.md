@@ -126,6 +126,9 @@
 
 - [Feature engineer](https://www.quora.com/Does-deep-learning-reduce-the-importance-of-feature-engineering): Deep Feature Synthesis
 
+- Complexity
+  - Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
+
 - Generative adversarial network (GAN)
 
 - Application

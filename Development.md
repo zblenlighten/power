@@ -204,9 +204,9 @@
   - Spring
     - Aspect oriented programming (AOP)
       - Request / Response
-      - Web layer: controller, exception handler, filter, view template
-      - Service layer (application & infrastructure)
-      - Repository layer
+      - Web Layer: controller, exception handler, filter, view template
+      - Service Layer (application & infrastructure)
+      - Repository Layer
       - Data source
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
@@ -257,6 +257,23 @@
       - Distributed ID Generator
       - Key-value store
       - URL redirection (302)
+
+  4. Twitter / Feed
+      - // TODO
+  
+  5. Messenger service (feature → architecture)
+      - One to one text
+      - Sent / Delivered / Read
+      - Push notification
+
+  6. Yelp
+      - // TODO
+
+  7. Uber
+      - // TODO
+
+  8. EC platform
+      - // TODO
 
 - References
   - [服务端高并发分布式架构演进之路](https://segmentfault.com/a/1190000018626163)

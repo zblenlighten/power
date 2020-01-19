@@ -145,7 +145,7 @@
       - Network address translation (NAT)
     - Address Resolution Protocol (ARP)
 4. Transport Layer → Segment
-    - Transmission Control Protocol ([TCP](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html))
+    - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (TCP)
     - User Datagram Protocol (UDP)
     - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
       - OpenSSL
@@ -157,7 +157,7 @@
     - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
       - Header
         - [Content type / MIME type](https://en.wikipedia.org/wiki/Media_type)
-        - Client IP: X-Real-IP Header, X-Forwarded-For Header, remote_addr
+        - Client IP: X-Real-IP, X-Forwarded-For, remote_addr
       - Request
         - Methods: GET, POST, ...
         - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages): request line, request header fields, empty line, message body
@@ -233,8 +233,8 @@
     - Kerberos (kinit, rlogin, ...)
 
 - References
-  - systemd: [一](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html), [二](https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html), [三](http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html)
-  - curl(client + url): [指南1](http://www.ruanyifeng.com/blog/2011/09/curl.html), [指南2](https://www.ruanyifeng.com/blog/2019/09/curl-reference.html)
+  - systemd: [1](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html), [2](https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html), [3](http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html)
+  - curl(client + url): [1](http://www.ruanyifeng.com/blog/2011/09/curl.html), [2](https://www.ruanyifeng.com/blog/2019/09/curl-reference.html)
   - [一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830)
 
 ### Wiki
