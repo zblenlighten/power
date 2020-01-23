@@ -157,7 +157,6 @@
     - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
       - Header
         - [Content type / MIME type](https://en.wikipedia.org/wiki/Media_type)
-        - Client IP: X-Real-IP, X-Forwarded-For, remote_addr
       - Request
         - Methods: GET, POST, ...
         - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages): request line, request header fields, empty line, message body

@@ -119,7 +119,7 @@
   - Hyperparameter optimization
 
 - Models
-  - [Keras](https://keras.io/applications/) (VGG16)
+  - [Keras](https://keras.io/applications/)
   - [YOLO](https://medium.com/@jonathan_hui/real-time-object-detection-with-yolo-yolov2-28b1b93e2088) (IoU: Intersection over Union)
   - CRNN ([ctc](https://github.com/tensorflow/tensorflow/blob/679f95e9d8d538c3c02c0da45606bab22a71420e/tensorflow/python/kernel_tests/ctc_loss_op_test.py))
   - ...
@@ -279,7 +279,8 @@
 | System management difficulty  | So so  | Easy  | Very hard  | So so  |
 
 - References
-  - [Architect a ML pipeline](https://towardsdatascience.com/architecting-a-machine-learning-pipeline-a847f094d1c7)
+  - [Exposing Model as REST API](https://www.geeksforgeeks.org/exposing-ml-dl-models-as-rest-apis/)
+  - [Architect Pipeline](https://towardsdatascience.com/architecting-a-machine-learning-pipeline-a847f094d1c7)
   - Google: [TFX](https://www.tensorflow.org/tfx)
   - Facebook: [FBLearner Flow](https://engineering.fb.com/core-data/introducing-fblearner-flow-facebook-s-ai-backbone/)
 

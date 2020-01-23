@@ -91,7 +91,7 @@
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Puppet
   - Load balancer
-    - Nginx (epoll)
+    - Nginx ([入门](https://yq.aliyun.com/articles/423970))
   - Single vs Multi-tenant
 
 - Tools
@@ -104,6 +104,7 @@
 - Rolling upgrades
   - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
   - Serialization: from data structures in memory to self-contained sequence of bytes (i.e. JSON document) write to file or send over network (vs: Parsing / Deserialization)
+    - [Python pickle](https://www.liaoxuefeng.com/wiki/897692888725344/923056033756832)
   - Binary schema driven formats
 
 - Scenarios
