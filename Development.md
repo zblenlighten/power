@@ -104,7 +104,8 @@
 - Rolling upgrades
   - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
   - Serialization: from data structures in memory to self-contained sequence of bytes (i.e. JSON document) write to file or send over network (vs: Parsing / Deserialization)
-    - [Python pickle](https://www.liaoxuefeng.com/wiki/897692888725344/923056033756832)
+    - [Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/)
+    - [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424)
   - Binary schema driven formats
 
 - Scenarios
@@ -146,7 +147,7 @@
     - Pessimistic locking
     - Optimistic locking
   - SnowFlake
-  - [Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding)
+  - Partition([Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding))
     - Read/Write Split (read/write master database and read-only slaves)
 
 - File System
@@ -195,7 +196,7 @@
     - JSP/Servlet: Apache Tomcat (services provided by the Servlet container)
       - Request & Response
       - Session & Cookie
-      - Event: changing the state of an object
+      - Event (Listener): changing the state of an object
       - Filter (authentication)
       - ErrorHandler
       - JDBC

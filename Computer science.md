@@ -216,10 +216,11 @@
       - Common functions: MD5 (rainbow table), Secure Hash Algorithm (SHA)
       - MAC functions: Hash-based message authentication code (HMAC)
   - Authentication (verifies you are who you say you are)
-    - Login form
-    - HTTP authentication
+    - Key management (cryptographic keys)
+    - Login form, HTTP authentication, ...
   - Authorization (decides if you have permission to access a resource)
-    - URL access controls
+    - Role-based access control (RBAC)
+    - URL access controls, ...
     - Access control list (ACL)
       - Filesystem ACL
       - Networking ACL

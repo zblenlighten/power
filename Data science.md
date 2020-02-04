@@ -160,6 +160,10 @@
   - Multiple regression
   - Bayesian decision theory
 
+- Inferring latent variables
+  - Expectation maximization algorithm
+  - Hidden Markov Model (HMM)
+
 #### Few-shot learning
 
 // TODO
