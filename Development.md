@@ -22,8 +22,7 @@
 
 ### Infrastructure
 
-- Architecture
-  - What: organize business, technology and staff to drive business growth
+- Architecture: organize business, technology and staff to drive business growth
   - Monolith
   - Microservices (Evolutionary architecture)
     - Style
@@ -115,7 +114,7 @@
 
 - Message broker (Message-oriented middleware: MOM)
   - Type
-    - AMQP/JMS style message broker
+    - Advanced Message Queuing Protocol (AMQP)/Java Message Service (JMS) style message broker
     - Log based message broker
   - Software
     - Kafka
@@ -190,26 +189,34 @@
 ### Backend
 
 - Server Content
-  - Static sites
-    - Content delivery network (CDN): push, pull
-  - Dynamic sites
-    - JSP/Servlet: Apache Tomcat (services provided by the Servlet container)
-      - Request & Response
-      - Session & Cookie
-      - Event (Listener): changing the state of an object
-      - Filter (authentication)
+  - Static sites: Content delivery network (CDN)
+  - Dynamic sites: Servlet/JavaServer Pages (JSP)
+    - Servlet
+      - Life cycle: init, service (request & response), destroy
+      - Container: Apache Tomcat (services provided by the Servlet container)
+      - Info & Config
+    - Session management in HTTP
+      - URL Rewriting & Hidden form filed
+      - Cookies
+      - HTTPSession
+    - JSP: ~~Expression Language, Standard Tag Library (JSTL), JavaBean, Tag~~
+    - Listener (Event): changing the state of an object
+      - ServletContext, HttpSession, ServletRequest
+    - Filter (authentication, log, ...)
+      - Wrapper
+    - Other topics
       - ErrorHandler
       - JDBC
       - Development: registration, uploading & downloading files, sending email, writing image, ...
 
 - Java
   - Spring
+    - Core
+      - Bean
     - Aspect oriented programming (AOP)
-      - Request / Response
-      - Web Layer: controller, exception handler, filter, view template
-      - Service Layer (application & infrastructure)
-      - Repository Layer
-      - Data source
+      - Web Layer: **controller**, exception handler, filter, view template
+      - **Service** Layer (application & infrastructure)
+      - **Repository** Layer
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 

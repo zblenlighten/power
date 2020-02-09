@@ -30,10 +30,11 @@
   2. Linked lists
   3. Stack
   4. Queue
-  5. Hash table
-      - [Collision](http://www.ruanyifeng.com/blog/2018/09/hash-collision-and-birthday-attack.html): Open addressing, Separate chaining, 2-choice hashing
-      - [Perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function)
+  5. Hash
+      - [Collision](http://www.ruanyifeng.com/blog/2018/09/hash-collision-and-birthday-attack.html): Separate chaining, Open addressing, 2-choice hashing ([Perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function))
       - Bloom Filter
+      - SimHash
+      - GeoHash
       - Fingerprint
         - Pseudorandom number generator (PRNG): Mersenne Twister
         - [Content ID system](https://en.wikipedia.org/wiki/Content_ID_(system))
@@ -156,7 +157,6 @@
 7. Application Layer → Message
     - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
       - Header
-        - [Content type / MIME type](https://en.wikipedia.org/wiki/Media_type)
       - Request
         - Methods: GET, POST, ...
         - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages): request line, request header fields, empty line, message body
@@ -233,8 +233,6 @@
     - Kerberos (kinit, rlogin, ...)
 
 - References
-  - systemd: [1](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html), [2](https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html), [3](http://www.ruanyifeng.com/blog/2018/03/systemd-timer.html)
-  - curl(client + url): [1](http://www.ruanyifeng.com/blog/2011/09/curl.html), [2](https://www.ruanyifeng.com/blog/2019/09/curl-reference.html)
   - [一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830)
 
 ### Wiki

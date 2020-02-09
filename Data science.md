@@ -114,7 +114,7 @@
     - Data augmentation
     - Early stopping
   - Gradient descent optimization
-    - Adam: Momentum + RMSprop
+    - Adam: Momentum + RMSprop / AdaGrad
   - Residual block & [Batch normalization](https://towardsdatascience.com/batch-normalization-theory-and-how-to-use-it-with-tensorflow-1892ca0173ad)
   - Hyperparameter optimization
 
@@ -158,11 +158,13 @@
 
 - Further topic
   - Multiple regression
-  - Bayesian decision theory
-
-- Inferring latent variables
+  - Probabilistic Graphical Model
+    - Bayesian Network (Bayesian decision theory)
+    - Markov Network (Hidden Markov Model)
+    - Conditional random field (CRF)
+  - Latent variable model (LVM)
+    - Inferring latent variables
   - Expectation maximization algorithm
-  - Hidden Markov Model (HMM)
 
 #### Few-shot learning
 
@@ -186,6 +188,9 @@
   - CF: Collaborative filtering (NCF: Neural Collaborative Filtering)
     - Item based
     - User based
+      - Demographic characteristic
+      - User behavior / User profile
+      - Personalized topic model
     - Cold start: new community, new item, new user
 
 - Ranking ([CTR](https://zhuanlan.zhihu.com/p/61154299): Click Through Rate): depends on business needs and development stage
