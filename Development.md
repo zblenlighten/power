@@ -43,7 +43,6 @@
     - Monitor: logging for analytics and monitoring
   - Swagger
   - [API Design](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf)
-  - ~~WireMock~~
 
 - Distributed system
   - Three-phase commit protocol (3PC)：for solving atomic commit
@@ -68,7 +67,7 @@
 - Monitor
   - Logging (Event)
     - Collection → Transport → Storage → Analysis → Alerting
-    - ELK: Elasticsearch, Logstash, Kibana
+    - ELK: Elasticsearch, Logstash (Fluentd), Kibana
     - Graylog
   - Metric ([types](https://prometheus.io/docs/concepts/metric_types/))
   - Tracing
@@ -142,6 +141,15 @@
   - Engines
     - log-structure storage (SSTable → LSM Tree)
     - page-oriented storage (B tree)
+  - Database transaction
+    - Atomicity
+    - Consistency
+    - Isolation
+      - Serializable
+      - Repeatable reads
+      - Read committed
+      - Read uncommitted
+    - Durability
   - Concurrency control
     - Pessimistic locking
     - Optimistic locking
@@ -189,8 +197,8 @@
 ### Backend
 
 - Server Content
-  - Static sites: Content delivery network (CDN)
-  - Dynamic sites: Servlet/JavaServer Pages (JSP)
+  - Static sites: ~~Content delivery network (CDN)~~
+  - Dynamic sites: CGI, Servlet/JavaServer Pages (JSP)
     - Servlet
       - Life cycle: init, service (request & response), destroy
       - Container: Apache Tomcat (services provided by the Servlet container)
@@ -212,11 +220,29 @@
 - Java
   - Spring
     - Core
-      - Bean
+      - Inversion of Control (IoC) Container
+        - Bean
+      - Annotation
+        - **Dependency Injection**: Autowired, Bean
+        - Context Configuration
+        - Stereotype: Component, Controller, Service, Repository
     - Aspect oriented programming (AOP)
       - Web Layer: **controller**, exception handler, filter, view template
-      - **Service** Layer (application & infrastructure)
+      - **Service** Layer
       - **Repository** Layer
+    - Projects: [link](https://spring.io/projects)
+  - Design patterns
+    - Creational Patterns: Factory, Singleton
+    - Structural Patterns: Decorator, Adapter, Facade, Composite, Proxy
+    - Behavioral Patterns: Observer, Command, Template, Iterator, State
+    - J2EE Patterns: Compound (MVC: Model, View, Controller)
+    - Principles
+      - Single Responsibility Principle
+      - Open Close Principle
+      - Liskov Substitution Principle
+      - Interface Segregation Principle
+      - Dependence Inversion Principle
+      - ~~Demeter Principle & Composite Reuse Principle~~
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 

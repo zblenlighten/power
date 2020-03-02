@@ -95,12 +95,16 @@
     - Remote procedure call (RPC)
   - Concurrency
     - Construct concurrent programs
-      - Process (fork, exec, waitpid, IPC)
-      - I/O multiplexing
-      - Multithreading
-    - Deadlock
-      - Possible causes: Mutual exclusion, Hold and wait or resource holding, No preemption, Circular wait
-    - How concurrency is achieved: via context-switching in a single core, and parallelism in a multi-core
+      - Process: each process has a separate memory address space
+      - I/O multiplexing: event-driven server runs in the context of a single process
+      - Multithreading: process + I/O multiplexing, shared variable synchronization error
+    - Mutual exclusion：Thread safety
+      - Locks (mutexes)
+      - Readers–writer locks
+      - Reentrant mutexes (Recursive locks)
+      - Semaphores
+      - Possible causes of Deadlock: mutual exclusion, hold and wait or resource holding, no preemption, circular wait
+    - How concurrency is achieved: via context switching in a single core, or parallelism in a multi-core
     - Hardware
       - CPU: Time-sharing
       - RAM: Sharding
@@ -116,12 +120,12 @@
     - Socket
 
 - Linux
-  - [User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)
-  - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
   - Distribution
     - Debian → Ubuntu
     - Fedora → Red Hat → CentOS
     - Android
+  - System call: [User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)
+  - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
   - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([命令大全](https://man.linuxde.net/), [Explain shell](https://www.explainshell.com/))
     - Files and Directories: cat, grep, find
     - Manipulating data: wc, sed, sort, uniq, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html)
@@ -135,53 +139,6 @@
 
 ### Network
 
-#### Internet Protocol Suite
-
-1. Physical Layer: Hub → Bit
-2. Data Link Layer: Switch → Frame
-    - **MAC** address
-    - Network Interface Card (NIC)
-3. Network Layer: Router → Datagram
-    - Internet Protocol (**IP**)
-      - Network address translation (NAT)
-    - Address Resolution Protocol (ARP)
-4. Transport Layer → Segment
-    - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (TCP)
-    - User Datagram Protocol (UDP)
-    - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
-      - OpenSSL
-      - Network security services (NSS)
-    - Socket: IP + port
-      - Call: connect, bind, listen, accept, send, recv
-      - Echo server
-7. Application Layer → Message
-    - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
-      - Header
-      - Request
-        - Methods: GET, POST, ...
-        - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages): request line, request header fields, empty line, message body
-      - Status response codes
-        - 2xx (Successful): The request was successfully received, understood and accepted
-        - 3xx (Redirection): Further action needs to be taken in order to complete the request
-        - 4xx (Client Error): The request contains bad syntax or cannot be fulfilled
-        - 5xx (Server Error): The server failed to fulfill an apparently valid request
-      - Security
-        - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
-      - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
-        - cookie
-      - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
-      - RESTful ([API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html))
-        - Resources: Uniform Resource Identifier (URI) = URL + URN
-        - Representation: MIME type
-        - State Transfer: request methods
-    - File Transfer Protocol (FTP)
-    - Simple Mail Transfer Protocol (SMTP)
-    - Domain Name System (DNS)
-    - Dynamic Host Configuration Protocol (DHCP)
-    - Communication
-      - client → server: pull/get
-      - push server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
-
 #### What happens when type in a URL?
 
 1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Web browser
@@ -194,9 +151,8 @@
     - Inverse proxy
     - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
     - Web application firewall (WAF)
-    - Web server: Common Gateway Interface (CGI)
+    - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview)
     - Web framework
-      - MVC: Model, View, Controller
 5. Host server → Host client:
     - **The server handles the request and sends back an HTTP response**
     - **The browser displays the HTML content**: [Chromium](https://www.chromium.org/developers/design-documents/multi-process-architecture)
@@ -208,6 +164,69 @@
     - **TCP four-way handshake**
 6. Web browser → LCD screen
 
+#### Internet Protocol Suite
+
+1. Physical Layer: Hub → Bit
+2. Data Link Layer: Switch → Frame
+    - Network Interface Card (NIC)
+    - **MAC** (media access control) address
+    - Address Resolution Protocol (ARP)
+    - LTE random access procedure
+3. Network Layer: Router → Datagram
+    - Internet Protocol (**IP**)
+      - Network address translation (NAT): public IP address, private IP address
+    - Routing: Static routing & Dynamic routing
+4. Transport Layer → Segment
+    - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (TCP)
+      - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
+        - OpenSSL
+        - Network security services (NSS)
+    - User Datagram Protocol (UDP)
+    - Reliable Data Protocol (RDP)
+    - Socket = IP + port: act as an interface between the application process and transport layer of the OSI model
+      - Call: connect, bind, listen, accept, send, recv
+      - Echo server
+7. Application Layer → Message
+    - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
+    - File Transfer Protocol (FTP)
+    - Simple Mail Transfer Protocol (SMTP)
+    - Domain Name System (DNS)
+    - IP address
+      - Static IP: IP + Subnet mask + Gateway + DNS
+      - Dynamic IP: Dynamic Host Configuration Protocol (DHCP)
+    - Communication
+      - client → server: pull/get
+      - push server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
+
+- The Hypertext Transfer Protocol (HTTP)
+  - [RESTful API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+    - Resources: Uniform Resource Identifier (URI) = URL + URN
+      - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
+    - Representation: MIME type
+    - State Transfer: request methods
+  - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
+  - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages): start line, [header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers), body
+    - Transaction: inbound, outbound
+    - Methods
+    - Status response codes
+      - 2xx (Successful): The request was successfully received, understood and accepted
+      - 3xx (Redirection): Further action needs to be taken in order to complete the request
+      - 4xx (Client error): The request contains bad syntax or cannot be fulfilled
+      - 5xx (Server error): The server failed to fulfill an apparently valid request
+  - Applications
+    - Proxy: server + client
+    - Web cache: reduce server lag
+    - Gateway: perform protocol conversions to connect networks with different network protocol technologies, usually also act as a proxy server and a firewall
+      - Protocol gateways
+      - Resource gateways
+        - Common Gateway Interface (CGI)
+    - Tunnel & Relay
+  - Cookie: HTTP state management mechanism
+  - URL redirection
+  - Security
+    - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
+    - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
+
 - Network security
   - Cryptography
     - Symmetric-key algorithm
@@ -216,8 +235,9 @@
       - Common functions: MD5 (rainbow table), Secure Hash Algorithm (SHA)
       - MAC functions: Hash-based message authentication code (HMAC)
   - Authentication (verifies you are who you say you are)
-    - Key management (cryptographic keys)
+    - Basic authentication & Digest authentication
     - Login form, HTTP authentication, ...
+    - Key management (cryptographic keys)
   - Authorization (decides if you have permission to access a resource)
     - Role-based access control (RBAC)
     - URL access controls, ...
