@@ -45,7 +45,7 @@
   - [API Design](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf)
 
 - Distributed system
-  - Three-phase commit protocol (3PC)：for solving atomic commit
+  - Three-phase commit protocol (3PC): for solving atomic commit
   - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
   - Thrift
   - Flume

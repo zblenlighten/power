@@ -98,7 +98,7 @@
       - Process: each process has a separate memory address space
       - I/O multiplexing: event-driven server runs in the context of a single process
       - Multithreading: process + I/O multiplexing, shared variable synchronization error
-    - Mutual exclusion：Thread safety
+    - Mutual exclusion: Thread safety
       - Locks (mutexes)
       - Readers–writer locks
       - Reentrant mutexes (Recursive locks)
@@ -110,9 +110,9 @@
       - RAM: Sharding
 
 - I/O
-  - Blocking (vs: Non-blocking)：connection is blocked until there is some data to read or the data is fully written
+  - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
     - Possible causes: I/O, lock, network request, database connection
-  - Synchronous (vs: Asynchronous)：code executing in sequence (one at a time)
+  - Synchronous (vs: Asynchronous): code executing in sequence (one at a time)
   - File
     - Regular file
     - Directory
