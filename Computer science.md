@@ -78,36 +78,38 @@
 ### Operating system
 
 - Garbage Collection (Implicit Memory Allocator, vs: Explicit Allocator)
-  - Java (JVM heap)
-    - Young Generation: minor GC
-      - Eden
-      - From (Survivor)
-      - To
-    - Old Generation: major GC
-    - Permanent Generation: full GC
-    - Collector: G1 (Serial, Parallel, CMS)
+  - Java
+    - GC Roots
+    - JVM Heap
+      - Young Generation: minor GC
+        - Eden - From (s0) - To (s1)
+      - Old Generation: major GC
+      - Permanent Generation: full GC
+    - Garbage Collector: G1 (Serial, Parallel, CMS)
   - Python
     - Reference counting
     - Tracing: Mark-and-sweep, Generational GC
 
 - Process & Thread (task execution)
+  - Process states: Running([User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)), Waiting, Blocked
   - Inter process communication (IPC)
     - Remote procedure call (RPC)
   - Concurrency
+    - Achieved via context switching in a single core or parallelism in a multi-core
     - Construct concurrent programs
       - Process: each process has a separate memory address space
       - I/O multiplexing: event-driven server runs in the context of a single process
       - Multithreading: process + I/O multiplexing, shared variable synchronization error
-    - Mutual exclusion: Thread safety
+    - Mutual exclusion: thread safety
       - Locks (mutexes)
       - Readers–writer locks
       - Reentrant mutexes (Recursive locks)
       - Semaphores
       - Possible causes of Deadlock: mutual exclusion, hold and wait or resource holding, no preemption, circular wait
-    - How concurrency is achieved: via context switching in a single core, or parallelism in a multi-core
     - Hardware
       - CPU: Time-sharing
       - RAM: Sharding
+  - Scheduler
 
 - I/O
   - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
@@ -119,14 +121,12 @@
       - Linking: Static library (.lib) & Dynamic-link library (.dll)
     - Socket
 
-- Linux
+- Linux ([pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/))
   - Distribution
     - Debian → Ubuntu
     - Fedora → Red Hat → CentOS
     - Android
-  - System call: [User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)
-  - [Pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
-  - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([命令大全](https://man.linuxde.net/), [Explain shell](https://www.explainshell.com/))
+  - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([命令大全](https://man.linuxde.net/), [Explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
     - Files and Directories: cat, grep, find
     - Manipulating data: wc, sed, sort, uniq, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html)
     - File Editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
@@ -135,71 +135,44 @@
     - Status
     - Messages between Users
     - Networking
-    - [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
 
 ### Network
 
-#### What happens when type in a URL?
-
-1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Web browser
-2. Web browser:
-    - **DNS resolution**: cache (browser, OS, router)/DNS server → IP address
-    - **TCP three-way handshake**
-    - **HTTP request**
-3. Browser → NIC → Wifi router → Global IP Network (Internet) → NIC → Host server
-4. Host server:
-    - Inverse proxy
-    - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
-    - Web application firewall (WAF)
-    - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview)
-    - Web framework
-5. Host server → Host client:
-    - **The server handles the request and sends back an HTTP response**
-    - **The browser displays the HTML content**: [Chromium](https://www.chromium.org/developers/design-documents/multi-process-architecture)
-      - Parsing HTML to construct the DOM tree
-      - Turning CSS into the CSS Object Model
-      - Use the constructed DOM and CSSOM to create a render tree (contains only the nodes required to render the page)
-      - Layout the render tree (computes the exact position and size of each object)
-      - Paint the render tree (takes in the final render tree and renders the pixels to the screen)
-    - **TCP four-way handshake**
-6. Web browser → LCD screen
-
-#### Internet Protocol Suite
-
-1. Physical Layer: Hub → Bit
-2. Data Link Layer: Switch → Frame
-    - Network Interface Card (NIC)
-    - **MAC** (media access control) address
-    - Address Resolution Protocol (ARP)
-    - LTE random access procedure
-3. Network Layer: Router → Datagram
-    - Internet Protocol (**IP**)
-      - Network address translation (NAT): public IP address, private IP address
-    - Routing: Static routing & Dynamic routing
-4. Transport Layer → Segment
-    - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (TCP)
-      - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
-        - OpenSSL
-        - Network security services (NSS)
-    - User Datagram Protocol (UDP)
-    - Reliable Data Protocol (RDP)
-    - Socket = IP + port: act as an interface between the application process and transport layer of the OSI model
-      - Call: connect, bind, listen, accept, send, recv
-      - Echo server
-7. Application Layer → Message
-    - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
-    - File Transfer Protocol (FTP)
-    - Simple Mail Transfer Protocol (SMTP)
-    - Domain Name System (DNS)
-    - IP address
-      - Static IP: IP + Subnet mask + Gateway + DNS
-      - Dynamic IP: Dynamic Host Configuration Protocol (DHCP)
-    - Communication
-      - client → server: pull/get
-      - push server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
+- Internet Protocol Suite
+  1. Physical Layer: Hub → Bit
+  2. Data Link Layer: Switch → Frame
+      - Network Interface Card (NIC)
+      - **MAC** (media access control) address
+      - Address Resolution Protocol (ARP)
+      - LTE random access procedure
+  3. Network Layer: Router → Datagram
+      - Internet Protocol (**IP**)
+        - Network address translation (NAT): public IP address - private IP address
+      - Routing: Static routing & Dynamic routing
+  4. Transport Layer → Segment
+      - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (TCP)
+        - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
+          - OpenSSL
+          - Network security services (NSS)
+      - User Datagram Protocol (UDP)
+      - Reliable Data Protocol (RDP)
+      - Socket = IP + port (act as an interface between the application process and transport layer of the OSI model)
+        - Call: connect, bind, listen, accept, send, recv
+        - Echo server
+  7. Application Layer → Message
+      - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
+      - File Transfer Protocol (FTP)
+      - Simple Mail Transfer Protocol (SMTP)
+      - Domain Name System (DNS)
+      - IP address
+        - Static IP: IP + Subnet mask + Gateway + DNS
+        - Dynamic IP: Dynamic Host Configuration Protocol (DHCP)
+      - Communication
+        - client → server: pull/get
+        - push server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
 
 - The Hypertext Transfer Protocol (HTTP)
-  - [RESTful API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+  - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
     - Resources: Uniform Resource Identifier (URI) = URL + URN
       - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
     - Representation: MIME type
@@ -217,22 +190,47 @@
     - Proxy: server + client
     - Web cache: reduce server lag
     - Gateway: perform protocol conversions to connect networks with different network protocol technologies, usually also act as a proxy server and a firewall
-      - Protocol gateways
-      - Resource gateways
+      - Protocol gateway
+      - Resource gateway
         - Common Gateway Interface (CGI)
     - Tunnel & Relay
   - Cookie: HTTP state management mechanism
   - URL redirection
   - Security
-    - [Content Security Policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
-    - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-Origin Resource Sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
+    - [Content security policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
+    - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-origin resource sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
+    - [Cross-site request forgery](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html) (CSRF)
+
+- What happens when type in a URL?
+  1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Browser
+  2. Browser:
+      - **DNS resolution**: cache (browser, OS, router)/DNS server → IP address
+      - **TCP three-way handshake**
+      - **HTTP request**
+  3. Browser → NIC → Wifi router → Global IP Network (Internet) → NIC → Host server
+  4. Host server:
+      - Inverse proxy
+      - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
+      - Web application firewall (WAF)
+      - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview)
+      - Web framework
+  5. Host server → Host client:
+      - **The server handles the request and sends back an HTTP response**
+      - **The browser displays the HTML content**: [Chromium](https://www.chromium.org/developers/design-documents/multi-process-architecture)
+        - Parsing HTML to construct the DOM tree
+        - Turning CSS into the CSS Object Model
+        - Use the constructed DOM and CSSOM to create a render tree (contains only the nodes required to render the page)
+        - Layout the render tree (computes the exact position and size of each object)
+        - Paint the render tree (takes in the final render tree and renders the pixels to the screen)
+      - **TCP four-way handshake**
+  6. Browser → LCD screen
 
 - Network security
   - Cryptography
     - Symmetric-key algorithm
     - Public-key cryptography: RSA, Rabin, ElGamal, ...
     - Cryptographic hash function
-      - Common functions: MD5 (rainbow table), Secure Hash Algorithm (SHA)
+      - Common functions: MD5 (rainbow table), bcrypt (salt), Secure Hash Algorithm (SHA)
       - MAC functions: Hash-based message authentication code (HMAC)
   - Authentication (verifies you are who you say you are)
     - Basic authentication & Digest authentication
@@ -288,6 +286,6 @@ Read 1 MB sequentially from disk    30,000,000   ns   30,000 us   30 ms 120x mem
 Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
 ```
 
-&emsp;(1) [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)  
+&emsp;(1) [Falsehoods CS Students (Still) Believe Upon Graduating](https://www.netmeister.org/blog/cs-falsehoods.html)  
 &emsp;(2) [記号と読み方](https://memotec.net/etc/mark.html)  
-&emsp;(3) [Falsehoods CS Students (Still) Believe Upon Graduating](https://www.netmeister.org/blog/cs-falsehoods.html)
+&emsp;(3) [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)  

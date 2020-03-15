@@ -35,14 +35,14 @@
   - Serverless
     - AWS Lambda (FaaS)
 
-- API
+- API ([Directory](https://www.programmableweb.com/))
   - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul, ...
   - Gateway
     - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
     - Admin: API lifecycle (draft, publish, upgrade, etc)
     - Monitor: logging for analytics and monitoring
   - Swagger
-  - [API Design](http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf)
+  - REST client tool (i.e. Postman)
 
 - Distributed system
   - Three-phase commit protocol (3PC): for solving atomic commit
@@ -61,14 +61,13 @@
   - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (Solr)
     - Lucene
       - Inverted index
-    - Restful API
+    - Rest API
     - Distributed (master - slave)
 
 - Monitor
-  - Logging (Event)
+  - Logging
     - Collection → Transport → Storage → Analysis → Alerting
     - ELK: Elasticsearch, Logstash (Fluentd), Kibana
-    - Graylog
   - Metric ([types](https://prometheus.io/docs/concepts/metric_types/))
   - Tracing
   - Tools
@@ -78,10 +77,10 @@
 
 - DevOps
   - Version control
-    - Git
+    - Git (branch, tag)
   - Continuous integration / Continuous delivery (CI/CD)
     - Jenkins
-    - Webhook
+    - ~~Webhook~~
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
     - Kubernetes
@@ -95,20 +94,18 @@
 - Tools
   - Terraform
   - ~~Google Analysis~~
-  - Team Collaboration: Miro
+  - Team Collaboration (i.e. Miro)
 
 ### Modes of dataflow
 
 - Rolling upgrades
   - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
-  - Serialization: from data structures in memory to self-contained sequence of bytes (i.e. JSON document) write to file or send over network (vs: Parsing / Deserialization)
-    - [Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/)
-    - [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424)
+  - Serialization: from data structures in memory to self-contained sequence of bytes (i.e. JSON document) write to file or send over network (vs: Parsing / Deserialization) ([Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
   - Binary schema driven formats
 
 - Scenarios
   - Database: sending a message to your future self
-  - Service calls (RPC and REST APIs)
+  - Service calls (RPC and REST API)
   - Asynchronous message passing (via message broker or actor)
 
 - Message broker (Message-oriented middleware: MOM)
@@ -200,14 +197,13 @@
   - Static sites: ~~Content delivery network (CDN)~~
   - Dynamic sites: CGI, Servlet/JavaServer Pages (JSP)
     - Servlet
-      - Life cycle: init, service (request & response), destroy
+      - Life cycle: init → service (request & response) → destroy
       - Container: Apache Tomcat (services provided by the Servlet container)
       - Info & Config
     - Session management in HTTP
       - URL Rewriting & Hidden form filed
       - Cookies
       - HTTPSession
-    - JSP: ~~Expression Language, Standard Tag Library (JSTL), JavaBean, Tag~~
     - Listener (Event): changing the state of an object
       - ServletContext, HttpSession, ServletRequest
     - Filter (authentication, log, ...)
@@ -217,20 +213,37 @@
       - JDBC
       - Development: registration, uploading & downloading files, sending email, writing image, ...
 
-- Java
+- Java (jar & war, [field](http://tutorials.jenkov.com/java-reflection/fields.html))
   - Spring
     - Core
       - Inversion of Control (IoC) Container
-        - Bean
-      - Annotation
-        - **Dependency Injection**: Autowired, Bean
-        - Context Configuration
-        - Stereotype: Component, Controller, Service, Repository
-    - Aspect oriented programming (AOP)
-      - Web Layer: **controller**, exception handler, filter, view template
-      - **Service** Layer
-      - **Repository** Layer
+        - Bean life cycle: bean instantiated → dependencies injected → internal Spring processing → custom init method → destroy (except for the "prototype" scoped bean)
+      - Annotation: Spring configuration (vs: XML)
+        - Inversion of Control: Component
+        - Dependency Injection: Autowired, Qualifier, Value, Bean, Configuration, PropertySource
+        - Bean scope & life cycle: Scope, PostConstruct, PreDestroy
+        - Spring MVC: Controller, RequestMapping, RequestParam, ModelAttribute
+        - Hibernate (ORM): Entity, Table, Id, GenerateValue, OneToOne, ManyToOne, OneToMany, ManyToMany
+        - Data Access Object (DAO) & Service: Repository, Service, Transactional
+    - Spring Aspect oriented programming (AOP)
+      - Web layer - Service layer - Repository layer
+      - Use cases: logging, security, transaction, exception handling, API management
+      - Support: Method-level join points & Run-time code weaving (vs: AspectJ)
+      - Annotation: Aspect, Before, AfterReturning, AfterThrowing, After, Around, Pointcut
+    - Spring Security (Servlet filter)
+    - Spring REST
+      - Annotation: RestController, PathVariable, ExceptionHandler, ControllerAdvice, RequestBody
+    - Spring Boot (initializr [link](https://start.spring.io/))
+      - Solution: perform auto-configuration, provide an embedded HTTP server, resolve dependency conflicts
+      - Actuator (endpoints [list](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints))
+      - Property (properties [list](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html))
+    - DAO techniques
+      - Hibernate API
+        - Fetch: lazy vs eager
+      - Standard Java Persistence API (JPA)
+      - Spring Data JPA (→ Spring Data REST: HATEOAS)
     - Projects: [link](https://spring.io/projects)
+  - Thymeleaf
   - Design patterns
     - Creational Patterns: Factory, Singleton
     - Structural Patterns: Decorator, Adapter, Facade, Composite, Proxy
@@ -258,6 +271,8 @@
     - Vuex
   - Rich Text Editor
   - BPMN: Business Process Model and Notation (i.e. Rappid)
+
+- UI component: Bootstrap, Ant Design
 
 - WWW standards
   - CSS
