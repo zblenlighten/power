@@ -41,11 +41,13 @@
 
 - Geodata
 
+- Data masking
+
 - Natural Language
   - Bag of Words & N-gram: Term Frequency — Inverse Document Frequency (tf–idf)
     - Tokenization: word segmentation, convert characters to lowercase
     - Remove useless characters, remove stop/rare words
-    - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding
+    - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
     - Named-entity recognition: entity insertion and extraction
   - Topic model
     - Probabilistic Latent Semantic Analysis (pLSA)
@@ -63,9 +65,10 @@
 - Image
   - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
   - Label
+  - OpenCV: resize (INTER_CUBIC, INTER_LINEAR, INTER_AREA)
 
-- More knowledge
-  - Similarity measure
+- Applications
+  - Similarity measure ([SciPy Distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
     - Euclidean distance
     - Jaccard index
     - Cosine similarity
@@ -73,11 +76,17 @@
     - Pearson correlation coefficient
     - Information entropy
   - Ranking
+    - [Metrics](http://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples)
     - Case: [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
   - Natural Language Processing
-    - Bag of Words & N-gram: article vector (each dimension is the tf–idf of the word) → Cosine distance
-    - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance / Euclidean distance (WMD: Word Mover's Distance)
-    - ...
+    - Tasks
+      - Text classification
+      - Semantic similarity
+      - Sentiment analysis
+    - Models
+      - Bag of Words & N-gram: article vector (each dimension is the tf–idf of the word) → Cosine distance
+      - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance / Euclidean distance (WMD: Word Mover's Distance)
+      - ...
   - Computer vision
     - Tasks
       - Image classification
@@ -94,10 +103,16 @@
 ### Deep learning
 
 - Neural network
-  - Feed forward
-  - Gradient descent (vs: gradient ascent)
-  - Global minimum
-  - Back propagation
+  - Convolutional Neural Network (CNN)
+    - Pooling: max pooling & average pooling
+  - Recurrent Neural Network (RNN)
+    - Long short-term memory (LSTM)
+      - Cell state: forget gate → input gate → output gate
+  - Training
+    - Feed forward
+    - Gradient descent (vs: gradient ascent)
+    - Global minimum
+    - Back propagation
 
 - Fine-tune
   - Random initialization
@@ -119,10 +134,15 @@
   - Hyperparameter optimization
 
 - Models
-  - [Keras](https://keras.io/applications/)
-  - [YOLO](https://medium.com/@jonathan_hui/real-time-object-detection-with-yolo-yolov2-28b1b93e2088) (IoU: Intersection over Union)
-  - CRNN ([ctc](https://github.com/tensorflow/tensorflow/blob/679f95e9d8d538c3c02c0da45606bab22a71420e/tensorflow/python/kernel_tests/ctc_loss_op_test.py))
-  - ...
+  - Image classification
+    - [Keras Models](https://keras.io/applications/)
+  - Object detection
+    - Backbone + detection head
+    - [YOLO](https://medium.com/@jonathan_hui/real-time-object-detection-with-yolo-yolov2-28b1b93e2088)
+      - Intersection over Union: IoU
+      - Anchor Boxes
+  - Text recognition  
+    - CRNN ([ctc](https://github.com/tensorflow/tensorflow/blob/679f95e9d8d538c3c02c0da45606bab22a71420e/tensorflow/python/kernel_tests/ctc_loss_op_test.py))
 
 - [Feature engineer](https://www.quora.com/Does-deep-learning-reduce-the-importance-of-feature-engineering): Deep Feature Synthesis
 
@@ -194,14 +214,13 @@
     - Cold start: new community, new item, new user
 
 - Ranking ([CTR](https://zhuanlan.zhihu.com/p/61154299): Click Through Rate): depends on business needs and development stage
-  - XGBoost
-  - FM, FFM, DeepFM ([说明](https://blog.csdn.net/john_xyz/article/details/78933253))
+  - XGBoost (GBM、GBRT、GBDT)
+  - Factorization Machine (FM), FFM, DeepFM ([说明](https://blog.csdn.net/john_xyz/article/details/78933253))
   - [DNN](https://zhuanlan.zhihu.com/p/35484389): FNN, PNN, AFM, ect
-  - Wide&Deep
 
 - Evaluation
   - Offline
-  - Online: A/B test
+  - Online: CTR (A/B test)
 
 - Case
   - YouTube

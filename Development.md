@@ -95,6 +95,7 @@
   - Terraform
   - ~~Google Analysis~~
   - Team Collaboration (i.e. Miro)
+  - VirtualBox + Vagrant
 
 ### Modes of dataflow
 
@@ -231,6 +232,7 @@
       - Support: Method-level join points & Run-time code weaving (vs: AspectJ)
       - Annotation: Aspect, Before, AfterReturning, AfterThrowing, After, Around, Pointcut
     - Spring Security (Servlet filter)
+      - [Secure a Spring Boot REST API with JSON Web Token](https://medium.com/better-programming/secure-a-spring-boot-rest-api-with-json-web-token-reference-to-angular-integration-e57a25806c50)
     - Spring REST
       - Annotation: RestController, PathVariable, ExceptionHandler, ControllerAdvice, RequestBody
     - Spring Boot (initializr [link](https://start.spring.io/))
@@ -267,7 +269,7 @@
     - Model–view–viewmodel (MVVM)
       - Model: JavaScript
       - View: HTML
-      - two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416)）
+      - two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
     - Vuex
   - Rich Text Editor
   - BPMN: Business Process Model and Notation (i.e. Rappid)
