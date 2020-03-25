@@ -209,10 +209,6 @@
       - ServletContext, HttpSession, ServletRequest
     - Filter (authentication, log, ...)
       - Wrapper
-    - Other topics
-      - ErrorHandler
-      - JDBC
-      - Development: registration, uploading & downloading files, sending email, writing image, ...
 
 - Java (jar & war, [field](http://tutorials.jenkov.com/java-reflection/fields.html))
   - Spring
@@ -251,12 +247,12 @@
     - Structural Patterns: Decorator, Adapter, Facade, Composite, Proxy
     - Behavioral Patterns: Observer, Command, Template, Iterator, State
     - J2EE Patterns: Compound (MVC: Model, View, Controller)
-    - Principles
-      - Single Responsibility Principle
+    - Principles (SOLID)
       - Open Close Principle
-      - Liskov Substitution Principle
-      - Interface Segregation Principle
       - Dependence Inversion Principle
+      - Liskov Substitution Principle
+      - Single Responsibility Principle
+      - Interface Segregation Principle
       - ~~Demeter Principle & Composite Reuse Principle~~
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))

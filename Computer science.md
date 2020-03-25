@@ -121,20 +121,20 @@
       - Linking: Static library (.lib) & Dynamic-link library (.dll)
     - Socket
 
-- Linux ([pipe](https://www.geeksforgeeks.org/piping-in-unix-or-linux/))
+- Linux (pipe)
   - Distribution
     - Debian → Ubuntu
     - Fedora → Red Hat → CentOS
     - Android
-  - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([命令大全](https://man.linuxde.net/), [Explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
-    - Files and Directories: cat, grep, find
-    - Manipulating data: wc, sed, sort, uniq, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html)
+  - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([Explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
+    - Files and Directories: cat, touch, grep, find
+    - Manipulating data: cut, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html), sort, uniq, wc, sed
     - File Editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
-    - Compressed files
+    - Compressed files: tar
     - Information
     - Status
     - Messages between Users
-    - Networking
+    - Networking: scp, curl
 
 ### Network
 
