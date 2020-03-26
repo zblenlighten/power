@@ -170,6 +170,7 @@
       - Communication
         - client → server: pull/get
         - push server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
+        - peer-to-peer: Extensible Messaging and Presence Protocol (XMPP)
 
 - The Hypertext Transfer Protocol (HTTP)
   - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)

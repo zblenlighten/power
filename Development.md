@@ -35,6 +35,19 @@
   - Serverless
     - AWS Lambda (FaaS)
 
+- Distributed system (storage + computation + messaging)
+  - Three-phase commit protocol (3PC): for solving atomic commit
+  - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
+  - Thrift
+  - Flume
+  - Hadoop (ecosystem)
+    - Hadoop MapReduce (distributed computation)
+    - Hadoop Distributed File System (HDFS)
+    - HBase
+  - RPC
+    - Dubbo
+    - gRPC
+
 - API ([Directory](https://www.programmableweb.com/))
   - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul, ...
   - Gateway
@@ -43,19 +56,6 @@
     - Monitor: logging for analytics and monitoring
   - Swagger
   - REST client tool (i.e. Postman)
-
-- Distributed system
-  - Three-phase commit protocol (3PC): for solving atomic commit
-  - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
-  - Thrift
-  - Flume
-  - Hadoop
-    - Hadoop Distributed File System (HDFS)
-    - Hadoop MapReduce
-    - HBase
-  - RPC
-    - Dubbo
-    - gRPC
 
 - Search engine
   - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (Solr)
@@ -113,23 +113,25 @@
   - Type
     - Advanced Message Queuing Protocol (AMQP)/Java Message Service (JMS) style message broker
     - Log based message broker
-  - Software
-    - Kafka
-      - Concepts: cluster, topics, record (key, value, timestamp)
-      - Core APIs: Producer, Consumer, Streams, Connector
-      - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
-      - Reasons to fast:
-        - Avoids Random Disk Access (sequential write)
-        - Memory Mapped Files (mmap)
-        - Zero Copy ([原理](https://www.jianshu.com/p/2581342317ce))
-        - Batch Data in Chunks
-        - Can Scale Horizontally
+  - Kafka (real time analysis, streams, no cluster required)
+    - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
+    - Core APIs: Producer, Consumer, Streams, Connector (Record: key, value, timestamp)
+    - Reasons to fast:
+      - Avoids Random Disk Access (sequential write)
+      - Memory Mapped Files (mmap)
+      - Zero Copy ([原理](https://www.jianshu.com/p/2581342317ce))
+      - Batch Data in Chunks
+      - Can Scale Horizontally
+    - Topic partitioning: What if a topic gets too big for one computer or one computer is not reliable
+  - Messaging (loosely coupling subsystems)
     - ActiveMQ
     - RabbitMQ
 
 - Batch & Stream
-  - Airflow (Workflow management)
-  - Spark: Resilient Distributed Dataset (RDD)
+  - Airflow
+  - Spark
+    - Scatter/gather paradigm (MapReduce)
+    - Data model: Resilient Distributed Dataset (RDD)
   - Storm
   - Flink
 
@@ -141,6 +143,8 @@
     - page-oriented storage (B tree)
   - Database transaction
     - Atomicity
+      - Two-Phase Commit (2PC)
+      - Try-Confirm/Cancel (TCC)
     - Consistency
     - Isolation
       - Serializable
@@ -148,6 +152,9 @@
       - Read committed
       - Read uncommitted
     - Durability
+  - Index (search)
+  - Mutability
+  - Filesystem ACL (file vs blob: binary large object)
   - Concurrency control
     - Pessimistic locking
     - Optimistic locking
@@ -195,7 +202,8 @@
 ### Backend
 
 - Server Content
-  - Static sites: ~~Content delivery network (CDN)~~
+  - Static sites
+    - Content delivery network (CDN)
   - Dynamic sites: CGI, Servlet/JavaServer Pages (JSP)
     - Servlet
       - Life cycle: init → service (request & response) → destroy
@@ -288,7 +296,7 @@
 - Trade-offs:
   - Performance vs Scalability
   - Latency vs Throughput
-  - Availability vs Consistency: Consistency, Availability, Partition tolerance (CAP)
+  - Availability vs Consistency: Consistency, Availability, Partition tolerance (CAP theorem)
     - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
 
 - Cases:
@@ -306,22 +314,10 @@
       - Key-value store
       - URL redirection (302)
 
-  4. Twitter / Feed
-      - // TODO
-  
-  5. Messenger service (feature → architecture)
+  4. Messenger service (feature → architecture)
       - One to one text
       - Sent / Delivered / Read
       - Push notification
-
-  6. Yelp
-      - // TODO
-
-  7. Uber
-      - // TODO
-
-  8. EC platform
-      - // TODO
 
 - References
   - [服务端高并发分布式架构演进之路](https://segmentfault.com/a/1190000018626163)
@@ -331,6 +327,7 @@
 - Programming style
   - [Java Style](https://google.github.io/styleguide/javaguide.html)
   - [Python Style](https://google.github.io/styleguide/pyguide.html)
+  - [Shell Style](https://google.github.io/styleguide/shellguide.html)
 
 - WBS: Work breakdown structure
   - RfQ: Request for quotation
