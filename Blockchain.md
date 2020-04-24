@@ -3,7 +3,7 @@
 ## Contents
 
 - [Knowledge](#knowledge)
-- [Hyperledger Fabric](#hyperledger-fabric)
+- [Hyperledger Fabric](#hyperledger-fabric-consortium-blockchain)
 
 ## Blockchain
 
@@ -50,7 +50,7 @@
       - EOA: externally owned accounts (private keys) → ECC: Elliptic Curve Cryptography
       - contract accounts (contract code)
 
-### Hyperledger Fabric
+### Hyperledger Fabric (Consortium blockchain)
 
 - Private & permissioned
 
@@ -81,5 +81,9 @@
   - Ledger: block store, peer transaction manager (PTM)
     - world state (Key-Value Store of current values): Merkle Patricia tries (Radix tree)
     - blockchain (transaction log, immutable)
-  - Chaincode execution: Go, Java, Node.js...
+  - Chaincode (execution of smart contracts): Go, Java, Node.js...
+    - Channel: indentify each of the chaincode in the network
+    - Shim API
+    - Interface
+    - Stub
   - Configuration and system chaincodes

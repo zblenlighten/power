@@ -34,6 +34,7 @@
       - Service discovery (SDP)
   - Serverless
     - AWS Lambda (FaaS)
+      - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
 
 - Distributed system (storage + computation + messaging)
   - Three-phase commit protocol (3PC): for solving atomic commit
@@ -41,9 +42,10 @@
   - Thrift
   - Flume
   - Hadoop (ecosystem)
-    - Hadoop MapReduce (distributed computation)
+    - MapReduce (distributed computation: input, split, map, shuffle, reduce, output)
     - Hadoop Distributed File System (HDFS)
     - HBase
+    - Apache Pig
   - RPC
     - Dubbo
     - gRPC
@@ -211,7 +213,7 @@
       - Info & Config
     - Session management in HTTP
       - URL Rewriting & Hidden form filed
-      - Cookies
+      - Cookies (first party cookie vs third party cookie)
       - HTTPSession
     - Listener (Event): changing the state of an object
       - ServletContext, HttpSession, ServletRequest
@@ -251,6 +253,7 @@
     - Projects: [link](https://spring.io/projects)
   - Thymeleaf
   - Design patterns
+    - Object oriented programming (OOP): Polymorphism
     - Creational Patterns: Factory, Singleton
     - Structural Patterns: Decorator, Adapter, Facade, Composite, Proxy
     - Behavioral Patterns: Observer, Command, Template, Iterator, State
@@ -264,16 +267,15 @@
       - ~~Demeter Principle & Composite Reuse Principle~~
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
+  - [Tutorial](https://tour.golang.org/welcome/1)
 
 ### Frontend
 
 - JavaScript
   - Node.js
   - Vue
-    - Model–view–viewmodel (MVVM)
-      - Model: JavaScript
-      - View: HTML
-      - two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
+    - Model–view–viewmodel (MVVM): two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
+    - Vue Instance - Virtual DOM - DOM
     - Vuex
   - Rich Text Editor
   - BPMN: Business Process Model and Notation (i.e. Rappid)
@@ -282,7 +284,7 @@
 
 - WWW standards
   - CSS
-  - DOM: Document Object Model
+  - DOM: Document Object Model ([HTML DOM 事件](https://www.runoob.com/jsref/dom-obj-event.html))
   - HTML
   - SVG
   - XML

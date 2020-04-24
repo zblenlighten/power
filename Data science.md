@@ -17,18 +17,19 @@
 
 ### Project Checklist
 
-- Frame the problem and look at the big picture
-- Get the data (automate)
-- Explore the data to gain insights (field expert)
-- Prepare the data to better expose the underlying data patterns
-  1. data clean
-  2. feature selection
-  3. [feature engineering](https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114#83e6)
-  4. feature scaling
-- Explore many different models and short-list the promising ones
-- Fine-tune
-- Present your solution
-- Launch, monitor and maintain your system
+- Data science process: Obtain → Scrub → Explore → Model → Interpret
+  - Frame the problem and look at the big picture
+  - Get the data (automate)
+  - Explore the data to gain insights (field expert)
+  - Prepare the data to better expose the underlying data patterns
+    1. data clean
+    2. feature selection
+    3. [feature engineering](https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114#83e6)
+    4. feature scaling
+  - Explore many different models and short-list the promising ones
+  - Fine-tune
+  - Present your solution
+  - Launch, monitor and maintain your system
 
 ### Data processing
 
@@ -305,12 +306,6 @@
 | Prediction result delivery  | Via REST API  | Though the shared DB  | Streaming via message queue  | Via in-process API on mobile  |
 | Latency for prediction  | So so  | High  | Very low  | Low  |
 | System management difficulty  | So so  | Easy  | Very hard  | So so  |
-
-- References
-  - [Exposing Model as REST API](https://www.geeksforgeeks.org/exposing-ml-dl-models-as-rest-apis/)
-  - [Architect Pipeline](https://towardsdatascience.com/architecting-a-machine-learning-pipeline-a847f094d1c7)
-  - Google: [TFX](https://www.tensorflow.org/tfx)
-  - Facebook: [FBLearner Flow](https://engineering.fb.com/core-data/introducing-fblearner-flow-facebook-s-ai-backbone/)
 
 ### Data analysis
 
