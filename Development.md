@@ -295,11 +295,26 @@
   - goes slow: **scalability**, performance
   - goes down: **resiliency** (SPOF: single point of failure), availability, stability
 
-- Trade-offs:
+- Distributed System Trade-offs:
   - Performance vs Scalability
   - Latency vs Throughput
   - Availability vs Consistency: Consistency, Availability, Partition tolerance (CAP theorem)
     - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
+
+- Performance
+  - Testing
+    - Latency (Response time)
+    - Number of concurrent sessions/users
+    - Throughput: hps, tps, qps (number of HTTP requests/transactions/queries per second)
+    - Internal metrics: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
+  - Optimization
+    - Global Data Center
+    - Hardware
+    - Operating system (Linux: trasnparent huge page)
+    - JVM
+    - Infrastructure: web container, database connection pooling, MVC framework
+    - Architecture: cache (read-through vs cache-aside), message broker, clustered architecture
+    - Programming: algorithms, data structure, design pattern, asynchronous I/O
 
 - Cases:
   1. Web crawler
