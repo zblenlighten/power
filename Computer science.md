@@ -210,7 +210,7 @@
       - **HTTP request**
   3. Browser → NIC → Wifi router → Global IP Network (Internet) → NIC → Host server
   4. Host server:
-      - Load balancer ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
+      - Load balancing ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
         - Inverse proxy (HTTP)
       - Web application firewall (WAF)
       - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview)
@@ -226,8 +226,11 @@
       - **TCP four-way handshake**
   6. Browser → LCD screen
 
-- Network security
+- Security
   - Cryptography
+    - Cryptographic hash function
+      - Common functions: MD5 (rainbow table), bcrypt (salt), Secure Hash Algorithm (SHA)
+      - MAC functions: Hash-based message authentication code (HMAC)
     - Symmetric-key algorithm
     - Public-key cryptography
       - Integer factorization: RSA, Rabin
@@ -235,9 +238,6 @@
       - Digital signature (Electronic signature: DocuSign)
       - Public key infrastructure (PKI)
         - Certificate authority (CA)
-    - Cryptographic hash function
-      - Common functions: MD5 (rainbow table), bcrypt (salt), Secure Hash Algorithm (SHA)
-      - MAC functions: Hash-based message authentication code (HMAC)
   - Authentication (verifies you are who you say you are)
     - Basic authentication & Digest authentication
     - Login form, HTTP authentication, ...

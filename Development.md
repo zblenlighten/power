@@ -89,13 +89,13 @@
   - Configuration
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Puppet
-  - Load balancer
+  - Load balancing
     - Nginx ([入门](https://yq.aliyun.com/articles/423970))
   - Single vs Multi-tenant
 
 - Tools
   - Terraform
-  - ~~Google Analysis~~
+  - Google Analytics
   - Team Collaboration (i.e. Miro)
   - VirtualBox + Vagrant
 
@@ -316,6 +316,12 @@
     - Architecture: cache (read-through vs cache-aside), message broker, clustered architecture
     - Programming: algorithms, data structure, design pattern, asynchronous I/O
 
+- Availability
+  - Redundancy backup: Load balancing, database with multi master replication
+  - Fault and latency tolerance: Hystrix, message broker
+  - Flow control & degrade
+  - Global server load balancing (GSLB) 
+  
 - Cases:
   1. Web crawler
       - BFS & DFS (Overhead time) by Scheduler (Priority queue stores URLs that have been discovered but not yet downloaded)
@@ -353,7 +359,7 @@
     - Who, What, Why, Acceptance Criteria (AC)
   - Website wireframe design (i.e. Adobe XD)
   - Software architecture design
-  - Coding, testing, pull request, release
+  - Coding, testing, release
   - Maintenance & Iterative and incremental development
 
 - Methodology
