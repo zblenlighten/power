@@ -82,13 +82,13 @@
     - Git (branch, tag)
   - Continuous integration / Continuous delivery (CI/CD)
     - Jenkins
-    - ~~Webhook~~
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
     - Kubernetes
   - Configuration
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Puppet
+    - Hadoop Yarn
   - Load balancing
     - Nginx ([入门](https://yq.aliyun.com/articles/423970))
   - Single vs Multi-tenant
@@ -130,12 +130,17 @@
     - RabbitMQ
 
 - Batch & Stream
-  - Airflow
-  - Spark
-    - Scatter/gather paradigm (MapReduce)
-    - Data model: Resilient Distributed Dataset (RDD)
-  - Storm
-  - Flink
+  - Stream (event time, state, deployment, correctness)
+    - Windowing: slicing data into chunks
+    - Watermarks - Trigger - Accumulators (discarding, accumulating, retracting)
+    - Streaming SQL
+  - Applications & Frameworks
+    - Airflow
+    - Spark
+      - Scatter/gather paradigm (MapReduce)
+      - Data model: Resilient Distributed Dataset (RDD)
+    - Flink
+    - Kafka Stream (Kafka: data pipeline, Kafka Stream: stream processing, [details](https://www.knowledgehut.com/blog/big-data/kafka-vs-spark))
 
 ### Data storage
 
@@ -220,7 +225,7 @@
     - Filter (authentication, log, ...)
       - Wrapper
 
-- Java (jar & war, [field](http://tutorials.jenkov.com/java-reflection/fields.html))
+- Java ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html), [field](http://tutorials.jenkov.com/java-reflection/fields.html), jar & war)
   - Spring
     - Core
       - Inversion of Control (IoC) Container
@@ -250,6 +255,7 @@
         - Fetch: lazy vs eager
       - Standard Java Persistence API (JPA)
       - Spring Data JPA (→ Spring Data REST: HATEOAS)
+    - Spring Cloud
     - Projects: [link](https://spring.io/projects)
   - Thymeleaf
   - Design patterns
@@ -267,7 +273,6 @@
       - ~~Demeter Principle & Composite Reuse Principle~~
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
-  - [Tutorial](https://tour.golang.org/welcome/1)
 
 ### Frontend
 
@@ -348,9 +353,8 @@
 ### Practice
 
 - Programming style
-  - [Java Style](https://google.github.io/styleguide/javaguide.html)
-  - [Python Style](https://google.github.io/styleguide/pyguide.html)
-  - [Shell Style](https://google.github.io/styleguide/shellguide.html)
+
+- Methodology ([Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/))
 
 - WBS: Work breakdown structure
   - RfQ: Request for quotation
@@ -361,10 +365,6 @@
   - Software architecture design
   - Coding, testing, release
   - Maintenance & Iterative and incremental development
-
-- Methodology
-  - Waterfall
-  - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
 
 - Development Approach
   - FDD: Feature-Driven
