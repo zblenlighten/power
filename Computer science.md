@@ -195,7 +195,7 @@
       - Resource gateway
         - Common Gateway Interface (CGI)
     - Tunnel & Relay
-  - Cookie: HTTP state management mechanism
+  - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
   - URL redirection
   - Security
     - [Content security policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)

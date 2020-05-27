@@ -39,8 +39,8 @@
 - Distributed system (storage + computation + messaging)
   - Three-phase commit protocol (3PC): for solving atomic commit
   - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
-  - Thrift
-  - Flume
+  - ~~Thrift~~
+  - ~~Flume~~
   - Hadoop (ecosystem)
     - MapReduce (distributed computation: input, split, map, shuffle, reduce, output)
     - Hadoop Distributed File System (HDFS)
@@ -95,9 +95,9 @@
 
 - Tools
   - Terraform
-  - Google Analytics
   - Team Collaboration (i.e. Miro)
   - VirtualBox + Vagrant
+  - Firebase (BaaS)
 
 ### Modes of dataflow
 
@@ -129,8 +129,9 @@
     - ActiveMQ
     - RabbitMQ
 
-- Batch & Stream
-  - Stream (event time, state, deployment, correctness)
+- Extract (ETL: Extract - Transform - Load)
+  - Batch: raw logs, files, assets, etc.
+  - Stream: events, metrics, etc. (event time, state, deployment, correctness)
     - Windowing: slicing data into chunks
     - Watermarks - Trigger - Accumulators (discarding, accumulating, retracting)
     - Streaming SQL
@@ -194,17 +195,19 @@
   - Cache coherence: Distributed lock manager (DLM)
 
 - Comparison
-  - Transaction processing systems (OLTP: online transaction precessing)
+  - Transaction processing systems (OLTP: online transaction processing)
     - Row-oriented
     - Database: Oracle, Mysql, PostgreSQL
-  - Analytic systems (OLAP: Online analytical processing)
+  - Analytic systems (OLAP: online analytical processing)
     - Column-oriented
     - Database (Data warehouse): Teradata, Redshift, Hive, Greenplum
     - High availability and low latency
     - Business Intelligence: optimization for analytic access patterns
+    - On-premises vs Cloud data warehouses
 
 - References
   - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
+  - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
 
 ### Backend
 
@@ -217,13 +220,8 @@
       - Container: Apache Tomcat (services provided by the Servlet container)
       - Info & Config
     - Session management in HTTP
-      - URL Rewriting & Hidden form filed
-      - Cookies (first party cookie vs third party cookie)
-      - HTTPSession
     - Listener (Event): changing the state of an object
-      - ServletContext, HttpSession, ServletRequest
     - Filter (authentication, log, ...)
-      - Wrapper
 
 - Java ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html), [field](http://tutorials.jenkov.com/java-reflection/fields.html), jar & war)
   - Spring
@@ -257,7 +255,6 @@
       - Spring Data JPA (→ Spring Data REST: HATEOAS)
     - Spring Cloud
     - Projects: [link](https://spring.io/projects)
-  - Thymeleaf
   - Design patterns
     - Object oriented programming (OOP): Polymorphism
     - Creational Patterns: Factory, Singleton
@@ -270,29 +267,34 @@
       - Liskov Substitution Principle
       - Single Responsibility Principle
       - Interface Segregation Principle
-      - ~~Demeter Principle & Composite Reuse Principle~~
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
 ### Frontend
 
-- JavaScript
-  - Node.js
-  - Vue
-    - Model–view–viewmodel (MVVM): two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
-    - Vue Instance - Virtual DOM - DOM
-    - Vuex
-  - Rich Text Editor
-  - BPMN: Business Process Model and Notation (i.e. Rappid)
-
-- UI component: Bootstrap, Ant Design
-
 - WWW standards
-  - CSS
+  - CSS ([animation](https://animate.style/))
   - DOM: Document Object Model ([HTML DOM 事件](https://www.runoob.com/jsref/dom-obj-event.html))
   - HTML
   - SVG
   - XML
+
+- Single-page application (vs: multiple-page application)
+  - JavaScript
+    - Vue.js
+      - Vue Instance - Virtual DOM - DOM
+      - VueResource, VueRouter, Vuex
+        - Model–view–viewmodel (MVVM): two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
+      - Developer Tools: Vue.js devtools
+    - AngularJS
+    - Node.js
+    - Webpack
+      - Lazy Loading
+
+- Applications
+  - UI component: Bootstrap, Ant Design
+  - Rich Text Editor
+  - BPMN: Business Process Model and Notation (i.e. Rappid)
 
 ### System design
 
@@ -333,16 +335,12 @@
       - Page analysis and URL extraction (parsing Javascript)
       - URL table (In the case of thousands of servers: 明确每台下载服务器的分工，向散列表发送询问判断URL是否下载)
 
-  2. Search engine
-      - PageRank
-      - Search Engine Optimizer
-
-  3. URL shortening
+  2. URL shortening
       - Distributed ID Generator
       - Key-value store
       - URL redirection (302)
 
-  4. Messenger service (feature → architecture)
+  3. Messenger service (feature → architecture)
       - One to one text
       - Sent / Delivered / Read
       - Push notification

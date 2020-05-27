@@ -9,6 +9,7 @@
 - [Data processing](#data-processing)
 - [Deep learning](#deep-learning)
 - [Machine learning](#machine-learning)
+- [Applications](#applications)
 - [Statistics](#statistics)
 - [Deployment](#deployment)
 - [Data analysis](#data-analysis)
@@ -76,9 +77,14 @@
     - Hamming distance
     - Pearson correlation coefficient
     - Information entropy
-  - Ranking
-    - [Metrics](http://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples)
+  - Ranking (MLR: machine learned ranking)
+    - Information retrieval
+      - Page Rank
     - Case: [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
+    - [Metrics](http://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples)
+    - Approaches
+      - Pointwise
+      - Pairwise
   - Natural Language Processing
     - Tasks
       - Text classification
@@ -189,12 +195,36 @@
 
 #### Few-shot learning
 
-// TODO
-
 #### Unsupervised learning
 
 - kMeans
 - FP-growth, Apriori
+
+#### Evaluation
+
+- Cross Validation
+
+- Confusion Matrix
+- F1 Score
+  - Precision = TP / (TP + FP)
+  - Recall = TP / (TP + FN)
+- Receiver Operating Characteristic (AUC: Area Under the ROC Curve)
+  - True Positive Rate = TP / (TP + FN)
+  - False Positive Rate = FP / (FP + TN)
+- Precision-Recall (PR) curve
+
+- RMSE: Root Mean Squared Error (MSE: Mean squared error)
+- MAPE: Mean Absolute Percent Error (MAE: Mean absolute error)
+
+- Others
+  - Log Loss
+  - Gain and Lift Charts
+  - Kolmogorov Smirnov Chart
+  - Concordant – Discordant Ratio
+
+- Multi-classification: F1 score, Average Accuracy, Log-loss
+
+### Applications
 
 #### Recommender system
 
@@ -228,29 +258,29 @@
     - Candidate Generation
     - Ranking
 
-#### Evaluation
+#### Computational Advertising
 
-- Cross Validation
+- Online Advertising Platforms
+  - Supply side platform (SSP): Publisher
+  - Audience
+  - Demand side platform (DSP): Advertiser
+  - Ads exchange platform (ADX): Publisher - Advertiser
+    - Real time bidding (RTB)
+  - Data management platform (DMP): SSP - ADX - DSP
 
-- Confusion Matrix
-- F1 Score
-  - Precision = TP / (TP + FP)
-  - Recall = TP / (TP + FN)
-- Receiver Operating Characteristic (AUC: Area Under the ROC Curve)
-  - True Positive Rate = TP / (TP + FN)
-  - False Positive Rate = FP / (FP + TN)
-- Precision-Recall (PR) curve
+- Knowledge
+  - Advertising campaign
+  - Attribution
+  - Search engine marketing (SEM)
+    - Search engine optimization (SEO)
 
-- RMSE: Root Mean Squared Error (MSE: Mean squared error)
-- MAPE: Mean Absolute Percent Error (MAE: Mean absolute error)
-
-- Others
-  - Log Loss
-  - Gain and Lift Charts
-  - Kolmogorov Smirnov Chart
-  - Concordant – Discordant Ratio
-
-- Multi-classification: F1 score, Average Accuracy, Log-loss
+- Google Marketing Platform (Google's display advertising stack)
+  - Google Analytics
+  - Google Data Studio (vs: Tableau)
+  - Campaign Manager: ad server settings
+  - Display & Video 360 (DSP): buy side settings
+  - Search Ads
+  - Google Ads is used by advertisers and Google AdSense is used by publishers
 
 ### Statistics
 
@@ -309,6 +339,17 @@
 
 ### Data analysis
 
+- Business analytics
+  - Customer Experience (CX)
+  - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
+
+- Data visualization
+  - Design
+    - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
+  - Case
+    - [Seeing Theory](https://seeing-theory.brown.edu/)
+    - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)
+
 - Pirate Funnel
 
 | Element  | Function  | Relevant metrics  |
@@ -319,9 +360,4 @@
 | Revenue  | Business outcomes (which vary by your business model: purchases, ad clicks, content creation, subscriptions, etc.)  | Customer lifetime value, conversion rate, shopping cart size, click-through revenue  |
 | Referral  | Viral and word-of-mouth invitations to other potential users  | Invites sent, viral coefficient, viral cycle time  |
 
-- Data visualization
-  - About design
-    - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
-  - Case
-    - [Seeing Theory](https://seeing-theory.brown.edu/)
-    - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)
+- Acquisition mediums: Organic, Cost Per Click / Cost Per Mille (CPC / CPM), Referreal, Email, None
