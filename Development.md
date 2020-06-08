@@ -352,11 +352,13 @@
 
 - Programming style
 
-- Methodology ([Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/))
+- Methodology
+  - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
+  - Scrum: Transparency, Inspection, Adaptation
 
 - WBS: Work breakdown structure
   - RfQ: Request for quotation
-  - POC: Proof of concept
+  - PoC: Proof of concept & SoW: Statement of work
   - Feature (list) & [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
     - Who, What, Why, Acceptance Criteria (AC)
   - Website wireframe design (i.e. Adobe XD)

@@ -261,26 +261,24 @@
 #### Computational Advertising
 
 - Online Advertising Platforms
-  - Supply side platform (SSP): Publisher
+  - Supply side platform (SSP): publisher, ad networks
   - Audience
-  - Demand side platform (DSP): Advertiser
-  - Ads exchange platform (ADX): Publisher - Advertiser
-    - Real time bidding (RTB)
-  - Data management platform (DMP): SSP - ADX - DSP
+  - Demand side platform (DSP): advertiser → target audience
+  - Ad exchange platform (ADX): publisher, advertiser
+    - Real time bidding (RTB): second-price auction
+  - Data management platform (DMP): DSP
 
-- Knowledge
-  - Advertising campaign
-  - Attribution
-  - Search engine marketing (SEM)
-    - Search engine optimization (SEO)
-
-- Google Marketing Platform (Google's display advertising stack)
-  - Google Analytics
-  - Google Data Studio (vs: Tableau)
-  - Campaign Manager: ad server settings
-  - Display & Video 360 (DSP): buy side settings
-  - Search Ads
-  - Google Ads is used by advertisers and Google AdSense is used by publishers
+- Google's display advertising stack
+  - Google Ads: advertisers - Google AdSense: publishers
+  - Google Marketing Platform (GMP)
+    - Campaign Manager (~~3PAS~~): ad server
+      - Advertising campaign
+    - Display & Video 360 (DSP): buy side
+    - Search Ads
+    - Google Analytics
+      - [Attribution models](https://support.google.com/analytics/answer/1662518)
+      - Data-driven attribution (DDA) model
+    - Google Data Studio (vs: Tableau)
 
 ### Statistics
 
@@ -347,6 +345,7 @@
   - Design
     - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
   - Case
+    - [Tableau Public](https://public.tableau.com/en-us/gallery)
     - [Seeing Theory](https://seeing-theory.brown.edu/)
     - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)
 
