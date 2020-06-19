@@ -20,6 +20,7 @@
     - Soft fork
 
 - Consensus Protocol
+  - Byzantine fault
   - Purposes
     - Verify the legitimacy of a transaction, ensure all participating nodes come to an agreement about the true and valid state of the network, avoid double-spending
     - Create new digital currencies by rewarding miners

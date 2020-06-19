@@ -1,5 +1,6 @@
 # Knowledge Memo
 
+[Kaggle blog](https://medium.com/kaggle-blog)  
 [state-of-the-art model](https://paperswithcode.com/sota)  
 [state-of-the-art 模型](http://www.jiqizhixin.com/sota)  
 
@@ -209,6 +210,7 @@
   - Precision = TP / (TP + FP)
   - Recall = TP / (TP + FN)
 - Receiver Operating Characteristic (AUC: Area Under the ROC Curve)
+  - [ROC](http://mlwiki.org/index.php/ROC_Analysis)
   - True Positive Rate = TP / (TP + FN)
   - False Positive Rate = FP / (FP + TN)
 - Precision-Recall (PR) curve
@@ -269,13 +271,16 @@
   - Data management platform (DMP): DSP
 
 - Google's display advertising stack
-  - Google Ads: advertisers - Google AdSense: publishers
+  - Google Ads: digital advertising solution for advertisers (vs: Google AdSense: for publishers)
+    - Campaign types: Search, Display, Video, Shopping, and App
+    - Quality score: expected clickthrough rate (CTRs), ad relevance, landing page experience
   - Google Marketing Platform (GMP)
     - Campaign Manager (~~3PAS~~): ad server
       - Advertising campaign
     - Display & Video 360 (DSP): buy side
     - Search Ads
     - Google Analytics
+      - Urchin Tracking Module (UTM) parameters
       - [Attribution models](https://support.google.com/analytics/answer/1662518)
       - Data-driven attribution (DDA) model
     - Google Data Studio (vs: Tableau)
@@ -338,8 +343,13 @@
 ### Data analysis
 
 - Business analytics
-  - Customer Experience (CX)
-  - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
+  - Solution deployment: technical implementation, data collection, data transformation (ETL)
+  - Business as usual: data presentation, tactical reporting
+  - Analytics consulting: driving vision and strategy, change management 
+  - Case
+    - Customer Experience (CX)
+    - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
+    - Marketing mix modeling (MMM)
 
 - Data visualization
   - Design

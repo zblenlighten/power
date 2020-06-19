@@ -85,6 +85,8 @@
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
     - Kubernetes
+  - Virtual machine
+    - OpenStack
   - Configuration
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Puppet
@@ -142,6 +144,9 @@
       - Data model: Resilient Distributed Dataset (RDD)
     - Flink
     - Kafka Stream (Kafka: data pipeline, Kafka Stream: stream processing, [details](https://www.knowledgehut.com/blog/big-data/kafka-vs-spark))
+  - ETL
+    - Data validations: file validations & archival (data source → staging)
+    - Business validations: calculations & aggregations (staging → data warehouse)
 
 ### Data storage
 
