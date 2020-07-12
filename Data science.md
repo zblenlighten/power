@@ -46,6 +46,8 @@
 
 - Data masking
 
+- Big Data Maturity Model
+
 - Natural Language
   - Bag of Words & N-gram: Term Frequency — Inverse Document Frequency (tf–idf)
     - Tokenization: word segmentation, convert characters to lowercase
@@ -187,7 +189,7 @@
 - Further topic
   - Multiple regression
   - Probabilistic Graphical Model
-    - Bayesian Network (Bayesian decision theory)
+    - Bayesian Network (Bayesian decision theory): PyStan
     - Markov Network (Hidden Markov Model)
     - Conditional random field (CRF)
   - Latent variable model (LVM)
@@ -262,28 +264,56 @@
 
 #### Computational Advertising
 
+- Programmatic Advertising
+  - Real time bidding (RTB)
+  - Private marketplace (PMP)
+  - Preferred deals
+  - Programmatic guaranteed
+
 - Online Advertising Platforms
-  - Supply side platform (SSP): publisher, ad networks
+  - Supply side platform (SSP): publisher, ad network
   - Audience
   - Demand side platform (DSP): advertiser → target audience
-  - Ad exchange platform (ADX): publisher, advertiser
+  - Ad exchange platform (ADX): publisher / ad network - advertiser
     - Real time bidding (RTB): second-price auction
+    - DSP buys ad space as cheaply as possible from publisher, SSP sells ad space for the highest possible price
   - Data management platform (DMP): DSP
 
 - Google's display advertising stack
-  - Google Ads: digital advertising solution for advertisers (vs: Google AdSense: for publishers)
-    - Campaign types: Search, Display, Video, Shopping, and App
+  - Google Ads: advertisers (a type of DSP only limited to Google’s inventory)
+    - [Campaign](https://support.google.com/google-ads/answer/7450050) types: Search, Display, Video, Shopping, and App
     - Quality score: expected clickthrough rate (CTRs), ad relevance, landing page experience
+    - Automation in media
+      - Creative assets
+      - Inventory (product feeds)
+      - Bidding
+      - Targeting
+      - Placements
+      - Measurement and attribution (automated bidding requires automated measurement)
+      - Reporting (dashboards, intelligent reports in Analytics)
+    - Measurement
+      - Clearly define your measurement owner.
+      - Keep business impact in mind.
+      - Be relentlessly curious and passionate about the customer journey.
+      - Focus on objective-driven KPIs.
+      - Master multiple tools.
+      - Develop strong data interpretation skills.
+      - Make measurement lead to action.
+      - Have a learning mindset.
+      - Make measurement a habit.
+  - Google Ad Manager (ad server)
+    - Google AdSense: publishers (ad network)
   - Google Marketing Platform (GMP)
-    - Campaign Manager (~~3PAS~~): ad server
-      - Advertising campaign
-    - Display & Video 360 (DSP): buy side
-    - Search Ads
+    - Display & Video (DSP)
+    - Search Ads (search management platform)
     - Google Analytics
       - Urchin Tracking Module (UTM) parameters
-      - [Attribution models](https://support.google.com/analytics/answer/1662518)
+      - [MCF attribution models](https://support.google.com/analytics/answer/1662518)
       - Data-driven attribution (DDA) model
-    - Google Data Studio (vs: Tableau)
+    - Data Studio (vs: Tableau)
+    - Campaign Manager
+    - Tag Manager
+    - Optimize
 
 ### Statistics
 

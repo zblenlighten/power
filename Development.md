@@ -210,6 +210,23 @@
     - Business Intelligence: optimization for analytic access patterns
     - On-premises vs Cloud data warehouses
 
+- Customer data platform (CDP)
+  - Engines
+    - Presto: interactive designed for latency & agility
+    - Hive: batch designed for throughput & reliability
+  - Schemaless Time-based Columnar Data store
+    - Schema on read
+      - Checks while reading the data
+      - Writes are fast
+    - Streaming insert + access
+    - Decoupled Storage & Compute
+    - Resource pool support
+  - Workflows
+    - Digdag (vs: Airflow)
+    - [Operators](https://docs.digdag.io/operators.html)
+    - Workflows with Python: pytd
+  - Policy based permission (PBP)
+
 - References
   - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
   - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
@@ -357,9 +374,12 @@
 
 - Programming style
 
-- Methodology
+- Project Management
+  - Basic: Initiation → Planning → Execution → Monitoring and Control → Closure
   - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
   - Scrum: Transparency, Inspection, Adaptation
+  - Kanban
+  - Waterfall: System and software requirements → Analysis → Design → Coding → Testing → Operations
 
 - WBS: Work breakdown structure
   - RfQ: Request for quotation
