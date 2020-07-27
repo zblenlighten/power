@@ -77,18 +77,21 @@
 
 ### Operating system
 
-- Garbage Collection (Implicit Memory Allocator, vs: Explicit Allocator)
-  - Java
-    - GC Roots
-    - JVM Heap
-      - Young Generation: minor GC
-        - Eden - From (s0) - To (s1)
-      - Old Generation: major GC
-      - Permanent Generation: full GC
-    - Garbage Collector: G1 (Serial, Parallel, CMS)
-  - Python
-    - Reference counting
-    - Tracing: Mark-and-sweep, Generational GC
+- Memory
+  - Memory segmentation
+    - Code segment - Data segment - .bss - Heap - Stack
+  - Garbage Collection (Implicit Memory Allocator, vs: Explicit Allocator)
+    - Java
+      - GC Roots
+      - JVM Heap
+        - Young Generation: minor GC
+          - Eden - From (s0) - To (s1)
+        - Old Generation: major GC
+        - Permanent Generation: full GC
+      - Garbage Collector: G1 (Serial, Parallel, CMS)
+    - Python
+      - Reference counting
+      - Tracing: Mark-and-sweep, Generational GC
 
 - Process & Thread (task execution)
   - Process states: Running([User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)), Waiting, Blocked
@@ -114,7 +117,7 @@
 - I/O
   - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
     - Possible causes: I/O, lock, network request, database connection
-  - Synchronous (vs: Asynchronous): code executing in sequence (one at a time)
+  - Synchronous (vs: Asynchronous): code executing in sequence, one at a time
   - File
     - Regular file
     - Directory
@@ -172,7 +175,7 @@
         - push server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
         - peer-to-peer: Extensible Messaging and Presence Protocol (XMPP)
 
-- The Hypertext Transfer Protocol (HTTP)
+- The Hypertext Transfer Protocol (HTTP): stateless
   - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
     - Resources: Uniform Resource Identifier (URI) = URL + URN
       - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
@@ -181,12 +184,20 @@
   - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
   - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages): start line, [header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers), body
     - Transaction: inbound, outbound
-    - Methods
     - Status response codes
+      - 1xx (Informational)
       - 2xx (Successful): The request was successfully received, understood and accepted
+        - 200 - OK
+        - 201 - OK created
       - 3xx (Redirection): Further action needs to be taken in order to complete the request
+        - 301 - Moved to new URL
+        - 304 - Not modified (Cached version)
       - 4xx (Client error): The request contains bad syntax or cannot be fulfilled
+        - 400 - Bad request
+        - 401 - Unauthorized
+        - 404 - Not found
       - 5xx (Server error): The server failed to fulfill an apparently valid request
+        - 500 - Interval server error
   - Applications
     - Proxy: server + client
     - Web cache: reduce server lag
@@ -196,6 +207,7 @@
         - Common Gateway Interface (CGI)
     - Tunnel & Relay
   - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
+    - Intelligent Tracking Prevention (ITP)
   - URL redirection
   - Security
     - [Content security policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)

@@ -358,7 +358,10 @@
   - How large and experienced is your team - including data scientists, engineers and DevOps?
 
 - Incremental learning
+
 - Online learning
+
+- ML Design Patterns
 
 - Potential ML system architecture approaches
 
@@ -370,6 +373,9 @@
 | Latency for prediction  | So so  | High  | Very low  | Low  |
 | System management difficulty  | So so  | Easy  | Very hard  | So so  |
 
+- References
+  - [Best practices for performance and cost optimization for machine learning](https://cloud.google.com/solutions/machine-learning/best-practices-for-ml-performance-cost)
+
 ### Data analysis
 
 - Business analytics
@@ -380,6 +386,9 @@
     - Customer Experience (CX)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
     - Marketing mix modeling (MMM)
+    - Survival regression (survival analysis): duration in Churn analysis 
+  - References
+    - [Digital Marketing by Kaushik](https://www.kaushik.net/avinash/sitemap/)
 
 - Data visualization
   - Design
