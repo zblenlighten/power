@@ -112,7 +112,7 @@
     - Hardware
       - CPU: Time-sharing
       - RAM: Sharding
-  - Scheduler
+  - Task Scheduler
 
 - I/O
   - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
@@ -176,28 +176,36 @@
         - peer-to-peer: Extensible Messaging and Presence Protocol (XMPP)
 
 - The Hypertext Transfer Protocol (HTTP): stateless
+  - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
+    - Start line
+    - [Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+      - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
+        - Intelligent Tracking Prevention (ITP)
+    - Body
+  - Status response codes
+    - 1xx (Informational)
+    - 2xx (Successful): The request was successfully received, understood and accepted
+      - 200 - OK
+      - 201 - OK created
+    - 3xx (Redirection): Further action needs to be taken in order to complete the request
+      - 301 - Moved to new URL
+      - 304 - Not modified (Cached version)
+    - 4xx (Client error): The request contains bad syntax or cannot be fulfilled
+      - 400 - Bad request
+      - 401 - Unauthorized
+      - 404 - Not found
+    - 5xx (Server error): The server failed to fulfill an apparently valid request
+      - 500 - Interval server error
+  - Security
+    - [Content security policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
+    - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-origin resource sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
+    - [Cross-site request forgery](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html) (CSRF)
   - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
     - Resources: Uniform Resource Identifier (URI) = URL + URN
       - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
     - Representation: MIME type
     - State Transfer: request methods
   - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
-  - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages): start line, [header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers), body
-    - Transaction: inbound, outbound
-    - Status response codes
-      - 1xx (Informational)
-      - 2xx (Successful): The request was successfully received, understood and accepted
-        - 200 - OK
-        - 201 - OK created
-      - 3xx (Redirection): Further action needs to be taken in order to complete the request
-        - 301 - Moved to new URL
-        - 304 - Not modified (Cached version)
-      - 4xx (Client error): The request contains bad syntax or cannot be fulfilled
-        - 400 - Bad request
-        - 401 - Unauthorized
-        - 404 - Not found
-      - 5xx (Server error): The server failed to fulfill an apparently valid request
-        - 500 - Interval server error
   - Applications
     - Proxy: server + client
     - Web cache: reduce server lag
@@ -206,13 +214,6 @@
       - Resource gateway
         - Common Gateway Interface (CGI)
     - Tunnel & Relay
-  - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
-    - Intelligent Tracking Prevention (ITP)
-  - URL redirection
-  - Security
-    - [Content security policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
-    - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-origin resource sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
-    - [Cross-site request forgery](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html) (CSRF)
 
 - What happens when type in a URL?
   1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Browser
@@ -225,8 +226,8 @@
       - Load balancing ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
         - Inverse proxy (HTTP)
       - Web application firewall (WAF)
-      - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview)
-      - Web framework
+      - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview): Apache
+      - Application server: Servlet container
   5. Host server → Host client:
       - **The server handles the request and sends back an HTTP response**
       - **The browser displays the HTML content**: [Chromium](https://www.chromium.org/developers/design-documents/multi-process-architecture)

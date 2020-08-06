@@ -6,20 +6,19 @@
 
 ## Contents
 
-- [Project Checklist](#project-checklist)
-- [Data processing](#data-processing)
-- [Deep learning](#deep-learning)
-- [Machine learning](#machine-learning)
-- [Applications](#applications)
+- [Project Preparation](#project-preparation)
+- [Deep Learning](#deep-learning)
+- [Machine Learning](#machine-learning)
+- [ML Applications](#ml-applications)
+- [Data Analysis](#data-analysis)
 - [Statistics](#statistics)
 - [Deployment](#deployment)
-- [Data analysis](#data-analysis)
 
 ## Data science
 
-### Project Checklist
+### Project Preparation
 
-- Data science process: Obtain → Scrub → Explore → Model → Interpret
+- Project Checklist: Obtain → Scrub → Explore → Model → Interpret
   - Frame the problem and look at the big picture
   - Get the data (automate)
   - Explore the data to gain insights (field expert)
@@ -33,44 +32,36 @@
   - Present your solution
   - Launch, monitor and maintain your system
 
-### Data processing
+- Data Category
+  - Structured data: Nominal, Ordinal, Interval, Ratio
+  - Geodata
+  - Natural Language
+    - Bag of Words & N-gram: Term Frequency — Inverse Document Frequency (tf–idf)
+      - Tokenization: word segmentation, convert characters to lowercase
+      - Remove useless characters, remove stop/rare words
+      - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
+      - Named-entity recognition: entity insertion and extraction
+    - Topic model
+      - Probabilistic Latent Semantic Analysis (pLSA)
+      - Latent Dirichlet Allocation (LDA)
+    - Embedding
+      - Word2Vec
+        - Continues bag of words (CBOW)
+        - Skip-gram
+        - Negative sampling
+      - Item2vec
+      - Graph Embedding
+  - Image
+    - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
+    - OpenCV: resize (INTER_CUBIC, INTER_LINEAR, INTER_AREA)
 
-- Structured data
-  - Nominal, Ordinal, Interval, Ratio
+- Data processing
   - Dimensionality reduction
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
     - Singular Value Decomposition (SVD)
-
-- Geodata
-
-- Data masking
-
-- Big Data Maturity Model
-
-- Natural Language
-  - Bag of Words & N-gram: Term Frequency — Inverse Document Frequency (tf–idf)
-    - Tokenization: word segmentation, convert characters to lowercase
-    - Remove useless characters, remove stop/rare words
-    - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
-    - Named-entity recognition: entity insertion and extraction
-  - Topic model
-    - Probabilistic Latent Semantic Analysis (pLSA)
-    - Latent Dirichlet Allocation (LDA)
-  - Embedding
-    - Word2Vec
-      - Continues bag of words (CBOW)
-      - Skip-gram
-      - Negative sampling
-    - Item2vec
-    - Graph Embedding
-  - Transformer (Attention)
-    - [Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3)
-
-- Image
-  - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
-  - Label
-  - OpenCV: resize (INTER_CUBIC, INTER_LINEAR, INTER_AREA)
+  - Data masking
+  - Big Data Maturity Model
 
 - Applications
   - Similarity measure ([SciPy Distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
@@ -82,7 +73,7 @@
     - Information entropy
   - Ranking (MLR: machine learned ranking)
     - Information retrieval
-      - Page Rank
+      - Page Rank (Markov Model)
     - Case: [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
     - [Metrics](http://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples)
     - Approaches
@@ -96,8 +87,9 @@
     - Models
       - Bag of Words & N-gram: article vector (each dimension is the tf–idf of the word) → Cosine distance
       - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance / Euclidean distance (WMD: Word Mover's Distance)
-      - ...
-  - Computer vision
+      - Transformer (Attention)
+        - [Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3)
+  - Computer Vision
     - Tasks
       - Image classification
       - Object localization
@@ -112,7 +104,7 @@
 
 ### Deep learning
 
-- Neural network
+- Neural Network
   - Convolutional Neural Network (CNN)
     - Pooling: max pooling & average pooling
   - Recurrent Neural Network (RNN)
@@ -148,20 +140,18 @@
     - [Keras Models](https://keras.io/applications/)
   - Object detection
     - Backbone + detection head
-    - [YOLO](https://medium.com/@jonathan_hui/real-time-object-detection-with-yolo-yolov2-28b1b93e2088)
+    - YOLO
       - Intersection over Union: IoU
       - Anchor Boxes
   - Text recognition  
     - CRNN ([ctc](https://github.com/tensorflow/tensorflow/blob/679f95e9d8d538c3c02c0da45606bab22a71420e/tensorflow/python/kernel_tests/ctc_loss_op_test.py))
 
-- [Feature engineer](https://www.quora.com/Does-deep-learning-reduce-the-importance-of-feature-engineering): Deep Feature Synthesis
+- Further topic
+  - Generative Adversarial Network (GAN)
+  - [Feature engineer](https://www.quora.com/Does-deep-learning-reduce-the-importance-of-feature-engineering): Deep Feature Synthesis
+  - Complexity: Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
 
-- Complexity
-  - Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
-
-- Generative adversarial network (GAN)
-
-- Application
+- Applications
   - Alpha Go
     - Monte Carlo Tree Search
   - Self-driving car (AV: Autonomous Vehicle): SAE's automation level
@@ -190,20 +180,22 @@
   - Multiple regression
   - Probabilistic Graphical Model
     - Bayesian Network (Bayesian decision theory): PyStan
-    - Markov Network (Hidden Markov Model)
+    - Markov Model (Hidden Markov Model): transition matrix
     - Conditional random field (CRF)
   - Latent variable model (LVM)
     - Inferring latent variables
   - Expectation maximization algorithm
-
-#### Few-shot learning
 
 #### Unsupervised learning
 
 - kMeans
 - FP-growth, Apriori
 
+#### Few-shot learning
+
 #### Evaluation
+
+- Metrics ([metrics and scoring](https://scikit-learn.org/stable/modules/model_evaluation.html))
 
 - Cross Validation
 
@@ -228,9 +220,9 @@
 
 - Multi-classification: F1 score, Average Accuracy, Log-loss
 
-### Applications
+### ML Applications
 
-#### Recommender system
+#### Recommender System
 
 - Framework
   - Online serving
@@ -315,6 +307,41 @@
     - Tag Manager
     - Optimize
 
+### Data analysis
+
+- Business analytics
+  - Solution deployment: technical implementation, data collection, data transformation (ETL)
+  - Business as usual: data presentation, tactical reporting
+  - Analytics consulting: driving vision and strategy, change management 
+  - Case
+    - Customer Experience (CX)
+    - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
+    - Marketing mix modeling (MMM)
+    - Survival regression (survival analysis): duration in Churn analysis 
+  - References
+    - [Digital Marketing by Kaushik](https://www.kaushik.net/avinash/sitemap/)
+
+- Data visualization
+  - Case
+    - [Tableau Public](https://public.tableau.com/en-us/gallery)
+    - [Story Telling with Data](http://www.storytellingwithdata.com/blog)
+    - [Seeing Theory](https://seeing-theory.brown.edu/)
+    - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)
+  - Design
+    - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
+
+- Pirate Funnel
+
+| Element  | Function  | Relevant metrics  |
+|---|---|---|
+| Acquisition  | Generate attention through a variety of means, both organic and inorganic  | Traffic, mentions, cost per click, search results, cost of acquisition, open rate  |
+| Activation  | Turn the resulting drive-by visitors into users who are somehow enrolled  | Enrollments, signups, completed onboarding process, used the service at least once, subscriptions  |
+| Retention  | Convince users to come back repeatedly, exhibiting sticky behavior  | Engagement, time since last visit, daily and monthly active use, churns  |
+| Revenue  | Business outcomes (which vary by your business model: purchases, ad clicks, content creation, subscriptions, etc.)  | Customer lifetime value, conversion rate, shopping cart size, click-through revenue  |
+| Referral  | Viral and word-of-mouth invitations to other potential users  | Invites sent, viral coefficient, viral cycle time  |
+
+- Acquisition mediums: Organic, Cost Per Click / Cost Per Mille (CPC / CPM), Referreal, Email, None
+
 ### Statistics
 
 [Tutorial](https://stattrek.com/tutorials/ap-statistics-tutorial.aspx)
@@ -340,9 +367,9 @@
 
 - Case
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
-  - [Simpson's paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox)
-  - [St. Petersburg paradox](https://en.wikipedia.org/wiki/St._Petersburg_paradox)
-  - [三个反直觉的概率问题](https://www.itcodemonkey.com/article/15500.html)
+  - Simpson's paradox
+  - St. Petersburg paradox
+  - Monty Hall problem
 
 ### Deployment
 
@@ -375,37 +402,3 @@
 
 - References
   - [Best practices for performance and cost optimization for machine learning](https://cloud.google.com/solutions/machine-learning/best-practices-for-ml-performance-cost)
-
-### Data analysis
-
-- Business analytics
-  - Solution deployment: technical implementation, data collection, data transformation (ETL)
-  - Business as usual: data presentation, tactical reporting
-  - Analytics consulting: driving vision and strategy, change management 
-  - Case
-    - Customer Experience (CX)
-    - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
-    - Marketing mix modeling (MMM)
-    - Survival regression (survival analysis): duration in Churn analysis 
-  - References
-    - [Digital Marketing by Kaushik](https://www.kaushik.net/avinash/sitemap/)
-
-- Data visualization
-  - Design
-    - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
-  - Case
-    - [Tableau Public](https://public.tableau.com/en-us/gallery)
-    - [Seeing Theory](https://seeing-theory.brown.edu/)
-    - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)
-
-- Pirate Funnel
-
-| Element  | Function  | Relevant metrics  |
-|---|---|---|
-| Acquisition  | Generate attention through a variety of means, both organic and inorganic  | Traffic, mentions, cost per click, search results, cost of acquisition, open rate  |
-| Activation  | Turn the resulting drive-by visitors into users who are somehow enrolled  | Enrollments, signups, completed onboarding process, used the service at least once, subscriptions  |
-| Retention  | Convince users to come back repeatedly, exhibiting sticky behavior  | Engagement, time since last visit, daily and monthly active use, churns  |
-| Revenue  | Business outcomes (which vary by your business model: purchases, ad clicks, content creation, subscriptions, etc.)  | Customer lifetime value, conversion rate, shopping cart size, click-through revenue  |
-| Referral  | Viral and word-of-mouth invitations to other potential users  | Invites sent, viral coefficient, viral cycle time  |
-
-- Acquisition mediums: Organic, Cost Per Click / Cost Per Mille (CPC / CPM), Referreal, Email, None

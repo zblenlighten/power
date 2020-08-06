@@ -39,43 +39,21 @@
 - Distributed system (storage + computation + messaging)
   - Three-phase commit protocol (3PC): for solving atomic commit
   - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
-  - ~~Thrift~~
-  - ~~Flume~~
-  - Hadoop (ecosystem)
-    - MapReduce (distributed computation: input, split, map, shuffle, reduce, output)
-    - Hadoop Distributed File System (HDFS)
-    - HBase
-    - Apache Pig
   - RPC
     - Dubbo
     - gRPC
-
-- API ([Directory](https://www.programmableweb.com/))
-  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul, ...
-  - Gateway
-    - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
-    - Admin: API lifecycle (draft, publish, upgrade, etc)
-    - Monitor: logging for analytics and monitoring
-  - Swagger
-  - REST client tool (i.e. Postman)
-
-- Search engine
-  - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (Solr)
-    - Lucene
-      - Inverted index
-    - Rest API
-    - Distributed (master - slave)
-
-- Monitor
-  - Logging
-    - Collection → Transport → Storage → Analysis → Alerting
-    - ELK: Elasticsearch, Logstash (Fluentd), Kibana
-  - Metric ([types](https://prometheus.io/docs/concepts/metric_types/))
-  - Tracing
-  - Tools
-    - Prometheus (service oriented)
-    - Zabbix (ip oriented)
-    - ~~Dapper (APM: Application performance management)~~
+  - Hadoop ecosystem
+    - Hadoop Distributed File System (HDFS)
+    - Yarn
+    - MapReduce (distributed computation: input, split, map, shuffle, reduce, output)
+    - Spark
+      - MapReduce: Scatter/gather paradigm
+      - Resilient Distributed Dataset (RDD)
+    - Pig, Hive, HBase
+    - Apache Ambari
+    - Oozie (workflow scheduler), ZooKeeper
+    - Data ingestion: Sqoop, Flume, Kafka
+    - External Data Storage - Query Engine
 
 - DevOps
   - Version control
@@ -88,18 +66,43 @@
   - Virtual machine
     - OpenStack
   - Configuration
-    - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
+    - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html)): IT automation, configuration management, automatic deployment
     - Puppet
-    - Hadoop Yarn
   - Load balancing
     - Nginx ([入门](https://yq.aliyun.com/articles/423970))
+  - Monitor
+    - Logging
+      - Collection → Transport → Storage → Analysis → Alerting
+      - ELK: Elasticsearch, Logstash (Fluentd), Kibana
+    - Metric ([types](https://prometheus.io/docs/concepts/metric_types/))
+    - Tracing
+    - Applications
+      - Prometheus (service oriented)
+      - Zabbix (ip oriented)
+      - ~~Dapper (APM: Application performance management)~~
   - Single vs Multi-tenant
+
+- Search engine
+  - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (Solr)
+    - Lucene
+      - Inverted index
+    - Rest API
+    - Distributed (master - slave)
+
+- API ([Directory](https://www.programmableweb.com/))
+  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul, ...
+  - Gateway
+    - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
+    - Admin: API lifecycle (draft, publish, upgrade, etc)
+    - Monitor: logging for analytics and monitoring
+  - Swagger
+  - REST client tool (i.e. Postman)
 
 - Tools
   - Terraform
-  - Team Collaboration (i.e. Miro)
   - VirtualBox + Vagrant
   - Firebase (BaaS)
+  - Team Collaboration (i.e. Miro)
 
 ### Modes of dataflow
 
@@ -118,7 +121,7 @@
     - Advanced Message Queuing Protocol (AMQP)/Java Message Service (JMS) style message broker
     - Log based message broker
   - Kafka (real time analysis, streams, no cluster required)
-    - Use cases: Messaging, Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing, Commit Log
+    - Use cases: Messaging, Activity Tracking, Metrics Gathering, Log Aggregation, Stream Processing, Decoupling of System Dependencies
     - Core APIs: Producer, Consumer, Streams, Connector (Record: key, value, timestamp)
     - Reasons to fast:
       - Avoids Random Disk Access (sequential write)
@@ -139,14 +142,12 @@
     - Streaming SQL
   - Applications & Frameworks
     - Airflow
-    - Spark
-      - Scatter/gather paradigm (MapReduce)
-      - Data model: Resilient Distributed Dataset (RDD)
+    - Apache Storm
     - Flink
     - Kafka Stream (Kafka: data pipeline, Kafka Stream: stream processing, [details](https://www.knowledgehut.com/blog/big-data/kafka-vs-spark))
   - ETL
-    - Data validations: file validations & archival (data source → staging)
-    - Business validations: calculations & aggregations (staging → data warehouse)
+    - Data validations: file validations & archival (data source → staging / data lake & data transformation)
+    - Business validations: calculations & aggregations (staging → data warehouse - data mart)
 
 ### Data storage
 
@@ -156,8 +157,8 @@
     - page-oriented storage (B tree)
   - Database transaction
     - Atomicity
-      - Two-Phase Commit (2PC)
-      - Try-Confirm/Cancel (TCC)
+      - ~~Two-Phase Commit (2PC)~~
+      - ~~Try-Confirm/Cancel (TCC)~~
     - Consistency
     - Isolation
       - Serializable
@@ -172,15 +173,9 @@
     - Pessimistic locking
     - Optimistic locking
   - SnowFlake
+    - Star schema (vs: 3NF schema)
   - Partition([Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding))
     - Read/Write Split (read/write master database and read-only slaves)
-
-- File System
-  - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
-  - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
-  - HDFS
-    - DataNode
-    - NameNode
 
 - RDBMS
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
@@ -188,6 +183,7 @@
   - PrepareStatement
     - Get pre compiled and access plan cached in database
     - Prevent SQL Injection attacks
+  - Database normalization
 
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
   - Key-value: LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
@@ -199,6 +195,13 @@
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
   - Cache coherence: Distributed lock manager (DLM)
 
+- File System
+  - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
+  - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
+  - HDFS
+    - DataNode
+    - NameNode
+
 - Comparison
   - Transaction processing systems (OLTP: online transaction processing)
     - Row-oriented
@@ -209,6 +212,9 @@
     - High availability and low latency
     - Business Intelligence: optimization for analytic access patterns
     - On-premises vs Cloud data warehouses
+  - References
+    - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
+    - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
 
 - Customer data platform (CDP)
   - Engines
@@ -221,15 +227,8 @@
     - Streaming insert + access
     - Decoupled Storage & Compute
     - Resource pool support
-  - Workflows
-    - Digdag (vs: Airflow)
-    - [Operators](https://docs.digdag.io/operators.html)
-    - Workflows with Python: pytd
+  - Workflows: Digdag (vs: Airflow)
   - Policy based permission (PBP)
-
-- References
-  - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
-  - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
 
 ### Backend
 
@@ -244,6 +243,19 @@
     - Session management in HTTP
     - Listener (Event): changing the state of an object
     - Filter (authentication, log, ...)
+
+- Design patterns
+  - Object oriented programming (OOP): Polymorphism
+  - Creational Patterns: Factory, Singleton
+  - Structural Patterns: Decorator, Adapter, Facade, Composite, Proxy
+  - Behavioral Patterns: Observer, Command, Template, Iterator, State
+  - J2EE Patterns: Compound (MVC: Model, View, Controller)
+  - Principles (SOLID)
+    - Open Close Principle
+    - Dependence Inversion Principle
+    - Liskov Substitution Principle
+    - Single Responsibility Principle
+    - Interface Segregation Principle
 
 - Java ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html), [field](http://tutorials.jenkov.com/java-reflection/fields.html), jar & war)
   - Spring
@@ -277,18 +289,6 @@
       - Spring Data JPA (→ Spring Data REST: HATEOAS)
     - Spring Cloud
     - Projects: [link](https://spring.io/projects)
-  - Design patterns
-    - Object oriented programming (OOP): Polymorphism
-    - Creational Patterns: Factory, Singleton
-    - Structural Patterns: Decorator, Adapter, Facade, Composite, Proxy
-    - Behavioral Patterns: Observer, Command, Template, Iterator, State
-    - J2EE Patterns: Compound (MVC: Model, View, Controller)
-    - Principles (SOLID)
-      - Open Close Principle
-      - Dependence Inversion Principle
-      - Liskov Substitution Principle
-      - Single Responsibility Principle
-      - Interface Segregation Principle
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
@@ -302,16 +302,15 @@
   - XML
 
 - Single-page application (vs: multiple-page application)
-  - JavaScript
-    - Vue.js
-      - Vue Instance - Virtual DOM - DOM
-      - VueResource, VueRouter, Vuex
-        - Model–view–viewmodel (MVVM): two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
-      - Developer Tools: Vue.js devtools
-    - AngularJS
-    - Node.js
-    - Webpack
-      - Lazy Loading
+  - Vue.js
+    - Vue Instance - Virtual DOM - DOM
+    - VueResource, VueRouter, Vuex
+      - Model–view–viewmodel (MVVM): two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
+    - Developer Tools: Vue.js devtools
+  - AngularJS
+  - Node.js
+  - Webpack
+    - Lazy Loading
 
 - Applications
   - UI component: Bootstrap, Ant Design
@@ -320,15 +319,15 @@
 
 ### System design
 
-- If the system...
-  - goes slow: **scalability**, performance
-  - goes down: **resiliency** (SPOF: single point of failure), availability, stability
-
-- Distributed System Trade-offs:
+- Distributed System Trade-offs
   - Performance vs Scalability
   - Latency vs Throughput
   - Availability vs Consistency: Consistency, Availability, Partition tolerance (CAP theorem)
     - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
+
+- If the system...
+  - goes slow: **scalability**, performance
+  - goes down: **resiliency** (SPOF: single point of failure), availability, stability
 
 - Performance
   - Testing
