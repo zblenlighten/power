@@ -155,6 +155,8 @@
   - Engines
     - log-structure storage (SSTable → LSM Tree)
     - page-oriented storage (B tree)
+  - Index (search)
+  - Mutability
   - Database transaction
     - Atomicity
       - ~~Two-Phase Commit (2PC)~~
@@ -166,14 +168,10 @@
       - Read committed
       - Read uncommitted
     - Durability
-  - Index (search)
-  - Mutability
   - Filesystem ACL (file vs blob: binary large object)
   - Concurrency control
     - Pessimistic locking
     - Optimistic locking
-  - SnowFlake
-    - Star schema (vs: 3NF schema)
   - Partition([Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding))
     - Read/Write Split (read/write master database and read-only slaves)
 
@@ -202,16 +200,21 @@
     - DataNode
     - NameNode
 
-- Comparison
-  - Transaction processing systems (OLTP: online transaction processing)
-    - Row-oriented
-    - Database: Oracle, Mysql, PostgreSQL
+- Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
     - Column-oriented
     - Database (Data warehouse): Teradata, Redshift, Hive, Greenplum
+      - Star schema (vs: 3NF schema)
+        - Fact table: grain
+        - Dimension table
+      - Snowflake schema
+      - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
     - High availability and low latency
     - Business Intelligence: optimization for analytic access patterns
     - On-premises vs Cloud data warehouses
+  - Transaction processing systems (OLTP: online transaction processing)
+    - Row-oriented
+    - Database: Oracle, Mysql, PostgreSQL
   - References
     - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
     - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)

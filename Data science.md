@@ -61,10 +61,9 @@
     - Linear Discriminant Analysis (LDA)
     - Singular Value Decomposition (SVD)
   - Data masking
-  - Big Data Maturity Model
 
 - Applications
-  - Similarity measure ([SciPy Distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
+  - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
     - Euclidean distance
     - Jaccard index
     - Cosine similarity
@@ -195,7 +194,7 @@
 
 #### Evaluation
 
-- Metrics ([metrics and scoring](https://scikit-learn.org/stable/modules/model_evaluation.html))
+- Metrics ([sklearn metrics and scoring](https://scikit-learn.org/stable/modules/model_evaluation.html))
 
 - Cross Validation
 
@@ -310,6 +309,7 @@
 ### Data analysis
 
 - Business analytics
+  - Big Data Maturity Model
   - Solution deployment: technical implementation, data collection, data transformation (ETL)
   - Business as usual: data presentation, tactical reporting
   - Analytics consulting: driving vision and strategy, change management 

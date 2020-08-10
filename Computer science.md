@@ -130,13 +130,13 @@
     - Fedora → Red Hat → CentOS
     - Android
   - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([Explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
-    - Files and Directories: cat, touch, grep, find
+    - Files and directories: cat, touch, grep, find
     - Manipulating data: cut, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html), sort, uniq, wc, sed
-    - File Editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
+    - File editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
     - Compressed files: tar
     - Information
     - Status
-    - Messages between Users
+    - Messages between users
     - Networking: scp, curl
 
 ### Network
