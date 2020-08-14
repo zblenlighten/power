@@ -211,7 +211,7 @@
       - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
     - High availability and low latency
     - Business Intelligence: optimization for analytic access patterns
-    - On-premises vs Cloud data warehouses
+    - On-premises vs Cloud data warehouses (i.e. Ads Data Hub)
   - Transaction processing systems (OLTP: online transaction processing)
     - Row-oriented
     - Database: Oracle, Mysql, PostgreSQL
@@ -220,18 +220,20 @@
     - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
 
 - Customer data platform (CDP)
-  - Engines
-    - Presto: interactive designed for latency & agility
-    - Hive: batch designed for throughput & reliability
-  - Schemaless Time-based Columnar Data store
-    - Schema on read
-      - Checks while reading the data
-      - Writes are fast
-    - Streaming insert + access
-    - Decoupled Storage & Compute
-    - Resource pool support
-  - Workflows: Digdag (vs: Airflow)
-  - Policy based permission (PBP)
+  - [Segment](https://segment.com/)
+  - Treasure Data
+    - Engines
+      - Presto: interactive designed for latency & agility
+      - Hive: batch designed for throughput & reliability
+    - Schemaless Time-based Columnar Data store
+      - Schema on read
+        - Checks while reading the data
+        - Writes are fast
+      - Streaming insert + access
+      - Decoupled Storage & Compute
+      - Resource pool support
+    - Workflows: Digdag (vs: Airflow)
+    - Realtime Segment & Batch Segment
 
 ### Backend
 
@@ -382,6 +384,7 @@
   - Scrum: Transparency, Inspection, Adaptation
   - Kanban
   - Waterfall: System and software requirements → Analysis → Design → Coding → Testing → Operations
+  - Project Management Committee ([PMC](https://www.apache.org/foundation/how-it-works.html))
 
 - WBS: Work breakdown structure
   - RfQ: Request for quotation
