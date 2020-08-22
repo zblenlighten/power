@@ -32,8 +32,7 @@
       - Bare minimum of centralized management of these services
     - Service Mesh
       - Istio
-      - Data Plane
-      - Control Plane
+      - Data Plane - Control Plane
     - Protocol
       - Service discovery (SDP)
   - Serverless
