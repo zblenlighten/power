@@ -234,7 +234,7 @@
       - Presto: interactive designed for latency & agility
       - Hive: batch designed for throughput & reliability
     - Schemaless Time-based Columnar Data store
-      - Schema on read
+      - Schema on read (vs: Schema on write)
         - Checks while reading the data
         - Writes are fast
       - Streaming insert + access
