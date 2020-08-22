@@ -251,7 +251,7 @@
 - Case
   - YouTube
     - Candidate Generation
-    - Ranking
+    - Ranking ([Youtube 排序系统](https://zhuanlan.zhihu.com/p/82584437))
 
 #### Computational Advertising
 

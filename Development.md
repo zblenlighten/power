@@ -24,12 +24,16 @@
 
 - Architecture: organize business, technology and staff to drive business growth
   - Monolith
+    - Issues: agility, scalability, fault tolerance, single framework
   - Microservices (Evolutionary architecture)
+    - Benefits: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
     - Style
       - A suite of small services
       - Bare minimum of centralized management of these services
     - Service Mesh
       - Istio
+      - Data Plane
+      - Control Plane
     - Protocol
       - Service discovery (SDP)
   - Serverless
@@ -43,10 +47,10 @@
     - Dubbo
     - gRPC
   - Hadoop ecosystem
-    - Hadoop Distributed File System (HDFS)
+    - Hadoop Distributed File System
     - Yarn
     - MapReduce (distributed computation: input, split, map, shuffle, reduce, output)
-    - Spark
+    - Spark (Livy)
       - MapReduce: Scatter/gather paradigm
       - Resilient Distributed Dataset (RDD)
     - Pig, Hive, HBase
@@ -56,8 +60,11 @@
     - External Data Storage - Query Engine
 
 - DevOps
-  - Version control
-    - Git (branch, tag)
+  - Version control: Git (branch, tag)
+  - Load balancer
+    - Hardware LB - Software LB: HAProxy
+    - Algorithms: Round Robin, Round Robin with weighted server, Least connections, Least response time, Source IP hash, URL hash
+    - Nginx ([入门](https://yq.aliyun.com/articles/423970))
   - Continuous integration / Continuous delivery (CI/CD)
     - Jenkins
   - Container
@@ -68,8 +75,6 @@
   - Configuration
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html)): IT automation, configuration management, automatic deployment
     - Puppet
-  - Load balancing
-    - Nginx ([入门](https://yq.aliyun.com/articles/423970))
   - Monitor
     - Logging
       - Collection → Transport → Storage → Analysis → Alerting
@@ -130,9 +135,8 @@
       - Batch Data in Chunks
       - Can Scale Horizontally
     - Topic partitioning: What if a topic gets too big for one computer or one computer is not reliable
-  - Messaging (loosely coupling subsystems)
-    - ActiveMQ
-    - RabbitMQ
+  - Message queue: decoupling
+    - Examples: RabbitMQ, ZeroMQ, ActiveMQ, BeanstalkD
 
 - Extract (ETL: Extract - Transform - Load)
   - Batch: raw logs, files, assets, etc.
@@ -142,6 +146,8 @@
     - Streaming SQL
   - Applications & Frameworks
     - Airflow
+      - Directed Acyclic Graph (DAG)
+      - Operators: action, transfer, sensor
     - Apache Storm
     - Flink
     - Kafka Stream (Kafka: data pipeline, Kafka Stream: stream processing, [details](https://www.knowledgehut.com/blog/big-data/kafka-vs-spark))
@@ -155,8 +161,22 @@
   - Engines
     - log-structure storage (SSTable → LSM Tree)
     - page-oriented storage (B tree)
-  - Index (search)
   - Mutability
+  - Filesystem ACL (file vs blob: binary large object)
+  - Concurrency control
+    - Pessimistic locking
+    - Optimistic locking
+  - Partition([Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding))
+    - Read/Write Split (read/write master database and read-only slaves)
+  - Index: ordered indexing, hash indexing
+
+- RDBMS (each record has fixed schema, vertically scalable)
+  - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
+  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (i.e. InnoDB, MyIsam)
+  - PrepareStatement
+    - Get pre compiled and access plan cached in database
+    - Prevent SQL Injection attacks
+  - Database normalization
   - Database transaction
     - Atomicity
       - ~~Two-Phase Commit (2PC)~~
@@ -168,37 +188,12 @@
       - Read committed
       - Read uncommitted
     - Durability
-  - Filesystem ACL (file vs blob: binary large object)
-  - Concurrency control
-    - Pessimistic locking
-    - Optimistic locking
-  - Partition([Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding))
-    - Read/Write Split (read/write master database and read-only slaves)
 
-- RDBMS
-  - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
-  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (i.e. InnoDB, MyIsam)
-  - PrepareStatement
-    - Get pre compiled and access plan cached in database
-    - Prevent SQL Injection attacks
-  - Database normalization
-
-- [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
+- [NoSQL](https://en.wikipedia.org/wiki/NoSQL) (schemas are dynamic, horizontally scalable, designed to be scaled across multiple servers)
   - Key-value: LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
-  - Document: MongoDB
-  - Wide-column: HBase
+  - Document: MongoDB, CouchDB
+  - Wide-column: HBase, Cassandra
   - Graph
-
-- [Cache](https://en.wikipedia.org/wiki/Cache_(computing))
-  - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
-  - Cache coherence: Distributed lock manager (DLM)
-
-- File System
-  - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
-  - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
-  - HDFS
-    - DataNode
-    - NameNode
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
@@ -219,6 +214,20 @@
     - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
     - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
 
+- Cache
+  - Types
+    - Application server cache: placing a cache on request layer node enables the local storage of response data
+    - Distribute cache: each of its nodes own part of cached data, the cache is divided up using a consistent hashing function
+    - Global cache: all nodes use the same single cache space
+    - Content delivery network (CDN): first request ask the CDN for data, if not, CDN will query the backend servers
+  - Cache coherence / invalidation
+    - Writing policies
+      - Write-through cache: data is written to cache & DB at the same time, this minimizes the risk of data loss, but higher latency for write 
+      - Write-around cache: data is written directly to DB, this reduces flooded write operations, but creates a cache miss
+      - Write-back cache: data is written to cache alone, this results in low latency & high throughput, but comes with the risk of data loss in case of crash
+    - Distributed lock manager (DLM)
+  - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
+
 - Customer data platform (CDP)
   - [Segment](https://segment.com/)
   - Treasure Data
@@ -238,8 +247,7 @@
 ### Backend
 
 - Server Content
-  - Static sites
-    - Content delivery network (CDN)
+  - Static sites: CDN
   - Dynamic sites: CGI, Servlet/JavaServer Pages (JSP)
     - Servlet
       - Life cycle: init → service (request & response) → destroy
@@ -263,6 +271,9 @@
     - Interface Segregation Principle
 
 - Java ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html), [field](http://tutorials.jenkov.com/java-reflection/fields.html), jar & war)
+  - JVM
+    - Architecture: Class Loader - JVM Memory - Execution Engine
+    - Application program - Tomcat container - JVM process - Operating system - Physical server
   - Spring
     - Core
       - Inversion of Control (IoC) Container
@@ -353,8 +364,8 @@
   - Redundancy backup: Load balancing, database with multi master replication
   - Fault and latency tolerance: Hystrix, message broker
   - Flow control & degrade
-  - Global server load balancing (GSLB) 
-  
+  - Global server load balancing (GSLB)
+
 - Cases:
   1. Web crawler
       - BFS & DFS (Overhead time) by Scheduler (Priority queue stores URLs that have been discovered but not yet downloaded)

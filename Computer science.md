@@ -30,7 +30,7 @@
   2. Linked lists
   3. Stack
   4. Queue
-  5. Hash
+  5. Hash (hash function: easy to compute, even distribution, less collision)
       - [Collision](http://www.ruanyifeng.com/blog/2018/09/hash-collision-and-birthday-attack.html): Separate chaining, Open addressing, 2-choice hashing ([Perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function))
       - Bloom Filter
       - SimHash
@@ -70,7 +70,6 @@
   7. Union find
   8. Greedy
   9. [Regular expression](https://regexr.com/) ([Python](https://www.runoob.com/python/python-reg-expressions.html))
-  10. ...
 
 - Time complexity
   - General [Big-O](https://linux.cn/article-7480-1.html) ([Python](https://wiki.python.org/moin/TimeComplexity))
@@ -90,8 +89,10 @@
         - Permanent Generation: full GC
       - Garbage Collector: G1 (Serial, Parallel, CMS)
     - Python
-      - Reference counting
       - Tracing: Mark-and-sweep, Generational GC
+      - Reference Counting
+    - C
+      - Manual Memory Management
 
 - Process & Thread (task execution)
   - Process states: Running([User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)), Waiting, Blocked
@@ -113,6 +114,13 @@
       - CPU: Time-sharing
       - RAM: Sharding
   - Task Scheduler
+
+- File System
+  - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
+  - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
+  - Hadoop Distributed File System (HDFS)
+    - DataNode
+    - NameNode
 
 - I/O
   - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
@@ -200,14 +208,14 @@
     - [Content security policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
     - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-origin resource sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
     - [Cross-site request forgery](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html) (CSRF)
-  - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+  - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): a standardized architecture for building web APIs using HTTP methods
     - Resources: Uniform Resource Identifier (URI) = URL + URN
       - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
     - Representation: MIME type
     - State Transfer: request methods
   - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
   - Applications
-    - Proxy: server + client
+    - Proxy (server): Filter requests (IP address blocking, decrease request latency), Cache (optimize request traffic)
     - Web cache: reduce server lag
     - Gateway: perform protocol conversions to connect networks with different network protocol technologies, usually also act as a proxy server and a firewall
       - Protocol gateway
@@ -223,7 +231,7 @@
       - **HTTP request**
   3. Browser → NIC → Wifi router → Global IP Network (Internet) → NIC → Host server
   4. Host server:
-      - Load balancing ([Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing): using virtual nodes to create better key distribution in a hash ring)
+      - Load balancing ([Consistent hashing](https://vitalflux.com/wtf-consistent-hashing-databases/): using virtual nodes to create better key distribution in a hash ring)
         - Inverse proxy (HTTP)
       - Web application firewall (WAF)
       - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview): Apache
