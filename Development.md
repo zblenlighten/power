@@ -25,7 +25,7 @@
 - Architecture: organize business, technology and staff to drive business growth
   - Monolith
     - Issues: agility, scalability, fault tolerance, single framework
-  - Microservices (Evolutionary architecture)
+  - **Microservices** (Evolutionary architecture)
     - Benefits: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
     - Style
       - A suite of small services
@@ -35,7 +35,7 @@
       - Data Plane - Control Plane
     - Protocol
       - Service discovery (SDP)
-  - Serverless
+  - **Serverless**
     - AWS Lambda (FaaS)
       - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
 
@@ -60,7 +60,7 @@
 
 - DevOps
   - Version control: Git (branch, tag)
-  - Load balancer
+  - **Load balancer**
     - Hardware LB - Software LB: HAProxy
     - Algorithms: Round Robin, Round Robin with weighted server, Least connections, Least response time, Source IP hash, URL hash
     - Nginx ([入门](https://yq.aliyun.com/articles/423970))
@@ -87,7 +87,7 @@
   - Single vs Multi-tenant
 
 - Search engine
-  - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (Solr)
+  - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (**Solr**)
     - Lucene
       - Inverted index
     - Rest API
@@ -171,7 +171,7 @@
 
 - RDBMS (each record has fixed schema, vertically scalable)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
-  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (i.e. InnoDB, MyIsam)
+  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (i.e. InnoDB, MyIsam, [区别](https://www.zhihu.com/question/20596402))
   - PrepareStatement
     - Get pre compiled and access plan cached in database
     - Prevent SQL Injection attacks
@@ -218,7 +218,7 @@
     - Application server cache: placing a cache on request layer node enables the local storage of response data
     - Distribute cache: each of its nodes own part of cached data, the cache is divided up using a consistent hashing function
     - Global cache: all nodes use the same single cache space
-    - Content delivery network (CDN): first request ask the CDN for data, if not, CDN will query the backend servers
+    - Content delivery network (**CDN**): first request ask the CDN for data, if not, CDN will query the backend servers
   - Cache coherence / invalidation
     - Writing policies
       - Write-through cache: data is written to cache & DB at the same time, this minimizes the risk of data loss, but higher latency for write 
@@ -272,7 +272,7 @@
 - Java ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html), [field](http://tutorials.jenkov.com/java-reflection/fields.html), jar & war)
   - JVM
     - Architecture: Class Loader - JVM Memory - Execution Engine
-    - Application program - Tomcat container - JVM process - Operating system - Physical server
+    - Application program - Tomcat container - **JVM** process - Operating system - Physical server
   - Spring
     - Core
       - Inversion of Control (IoC) Container

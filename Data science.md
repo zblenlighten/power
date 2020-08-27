@@ -269,6 +269,7 @@
     - Real time bidding (RTB): second-price auction
     - DSP buys ad space as cheaply as possible from publisher, SSP sells ad space for the highest possible price
   - Data management platform (DMP): DSP
+  - Types of programmatic media buying: Open auction / RTB, Private auction, Preferred deal, Programmatic guaranteed, Direct deal
 
 - Google's display advertising stack
   - Google Ads: advertisers (a type of DSP only limited to Google’s inventory)

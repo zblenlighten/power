@@ -161,7 +161,7 @@
         - Network address translation (NAT): public IP address - private IP address
       - Routing: Static routing & Dynamic routing
   4. Transport Layer → Segment
-      - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (TCP)
+      - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (**TCP**)
         - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
           - OpenSSL
           - Network security services (NSS)
@@ -315,4 +315,3 @@ Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
 
 &emsp;(1) [Falsehoods CS Students (Still) Believe Upon Graduating](https://www.netmeister.org/blog/cs-falsehoods.html)  
 &emsp;(2) [記号と読み方](https://memotec.net/etc/mark.html)  
-&emsp;(3) [技術情報Wiki](https://www.sangyo-rock.com/tech/index.php)  
