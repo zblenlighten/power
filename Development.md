@@ -24,9 +24,10 @@
 
 - Architecture: organize business, technology and staff to drive business growth
   - Monolith
-    - Issues: agility, scalability, fault tolerance, single framework
-  - **Microservices** (Evolutionary architecture)
-    - Benefits: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
+    - Cons: agility, scalability, fault tolerance, single framework
+  - Microservices (Evolutionary architecture)
+    - Pros: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
+    - When not to use: small, intermingled functionality or data, performance sensitive, quick and dirty, no planned updates
     - Style
       - A suite of small services
       - Bare minimum of centralized management of these services
@@ -35,7 +36,7 @@
       - Data Plane - Control Plane
     - Protocol
       - Service discovery (SDP)
-  - **Serverless**
+  - Serverless
     - AWS Lambda (FaaS)
       - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
 
@@ -43,8 +44,8 @@
   - Three-phase commit protocol (3PC): for solving atomic commit
   - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
   - RPC
-    - Dubbo
-    - gRPC
+    - Dubbo (tcp)
+    - gRPC (http2)
   - Hadoop ecosystem
     - Hadoop Distributed File System
     - Yarn
@@ -56,6 +57,7 @@
     - Apache Ambari
     - Oozie (workflow scheduler), ZooKeeper
     - Data ingestion: Sqoop, Flume, Kafka
+    - Hue
     - External Data Storage - Query Engine
 
 - DevOps
@@ -77,7 +79,11 @@
   - Monitor
     - Logging
       - Collection → Transport → Storage → Analysis → Alerting
-      - ELK: Elasticsearch, Logstash (Fluentd), Kibana
+      - ELK (Elastic)
+        - Elasticsearch: Data Store
+        - Logstash (Fluentd): Data collection pipeline
+        - Kibana: Viewer with filter capabilities
+        - Beats: Log shipping
     - Metric ([types](https://prometheus.io/docs/concepts/metric_types/))
     - Tracing
     - Applications
@@ -94,7 +100,7 @@
     - Distributed (master - slave)
 
 - API ([Directory](https://www.programmableweb.com/))
-  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul, ...
+  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul
   - Gateway
     - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
     - Admin: API lifecycle (draft, publish, upgrade, etc)
@@ -117,15 +123,17 @@
 
 - Scenarios
   - Database: sending a message to your future self
-  - Service calls (RPC and REST API)
+  - Service calls (RPC vs REST API)
   - Asynchronous message passing (via message broker or actor)
 
 - Message broker (Message-oriented middleware: MOM)
   - Type
     - Advanced Message Queuing Protocol (AMQP)/Java Message Service (JMS) style message broker
     - Log based message broker
+  - Message queue: decoupling
+    - Examples: RabbitMQ, ZeroMQ, ActiveMQ
   - Kafka (real time analysis, streams, no cluster required)
-    - Use cases: Messaging, Activity Tracking, Metrics Gathering, Log Aggregation, Stream Processing, Decoupling of System Dependencies
+    - Use cases (Perfect for data intensive scenarios): Messaging, Activity Tracking, Metrics Gathering, Log Aggregation, Stream Processing, Decoupling of System Dependencies
     - Core APIs: Producer, Consumer, Streams, Connector (Record: key, value, timestamp)
     - Reasons to fast:
       - Avoids Random Disk Access (sequential write)
@@ -134,22 +142,20 @@
       - Batch Data in Chunks
       - Can Scale Horizontally
     - Topic partitioning: What if a topic gets too big for one computer or one computer is not reliable
-  - Message queue: decoupling
-    - Examples: RabbitMQ, ZeroMQ, ActiveMQ, BeanstalkD
+    - Kafka Stream (Kafka: data pipeline, Kafka Stream: stream processing, [details](https://www.knowledgehut.com/blog/big-data/kafka-vs-spark))
 
-- Extract (ETL: Extract - Transform - Load)
+- Extract (**ETL**: Extract - Transform - Load)
   - Batch: raw logs, files, assets, etc.
   - Stream: events, metrics, etc. (event time, state, deployment, correctness)
     - Windowing: slicing data into chunks
     - Watermarks - Trigger - Accumulators (discarding, accumulating, retracting)
     - Streaming SQL
-  - Applications & Frameworks
-    - Airflow
+  - Applications
+    - Airflow (web server + scheduler + metadata database + executor + worker)
       - Directed Acyclic Graph (DAG)
-      - Operators: action, transfer, sensor
+      - Operator: action, transfer, sensor
     - Apache Storm
-    - Flink
-    - Kafka Stream (Kafka: data pipeline, Kafka Stream: stream processing, [details](https://www.knowledgehut.com/blog/big-data/kafka-vs-spark))
+    - Apache Flink
   - ETL
     - Data validations: file validations & archival (data source → staging / data lake & data transformation)
     - Business validations: calculations & aggregations (staging → data warehouse - data mart)
@@ -157,11 +163,13 @@
 ### Data storage
 
 - Knowledge
+  - Data Volume & Retention period (delete or move to archive data store)
   - Engines
     - log-structure storage (SSTable → LSM Tree)
     - page-oriented storage (B tree)
   - Mutability
   - Filesystem ACL (file vs blob: binary large object)
+    - blob storage: relational db, file system, object storage (Ceph), cloud storage
   - Concurrency control
     - Pessimistic locking
     - Optimistic locking
@@ -190,8 +198,11 @@
 
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL) (schemas are dynamic, horizontally scalable, designed to be scaled across multiple servers)
   - Key-value: LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
-  - Document: MongoDB, CouchDB
-  - Wide-column: HBase, Cassandra
+    - Fast & light: caching stores, managing user sessions, ad servicing, recommendations
+  - Document: MongoDB, CouchDB, Elasticsearch
+    - Schema flexibility: managing user profiles (XML or JSON documents)
+  - Wide-column: Cassandra, HBase
+    - Reduce disk resources & fast querying and processing: big-data analysis
   - Graph
 
 - Data Warehouse
@@ -261,7 +272,7 @@
   - Creational Patterns: Factory, Singleton
   - Structural Patterns: Decorator, Adapter, Facade, Composite, Proxy
   - Behavioral Patterns: Observer, Command, Template, Iterator, State
-  - J2EE Patterns: Compound (MVC: Model, View, Controller)
+  - J2EE Patterns: Compound (**MVC**: Model, View, Controller)
   - Principles (SOLID)
     - Open Close Principle
     - Dependence Inversion Principle
@@ -307,6 +318,8 @@
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
+- Node.js
+
 ### Frontend
 
 - WWW standards
@@ -323,7 +336,6 @@
       - Model–view–viewmodel (MVVM): two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
     - Developer Tools: Vue.js devtools
   - AngularJS
-  - Node.js
   - Webpack
     - Lazy Loading
 
@@ -337,23 +349,23 @@
 - Distributed System Trade-offs
   - Performance vs Scalability
   - Latency vs Throughput
-  - Availability vs Consistency: Consistency, Availability, Partition tolerance (CAP theorem)
+  - Availability vs Consistency (CAP theorem: Consistency, Availability, Partition tolerance)
     - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
 
 - If the system...
-  - goes slow: **scalability**, performance
-  - goes down: **resiliency** (SPOF: single point of failure), availability, stability
+  - goes slow: scalability, performance
+  - goes down: resiliency (SPOF: single point of failure), availability, stability
 
-- Performance
+- Performance ([techempower](https://www.techempower.com/benchmarks/))
   - Testing
     - Latency (Response time)
     - Number of concurrent sessions/users
-    - Throughput: hps, tps, qps (number of HTTP requests/transactions/queries per second)
+    - Throughput: hps, tps, qps (number of HTTP requests/Transactions/Queries per second)
     - Internal metrics: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
   - Optimization
     - Global Data Center
     - Hardware
-    - Operating system (Linux: trasnparent huge page)
+    - Operating system (Linux: transparent huge page)
     - JVM
     - Infrastructure: web container, database connection pooling, MVC framework
     - Architecture: cache (read-through vs cache-aside), message broker, clustered architecture
@@ -364,6 +376,15 @@
   - Fault and latency tolerance: Hystrix, message broker
   - Flow control & degrade
   - Global server load balancing (GSLB)
+
+- The Architecture Process
+  - Understand the System’s Requirements
+  - Understand the Non-Functional Requirements (NFR, SLA: Service-level agreement)
+  - Map the Components (logic diagram, technical diagram, physical diagram)
+  - Select the Technology Stack
+  - Design the Architecture
+  - Write Architecture Document
+  - Support the Team
 
 - Cases:
   1. Web crawler

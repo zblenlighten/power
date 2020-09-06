@@ -181,6 +181,7 @@
     - Bayesian Network (Bayesian decision theory): PyStan
     - Markov Model (Hidden Markov Model): transition matrix
     - Conditional random field (CRF)
+  - Markov chain Monte Carlo (MCMC)
   - Latent variable model (LVM)
     - Inferring latent variables
   - Expectation maximization algorithm
@@ -237,7 +238,8 @@
       - Demographic characteristic
       - User behavior / User profile
       - Personalized topic model
-    - Cold start: new community, new item, new user
+    - Problems: Lack of diversity, Cold start (new community, new item, new user)
+    - SVD (Matrix Factorization)
 
 - Ranking ([CTR](https://zhuanlan.zhihu.com/p/61154299): Click Through Rate): depends on business needs and development stage
   - XGBoost (GBM、GBRT、GBDT)
@@ -256,20 +258,20 @@
 #### Computational Advertising
 
 - Programmatic Advertising
-  - Real time bidding (RTB)
+  - Real time bidding (**RTB**)
   - Private marketplace (PMP)
   - Preferred deals
   - Programmatic guaranteed
 
 - Online Advertising Platforms
-  - Supply side platform (SSP): publisher, ad network
+  - Supply side platform (**SSP**): publisher, ad network
   - Audience
-  - Demand side platform (DSP): advertiser → target audience
+  - Demand side platform (**DSP**): advertiser → target audience
   - Ad exchange platform (ADX): publisher / ad network - advertiser
-    - Real time bidding (RTB): second-price auction
+    - RTB: second-price auction
     - DSP buys ad space as cheaply as possible from publisher, SSP sells ad space for the highest possible price
   - Data management platform (DMP): DSP
-  - Types of programmatic media buying: Open auction / RTB, Private auction, Preferred deal, Programmatic guaranteed, Direct deal
+  - Types of programmatic media buying: Open auction/RTB, Private auction, Preferred deal, Programmatic guaranteed, Direct deal
 
 - Google's display advertising stack
   - Google Ads: advertisers (a type of DSP only limited to Google’s inventory)
@@ -302,7 +304,7 @@
       - Urchin Tracking Module (UTM) parameters
       - [MCF attribution models](https://support.google.com/analytics/answer/1662518)
       - Data-driven attribution (DDA) model
-    - Data Studio (vs: Tableau)
+    - Data Studio
     - Campaign Manager
     - Tag Manager
     - Optimize
@@ -313,7 +315,8 @@
   - Big Data Maturity Model
   - Solution deployment: technical implementation, data collection, data transformation (ETL)
   - Business as usual: data presentation, tactical reporting
-  - Analytics consulting: driving vision and strategy, change management 
+  - Analytics consulting: driving vision and strategy, change management
+  - BI Tools: Tableau, Power BI
   - Case
     - Customer Experience (CX)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
@@ -325,6 +328,7 @@
 - Data visualization
   - Case
     - [Tableau Public](https://public.tableau.com/en-us/gallery)
+    - [R Shiny](https://shiny.rstudio.com/gallery)
     - [Story Telling with Data](http://www.storytellingwithdata.com/blog)
     - [Seeing Theory](https://seeing-theory.brown.edu/)
     - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)

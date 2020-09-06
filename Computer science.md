@@ -97,7 +97,7 @@
 - Process & Thread (task execution)
   - Process states: Running([User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)), Waiting, Blocked
   - Inter process communication (IPC)
-    - Remote procedure call (RPC)
+    - Remote procedure call (**RPC**)
   - Concurrency
     - Achieved via context switching in a single core or parallelism in a multi-core
     - Construct concurrent programs
@@ -187,9 +187,10 @@
   - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
     - Start line
     - [Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
-      - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
-        - Intelligent Tracking Prevention (ITP)
     - Body
+  - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
+    - Intelligent Tracking Prevention (ITP)
+    - Server side (HTTP Set-Cookie header) - Client side (JavaScript document.cookie)
   - Status response codes
     - 1xx (Informational)
     - 2xx (Successful): The request was successfully received, understood and accepted
@@ -208,11 +209,6 @@
     - [Content security policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
     - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-origin resource sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
     - [Cross-site request forgery](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html) (CSRF)
-  - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): a standardized architecture for building web APIs using HTTP methods
-    - Resources: Uniform Resource Identifier (URI) = URL + URN
-      - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
-    - Representation: MIME type
-    - State Transfer: request methods
   - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
   - Applications
     - Proxy (server): Filter requests (IP address blocking, decrease request latency), Cache (optimize request traffic)
@@ -222,6 +218,14 @@
       - Resource gateway
         - Common Gateway Interface (CGI)
     - Tunnel & Relay
+
+- Web API (Server: endpoint - Client)
+  - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): for modeling domain (resources / entities) & making CRUD
+    - Resources: Uniform Resource Identifier (URI) = URL + URN
+      - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
+    - Representation: MIME type
+    - State Transfer: request methods
+  - RPC: for actions (procedures / commands)
 
 - What happens when type in a URL?
   1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Browser
