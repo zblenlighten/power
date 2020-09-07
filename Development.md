@@ -204,6 +204,8 @@
   - Wide-column: Cassandra, HBase
     - Reduce disk resources & fast querying and processing: big-data analysis
   - Graph
+  - References
+    - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
@@ -222,7 +224,6 @@
     - Database: Oracle, Mysql, PostgreSQL
   - References
     - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
-    - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
 
 - Cache
   - Types

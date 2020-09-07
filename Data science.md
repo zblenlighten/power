@@ -275,7 +275,7 @@
 
 - Google's display advertising stack
   - Google Ads: advertisers (a type of DSP only limited to Google’s inventory)
-    - [Campaign](https://support.google.com/google-ads/answer/7450050) types: Search, Display, Video, Shopping, and App
+    - [Campaign](https://support.google.com/google-ads/answer/7450050) types: Search, Display, Video, Shopping, App
     - Quality score: expected clickthrough rate (CTRs), ad relevance, landing page experience
     - Automation in media
       - Creative assets

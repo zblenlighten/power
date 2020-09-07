@@ -185,9 +185,7 @@
 
 - The Hypertext Transfer Protocol (HTTP): stateless
   - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
-    - Start line
-    - [Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
-    - Body
+    - Start line - [Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) - Body
   - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
     - Intelligent Tracking Prevention (ITP)
     - Server side (HTTP Set-Cookie header) - Client side (JavaScript document.cookie)
