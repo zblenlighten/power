@@ -47,7 +47,9 @@
     - Dubbo (tcp)
     - gRPC (http2)
   - Hadoop ecosystem
-    - Hadoop Distributed File System
+    - Hadoop Distributed File System (HDFS)
+      - DataNode
+      - NameNode
     - Yarn
     - MapReduce (distributed computation: input, split, map, shuffle, reduce, output)
     - Spark (Livy)
@@ -70,9 +72,14 @@
     - Jenkins
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
-    - Kubernetes
-  - Virtual machine
-    - OpenStack
+    - Kubernetes (K8s)
+      - Pod
+      - Replica set
+      - Deployment
+      - Service
+      - Storage class
+      - Persistent Volume Claim
+      - Rancher + Helm charts - KEDA
   - Configuration
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html)): IT automation, configuration management, automatic deployment
     - Puppet
@@ -90,14 +97,12 @@
       - Prometheus (service oriented)
       - Zabbix (ip oriented)
       - ~~Dapper (APM: Application performance management)~~
+  - Others
+    - Terraform
+    - OpenStack
+    - Firebase (BaaS)
+    - VirtualBox + Vagrant
   - Single vs Multi-tenant
-
-- Search engine
-  - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html) (**Solr**)
-    - Lucene
-      - Inverted index
-    - Rest API
-    - Distributed (master - slave)
 
 - API ([Directory](https://www.programmableweb.com/))
   - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul
@@ -105,14 +110,8 @@
     - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
     - Admin: API lifecycle (draft, publish, upgrade, etc)
     - Monitor: logging for analytics and monitoring
-  - Swagger
+  - Swagger (OpenAPI Specification)
   - REST client tool (i.e. Postman)
-
-- Tools
-  - Terraform
-  - VirtualBox + Vagrant
-  - Firebase (BaaS)
-  - Team Collaboration (i.e. Miro)
 
 ### Modes of dataflow
 
@@ -154,6 +153,9 @@
     - Airflow (web server + scheduler + metadata database + executor + worker)
       - Directed Acyclic Graph (DAG)
       - Operator: action, transfer, sensor
+      - Executor: Sequential, Local, Celery, K8s (get the tasks to run from its internal queue and specify how to execute it)
+      - CI/CD pipeline with Airflow image containing DAGs: Github repo → Jenkins → K8s → Pod
+      - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana))
     - Apache Storm
     - Apache Flink
   - ETL
@@ -176,6 +178,7 @@
   - Partition([Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding))
     - Read/Write Split (read/write master database and read-only slaves)
   - Index: ordered indexing, hash indexing
+  - Connection pooling
 
 - RDBMS (each record has fixed schema, vertically scalable)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
@@ -201,6 +204,11 @@
     - Fast & light: caching stores, managing user sessions, ad servicing, recommendations
   - Document: MongoDB, CouchDB, Elasticsearch
     - Schema flexibility: managing user profiles (XML or JSON documents)
+    - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
+      - Search engine: **Solr** (Lucene)
+        - Inverted index
+      - Scheme-free JSON documents (Distributed)
+      - HTTP web interface (Rest API)
   - Wide-column: Cassandra, HBase
     - Reduce disk resources & fast querying and processing: big-data analysis
   - Graph
@@ -433,3 +441,6 @@
   - TDD: Test-Driven
   - BDD: Behavior-Driven
   - DDD: Domain-Driven
+
+- Tools
+  - Team Collaboration: Jira, Confluence, Asana, Miro, ...

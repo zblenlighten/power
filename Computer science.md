@@ -118,9 +118,8 @@
 - File System
   - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
   - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
-  - Hadoop Distributed File System (HDFS)
-    - DataNode
-    - NameNode
+  - Distributed File System
+    - Andrew File System (AFS)
 
 - I/O
   - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
