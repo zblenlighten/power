@@ -416,10 +416,20 @@
 
 ### Practice
 
-- Programming style
+- Code review
+  - Programming style
+  - Code review best practice
+    - [what to look for](https://blog.jetbrains.com/upsource/tag/what-to-look-for/)
+    - Human reviewers should be doing what cannot be automated (automate everything you can)
+    - Understand the constraints
+    - Knowledge sharing (focus on how to understand the code easily)
+    - Gateway type code review: should have a list of specific checks (not right time for: design patterns, SOLID, reusability)
+    - Reviews should be small
+    - Reviewing respond in a timely fashion
+    - Comments with Why, When and What
 
 - Project Management
-  - Basic: Initiation → Planning → Execution → Monitoring and Control → Closure
+  - Systems development life cycle (SDLC): requirement analysis → design → development and testing → implementation → documentation → evaluation
   - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
   - Scrum: Transparency, Inspection, Adaptation
   - Kanban
