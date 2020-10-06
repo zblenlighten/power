@@ -18,23 +18,17 @@
 
 ### Project Preparation
 
-- Project Checklist: Obtain → Scrub → Explore → Model → Interpret
-  - Frame the problem and look at the big picture
-  - Get the data (automate)
-  - Explore the data to gain insights (field expert)
-  - Prepare the data to better expose the underlying data patterns
-    1. data clean
-    2. feature selection
-    3. [feature engineering](https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114#83e6)
-    4. feature scaling
-  - Explore many different models and short-list the promising ones
-  - Fine-tune
-  - Present your solution
-  - Launch, monitor and maintain your system
-
-- Data Category
-  - Structured data: Nominal, Ordinal, Interval, Ratio
-  - Geodata
+- Data
+  - Structured data
+    - Categorical data
+      - Nominal
+      - Ordinal
+    - Numerical data
+      - Discrete
+      - Continuous
+        - Interval
+        - Ratio
+  - Geographic data
   - Natural Language
     - Bag of Words & N-gram: Term Frequency — Inverse Document Frequency (tf–idf)
       - Tokenization: word segmentation, convert characters to lowercase
@@ -61,6 +55,20 @@
     - Linear Discriminant Analysis (LDA)
     - Singular Value Decomposition (SVD)
   - Data masking
+
+- Project Checklist: Obtain → Scrub → Explore → Model → Interpret
+  - Frame the problem and look at the big picture
+  - Get the data (automate)
+  - Explore the data to gain insights (field expert)
+  - Prepare the data to better expose the underlying data patterns
+    1. data clean
+    2. feature selection
+    3. [feature engineering](https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114#83e6)
+    4. feature scaling
+  - Explore many different models and short-list the promising ones
+  - Fine-tune
+  - Present your solution
+  - Launch, monitor and maintain your system
 
 - Applications
   - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))

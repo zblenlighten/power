@@ -179,6 +179,9 @@
     - Read/Write Split (read/write master database and read-only slaves)
   - Index: ordered indexing, hash indexing
   - Connection pooling
+  - How to Choose: Integration, Scaling, Support(security, budget, etc.), Simplicity
+    - CAP theorem: Consistency, Availability, Partition tolerance
+      - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
 
 - RDBMS (each record has fixed schema, vertically scalable)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
@@ -187,7 +190,7 @@
     - Get pre compiled and access plan cached in database
     - Prevent SQL Injection attacks
   - Database normalization
-  - Database transaction
+  - Database transaction (ACID, vs: BASE)
     - Atomicity
       - ~~Two-Phase Commit (2PC)~~
       - ~~Try-Confirm/Cancel (TCC)~~
@@ -213,6 +216,7 @@
     - Reduce disk resources & fast querying and processing: big-data analysis
   - Graph
   - References
+    - [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases)
     - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
 
 - Data Warehouse
@@ -358,8 +362,7 @@
 - Distributed System Trade-offs
   - Performance vs Scalability
   - Latency vs Throughput
-  - Availability vs Consistency (CAP theorem: Consistency, Availability, Partition tolerance)
-    - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
+  - Availability vs Consistency
 
 - If the system...
   - goes slow: scalability, performance
