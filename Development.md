@@ -68,11 +68,11 @@
     - Hardware LB - Software LB: HAProxy
     - Algorithms: Round Robin, Round Robin with weighted server, Least connections, Least response time, Source IP hash, URL hash
     - Nginx ([入门](https://yq.aliyun.com/articles/423970))
-  - Continuous integration / Continuous delivery (CI/CD)
+  - Continuous integration / Continuous delivery / Continuous deployment (CI/CD)
     - Jenkins
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
-    - Kubernetes (K8s)
+    - Kubernetes ([Do I need K8s?](https://mbird.biz/writing/do-i-need-kubernetes.html))
       - Pod
       - Replica set
       - Deployment
@@ -111,13 +111,13 @@
     - Admin: API lifecycle (draft, publish, upgrade, etc)
     - Monitor: logging for analytics and monitoring
   - Swagger (OpenAPI Specification)
-  - REST client tool (i.e. Postman)
+  - REST client tool (e.g. Postman)
 
 ### Modes of dataflow
 
 - Rolling upgrades
   - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
-  - Serialization: from data structures in memory to self-contained sequence of bytes (i.e. JSON document) write to file or send over network (vs: Parsing / Deserialization) ([Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
+  - Serialization: from data structures in memory to self-contained sequence of bytes (e.g. JSON document) write to file or send over network (vs: Parsing / Deserialization) ([Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
   - Binary schema driven formats
 
 - Scenarios
@@ -185,7 +185,7 @@
 
 - RDBMS (each record has fixed schema, vertically scalable)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
-  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (i.e. InnoDB, MyIsam, [区别](https://www.zhihu.com/question/20596402))
+  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (e.g. InnoDB, MyIsam, [区别](https://www.zhihu.com/question/20596402))
   - PrepareStatement
     - Get pre compiled and access plan cached in database
     - Prevent SQL Injection attacks
@@ -230,7 +230,7 @@
       - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
     - High availability and low latency
     - Business Intelligence: optimization for analytic access patterns
-    - On-premises vs Cloud data warehouses (i.e. Ads Data Hub)
+    - On-premises vs Cloud data warehouses (e.g. Ads Data Hub)
   - Transaction processing systems (OLTP: online transaction processing)
     - Row-oriented
     - Database: Oracle, Mysql, PostgreSQL
@@ -355,7 +355,7 @@
 - Applications
   - UI component: Bootstrap, Ant Design
   - Rich Text Editor
-  - BPMN: Business Process Model and Notation (i.e. Rappid)
+  - BPMN: Business Process Model and Notation (e.g. Rappid)
 
 ### System design
 
@@ -444,7 +444,7 @@
   - PoC: Proof of concept & SoW: Statement of work
   - Feature (list) & [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
     - Who, What, Why, Acceptance Criteria (AC)
-  - Website wireframe design (i.e. Adobe XD)
+  - UI design (e.g. Figma, Adobe XD)
   - Software architecture design
   - Coding, testing, release
   - Maintenance & Iterative and incremental development

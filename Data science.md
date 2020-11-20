@@ -50,6 +50,9 @@
     - OpenCV: resize (INTER_CUBIC, INTER_LINEAR, INTER_AREA)
 
 - Data processing
+  - Data collection
+    - An invisible tracking script (e.g. Google Analytics)
+    - Your own javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
   - Dimensionality reduction
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
@@ -283,7 +286,7 @@
 
 - Google's display advertising stack
   - Google Ads: advertisers (a type of DSP only limited to Google’s inventory)
-    - [Campaign](https://support.google.com/google-ads/answer/7450050) types: Search, Display, Video, Shopping, App
+    - [Campaign](https://support.google.com/google-ads/answer/7450050)
     - Quality score: expected clickthrough rate (CTRs), ad relevance, landing page experience
     - Automation in media
       - Creative assets
@@ -306,15 +309,12 @@
   - Google Ad Manager (ad server)
     - Google AdSense: publishers (ad network)
   - Google Marketing Platform (GMP)
-    - Display & Video (DSP)
-    - Search Ads (search management platform)
     - Google Analytics
-      - Urchin Tracking Module (UTM) parameters
-      - [MCF attribution models](https://support.google.com/analytics/answer/1662518)
-      - Data-driven attribution (DDA) model
     - Data Studio
     - Campaign Manager
-    - Tag Manager
+    - Search Ads (search management platform)
+    - Display & Video (DSP)
+    - Google Tag Manager
     - Optimize
 
 ### Data analysis
@@ -324,7 +324,7 @@
   - Solution deployment: technical implementation, data collection, data transformation (ETL)
   - Business as usual: data presentation, tactical reporting
   - Analytics consulting: driving vision and strategy, change management
-  - BI Tools: Tableau, Power BI
+  - Tools: Tableau, Power BI, KNIME ([cheat sheet](https://www.knime.com/cheat-sheets))
   - Case
     - Customer Experience (CX)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
