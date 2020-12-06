@@ -64,10 +64,17 @@
   - Get the data (automate)
   - Explore the data to gain insights (field expert)
   - Prepare the data to better expose the underlying data patterns
-    1. data clean
-    2. feature selection
-    3. [feature engineering](https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114#83e6)
-    4. feature scaling
+    1. data clean/data analysis
+    2. **feature engineering**
+        - variable characteristics
+        - missing data imputation
+        - categorical encoding
+        - variable transformation
+        - discretization
+        - ourliers
+        - dates
+        - feature scaling
+    3. feature selection
   - Explore many different models and short-list the promising ones
   - Fine-tune
   - Present your solution
@@ -335,6 +342,7 @@
 
 - Data visualization
   - Case
+    - [D3.js](https://observablehq.com/@d3/gallery)
     - [Tableau Public](https://public.tableau.com/en-us/gallery)
     - [R Shiny](https://shiny.rstudio.com/gallery)
     - [Story Telling with Data](http://www.storytellingwithdata.com/blog)

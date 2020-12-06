@@ -161,9 +161,6 @@
       - Routing: Static routing & Dynamic routing
   4. Transport Layer → Segment
       - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (**TCP**)
-        - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
-          - OpenSSL
-          - Network security services (NSS)
       - User Datagram Protocol (UDP)
       - Reliable Data Protocol (RDP)
       - Socket = IP + port (act as an interface between the application process and transport layer of the OSI model)
@@ -277,6 +274,12 @@
     - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
     - OpenID
     - Kerberos (kinit, rlogin, ...)
+  - Secure Communication
+    - SSH
+    - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
+      - OpenSSL
+      - Network security services (NSS)
+   - Virtual Private Network (VPN)
 
 - References
   - [一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830)

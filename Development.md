@@ -270,7 +270,7 @@
 ### Backend
 
 - Server Content
-  - Static sites: CDN
+  - Static sites: CDN ([CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820))
   - Dynamic sites: CGI, Servlet/JavaServer Pages (JSP)
     - Servlet
       - Life cycle: init → service (request & response) → destroy
@@ -352,10 +352,13 @@
   - Webpack
     - Lazy Loading
 
-- Applications
+- Others
+  - Website audit
+  - UI design (e.g. Figma, Adobe XD)
   - UI component: Bootstrap, Ant Design
-  - Rich Text Editor
-  - BPMN: Business Process Model and Notation (e.g. Rappid)
+  - Applications
+    - Rich Text Editor
+    - BPMN: Business Process Model and Notation (e.g. Rappid)
 
 ### System design
 
@@ -444,7 +447,6 @@
   - PoC: Proof of concept & SoW: Statement of work
   - Feature (list) & [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
     - Who, What, Why, Acceptance Criteria (AC)
-  - UI design (e.g. Figma, Adobe XD)
   - Software architecture design
   - Coding, testing, release
   - Maintenance & Iterative and incremental development
