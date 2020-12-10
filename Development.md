@@ -100,7 +100,8 @@
   - Others
     - Terraform
     - OpenStack
-    - Firebase (BaaS)
+    - Firebase (static page)
+    - Heroku (dynamic page)
     - VirtualBox + Vagrant
   - Single vs Multi-tenant
 
@@ -270,8 +271,8 @@
 ### Backend
 
 - Server Content
-  - Static sites: CDN ([CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820))
-  - Dynamic sites: CGI, Servlet/JavaServer Pages (JSP)
+  - Static page: CDN ([CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820))
+  - Dynamic page: CGI
     - Servlet
       - Life cycle: init → service (request & response) → destroy
       - Container: Apache Tomcat (services provided by the Servlet container)

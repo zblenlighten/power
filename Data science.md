@@ -19,16 +19,33 @@
 ### Project Preparation
 
 - Data
-  - Structured data
+  - Univariate data
     - Categorical data
-      - Nominal
-      - Ordinal
+      - Nominal (conveys identity)
+      - Ordinal (conveys rank)
     - Numerical data
-      - Discrete
-      - Continuous
-        - Interval
-        - Ratio
-  - Geographic data
+      - Discrete (counted)
+      - Continuous (measured)
+        - Interval (no true zero)
+        - Ratio (there is a true zero and ratios make sense)
+  - Multivariate data
+    - Scaler
+    - Vector
+    - Matrix (image)
+    - Tensor
+  - Spatiotemporal data
+    - Time series data
+    - Geographic data
+  - Data provenance
+    - Structured data vs Unstructured data
+    - Raw data vs Processed data
+    - Primary data vs [Inherited data](https://towardsdatascience.com/how-to-work-with-someone-elses-data-f33485d79ed4)
+  - Data type in computer science
+    - String
+    - Character
+    - Integer
+    - Float
+    - Boolean
   - Natural Language
     - Bag of Words & N-gram: Term Frequency — Inverse Document Frequency (tf–idf)
       - Tokenization: word segmentation, convert characters to lowercase
@@ -331,7 +348,7 @@
   - Solution deployment: technical implementation, data collection, data transformation (ETL)
   - Business as usual: data presentation, tactical reporting
   - Analytics consulting: driving vision and strategy, change management
-  - Tools: Tableau, Power BI, KNIME ([cheat sheet](https://www.knime.com/cheat-sheets))
+  - Tools: Tableau, Power BI, QlikView, KNIME ([cheat sheet](https://www.knime.com/cheat-sheets))
   - Case
     - Customer Experience (CX)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
