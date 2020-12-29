@@ -47,11 +47,9 @@
     - Dubbo (tcp)
     - gRPC (http2)
   - Hadoop ecosystem
-    - Hadoop Distributed File System (HDFS)
-      - DataNode
-      - NameNode
+    - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
+    - Hadoop Distributed File System (**HDFS**: DataNode, NameNode)
     - Yarn
-    - MapReduce (distributed computation: input, split, map, shuffle, reduce, output)
     - Spark (Livy)
       - MapReduce: Scatter/gather paradigm
       - Resilient Distributed Dataset (RDD)
@@ -167,6 +165,22 @@
 
 - Knowledge
   - Data Volume & Retention period (delete or move to archive data store)
+  - Query Tuning
+    - Index types
+      - B tree
+      - Bitmap
+      - Hash
+      - Specialized index
+    - Joins (PostgreSQL: vacuum & analyze)
+      - Nestloop
+      - Hashjoin
+      - Mergejoin 
+    - Partitioning / [Sharding](https://www.digitalocean.com/community/tutorials/understanding-database-sharding) (horizontal partitioning)
+      - Range
+      - List
+      - Hash
+      - Read/Write Split: read/write master database and read-only slaves
+    - Materialized view (vs: view)
   - Engines
     - log-structure storage (SSTable → LSM Tree)
     - page-oriented storage (B tree)
@@ -176,9 +190,6 @@
   - Concurrency control
     - Pessimistic locking
     - Optimistic locking
-  - Partition([Shard](https://www.digitalocean.com/community/tutorials/understanding-database-sharding))
-    - Read/Write Split (read/write master database and read-only slaves)
-  - Index: ordered indexing, hash indexing
   - Connection pooling
   - How to Choose: Integration, Scaling, Support(security, budget, etc.), Simplicity
     - CAP theorem: Consistency, Availability, Partition tolerance
@@ -193,8 +204,6 @@
   - Database normalization
   - Database transaction (ACID, vs: BASE)
     - Atomicity
-      - ~~Two-Phase Commit (2PC)~~
-      - ~~Try-Confirm/Cancel (TCC)~~
     - Consistency
     - Isolation
       - Serializable
@@ -214,8 +223,8 @@
       - Scheme-free JSON documents (Distributed)
       - HTTP web interface (Rest API)
   - Wide-column: Cassandra, HBase
-    - Reduce disk resources & fast querying and processing: big-data analysis
-  - Graph
+    - Reduce disk resources & fast querying and processing: big-data store
+  - Graph: Neo4j
   - References
     - [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases)
     - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
@@ -234,7 +243,7 @@
     - On-premises vs Cloud data warehouses (e.g. Ads Data Hub)
   - Transaction processing systems (OLTP: online transaction processing)
     - Row-oriented
-    - Database: Oracle, Mysql, PostgreSQL
+    - Database: Oracle, MySql, PostgreSQL
   - References
     - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
 
@@ -251,22 +260,6 @@
       - Write-back cache: data is written to cache alone, this results in low latency & high throughput, but comes with the risk of data loss in case of crash
     - Distributed lock manager (DLM)
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
-
-- Customer data platform (CDP)
-  - [Segment](https://segment.com/)
-  - Treasure Data
-    - Engines
-      - Presto: interactive designed for latency & agility
-      - Hive: batch designed for throughput & reliability
-    - Schemaless Time-based Columnar Data store
-      - Schema on read (vs: Schema on write)
-        - Checks while reading the data
-        - Writes are fast
-      - Streaming insert + access
-      - Decoupled Storage & Compute
-      - Resource pool support
-    - Workflows: Digdag (vs: Airflow)
-    - Realtime Segment & Batch Segment
 
 ### Backend
 
@@ -332,8 +325,6 @@
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
-- Node.js
-
 ### Frontend
 
 - WWW standards
@@ -344,12 +335,11 @@
   - XML
 
 - Single-page application (vs: multiple-page application)
-  - Vue.js
+  - VueJs
     - Vue Instance - Virtual DOM - DOM
     - VueResource, VueRouter, Vuex
       - Model–view–viewmodel (MVVM): two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
     - Developer Tools: Vue.js devtools
-  - AngularJS
   - Webpack
     - Lazy Loading
 
@@ -457,6 +447,3 @@
   - TDD: Test-Driven
   - BDD: Behavior-Driven
   - DDD: Domain-Driven
-
-- Tools
-  - Team Collaboration: Jira, Confluence, Asana, Miro, ...
