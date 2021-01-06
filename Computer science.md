@@ -145,6 +145,7 @@
     - Status
     - Messages between users
     - Networking: scp, curl
+    - Job scheduler: cron, crontab
 
 ### Network
 
@@ -187,11 +188,12 @@
     - Server side (HTTP Set-Cookie header) - Client side (JavaScript document.cookie)
   - Status response codes
     - 1xx (Informational)
-    - 2xx (Successful): The request was successfully received, understood and accepted
+    - 2xx (Success): The request was successfully received, understood and accepted
       - 200 - OK
-      - 201 - OK created
+      - 201 - Created
     - 3xx (Redirection): Further action needs to be taken in order to complete the request
-      - 301 - Moved to new URL
+      - 301 - Moved permanently
+      - 302 - Moved temporarily
       - 304 - Not modified (Cached version)
     - 4xx (Client error): The request contains bad syntax or cannot be fulfilled
       - 400 - Bad request
@@ -212,14 +214,6 @@
       - Resource gateway
         - Common Gateway Interface (CGI)
     - Tunnel & Relay
-
-- Web API (Server: endpoint - Client)
-  - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): for modeling domain (resources / entities) & making CRUD
-    - Resources: Uniform Resource Identifier (URI) = URL + URN
-      - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
-    - Representation: MIME type
-    - State Transfer: request methods
-  - RPC: for actions (procedures / commands)
 
 - What happens when type in a URL?
   1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Browser
@@ -257,23 +251,13 @@
       - Digital signature (Electronic signature: DocuSign)
       - Public key infrastructure (PKI)
         - Certificate authority (CA)
-  - Authentication (verifies you are who you say you are)
-    - Basic authentication & Digest authentication
-    - Login form, HTTP authentication, ...
-    - Key management (cryptographic keys)
-  - Authorization (decides if you have permission to access a resource)
-    - Role-based access control (RBAC)
-    - URL access controls, ...
-    - Access control list (ACL)
-      - Filesystem ACL
-      - Networking ACL
-      - SQL ACL
+  - Authentication and authorization
   - Protocols
     - Central Authentication Service (CAS): single sign-on (SSO)
-    - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
     - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
     - OpenID
-    - Kerberos (kinit, rlogin, ...)
+    - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
+    - Kerberos
   - Secure Communication
     - SSH
     - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)

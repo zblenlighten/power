@@ -23,22 +23,35 @@
 ### Infrastructure
 
 - Architecture: organize business, technology and staff to drive business growth
-  - Monolith
-    - Cons: agility, scalability, fault tolerance, single framework
-  - Microservices (Evolutionary architecture)
-    - Pros: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
-    - When not to use: small, intermingled functionality or data, performance sensitive, quick and dirty, no planned updates
-    - Style
-      - A suite of small services
-      - Bare minimum of centralized management of these services
-    - Service Mesh
-      - Istio
-      - Data Plane - Control Plane
-    - Protocol
-      - Service discovery (SDP)
-  - Serverless
-    - AWS Lambda (FaaS)
-      - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
+  - Application Landscape
+    - Monolith
+      - Cons: agility, scalability, fault tolerance, single framework
+    - Multitier architecture (N-tier): an MVC design is often implemented using an 3-tier architecture
+    - Service-oriented architecture (SOA)
+    - Microservices
+      - Pros: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
+      - When not to use: small, intermingled functionality or data, performance sensitive, quick and dirty, no planned updates
+      - Style
+        - A suite of small services
+        - Bare minimum of centralized management of these services
+      - Service Mesh
+        - Istio
+        - Data Plane - Control Plane
+      - Protocol
+        - Service discovery (SDP)
+    - Serverless
+      - Function as a Service: AWS Lambda
+        - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
+      - Backend as a Service
+    - Peer-to-peer
+  - Application Structure
+    - Command query responsibility segregation (CQRS) & event sourcing
+    - References
+      - [Microservices Patterns](https://microservices.io/patterns/)
+      - [Azure Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
+  - User Interface (UI)
+    - MVC: Model-view-controller
+    - MVVM: Model–view–viewmodel
 
 - Distributed system (storage + computation + messaging)
   - Three-phase commit protocol (3PC): for solving atomic commit
@@ -103,7 +116,27 @@
     - VirtualBox + Vagrant
   - Single vs Multi-tenant
 
-- API ([Directory](https://www.programmableweb.com/))
+- API (Server: endpoint - Client)
+  - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): for modeling domain (resources / entities) & making CRUD
+    - Uniform Resource Identifier (URI) = URL + URN
+      - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
+    - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
+    - Versioning
+      - Accept header
+      - Resource URL
+    - MIME & Hypermedia types
+    - Authentication (AuthN: who you are)
+      - Basic authentication & Digest authentication
+      - Login form, HTTP authentication, ...
+      - Key management (cryptographic keys)
+    - Authorization (AuthZ: what you can do)
+      - Role-based access control (RBAC)
+      - URL access controls, ...
+      - Access control list (ACL)
+        - Filesystem ACL
+        - Networking ACL
+        - SQL ACL
+  - RPC: for actions (procedures / commands)
   - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul
   - Gateway
     - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
@@ -111,6 +144,7 @@
     - Monitor: logging for analytics and monitoring
   - Swagger (OpenAPI Specification)
   - REST client tool (e.g. Postman)
+  - [API Directory](https://www.programmableweb.com/))
 
 ### Modes of dataflow
 
@@ -179,7 +213,6 @@
       - Range
       - List
       - Hash
-      - Read/Write Split: read/write master database and read-only slaves
     - Materialized view (vs: view)
   - Engines
     - log-structure storage (SSTable → LSM Tree)
@@ -279,7 +312,7 @@
   - Creational Patterns: Factory, Singleton
   - Structural Patterns: Decorator, Adapter, Facade, Composite, Proxy
   - Behavioral Patterns: Observer, Command, Template, Iterator, State
-  - J2EE Patterns: Compound (**MVC**: Model, View, Controller)
+  - J2EE Patterns: Compound (MVC)
   - Principles (SOLID)
     - Open Close Principle
     - Dependence Inversion Principle
@@ -319,7 +352,7 @@
       - Hibernate API
         - Fetch: lazy vs eager
       - Standard Java Persistence API (JPA)
-      - Spring Data JPA (→ Spring Data REST: HATEOAS)
+      - Spring Data JPA (Spring Data REST)
     - Spring Cloud
     - Projects: [link](https://spring.io/projects)
 
@@ -335,10 +368,10 @@
   - XML
 
 - Single-page application (vs: multiple-page application)
-  - VueJs
+  - Vue.js
     - Vue Instance - Virtual DOM - DOM
     - VueResource, VueRouter, Vuex
-      - Model–view–viewmodel (MVVM): two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
+      - MVVM: two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
     - Developer Tools: Vue.js devtools
   - Webpack
     - Lazy Loading
