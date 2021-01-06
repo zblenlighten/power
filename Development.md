@@ -144,7 +144,7 @@
     - Monitor: logging for analytics and monitoring
   - Swagger (OpenAPI Specification)
   - REST client tool (e.g. Postman)
-  - [API Directory](https://www.programmableweb.com/))
+  - [API Directory](https://www.programmableweb.com/)
 
 ### Modes of dataflow
 
@@ -188,7 +188,7 @@
       - Operator: action, transfer, sensor
       - Executor: Sequential, Local, Celery, K8s (get the tasks to run from its internal queue and specify how to execute it)
       - CI/CD pipeline with Airflow image containing DAGs: Github repo → Jenkins → K8s → Pod
-      - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana))
+      - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana)
     - Apache Storm
     - Apache Flink
   - ETL

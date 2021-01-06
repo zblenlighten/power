@@ -369,6 +369,11 @@
     - [Misleading graph](https://en.wikipedia.org/wiki/Misleading_graph)
     - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
 
+- Big data
+  - Spark SQL
+    - Broadcast join
+  - Dask (Pandas)
+
 - Pirate Funnel
 
 | Element  | Function  | Relevant metrics  |
