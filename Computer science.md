@@ -161,12 +161,13 @@
         - Network address translation (NAT): public IP address - private IP address
       - Routing: Static routing & Dynamic routing
   4. Transport Layer → Segment
-      - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (**TCP**)
       - User Datagram Protocol (UDP)
-      - Reliable Data Protocol (RDP)
+      - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (**TCP**)
+        - Round-trip delay (RTD)
       - Socket = IP + port (act as an interface between the application process and transport layer of the OSI model)
         - Call: connect, bind, listen, accept, send, recv
         - Echo server
+      - Reliable Data Protocol (RDP)
   7. Application Layer → Message
       - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
       - File Transfer Protocol (FTP)

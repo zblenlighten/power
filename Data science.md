@@ -68,8 +68,10 @@
 
 - Data processing
   - Data collection
-    - An invisible tracking script (e.g. Google Analytics)
-    - Your own javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
+    - Web beacon
+      - An invisible tracking script (e.g. Google Analytics)
+      - Your own javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
+    - Web crawler
   - Dimensionality reduction
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
@@ -353,7 +355,8 @@
     - Customer Experience (CX)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
     - Marketing mix modeling (MMM)
-    - Survival regression (survival analysis): duration in Churn analysis 
+    - Survival regression (survival analysis): duration in Churn analysis
+    - Revenue Management and Pricing (RMP)
   - References
     - [Digital Marketing by Kaushik](https://www.kaushik.net/avinash/sitemap/)
 
