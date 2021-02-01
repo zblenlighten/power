@@ -37,10 +37,9 @@
       - Service Mesh
         - Istio
         - Data Plane - Control Plane
-      - Protocol
-        - Service discovery (SDP)
-    - Serverless
-      - Function as a Service: AWS Lambda
+      - Service discovery (SDP)
+    - Serverless (run in stateless compute containers that are event triggered)
+      - Function as a Service: AWS Lambda / Google Cloud Functions
         - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
       - Backend as a Service
     - Peer-to-peer
@@ -52,6 +51,7 @@
   - User Interface (UI)
     - MVC: Model-view-controller
     - MVVM: Model–view–viewmodel
+  - Single vs Multi-tenant
 
 - Distributed system (storage + computation + messaging)
   - Three-phase commit protocol (3PC): for solving atomic commit
@@ -74,13 +74,14 @@
     - External Data Storage - Query Engine
 
 - DevOps
-  - Version control: Git (branch, tag)
-  - **Load balancer**
-    - Hardware LB - Software LB: HAProxy
-    - Algorithms: Round Robin, Round Robin with weighted server, Least connections, Least response time, Source IP hash, URL hash
-    - Nginx ([入门](https://yq.aliyun.com/articles/423970))
+  - Version control
+    - Git: branch, tag
   - Continuous integration / Continuous delivery / Continuous deployment (CI/CD)
     - Jenkins
+  - Configuration management (automation)
+    - Provision: Docker file / Puppet / Chef
+    - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
+    - ZooKeeper (central coordinator: manage state and hold configuration)
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
     - Kubernetes ([Do I need K8s?](https://mbird.biz/writing/do-i-need-kubernetes.html))
@@ -91,30 +92,44 @@
       - Storage class
       - Persistent Volume Claim
       - Rancher + Helm charts - KEDA
-  - Configuration
-    - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html)): IT automation, configuration management, automatic deployment
-    - Puppet
+    - Docker swarm / Mesos
+  - **Load balancer**
+    - Hardware LB - Software LB: HAProxy
+    - Algorithms: Round Robin, Round Robin with weighted server, Least connections, Least response time, Source IP hash, URL hash
+    - Nginx ([入门](https://yq.aliyun.com/articles/423970))
+  - Reliability
+    - Mean time to recovery (MTTR)
+    - Mean time between failures (MTBF)
+    - Chaos Monkey
+    - Hystrix (Circuit Breaker pattern: cascading failures)
+    - Profiler
   - Monitor
-    - Logging
-      - Collection → Transport → Storage → Analysis → Alerting
-      - ELK (Elastic)
-        - Elasticsearch: Data Store
-        - Logstash (Fluentd): Data collection pipeline
-        - Kibana: Viewer with filter capabilities
-        - Beats: Log shipping
-    - Metric ([types](https://prometheus.io/docs/concepts/metric_types/))
-    - Tracing
-    - Applications
+    - Synthetic check and uptime (is it working?)
+    - Software component metrics
+    - System metrics
+    - App metrics
+    - Performance
+      - Application performance management (APM)
+      - Real user monitoring (RUM)
+    - Security
+    - Tools
       - Prometheus (service oriented)
+        - Metric ([types](https://prometheus.io/docs/concepts/metric_types/))
       - Zabbix (ip oriented)
-      - ~~Dapper (APM: Application performance management)~~
+  - Logging
+    - Collection → Transport → Storage → Analysis → Alerting
+    - Centralized Logging
+    - ELK (Elastic)
+      - Elasticsearch: Data Store
+      - Logstash (Fluentd): Data collection pipeline
+      - Kibana: Viewer with filter capabilities
+      - Beats: Log shipping
   - Others
     - Terraform
     - OpenStack
     - Firebase (static page)
     - Heroku (dynamic page)
     - VirtualBox + Vagrant
-  - Single vs Multi-tenant
 
 - API (Server: endpoint - Client)
   - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): for modeling domain (resources / entities) & making CRUD
@@ -358,6 +373,9 @@
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
+- Python
+  - [Packaging Projects](https://packaging.python.org/tutorials/packaging-projects/)
+
 ### Frontend
 
 - WWW standards
@@ -375,6 +393,8 @@
     - Developer Tools: Vue.js devtools
   - Webpack
     - Lazy Loading
+
+- WeChat Mini Program
 
 - Others
   - Website audit
@@ -458,6 +478,17 @@
     - Reviewing respond in a timely fashion
     - Comments with Why, When and What
 
+- Development Approach
+  - TDD (Test driven): state desired outcome as a test
+  - BDD (Behavior driven): base tests on natural language descriptions of business functionality
+  - FDD (Feature driven)
+  - DDD (Domain driven)
+    - Bounded Context
+    - Reactive model (publish subscribe model, vs: Declarative model)
+      - Entities communication
+      - Message broker
+    - Event storming: design a system that models the structure and flow of activities within the business itself
+
 - Project Management
   - Systems development life cycle (SDLC): requirement analysis → design → development and testing → implementation → documentation → evaluation
   - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
@@ -475,8 +506,6 @@
   - Coding, testing, release
   - Maintenance & Iterative and incremental development
 
-- Development Approach
-  - FDD: Feature-Driven
-  - TDD: Test-Driven
-  - BDD: Behavior-Driven
-  - DDD: Domain-Driven
+- Team Management
+  - Interview
+    - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)

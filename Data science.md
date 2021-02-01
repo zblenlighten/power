@@ -3,6 +3,7 @@
 [Kaggle blog](https://medium.com/kaggle-blog)  
 [state-of-the-art model](https://paperswithcode.com/sota)  
 [state-of-the-art 模型](http://www.jiqizhixin.com/sota)  
+[格物钛 open dataset](https://www.graviti.cn/open-datasets)  
 
 ## Contents
 
@@ -67,11 +68,9 @@
     - OpenCV: resize (INTER_CUBIC, INTER_LINEAR, INTER_AREA)
 
 - Data processing
-  - Data collection
-    - Web beacon
-      - An invisible tracking script (e.g. Google Analytics)
-      - Your own javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
-    - Web crawler
+  - Data collection (Web beacon)
+    - An invisible tracking script (e.g. Google Analytics)
+    - Your own javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
   - Dimensionality reduction
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
@@ -150,10 +149,17 @@
     - Feed forward
     - Gradient descent (vs: gradient ascent)
     - Global minimum
-    - Back propagation
+    - Back propagation (reverse topological order)
 
 - Fine-tune
   - Random initialization
+  - Optimization
+    - Non-iterative vs iterative: Least squares (OLS) vs Gradient descent
+    - Loss function: the measures on a single training example
+    - Cost function: a sum of the loss function applied to each of the training examples
+    - Objective function: general term for any optimize function during training
+      - Maximum likelihood estimation (MLE)
+        - Expectation maximization (EM)
   - [Activation function](https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6)
     - Softmax: multiclass
     - Sigmoid: binary
@@ -214,14 +220,18 @@
 
 - Further topic
   - Multiple regression
-  - Probabilistic Graphical Model
-    - Bayesian Network (Bayesian decision theory): PyStan
-    - Markov Model (Hidden Markov Model): transition matrix
-    - Conditional random field (CRF)
-  - Markov chain Monte Carlo (MCMC)
-  - Latent variable model (LVM)
-    - Inferring latent variables
-  - Expectation maximization algorithm
+  - Bayesian decision theory
+  - Probabilistic graphical model
+    - Bayesian Network (directed graph)
+      - Hidden Markov Model (HMM): transition matrix
+    - Markov Network (undirected graph)
+      - Markov random filed (MRF)
+      - Conditional random field (CRF)
+    - Sampling
+      - Markov chain Monte Carlo (MCMC)
+    - Stan
+  - Latent variable vs Observable variable
+    - Latent Variable Modeling
 
 #### Unsupervised learning
 
@@ -229,6 +239,10 @@
 - FP-growth, Apriori
 
 #### Few-shot learning
+
+#### Reinforcement learning
+
+- Multi-armed bandit
 
 #### Evaluation
 
@@ -245,10 +259,9 @@
   - True Positive Rate = TP / (TP + FN)
   - False Positive Rate = FP / (FP + TN)
 - Precision-Recall (PR) curve
-
-- RMSE: Root Mean Squared Error (MSE: Mean squared error)
-- MAPE: Mean Absolute Percent Error (MAE: Mean absolute error)
-
+- Loss function
+  - RMSE: Root Mean Squared Error (MSE: Mean squared error)
+  - MAPE: Mean Absolute Percent Error (MAE: Mean absolute error)
 - Others
   - Log Loss
   - Gain and Lift Charts

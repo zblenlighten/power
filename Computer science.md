@@ -138,13 +138,13 @@
     - Android
   - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([Explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
     - Files and directories: cat, touch, grep, find
-    - Manipulating data: cut, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html), sort, uniq, wc, sed
+    - Manipulating data: cut, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html), sort, uniq, wc, sed, tr
     - File editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
     - Compressed files: tar
     - Information
-    - Status
+    - Status: ps
     - Messages between users
-    - Networking: scp, curl
+    - Networking: scp, curl, ssh
     - Job scheduler: cron, crontab
 
 ### Network
@@ -178,7 +178,7 @@
         - Dynamic IP: Dynamic Host Configuration Protocol (DHCP)
       - Communication
         - client → server: pull/get
-        - push server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
+        - server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
         - peer-to-peer: Extensible Messaging and Presence Protocol (XMPP)
 
 - The Hypertext Transfer Protocol (HTTP): stateless
