@@ -297,8 +297,12 @@
   - [DNN](https://zhuanlan.zhihu.com/p/35484389): FNN, PNN, AFM, ect
 
 - Evaluation
-  - Offline
-  - Online: CTR (A/B test)
+  - Spot check
+  - Ground truth
+  - Metrics
+    - CTR
+  - Offline vs Online
+    - A/B test
 
 - Case
   - YouTube

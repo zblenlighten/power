@@ -142,7 +142,7 @@
     - File editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
     - Compressed files: tar
     - Information
-    - Status: ps
+    - Status: ps, top
     - Messages between users
     - Networking: scp, curl, ssh
     - Job scheduler: cron, crontab
@@ -184,9 +184,6 @@
 - The Hypertext Transfer Protocol (HTTP): stateless
   - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
     - Start line - [Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) - Body
-  - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
-    - Intelligent Tracking Prevention (ITP)
-    - Server side (HTTP Set-Cookie header) - Client side (JavaScript document.cookie)
   - Status response codes
     - 1xx (Informational)
     - 2xx (Success): The request was successfully received, understood and accepted
@@ -207,6 +204,9 @@
     - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-origin resource sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
     - [Cross-site request forgery](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html) (CSRF)
   - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
+  - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
+    - Intelligent Tracking Prevention (ITP)
+    - Server side (HTTP Set-Cookie header) - Client side (JavaScript document.cookie)
   - Applications
     - Proxy (server): Filter requests (IP address blocking, decrease request latency), Cache (optimize request traffic)
     - Web cache: reduce server lag
