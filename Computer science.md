@@ -233,7 +233,7 @@
       - **The server handles the request and sends back an HTTP response**
       - **The browser displays the HTML content**
         - The browser sends a request to the web server to retrieve a HTML document
-        - The document is an annotated source code file and should be parsed to construct a parsed node tree (DOM: Document Object Model)
+        - The document is an annotated source code file and needs to be parsed to construct a parsed node tree (DOM: Document Object Model)
         - Use the constructed DOM and CSSOM (turn CSS into the CSS Object Model) to create a render tree which contains only the nodes required to render the page
         - The DOM is then rendered as a web page and can be viewed in the browser window, it also provides an interface for interacting with the elements in the tree
           - Layout the render tree (i.e. computes the exact position and size of each object)
