@@ -204,11 +204,6 @@
     - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-origin resource sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
     - [Cross-site request forgery](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html) (CSRF)
   - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
-  - How a browser works
-    - The browser sends a request to the web server to retrieve a HTML document
-    - The document is an annotated source code file and should be parsed into a parsed node tree with standardized syntax, then the browser can interpret it
-    - The node tree (DOM: Document Object Model) is then rendered as a web page and can be viewed in a browser window, it also provides an interface for interacting with the elements in the tree
-      - ([HTML DOM 事件](https://www.runoob.com/jsref/dom-obj-event.html))
   - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
     - Intelligent Tracking Prevention (ITP)
     - Server side (HTTP Set-Cookie header) - Client side (JavaScript document.cookie)
@@ -236,12 +231,14 @@
       - Application server: Servlet container
   5. Host server → Host client:
       - **The server handles the request and sends back an HTTP response**
-      - **The browser displays the HTML content**: [Chromium](https://www.chromium.org/developers/design-documents/multi-process-architecture)
-        - Parsing HTML to construct the DOM tree
-        - Turning CSS into the CSS Object Model
-        - Use the constructed DOM and CSSOM to create a render tree (contains only the nodes required to render the page)
-        - Layout the render tree (computes the exact position and size of each object)
-        - Paint the render tree (takes in the final render tree and renders the pixels to the screen)
+      - **The browser displays the HTML content**
+        - The browser sends a request to the web server to retrieve a HTML document
+        - The document is an annotated source code file and should be parsed to construct a parsed node tree (DOM: Document Object Model)
+        - Use the constructed DOM and CSSOM (turn CSS into the CSS Object Model) to create a render tree which contains only the nodes required to render the page
+        - The DOM is then rendered as a web page and can be viewed in the browser window, it also provides an interface for interacting with the elements in the tree
+          - Layout the render tree (i.e. computes the exact position and size of each object)
+          - Paint the render tree (i.e. takes in the final render tree and renders the pixels to the screen)
+          - ([HTML DOM 事件](https://www.runoob.com/jsref/dom-obj-event.html))
       - **TCP four-way handshake**
   6. Browser → LCD screen
 
