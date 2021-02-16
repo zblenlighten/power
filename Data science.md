@@ -68,9 +68,13 @@
     - OpenCV: resize (INTER_CUBIC, INTER_LINEAR, INTER_AREA)
 
 - Data processing
-  - Data collection (Web beacon)
-    - An invisible tracking script (e.g. Google Analytics)
-    - Your own javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
+  - Data collection
+    - API / ETL
+    - Web beacon
+      - An invisible tracking script (e.g. Google Analytics)
+      - Your own javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
+    - Web crawler
+      - Selenium
   - Dimensionality reduction
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
@@ -370,10 +374,11 @@
   - Tools: Tableau, Power BI, QlikView, KNIME ([cheat sheet](https://www.knime.com/cheat-sheets))
   - Case
     - Customer Experience (CX)
-    - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html) (RFM: Recency, Frequency, Monetary)
+    - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html)
     - Marketing mix modeling (MMM)
     - Survival regression (survival analysis): duration in Churn analysis
     - Revenue Management and Pricing (RMP)
+    - RFM: Recency, Frequency, Monetary & RFV: Recency, Frequency, Volume
   - References
     - [Digital Marketing by Kaushik](https://www.kaushik.net/avinash/sitemap/)
 

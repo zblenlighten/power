@@ -39,9 +39,12 @@
         - Data Plane - Control Plane
       - Service discovery (SDP)
     - Serverless (run in stateless compute containers that are event triggered)
-      - Function as a Service: AWS Lambda / Google Cloud Functions
-        - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
+      - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
+      - Function as a Service
+        - AWS Lambda 
+        - Google Cloud Functions
       - Backend as a Service
+        - Firebase
     - Peer-to-peer
   - Application Structure
     - Command query responsibility segregation (CQRS) & event sourcing
@@ -84,6 +87,7 @@
     - ZooKeeper (central coordinator: manage state and hold configuration)
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
+      - Multi-stage builds
     - Kubernetes ([Do I need K8s?](https://mbird.biz/writing/do-i-need-kubernetes.html))
       - Pod
       - Replica set
@@ -127,7 +131,6 @@
   - Others
     - Terraform
     - OpenStack
-    - Firebase (static page)
     - Heroku (dynamic page)
     - VirtualBox + Vagrant
 
@@ -376,25 +379,35 @@
 - Python
   - [Packaging Projects](https://packaging.python.org/tutorials/packaging-projects/)
 
+- Node.js
+  - npm
+  - Express
+  - [ES6 教程](https://wangdoc.com/es6/)
+
 ### Frontend
 
 - WWW standards
   - CSS ([animation](https://animate.style/))
-  - DOM: Document Object Model ([HTML DOM 事件](https://www.runoob.com/jsref/dom-obj-event.html))
+  - DOM
   - HTML
   - SVG
   - XML
 
-- Single-page application (vs: multiple-page application)
+- Web
   - Vue.js
     - Vue Instance - Virtual DOM - DOM
     - VueResource, VueRouter, Vuex
       - MVVM: two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
     - Developer Tools: Vue.js devtools
-  - Webpack
+  - Webpack (module bundler, vs: template processor)
     - Lazy Loading
 
-- WeChat Mini Program
+- Mobile
+  - SwiftUI
+  - WeChat Mini Program
+
+- Desktop
+  - Electron
 
 - Others
   - Website audit

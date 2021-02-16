@@ -138,7 +138,7 @@
     - Android
   - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([Explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
     - Files and directories: cat, touch, grep, find
-    - Manipulating data: cut, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html), sort, uniq, wc, sed, tr
+    - Manipulating data: cut, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html), sort, uniq, wc, sed, tr, paste
     - File editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
     - Compressed files: tar
     - Information
@@ -204,6 +204,11 @@
     - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-origin resource sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
     - [Cross-site request forgery](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html) (CSRF)
   - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
+  - How a browser works
+    - The browser sends a request to the web server to retrieve a HTML document
+    - The document is an annotated source code file and should be parsed into a parsed node tree with standardized syntax, then the browser can interpret it
+    - The node tree (DOM: Document Object Model) is then rendered as a web page and can be viewed in a browser window, it also provides an interface for interacting with the elements in the tree
+      - ([HTML DOM 事件](https://www.runoob.com/jsref/dom-obj-event.html))
   - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
     - Intelligent Tracking Prevention (ITP)
     - Server side (HTTP Set-Cookie header) - Client side (JavaScript document.cookie)
