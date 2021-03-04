@@ -240,6 +240,7 @@
 #### Unsupervised learning
 
 - kMeans
+- Affinity propagation
 - FP-growth, Apriori
 
 #### Few-shot learning

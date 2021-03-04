@@ -134,7 +134,8 @@
     - Heroku (dynamic page)
     - VirtualBox + Vagrant
 
-- API (Server: endpoint - Client)
+- API
+  - RPC: for actions (procedures / commands)
   - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): for modeling domain (resources / entities) & making CRUD
     - Uniform Resource Identifier (URI) = URL + URN
       - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
@@ -142,7 +143,7 @@
     - Versioning
       - Accept header
       - Resource URL
-    - MIME & Hypermedia types
+    - Media Type & Content-Type
     - Authentication (AuthN: who you are)
       - Basic authentication & Digest authentication
       - Login form, HTTP authentication, ...
@@ -154,15 +155,28 @@
         - Filesystem ACL
         - Networking ACL
         - SQL ACL
-  - RPC: for actions (procedures / commands)
-  - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul
-  - Gateway
-    - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
-    - Admin: API lifecycle (draft, publish, upgrade, etc)
-    - Monitor: logging for analytics and monitoring
-  - Swagger (OpenAPI Specification)
-  - REST client tool (e.g. Postman)
-  - [API Directory](https://www.programmableweb.com/)
+  - Design of REST APIs
+    - Identify participants
+    - Identify activities
+    - Break into steps
+    - Create API definition
+      - Identify the resources
+        - Items resource: list, view, search, add, edit
+      - Map activities to resource lifecycle (map actions to HTTP Nouns & Verbs)
+        - Mapping: GET /items, GET /items/:id, GET /items?search=param, POST /items/, PUT /items/:id
+      - Map remaining activities to custom actions
+        - Relationships types: Independent, Dependent, Associative
+    - Validate API
+  - Tools
+    - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul
+    - Gateway
+      - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
+      - Admin: API lifecycle (draft, publish, upgrade, etc)
+      - Monitor: logging for analytics and monitoring
+    - Swagger (OpenAPI Specification)
+    - REST client tool (e.g. Postman)
+  - References
+    - [API Directory](https://www.programmableweb.com/)
 
 ### Modes of dataflow
 
@@ -235,13 +249,14 @@
   - Engines
     - log-structure storage (SSTable → LSM Tree)
     - page-oriented storage (B tree)
-  - Mutability
   - Filesystem ACL (file vs blob: binary large object)
     - blob storage: relational db, file system, object storage (Ceph), cloud storage
   - Concurrency control
     - Pessimistic locking
     - Optimistic locking
   - Connection pooling
+  - Data Encryption at rest
+    - [Amazon S3 data encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html)
   - How to Choose: Integration, Scaling, Support(security, budget, etc.), Simplicity
     - CAP theorem: Consistency, Availability, Partition tolerance
       - CP vs AP (BASE: Basically Available Soft state Eventual consistency)

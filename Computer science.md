@@ -94,6 +94,9 @@
     - C
       - Manual Memory Management
 
+- CPU
+  - Memory barrier: Out-of-order execution
+
 - Process & Thread (task execution)
   - Process states: Running([User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)), Waiting, Blocked
   - Inter process communication (IPC)
