@@ -240,7 +240,7 @@
     - Joins (PostgreSQL: vacuum & analyze)
       - Nestloop
       - Hashjoin
-      - Mergejoin 
+      - Mergejoin
     - Partitioning / [Sharding](https://www.digitalocean.com/community/tutorials/understanding-database-sharding) (horizontal partitioning)
       - Range
       - List
@@ -255,11 +255,12 @@
     - Pessimistic locking
     - Optimistic locking
   - Connection pooling
-  - Data Encryption at rest
-    - [Amazon S3 data encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html)
   - How to Choose: Integration, Scaling, Support(security, budget, etc.), Simplicity
     - CAP theorem: Consistency, Availability, Partition tolerance
       - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
+  - Applications
+    - Data encryption at rest: [Amazon S3 data encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html)
+    - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
 
 - RDBMS (each record has fixed schema, vertically scalable)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
@@ -326,6 +327,11 @@
       - Write-back cache: data is written to cache alone, this results in low latency & high throughput, but comes with the risk of data loss in case of crash
     - Distributed lock manager (DLM)
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
+
+- Big data
+  - Spark SQL
+    - Broadcast join
+  - Dask (Pandas)
 
 ### Backend
 

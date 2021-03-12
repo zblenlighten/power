@@ -48,37 +48,36 @@
     - Float
     - Boolean
   - Natural Language
-    - Bag of Words & N-gram: Term Frequency — Inverse Document Frequency (tf–idf)
-      - Tokenization: word segmentation, convert characters to lowercase
-      - Remove useless characters, remove stop/rare words
-      - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
-      - Named-entity recognition: entity insertion and extraction
-    - Topic model
-      - Probabilistic Latent Semantic Analysis (pLSA)
-      - Latent Dirichlet Allocation (LDA)
-    - Embedding
-      - Word2Vec
-        - Continues bag of words (CBOW)
-        - Skip-gram
-        - Negative sampling
-      - Item2vec
-      - Graph Embedding
+    - Tokenization: word segmentation, convert characters to lowercase
+    - Remove useless characters, remove stop/rare words
+    - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
+    - Named-entity recognition: entity insertion and extraction
   - Image
     - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
     - OpenCV: resize (INTER_CUBIC, INTER_LINEAR, INTER_AREA)
+  - Data quality
+    - Completeness: whole picture
+    - Accuracy
+    - Age: how often is data updated
+    - Consistency: rules and naming convention
+    - Usage
 
 - Data processing
   - Data collection
     - API / ETL
+      - Data aggregating (e.g. Funnel.io)
     - Web beacon
-      - An invisible tracking script (e.g. Google Analytics)
-      - Your own javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
+      - Invisible tracking script (e.g. Google Analytics)
+      - Javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
     - Web crawler
       - Selenium
   - Dimensionality reduction
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
     - Singular Value Decomposition (SVD)
+    - Locality Sensitive Hashing
+      - Fuzzy Search
+  - Feature learning
   - Data masking
 
 - Project Checklist: Obtain → Scrub → Explore → Model → Interpret
@@ -124,10 +123,20 @@
       - Semantic similarity
       - Sentiment analysis
     - Models
-      - Bag of Words & N-gram: article vector (each dimension is the tf–idf of the word) → Cosine distance
-      - Word2Vec: word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Cosine distance / Euclidean distance (WMD: Word Mover's Distance)
+      - Bag of Words & N-gram: term frequency — inverse document frequency (tf–idf)
+        - Article vector (each dimension is the tf–idf of the word) → Cosine distance
+      - Topic model
+        - Probabilistic Latent Semantic Analysis (pLSA)
+        - Latent Dirichlet Allocation (LDA)
+      - Embedding
+        - Word2Vec (Continues bag of words: CBOW vs Skip-gram)
+          - Word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Word Mover's distance (WMD) / Cosine distance / Euclidean distance
+          - Out-of-vocabulary (OOV)
+          - Negative sampling
+        - Item2vec
+        - Graph Embedding
       - Transformer (Attention)
-        - [Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3)
+        - BERT ([Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3))
   - Computer Vision
     - Tasks
       - Image classification
@@ -179,6 +188,7 @@
   - Gradient descent optimization
     - Adam: Momentum + RMSprop / AdaGrad
   - Residual block & [Batch normalization](https://towardsdatascience.com/batch-normalization-theory-and-how-to-use-it-with-tensorflow-1892ca0173ad)
+    - Normalization vs Standardization
   - Hyperparameter optimization
 
 - Models
@@ -222,7 +232,15 @@
 - Boosting
   - Adaboost
 
-- Further topic
+- Basic topics
+  - Overfitting vs Underfitting
+    - Overfitting: too small training data ratio to overall data, too complex model, uneven sampling, no regularization, no outlier handling
+    - Underfitting: too large training data ratio to overall data, too simple model, too concentrated data 
+  - Lazy learning vs Eager learning
+    - Lazy: k Nearest Neighbor
+    - Eager: Decision tree, Naive Bayes, Neural Network
+
+- Further topics
   - Multiple regression
   - Bayesian decision theory
   - Probabilistic graphical model
@@ -354,8 +372,6 @@
       - Make measurement lead to action.
       - Have a learning mindset.
       - Make measurement a habit.
-  - Google Ad Manager (ad server)
-    - Google AdSense: publishers (ad network)
   - Google Marketing Platform (GMP)
     - Google Analytics
     - Data Studio
@@ -373,7 +389,7 @@
   - Business as usual: data presentation, tactical reporting
   - Analytics consulting: driving vision and strategy, change management
   - Tools: Tableau, Power BI, QlikView, KNIME ([cheat sheet](https://www.knime.com/cheat-sheets))
-  - Case
+  - Models
     - Customer Experience (CX)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html)
     - Marketing mix modeling (MMM)
@@ -384,7 +400,7 @@
     - [Digital Marketing by Kaushik](https://www.kaushik.net/avinash/sitemap/)
 
 - Data visualization
-  - Case
+  - Tools
     - [D3.js](https://observablehq.com/@d3/gallery)
     - [Tableau Public](https://public.tableau.com/en-us/gallery)
     - [R Shiny](https://shiny.rstudio.com/gallery)
@@ -394,11 +410,6 @@
   - Design
     - [Misleading graph](https://en.wikipedia.org/wiki/Misleading_graph)
     - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
-
-- Big data
-  - Spark SQL
-    - Broadcast join
-  - Dask (Pandas)
 
 - Pirate Funnel
 
