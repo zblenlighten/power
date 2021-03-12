@@ -427,11 +427,10 @@
 
 [Tutorial](https://stattrek.com/tutorials/ap-statistics-tutorial.aspx)
 
-- Hypothesis Testing
-  - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
-    - Type I error: occurs when you reject a **null hypothesis** that is actually true（False Positive → FP / (FP + TN), 拒真错误, 错杀好人）
-    - Type II error: non-rejection of a false **null hypothesis**（False Negative → FN / (FN + TP), 取伪错误, 放走坏人）
-  - Steps
+- Statistical significance
+  - Confidence levels & Confidence intervals
+  - Statistical power
+  - Steps in Hypothesis Testing
     1. Specify the **null hypothesis** and **alternative hypothesis**
     2. Set the Significance Level (common values are 0.05 and 0.01)
         - Significance Level: the probability of rejecting the **null hypothesis** when it is true (probability of making a Type I error)
@@ -441,6 +440,9 @@
     4. Calculate the **[p-value](https://statisticsbyjim.com/glossary/p-value/)** based on the test statistic
     5. If **p-value** <= Significance Level, then **null hypothesis** is rejected
     6. Draw a conclusion
+  - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
+    - Type I error: occurs when you reject a **null hypothesis** that is actually true（False Positive → FP / (FP + TN), 拒真错误, 错杀好人）
+    - Type II error: non-rejection of a false **null hypothesis**（False Negative → FN / (FN + TP), 取伪错误, 放走坏人）
   - Examples
     - Student's t-test
     - Chi-squared test
