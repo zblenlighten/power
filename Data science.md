@@ -19,6 +19,27 @@
 
 ### Project Preparation
 
+- Project Checklist: Obtain → Scrub → Explore → Model → Interpret
+  - Frame the problem and look at the big picture
+  - Get the data (automate)
+  - Explore the data to gain insights (field expert)
+  - Prepare the data to better expose the underlying data patterns
+    1. data clean/data analysis
+    2. **feature engineering**
+        - variable characteristics
+        - missing data imputation
+        - categorical encoding
+        - variable transformation
+        - discretization
+        - ourliers
+        - dates
+        - feature scaling
+    3. feature selection
+  - Explore many different models and short-list the promising ones
+  - Fine-tune
+  - Present your solution
+  - Launch, monitor and maintain your system
+
 - Data
   - Univariate data
     - Categorical data
@@ -64,8 +85,8 @@
 
 - Data processing
   - Data collection
-    - API / ETL
-      - Data aggregating (e.g. Funnel.io)
+    - ETL / API
+      - Funnel.io (data aggregating), KNIME ([cheat sheet](https://www.knime.com/cheat-sheets))
     - Web beacon
       - Invisible tracking script (e.g. Google Analytics)
       - Javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
@@ -79,27 +100,6 @@
       - Fuzzy Search
   - Feature learning
   - Data masking
-
-- Project Checklist: Obtain → Scrub → Explore → Model → Interpret
-  - Frame the problem and look at the big picture
-  - Get the data (automate)
-  - Explore the data to gain insights (field expert)
-  - Prepare the data to better expose the underlying data patterns
-    1. data clean/data analysis
-    2. **feature engineering**
-        - variable characteristics
-        - missing data imputation
-        - categorical encoding
-        - variable transformation
-        - discretization
-        - ourliers
-        - dates
-        - feature scaling
-    3. feature selection
-  - Explore many different models and short-list the promising ones
-  - Fine-tune
-  - Present your solution
-  - Launch, monitor and maintain your system
 
 - Applications
   - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
@@ -173,7 +173,7 @@
     - Objective function: general term for any optimize function during training
       - Maximum likelihood estimation (MLE)
         - Expectation maximization (EM)
-  - [Activation function](https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6)
+  - Activation function
     - Softmax: multiclass
     - Sigmoid: binary
     - Linear: regression
@@ -181,14 +181,13 @@
     - Tanh: RNN
   - Learning rate
   - Prevent over-fitting
-    - L2 & L1 Regularization
+    - L1 & L2 Regularization (Lasso regression & Ridge regression → Linear regression)
     - Dropout
     - Data augmentation
     - Early stopping
   - Gradient descent optimization
     - Adam: Momentum + RMSprop / AdaGrad
-  - Residual block & [Batch normalization](https://towardsdatascience.com/batch-normalization-theory-and-how-to-use-it-with-tensorflow-1892ca0173ad)
-    - Normalization vs Standardization
+  - Residual block & Batch normalization (Normalization vs Standardization)
   - Hyperparameter optimization
 
 - Models
@@ -200,9 +199,9 @@
       - Intersection over Union: IoU
       - Anchor Boxes
   - Text recognition  
-    - CRNN ([ctc](https://github.com/tensorflow/tensorflow/blob/679f95e9d8d538c3c02c0da45606bab22a71420e/tensorflow/python/kernel_tests/ctc_loss_op_test.py))
+    - CRNN (ctc)
 
-- Further topic
+- Further topics
   - Generative Adversarial Network (GAN)
   - [Feature engineer](https://www.quora.com/Does-deep-learning-reduce-the-importance-of-feature-engineering): Deep Feature Synthesis
   - Complexity: Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
@@ -270,9 +269,7 @@
 #### Evaluation
 
 - Metrics ([sklearn metrics and scoring](https://scikit-learn.org/stable/modules/model_evaluation.html))
-
 - Cross Validation
-
 - Confusion Matrix
 - F1 Score
   - Precision = TP / (TP + FP)
@@ -290,7 +287,6 @@
   - Gain and Lift Charts
   - Kolmogorov Smirnov Chart
   - Concordant – Discordant Ratio
-
 - Multi-classification: F1 score, Average Accuracy, Log-loss
 
 ### ML Applications
@@ -327,10 +323,8 @@
   - Offline vs Online
     - A/B test
 
-- Case
-  - YouTube
-    - Candidate Generation
-    - Ranking ([Youtube 排序系统](https://zhuanlan.zhihu.com/p/82584437))
+- Cases
+  - YouTube ([Youtube 排序系统](https://zhuanlan.zhihu.com/p/82584437))
 
 #### Computational Advertising
 
@@ -375,11 +369,12 @@
   - Google Marketing Platform (GMP)
     - Google Analytics
     - Data Studio
+    - Optimize
+    - Google Tag Manager
+    - Ads Data Hub (Bigquery)
     - Campaign Manager
     - Search Ads (search management platform)
     - Display & Video (DSP)
-    - Google Tag Manager
-    - Optimize
 
 ### Data analysis
 
@@ -388,7 +383,7 @@
   - Solution deployment: technical implementation, data collection, data transformation (ETL)
   - Business as usual: data presentation, tactical reporting
   - Analytics consulting: driving vision and strategy, change management
-  - Tools: Tableau, Power BI, QlikView, KNIME ([cheat sheet](https://www.knime.com/cheat-sheets))
+  - Tools: Tableau, Power BI, QlikView
   - Models
     - Customer Experience (CX)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html)
@@ -448,7 +443,7 @@
     - Chi-squared test
     - F-test (Analysis of variance: ANOVA)
 
-- Case
+- Cases
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
   - Simpson's paradox
   - St. Petersburg paradox
@@ -484,4 +479,5 @@
 | System management difficulty  | So so  | Easy  | Very hard  | So so  |
 
 - References
+  - [Big data pipeline architecture](https://www.satishchandragupta.com/tech/scalable-efficient-big-data-analytics-machine-learning-pipeline-architecture-on-cloud.html)
   - [Best practices for performance and cost optimization for machine learning](https://cloud.google.com/solutions/machine-learning/best-practices-for-ml-performance-cost)

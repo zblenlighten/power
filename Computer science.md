@@ -98,31 +98,39 @@
   - Memory barrier: Out-of-order execution
 
 - Process & Thread (task execution)
-  - Process states: Running([User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)), Waiting, Blocked
+  - Process
+    - States: Running([User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)), Waiting, Blocked
+  - Thread (subset of a process)
+    - Threads share: address space, heap, static data, code segments, and file descriptors
+    - Threads have their own: program counter, registers, stack, and state
   - Inter process communication (IPC)
     - Remote procedure call (**RPC**)
+    - Sockets and pipes, Shared memory
   - Concurrency
     - Achieved via context switching in a single core or parallelism in a multi-core
     - Construct concurrent programs
       - Process: each process has a separate memory address space
       - I/O multiplexing: event-driven server runs in the context of a single process
       - Multithreading: process + I/O multiplexing, shared variable synchronization error
-    - Mutual exclusion: thread safety
-      - Locks (mutexes)
-      - Readers–writer locks
-      - Reentrant mutexes (Recursive locks)
-      - Semaphores
-      - Possible causes of Deadlock: mutual exclusion, hold and wait or resource holding, no preemption, circular wait
+    - Mutual exclusion
+      - Lock (Mutex)
+      - Reentrant lock
+      - Readers–writer lock
+      - Deadlock (Livelock)
+        - Deadlock can occur when multiple threads need to acquire multiple locks
+        - Possible causes: mutual exclusion, hold and wait or resource holding, no preemption, circular wait
+        - Possible strategies: Lock ordering, Lock timeout
+        - Starvation: context manager
+      - Semaphore (vs: Lock): can be acquired/released by different threads
+    - Synchronization
+      - Monitor = Condition variables + Lock
+      - Producer–consumer pattern
     - Hardware
       - CPU: Time-sharing
       - RAM: Sharding
-  - Task Scheduler
-
-- File System
-  - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
-  - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
-  - Distributed File System
-    - Andrew File System (AFS)
+  - Scheduler
+    - Scheduling algorithms (context switch)
+    - Scheduling goals
 
 - I/O
   - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
@@ -134,8 +142,14 @@
       - Linking: Static library (.lib) & Dynamic-link library (.dll)
     - Socket
 
+- File System
+  - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
+  - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
+  - Distributed File System
+    - Andrew File System (AFS)
+
 - Linux (pipe)
-  - Distribution
+  - Distribution (/etc/*-release)
     - Debian → Ubuntu
     - Fedora → Red Hat → CentOS
     - Android
@@ -167,7 +181,8 @@
       - User Datagram Protocol (UDP)
       - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (**TCP**)
         - Round-trip delay (RTD)
-      - Socket = IP + port (act as an interface between the application process and transport layer of the OSI model)
+      - Socket = IP + port
+        - Port acts as an interface between the application process and transport layer of the OSI model (internal port vs external port)
         - Call: connect, bind, listen, accept, send, recv
         - Echo server
       - Reliable Data Protocol (RDP)
@@ -195,7 +210,7 @@
     - 3xx (Redirection): Further action needs to be taken in order to complete the request
       - 301 - Moved permanently
       - 302 - Moved temporarily
-      - 304 - Not modified (Cached version)
+      - 304 - Not modified (cached version)
     - 4xx (Client error): The request contains bad syntax or cannot be fulfilled
       - 400 - Bad request
       - 401 - Unauthorized

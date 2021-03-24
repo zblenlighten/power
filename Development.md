@@ -87,7 +87,11 @@
     - ZooKeeper (central coordinator: manage state and hold configuration)
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
-      - Multi-stage builds
+      - Manage kernel features
+        - cgroups: processes
+        - namespaces: networks
+        - copy-on-write: filesystems (to build images)
+      - Dockerfiles: multi-stage builds
     - Kubernetes ([Do I need K8s?](https://mbird.biz/writing/do-i-need-kubernetes.html))
       - Pod
       - Replica set
@@ -456,7 +460,7 @@
     - Throughput: hps, tps, qps (number of HTTP requests/Transactions/Queries per second)
     - Internal metrics: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
   - Optimization
-    - Global Data Center
+    - Global Data Center (multi-data center architecture)
     - Hardware
     - Operating system (Linux: transparent huge page)
     - JVM
