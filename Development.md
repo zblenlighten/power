@@ -90,9 +90,12 @@
       - Manage kernel features
         - cgroups: processes
         - namespaces: networks
-        - copy-on-write: filesystems (to build images)
-      - Dockerfiles: multi-stage builds
-    - Kubernetes ([Do I need K8s?](https://mbird.biz/writing/do-i-need-kubernetes.html))
+        - copy-on-write: unionfs
+      - Docker components
+        - Dockerfile → Docker Client → Docker Host (images, containers, volumes) → Docker Registry
+        - Dockerfile: multi-stage builds
+    - Kubernetes (Docker compose, Docker swarm, Mesos)
+      - [Do I need K8s?](https://mbird.biz/writing/do-i-need-kubernetes.html)
       - Pod
       - Replica set
       - Deployment
@@ -100,7 +103,6 @@
       - Storage class
       - Persistent Volume Claim
       - Rancher + Helm charts - KEDA
-    - Docker swarm / Mesos
   - **Load balancer**
     - Hardware LB - Software LB: HAProxy
     - Algorithms: Round Robin, Round Robin with weighted server, Least connections, Least response time, Source IP hash, URL hash
@@ -175,7 +177,7 @@
     - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul
     - Gateway
       - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
-      - Admin: API lifecycle (draft, publish, upgrade, etc)
+      - Admin: API lifecycle (draft, publish, upgrade, etc.)
       - Monitor: logging for analytics and monitoring
     - Swagger (OpenAPI Specification)
     - REST client tool (e.g. Postman)
@@ -446,18 +448,19 @@
 
 - Distributed System Trade-offs
   - Performance vs Scalability
-  - Latency vs Throughput
+  - Throughput vs Latency
   - Availability vs Consistency
 
 - If the system...
   - goes slow: scalability, performance
   - goes down: resiliency (SPOF: single point of failure), availability, stability
 
-- Performance ([techempower](https://www.techempower.com/benchmarks/))
+- Performance
   - Testing
-    - Latency (Response time)
+    - Throughput = # tasks / time
+      - hps, tps, qps: number of HTTP requests/Transactions/Queries per second
+    - Latency = time / task
     - Number of concurrent sessions/users
-    - Throughput: hps, tps, qps (number of HTTP requests/Transactions/Queries per second)
     - Internal metrics: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
   - Optimization
     - Global Data Center (multi-data center architecture)

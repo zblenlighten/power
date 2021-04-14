@@ -73,15 +73,18 @@
     - Remove useless characters, remove stop/rare words
     - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
     - Named-entity recognition: entity insertion and extraction
-  - Image
+  - Digital Image (OpenCV)
+    - Filters & Convolutions
+      - [Kernel](https://en.wikipedia.org/wiki/Kernel_(image_processing))
+      - Blind watermark (frequency domain)
     - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
-    - OpenCV: resize (INTER_CUBIC, INTER_LINEAR, INTER_AREA)
   - Data quality
     - Completeness: whole picture
     - Accuracy
     - Age: how often is data updated
     - Consistency: rules and naming convention
     - Usage
+  - Big Data Maturity Model
 
 - Data processing
   - Data collection
@@ -99,7 +102,10 @@
     - Locality Sensitive Hashing
       - Fuzzy Search
   - Feature learning
-  - Data masking
+  - Data security
+    - Encryption
+    - Data masking
+    - Data erasure
 
 - Applications
   - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
@@ -110,9 +116,7 @@
     - Pearson correlation coefficient
     - Information entropy
   - Ranking (MLR: machine learned ranking)
-    - Information retrieval
-      - Page Rank (Markov Model)
-    - Case: [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
+    - [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
     - [Metrics](http://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples)
     - Approaches
       - Pointwise
@@ -133,18 +137,18 @@
           - Word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Word Mover's distance (WMD) / Cosine distance / Euclidean distance
           - Out-of-vocabulary (OOV)
           - Negative sampling
+          - Visualization: t-SNE
         - Item2vec
         - Graph Embedding
       - Transformer (Attention)
         - BERT ([Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3))
+    - Evaluation: BLEU, ROUGE, METEOR, etc.
   - Computer Vision
     - Tasks
       - Image classification
-      - Object localization
       - Object detection
-      - Object recognition
-      - Instance segmentation
-      - Video tracking
+      - Object traction (Video tracking)
+      - Sematic segmentation / Instance segmentation
     - Similar picture search
       - Perceptual hashing: pHash, SIFT
       - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
@@ -158,7 +162,7 @@
   - Recurrent Neural Network (RNN)
     - Long short-term memory (LSTM)
       - Cell state: forget gate → input gate → output gate
-  - Training
+  - Training (one epoch = batch size * iteration)
     - Feed forward
     - Gradient descent (vs: gradient ascent)
     - Global minimum
@@ -198,19 +202,13 @@
     - YOLO
       - Intersection over Union: IoU
       - Anchor Boxes
-  - Text recognition  
+  - Text recognition
     - CRNN (ctc)
 
 - Further topics
   - Generative Adversarial Network (GAN)
   - [Feature engineer](https://www.quora.com/Does-deep-learning-reduce-the-importance-of-feature-engineering): Deep Feature Synthesis
   - Complexity: Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
-
-- Applications
-  - Alpha Go
-    - Monte Carlo Tree Search
-  - Self-driving car (AV: Autonomous Vehicle): SAE's automation level
-    - Lane departure warning system
 
 ### Machine learning
 
@@ -258,13 +256,17 @@
 
 - kMeans
 - Affinity propagation
-- FP-growth, Apriori
+- Association rule learning: FP-growth, Apriori
+- Information retrieval: PageRank (Markov Model)
 
 #### Few-shot learning
 
 #### Reinforcement learning
 
+- Q-learning / DQN
 - Multi-armed bandit
+  - Explore-exploit tradeoff (Information Cocoon)
+  - Upper confidence bound (UCB) → Monte Carlo tree search (MCTS)
 
 #### Evaluation
 
@@ -279,7 +281,7 @@
   - True Positive Rate = TP / (TP + FN)
   - False Positive Rate = FP / (FP + TN)
 - Precision-Recall (PR) curve
-- Loss function
+- Cost function / Loss function
   - RMSE: Root Mean Squared Error (MSE: Mean squared error)
   - MAPE: Mean Absolute Percent Error (MAE: Mean absolute error)
 - Others
@@ -299,18 +301,18 @@
   - Stream computing
   - Data highway
 
-- Match / Retrieval
+- Candidate Generation
   - Content-based
-  - CF: Collaborative filtering (NCF: Neural Collaborative Filtering)
+  - Collaborative filtering (NCF: Neural Collaborative Filtering)
     - Item based
     - User based
       - Demographic characteristic
       - User behavior / User profile
       - Personalized topic model
-    - Problems: Lack of diversity, Cold start (new community, new item, new user)
+    - Problems: Explore-exploit (lack of diversity), Cold start (new community, new item, new user)
     - SVD (Matrix Factorization)
 
-- Ranking ([CTR](https://zhuanlan.zhihu.com/p/61154299): Click Through Rate): depends on business needs and development stage
+- Retrieval / Ranking ([CTR](https://zhuanlan.zhihu.com/p/61154299): Click Through Rate): depends on business needs and development stage
   - XGBoost (GBM、GBRT、GBDT)
   - Factorization Machine (FM), FFM, DeepFM ([说明](https://blog.csdn.net/john_xyz/article/details/78933253))
   - [DNN](https://zhuanlan.zhihu.com/p/35484389): FNN, PNN, AFM, ect
@@ -319,7 +321,7 @@
   - Spot check
   - Ground truth
   - Metrics
-    - CTR
+    - CTR, CVR, GPM (GMV per mille: Gross merchandise volume / impression * 1000)
   - Offline vs Online
     - A/B test
 
@@ -379,7 +381,6 @@
 ### Data analysis
 
 - Business analytics
-  - Big Data Maturity Model
   - Solution deployment: technical implementation, data collection, data transformation (ETL)
   - Business as usual: data presentation, tactical reporting
   - Analytics consulting: driving vision and strategy, change management
@@ -391,6 +392,7 @@
     - Survival regression (survival analysis): duration in Churn analysis
     - Revenue Management and Pricing (RMP)
     - RFM: Recency, Frequency, Monetary & RFV: Recency, Frequency, Volume
+    - Price Elasticity of Demand
   - References
     - [Digital Marketing by Kaushik](https://www.kaushik.net/avinash/sitemap/)
 

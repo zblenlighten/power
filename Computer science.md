@@ -76,6 +76,9 @@
 
 ### Operating system
 
+- CPU
+  - Memory barrier: Out-of-order execution
+
 - Memory
   - Memory segmentation
     - Code segment - Data segment - .bss - Heap - Stack
@@ -94,8 +97,19 @@
     - C
       - Manual Memory Management
 
-- CPU
-  - Memory barrier: Out-of-order execution
+- I/O
+  - Communication
+    - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
+      - Possible causes: I/O, lock, network request, database connection
+    - Synchronous (vs: Asynchronous): code executing one at a time in sequence, blocking communication
+    - Overhead: compute time/resources spent on communication
+    - Latency: time to send message from A to B (μs)
+    - Bandwidth: amount to data communicated per seconds (GB/s)
+  - File
+    - Regular file
+    - Directory
+      - Linking: Static library (.lib) & Dynamic-link library (.dll)
+    - Socket
 
 - Process & Thread (task execution)
   - Process
@@ -103,6 +117,8 @@
   - Thread (subset of a process)
     - Threads share: address space, heap, static data, code segments, and file descriptors
     - Threads have their own: program counter, registers, stack, and state
+    - Thread pool: reuses threads to reduce the overhead that would be required to create a new separate thread for every concurrent task
+  - CPU bound, Memory bound, I/O bound
   - Inter process communication (IPC)
     - Remote procedure call (**RPC**)
     - Sockets and pipes, Shared memory
@@ -128,19 +144,10 @@
     - Hardware
       - CPU: Time-sharing
       - RAM: Sharding
+    - Amdahl's law
   - Scheduler
     - Scheduling algorithms (context switch)
     - Scheduling goals
-
-- I/O
-  - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
-    - Possible causes: I/O, lock, network request, database connection
-  - Synchronous (vs: Asynchronous): code executing in sequence, one at a time
-  - File
-    - Regular file
-    - Directory
-      - Linking: Static library (.lib) & Dynamic-link library (.dll)
-    - Socket
 
 - File System
   - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
@@ -154,11 +161,11 @@
     - Fedora → Red Hat → CentOS
     - Android
   - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([Explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
-    - Files and directories: cat, touch, grep, find
+    - Files and directories: cat, touch, grep, find, mount
     - Manipulating data: cut, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html), sort, uniq, wc, sed, tr, paste
     - File editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
     - Compressed files: tar
-    - Information
+    - Information: man
     - Status: ps, top
     - Messages between users
     - Networking: scp, curl, ssh
@@ -172,7 +179,7 @@
       - Network Interface Card (NIC)
       - **MAC** (media access control) address
       - Address Resolution Protocol (ARP)
-      - LTE random access procedure
+      - Bridging
   3. Network Layer: Router → Datagram
       - Internet Protocol (**IP**)
         - Network address translation (NAT): public IP address - private IP address
@@ -183,8 +190,8 @@
         - Round-trip delay (RTD)
       - Socket = IP + port
         - Port acts as an interface between the application process and transport layer of the OSI model (internal port vs external port)
-        - Call: connect, bind, listen, accept, send, recv
         - Echo server
+        - Socket Programming: connect, bind, listen, accept, send, recv
       - Reliable Data Protocol (RDP)
   7. Application Layer → Message
       - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
@@ -194,10 +201,15 @@
       - IP address
         - Static IP: IP + Subnet mask + Gateway + DNS
         - Dynamic IP: Dynamic Host Configuration Protocol (DHCP)
-      - Communication
-        - client → server: pull/get
-        - server/publisher → client: push ([WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html))
-        - peer-to-peer: Extensible Messaging and Presence Protocol (XMPP)
+
+- Knowledge
+  - Messaging pattern
+    - request–response (in-out): HTTP, RPC
+    - one-way (in-only): UDP
+    - publish–subscribe: [WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html), Message Queuing Telemetry Transport (MQTT)
+  - Network model
+    - client–server
+    - peer-to-peer: Extensible Messaging and Presence Protocol (XMPP)
 
 - The Hypertext Transfer Protocol (HTTP): stateless
   - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
@@ -284,7 +296,8 @@
     - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
       - OpenSSL
       - Network security services (NSS)
-   - Virtual Private Network (VPN)
+    - Virtual Private Network (VPN)
+  - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 
 - References
   - [一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830)
