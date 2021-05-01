@@ -64,16 +64,14 @@
     - gRPC (http2)
   - Hadoop ecosystem
     - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
-    - Hadoop Distributed File System (**HDFS**: DataNode, NameNode)
+    - Hadoop Distributed File System (**HDFS**: NameNode - DataNode)
     - Yarn
     - Spark (Livy)
       - MapReduce: Scatter/gather paradigm
       - Resilient Distributed Dataset (RDD)
     - Pig, Hive, HBase
-    - Apache Ambari
-    - Oozie (workflow scheduler), ZooKeeper
+    - Ambari (Hue), Oozie (Airflow), ZooKeeper
     - Data ingestion: Sqoop, Flume, Kafka
-    - Hue
     - External Data Storage - Query Engine
 
 - DevOps
@@ -94,7 +92,7 @@
       - Docker components
         - Dockerfile → Docker Client → Docker Host (images, containers, volumes) → Docker Registry
         - Dockerfile: multi-stage builds
-    - Kubernetes (Docker compose, Docker swarm, Mesos)
+    - Kubernetes (Docker compose, Docker swarm)
       - [Do I need K8s?](https://mbird.biz/writing/do-i-need-kubernetes.html)
       - Pod
       - Replica set
@@ -227,8 +225,7 @@
       - Executor: Sequential, Local, Celery, K8s (get the tasks to run from its internal queue and specify how to execute it)
       - CI/CD pipeline with Airflow image containing DAGs: Github repo → Jenkins → K8s → Pod
       - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana)
-    - Apache Storm
-    - Apache Flink
+    - Apache Storm / Apache Flink
   - ETL
     - Data validations: file validations & archival (data source → staging / data lake & data transformation)
     - Business validations: calculations & aggregations (staging → data warehouse - data mart)
@@ -261,12 +258,6 @@
     - Pessimistic locking
     - Optimistic locking
   - Connection pooling
-  - How to Choose: Integration, Scaling, Support(security, budget, etc.), Simplicity
-    - CAP theorem: Consistency, Availability, Partition tolerance
-      - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
-  - Applications
-    - Data encryption at rest: [Amazon S3 data encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html)
-    - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
 
 - RDBMS (each record has fixed schema, vertically scalable)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
@@ -298,9 +289,6 @@
   - Wide-column: Cassandra, HBase
     - Reduce disk resources & fast querying and processing: big-data store
   - Graph: Neo4j
-  - References
-    - [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases)
-    - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
@@ -317,8 +305,6 @@
   - Transaction processing systems (OLTP: online transaction processing)
     - Row-oriented
     - Database: Oracle, MySql, PostgreSQL
-  - References
-    - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
 
 - Cache
   - Types
@@ -334,10 +320,24 @@
     - Distributed lock manager (DLM)
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
 
-- Big data
-  - Spark SQL
-    - Broadcast join
-  - Dask (Pandas)
+- References
+  - Comparisons
+    - [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases)
+    - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
+    - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
+  - Log
+    - Mysql (binlog): replication / synchronization, data recovery
+    - MongoDB (oplog)
+  - How to Choose: Integration, Scaling, Support(security, budget, etc.), Simplicity
+    - CAP theorem: Consistency, Availability, Partition tolerance
+      - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
+  - Applications
+    - Data encryption at rest: [Amazon S3 data encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html)
+    - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
+  - Big data
+    - Spark SQL
+      - Broadcast join
+    - Dask (Pandas)
 
 ### Backend
 

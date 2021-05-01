@@ -154,6 +154,7 @@
   - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
   - Distributed File System
     - Andrew File System (AFS)
+    - InterPlanetary File System (IPFS)
 
 - Linux (pipe)
   - Distribution (/etc/*-release)

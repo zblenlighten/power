@@ -10,7 +10,8 @@
 - [Project Preparation](#project-preparation)
 - [Deep Learning](#deep-learning)
 - [Machine Learning](#machine-learning)
-- [ML Applications](#ml-applications)
+- [Recommender System](#recommender-system)
+- [Digital Advertising](#digital-advertising)
 - [Data Analysis](#data-analysis)
 - [Statistics](#statistics)
 - [Deployment](#deployment)
@@ -40,53 +41,35 @@
   - Present your solution
   - Launch, monitor and maintain your system
 
-- Data
-  - Univariate data
-    - Categorical data
-      - Nominal (conveys identity)
-      - Ordinal (conveys rank)
-    - Numerical data
-      - Discrete (counted)
-      - Continuous (measured)
-        - Interval (no true zero)
-        - Ratio (there is a true zero and ratios make sense)
-  - Multivariate data
-    - Scaler
-    - Vector
-    - Matrix (image)
-    - Tensor
-  - Spatiotemporal data
-    - Time series data
-    - Geographic data
-  - Data provenance
-    - Structured data vs Unstructured data
-    - Raw data vs Processed data
-    - Primary data vs [Inherited data](https://towardsdatascience.com/how-to-work-with-someone-elses-data-f33485d79ed4)
-  - Data type in computer science
-    - String
-    - Character
-    - Integer
-    - Float
-    - Boolean
-  - Natural Language
-    - Tokenization: word segmentation, convert characters to lowercase
-    - Remove useless characters, remove stop/rare words
-    - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
-    - Named-entity recognition: entity insertion and extraction
-  - Digital Image (OpenCV)
-    - Filters & Convolutions
-      - [Kernel](https://en.wikipedia.org/wiki/Kernel_(image_processing))
-      - Blind watermark (frequency domain)
-    - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
-  - Data quality
-    - Completeness: whole picture
-    - Accuracy
-    - Age: how often is data updated
-    - Consistency: rules and naming convention
-    - Usage
-  - Big Data Maturity Model
-
 - Data processing
+  - Data
+    - Univariate data
+      - Categorical data
+        - Nominal (conveys identity)
+        - Ordinal (conveys rank)
+      - Numerical data
+        - Discrete (counted)
+        - Continuous (measured)
+          - Interval (no true zero)
+          - Ratio (there is a true zero and ratios make sense)
+    - Multivariate data
+      - Scaler
+      - Vector
+      - Matrix (image)
+      - Tensor
+    - Spatiotemporal data
+      - Time series data
+      - Geographic data
+    - Data provenance
+      - Structured data vs Unstructured data
+      - Raw data vs Processed data
+      - Primary data vs [Inherited data](https://towardsdatascience.com/how-to-work-with-someone-elses-data-f33485d79ed4)
+    - Data type in computer science
+      - String
+      - Character
+      - Integer
+      - Float
+      - Boolean
   - Data collection
     - ETL / API
       - Funnel.io (data aggregating), KNIME ([cheat sheet](https://www.knime.com/cheat-sheets))
@@ -101,11 +84,31 @@
     - Singular Value Decomposition (SVD)
     - Locality Sensitive Hashing
       - Fuzzy Search
-  - Feature learning
+  - Natural Language
+    - Tokenization: word segmentation, convert characters to lowercase
+    - Remove useless characters, remove stop/rare words
+    - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
+    - Named-entity recognition: entity insertion and extraction
+  - Digital Image (OpenCV)
+    - Visual descriptor
+      - Histogram of oriented gradients (HOG)
+      - Local binary patterns (LBP)
+      - Haar-like features
+    - Filters & Convolutions
+      - [Kernel](https://en.wikipedia.org/wiki/Kernel_(image_processing))
+      - Blind watermark (frequency domain)
+    - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
+  - Data quality
+    - Completeness: whole picture
+    - Accuracy
+    - Age: how often is data updated
+    - Consistency: rules and naming convention
+    - Usage
   - Data security
     - Encryption
     - Data masking
     - Data erasure
+  - Big Data Maturity Model
 
 - Applications
   - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
@@ -148,7 +151,7 @@
       - Image classification
       - Object detection
       - Object traction (Video tracking)
-      - Sematic segmentation / Instance segmentation
+      - Sematic segmentation / Instance segmentation / Panoptic segmentation
     - Similar picture search
       - Perceptual hashing: pHash, SIFT
       - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
@@ -158,7 +161,9 @@
 
 - Neural Network
   - Convolutional Neural Network (CNN)
+    - Shape of the convolution kernel = in_channels (3) * kernel_size (h * w) * out_channels (+ padding & stride)
     - Pooling: max pooling & average pooling
+    - Upsampling: uppooling, interpolation, transposed convolution
   - Recurrent Neural Network (RNN)
     - Long short-term memory (LSTM)
       - Cell state: forget gate → input gate → output gate
@@ -180,8 +185,7 @@
   - Activation function
     - Softmax: multiclass
     - Sigmoid: binary
-    - Linear: regression
-    - ReLU: hidden layer
+    - ReLU, LeakyRelu, ELU: hidden layer
     - Tanh: RNN
   - Learning rate
   - Prevent over-fitting
@@ -291,9 +295,7 @@
   - Concordant – Discordant Ratio
 - Multi-classification: F1 score, Average Accuracy, Log-loss
 
-### ML Applications
-
-#### Recommender System
+### Recommender System
 
 - Framework
   - Online serving
@@ -328,7 +330,7 @@
 - Cases
   - YouTube ([Youtube 排序系统](https://zhuanlan.zhihu.com/p/82584437))
 
-#### Computational Advertising
+### Digital Advertising
 
 - Programmatic Advertising
   - Real time bidding (**RTB**)
@@ -397,7 +399,7 @@
     - [Digital Marketing by Kaushik](https://www.kaushik.net/avinash/sitemap/)
 
 - Data visualization
-  - Tools
+  - Examples
     - [D3.js](https://observablehq.com/@d3/gallery)
     - [Tableau Public](https://public.tableau.com/en-us/gallery)
     - [R Shiny](https://shiny.rstudio.com/gallery)
