@@ -269,7 +269,7 @@
         - The DOM is then rendered as a web page and can be viewed in the browser window, it also provides an interface for interacting with the elements in the tree
           - Layout the render tree (i.e. computes the exact position and size of each object)
           - Paint the render tree (i.e. takes in the final render tree and renders the pixels to the screen)
-          - ([HTML DOM 事件](https://www.runoob.com/jsref/dom-obj-event.html))
+          - [HTML DOM 事件](https://www.runoob.com/jsref/dom-obj-event.html)
       - **TCP four-way handshake**
   6. Browser → LCD screen
 
