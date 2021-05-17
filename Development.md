@@ -70,7 +70,7 @@
       - MapReduce: Scatter/gather paradigm
       - Resilient Distributed Dataset (RDD)
     - Pig, Hive, HBase
-    - Ambari (Hue), Oozie (Airflow), ZooKeeper
+    - Ambari / Hue, Oozie (Airflow), ZooKeeper
     - Data ingestion: Sqoop, Flume, Kafka
     - External Data Storage - Query Engine
 
@@ -451,11 +451,8 @@
   - Throughput vs Latency
   - Availability vs Consistency
 
-- If the system...
-  - goes slow: scalability, performance
-  - goes down: resiliency (SPOF: single point of failure), availability, stability
-
 - Performance
+  - If the **system goes slow**: scalability, performance
   - Testing
     - Throughput = # tasks / time
       - hps, tps, qps: number of HTTP requests/Transactions/Queries per second
@@ -472,6 +469,7 @@
     - Programming: algorithms, data structure, design pattern, asynchronous I/O
 
 - Availability
+  - If the **system goes down**: resiliency (SPOF: single point of failure), availability, stability
   - Redundancy backup: Load balancing, database with multi master replication
   - Fault and latency tolerance: Hystrix, message broker
   - Flow control & degrade

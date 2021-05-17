@@ -45,8 +45,8 @@
   - Data
     - Univariate data
       - Categorical data
-        - Nominal (conveys identity)
-        - Ordinal (conveys rank)
+        - Nominal (identity)
+        - Ordinal (rank)
       - Numerical data
         - Discrete (counted)
         - Continuous (measured)
@@ -91,8 +91,8 @@
     - Named-entity recognition: entity insertion and extraction
   - Digital Image (OpenCV)
     - Visual descriptor
-      - Histogram of oriented gradients (HOG)
-      - Local binary patterns (LBP)
+      - HOG (Histogram of oriented gradients)
+      - LBP (Local binary patterns)
       - Haar-like features
     - Filters & Convolutions
       - [Kernel](https://en.wikipedia.org/wiki/Kernel_(image_processing))
@@ -105,9 +105,9 @@
     - Consistency: rules and naming convention
     - Usage
   - Data security
-    - Encryption
-    - Data masking
-    - Data erasure
+    - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
+    - Encryption, Data masking, Data erasure
+    - General Data Protection Regulation (GDPR)
   - Big Data Maturity Model
 
 - Applications
@@ -133,8 +133,8 @@
       - Bag of Words & N-gram: term frequency — inverse document frequency (tf–idf)
         - Article vector (each dimension is the tf–idf of the word) → Cosine distance
       - Topic model
-        - Probabilistic Latent Semantic Analysis (pLSA)
-        - Latent Dirichlet Allocation (LDA)
+        - pLSA (Probabilistic Latent Semantic Analysis)
+        - LDA (Latent Dirichlet Allocation)
       - Embedding
         - Word2Vec (Continues bag of words: CBOW vs Skip-gram)
           - Word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Word Mover's distance (WMD) / Cosine distance / Euclidean distance
@@ -150,22 +150,24 @@
     - Tasks
       - Image classification
       - Object detection
-      - Object traction (Video tracking)
       - Sematic segmentation / Instance segmentation / Panoptic segmentation
+      - Object traction (Video tracking)
     - Similar picture search
       - Perceptual hashing: pHash, SIFT
       - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
       - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
+    - CUDA (Compute Unified Device Architecture) programming
+      - Host / CPU (Kernel) → Device / GPU (Grid - Block - Thread)
 
 ### Deep learning
 
 - Neural Network
-  - Convolutional Neural Network (CNN)
+  - CNN (Convolutional Neural Network)
     - Shape of the convolution kernel = in_channels (3) * kernel_size (h * w) * out_channels (+ padding & stride)
     - Pooling: max pooling & average pooling
     - Upsampling: uppooling, interpolation, transposed convolution
-  - Recurrent Neural Network (RNN)
-    - Long short-term memory (LSTM)
+  - RNN (Recurrent Neural Network)
+    - LSTM (Long short-term memory)
       - Cell state: forget gate → input gate → output gate
   - Training (one epoch = batch size * iteration)
     - Feed forward
@@ -200,18 +202,28 @@
 
 - Models
   - Image classification
-    - [Keras Models](https://keras.io/applications/)
+    - LeNet-5
+    - AlexNet
+    - VGG
+    - Inception / GoogleNet
+    - ResNet
+    - MobileNet
   - Object detection
-    - Backbone + detection head
+    - Backbone (feature extractor): Inception, ResNet, MobileNet
+    - Detection head (output layer): Groundtruth
     - YOLO
       - Intersection over Union: IoU
       - Anchor Boxes
-  - Text recognition
-    - CRNN (ctc)
+    - CRNN + ctc (text recognition)
+  - Semantic segmentation / Lane detection
+    - Backbone (feature extractor): ResNet
+    - U-Net
+    - DeepLab (vs: FCN)
+      - Encoder (Backbone + ASPP: atrous spatial pyramid pooling) - Decoder
+  - [Keras Models](https://keras.io/applications/)
 
 - Further topics
-  - Generative Adversarial Network (GAN)
-  - [Feature engineer](https://www.quora.com/Does-deep-learning-reduce-the-importance-of-feature-engineering): Deep Feature Synthesis
+  - GAN (Generative Adversarial Network)
   - Complexity: Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
 
 ### Machine learning
@@ -333,19 +345,19 @@
 ### Digital Advertising
 
 - Programmatic Advertising
-  - Real time bidding (**RTB**)
-  - Private marketplace (PMP)
+  - **RTB**: Real time bidding
+  - PMP: Private marketplace
   - Preferred deals
   - Programmatic guaranteed
 
 - Online Advertising Platforms
-  - Supply side platform (**SSP**): publisher, ad network
+  - **SSP** (Supply side platform): publisher, ad network
   - Audience
-  - Demand side platform (**DSP**): advertiser → target audience
-  - Ad exchange platform (ADX): publisher / ad network - advertiser
+  - **DSP** (Demand side platform): advertiser → target audience
+  - ADX (Ad exchange platform): publisher / ad network - advertiser
     - RTB: second-price auction
     - DSP buys ad space as cheaply as possible from publisher, SSP sells ad space for the highest possible price
-  - Data management platform (DMP): DSP
+  - DMP (Data management platform): DSP
   - Types of programmatic media buying: Open auction/RTB, Private auction, Preferred deal, Programmatic guaranteed, Direct deal
 
 - Google's display advertising stack
@@ -370,7 +382,7 @@
       - Make measurement lead to action.
       - Have a learning mindset.
       - Make measurement a habit.
-  - Google Marketing Platform (GMP)
+  - Google Marketing Platform
     - Google Analytics
     - Data Studio
     - Optimize
@@ -402,6 +414,7 @@
   - Examples
     - [D3.js](https://observablehq.com/@d3/gallery)
     - [Tableau Public](https://public.tableau.com/en-us/gallery)
+    - [Power BI Community](https://community.powerbi.com/t5/Data-Stories-Gallery/bd-p/DataStoriesGallery)
     - [R Shiny](https://shiny.rstudio.com/gallery)
     - [Story Telling with Data](http://www.storytellingwithdata.com/blog)
     - [Seeing Theory](https://seeing-theory.brown.edu/)
@@ -420,7 +433,7 @@
 | Revenue  | Business outcomes (which vary by your business model: purchases, ad clicks, content creation, subscriptions, etc.)  | Customer lifetime value, conversion rate, shopping cart size, click-through revenue  |
 | Referral  | Viral and word-of-mouth invitations to other potential users  | Invites sent, viral coefficient, viral cycle time  |
 
-- Acquisition mediums: Organic, Cost Per Click / Cost Per Mille (CPC / CPM), Referreal, Email, None
+- Acquisition mediums: Organic, CPC / CPM (Cost Per Click / Cost Per Mille), Referreal, Email, None
 
 ### Statistics
 
@@ -440,8 +453,8 @@
     5. If **p-value** <= Significance Level, then **null hypothesis** is rejected
     6. Draw a conclusion
   - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
-    - Type I error: occurs when you reject a **null hypothesis** that is actually true（False Positive → FP / (FP + TN), 拒真错误, 错杀好人）
-    - Type II error: non-rejection of a false **null hypothesis**（False Negative → FN / (FN + TP), 取伪错误, 放走坏人）
+    - Type I error: occurs when you reject a **null hypothesis** that is actually true（False Positive = FP / (FP + TN), convict an innocent defendant)
+    - Type II error: non-rejection of a false **null hypothesis**（False Negative = FN / (FN + TP), acquit a criminal)
   - Examples
     - Student's t-test
     - Chi-squared test

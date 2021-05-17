@@ -44,7 +44,6 @@
   2. Self-balancing binary search tree
       - **AVL tree**
       - Red-black tree
-      - ...
   3. B tree
       - B+ tree
   4. Trie ([Implementation](https://leetcode.com/articles/implement-trie-prefix-tree/))
@@ -167,7 +166,7 @@
     - File editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
     - Compressed files: tar
     - Information: man
-    - Status: ps, top
+    - Status: ps, top, netstat
     - Messages between users
     - Networking: scp, curl, ssh
     - Job scheduler: cron, crontab

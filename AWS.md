@@ -2,36 +2,6 @@
 
 [A practical guide](https://github.com/open-guides/og-aws)
 
-## Contents
-
-- [CLI](#CLI-command-line-interface)
-- [IMA](#IMA)
-- [EC2](#EC2)
-- [CodeCommit, Code build](#codeCommit-codeBuild)
-- [Container](#Elastic-Kubernetes-Service-EKS-elastic-container-registry-ECR-elastic-container-service-ECS)
-- [WAF, Shield](#WAF-Shield)
-- [CloudFront](#CloudFront)
-- [Route53](#Route53)
-- [VPC](#VPC)
-- [API Gateway, Elastic Load Balancing](#API-gateway-Elastic-Load-Balancing)
-- [Lambda](#Lambda)
-- [Batch](#Batch)
-- [SES, SNS](#simple-email-service-SES-simple-notification-service-SNS)
-- [CloudTrail](#CloudTrail)
-- [CloudWatch](#CloudWatch)
-- [S3](#S3)
-- [Database](#RDS-DynamoDB-Quantum-Ledger-Database-QLDB)
-- [Cache](#Redis-ElastiCache)
-- [Amazon MQ](#Amazon-MQ)
-- [Kinesis](#Kinesis)
-- EMR
-
-## CLI (Command Line Interface)
-
-## IMA
-
-&emsp; IAM enables you to control who can do what in your AWS account
-
 ## EC2
 
 ### ssh connect EC2 from local macbook
@@ -124,64 +94,3 @@
   </code></pre>
 
   [npm "hello world" (with express)](https://medium.com/@adnanrahic/hello-world-app-with-node-js-and-express-c1eb7cfa8a30)
-
-## CodeCommit, CodeBuild
-
-## Elastic Kubernetes Service (EKS), Elastic Container Registry (ECR), Elastic Container Service (ECS)
-
-## WAF, Shield
-
-## CloudFront
-
-&emsp;  mitigation
-
-## Route53
-
-&emsp; domain name management and router allocation
-
-## VPC
-
-1. serverless(edit yml file) - vpc(check network of lambda after deploy) - API Gateway(test)
-2. connect the private network by putty ppk file from EC2
-
-## API Gateway, Elastic Load Balancing
-
-1. APIs: resources (to find which lambda)
-2. APIs - stages - invoke url(endpoint)
-
-## Lambda
-
-&emsp; Serverless: Functions - trigger (connect DB)
-
-## Batch
-
-1. job queues:
-2. batch - code build - ECR(docker) - Jenkins(pipeline & shell script)
-
-## Simple Email Service (SES), Simple Notification Service (SNS)
-
-## CloudTrail
-
-&emsp; Trails, data events - S3
-
-## CloudWatch
-
-&emsp; Logs (also enter from lambda)
-
-## S3
-
-&emsp; bucket
-
-## RDS, DynamoDB, Quantum Ledger Database (QLDB)
-
-1. clusters: Cluster endpoint(server) (database of RDS)
-2. instance: (under the cluster) security group - inbound (like firewall)
-3. snapshot: recovery
-
-## Redis, ElastiCache
-
-## Amazon MQ
-
-## Kinesis
-
-&emsp; kafka
