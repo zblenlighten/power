@@ -77,11 +77,12 @@
 - DevOps
   - Version control
     - Git: branch, tag
-  - Continuous integration / Continuous delivery / Continuous deployment (CI/CD)
-    - Jenkins
-  - Configuration management (automation)
-    - Provision: Docker file / Puppet / Chef
+  - Infrastructure as code
+    - Terraform
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
+    - Provision: Docker file / Puppet / Chef
+  - Configuration (automation)
+    - Jenkins (CI/CD: Continuous integration / Continuous delivery / Continuous deployment)
     - ZooKeeper (central coordinator: manage state and hold configuration)
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
@@ -133,7 +134,6 @@
       - Kibana: Viewer with filter capabilities
       - Beats: Log shipping
   - Others
-    - Terraform
     - OpenStack
     - Heroku (dynamic page)
     - VirtualBox + Vagrant
