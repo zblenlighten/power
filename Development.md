@@ -78,7 +78,7 @@
   - Version control
     - Git: branch, tag
   - Infrastructure as code
-    - Terraform
+    - Terraform: Write → Plan → Apply
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Provision: Docker file / Puppet / Chef
   - Configuration (automation)

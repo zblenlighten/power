@@ -182,7 +182,8 @@
       - Bridging
   3. Network Layer: Router → Datagram
       - Internet Protocol (**IP**)
-        - Network address translation (NAT): public IP address - private IP address
+        - Network address translation (NAT)
+          - Public IP (ISP: Internet service provider) vs Private IP (DHCP server / Router / LAN administrator)
       - Routing: Static routing & Dynamic routing
   4. Transport Layer → Segment
       - User Datagram Protocol (UDP)
