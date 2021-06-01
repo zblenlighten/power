@@ -69,6 +69,7 @@
     - Spark (Livy)
       - MapReduce: Scatter/gather paradigm
       - Resilient Distributed Dataset (RDD)
+      - Components: Spark Core, Spark Steaming, Spark SQL, MLLib, GraphX
     - Pig, Hive, HBase
     - Ambari / Hue, Oozie (Airflow), ZooKeeper
     - Data ingestion: Sqoop, Flume, Kafka
@@ -81,9 +82,12 @@
     - Terraform: Write → Plan → Apply
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Provision: Docker file / Puppet / Chef
-  - Configuration (automation)
+  - Configuration
     - Jenkins (CI/CD: Continuous integration / Continuous delivery / Continuous deployment)
     - ZooKeeper (central coordinator: manage state and hold configuration)
+    - Automation and Orchestration
+      - Automation refers to a single task
+      - Orchestration refers to the management of many Automated tasks, often a complicated ordering with dependencies
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
       - Manage kernel features
@@ -157,7 +161,7 @@
       - URL access controls, ...
       - Access control list (ACL)
         - Filesystem ACL
-        - Networking ACL
+        - Network ACL
         - SQL ACL
   - Design of REST APIs
     - Identify participants
@@ -289,6 +293,7 @@
   - Wide-column: Cassandra, HBase
     - Reduce disk resources & fast querying and processing: big-data store
   - Graph: Neo4j
+  - Ledger
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
@@ -319,6 +324,7 @@
       - Write-back cache: data is written to cache alone, this results in low latency & high throughput, but comes with the risk of data loss in case of crash
     - Distributed lock manager (DLM)
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
+  - Varnish Cache: client-side cache
 
 - References
   - Comparisons
@@ -404,6 +410,7 @@
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
 - Python
+  - [cProfile](https://docs.python.org/3/library/profile.html)
   - [Packaging Projects](https://packaging.python.org/tutorials/packaging-projects/)
 
 - Node.js
