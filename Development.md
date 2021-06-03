@@ -2,6 +2,7 @@
 
 ## Blogs
 
+- [top 100 on GitHub](https://twosigmaventures.com/open-source-index/)
 - [Netflix](https://medium.com/netflix-techblog)
 - [Airbnb](https://medium.com/airbnb-engineering)
 - [Uber](https://eng.uber.com/)
@@ -51,29 +52,20 @@
     - References
       - [Microservices Patterns](https://microservices.io/patterns/)
       - [Azure Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
+  - Distributed system (storage + computation + messaging)
+    - Three-phase commit protocol (3PC): for solving atomic commit
+    - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
+    - RPC
+      - Dubbo (tcp)
+      - gRPC (http2)
+  - Load balancer
+    - Hardware LB - Software LB: HAProxy
+    - Algorithms: Round Robin, Round Robin with weighted server, Least connections, Least response time, Source IP hash, URL hash
+    - Nginx ([入门](https://yq.aliyun.com/articles/423970))
   - User Interface (UI)
     - MVC: Model-view-controller
     - MVVM: Model–view–viewmodel
   - Single vs Multi-tenant
-
-- Distributed system (storage + computation + messaging)
-  - Three-phase commit protocol (3PC): for solving atomic commit
-  - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
-  - RPC
-    - Dubbo (tcp)
-    - gRPC (http2)
-  - Hadoop ecosystem
-    - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
-    - Hadoop Distributed File System (**HDFS**: NameNode - DataNode)
-    - Yarn
-    - Spark (Livy)
-      - MapReduce: Scatter/gather paradigm
-      - Resilient Distributed Dataset (RDD)
-      - Components: Spark Core, Spark Steaming, Spark SQL, MLLib, GraphX
-    - Pig, Hive, HBase
-    - Ambari / Hue, Oozie (Airflow), ZooKeeper
-    - Data ingestion: Sqoop, Flume, Kafka
-    - External Data Storage - Query Engine
 
 - DevOps
   - Version control
@@ -106,10 +98,6 @@
       - Storage class
       - Persistent Volume Claim
       - Rancher + Helm charts - KEDA
-  - **Load balancer**
-    - Hardware LB - Software LB: HAProxy
-    - Algorithms: Round Robin, Round Robin with weighted server, Least connections, Least response time, Source IP hash, URL hash
-    - Nginx ([入门](https://yq.aliyun.com/articles/423970))
   - Reliability
     - Mean time to recovery (MTTR)
     - Mean time between failures (MTBF)
@@ -293,7 +281,7 @@
   - Wide-column: Cassandra, HBase
     - Reduce disk resources & fast querying and processing: big-data store
   - Graph: Neo4j
-  - Ledger
+  - Ledger: Hyperledger
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
@@ -310,6 +298,19 @@
   - Transaction processing systems (OLTP: online transaction processing)
     - Row-oriented
     - Database: Oracle, MySql, PostgreSQL
+
+- Hadoop
+  - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
+  - Hadoop Distributed File System (**HDFS**: NameNode - DataNode)
+  - Yarn
+  - Spark (Livy)
+    - MapReduce: Scatter/gather paradigm
+    - Resilient Distributed Dataset (RDD)
+    - Components: Spark Core, Spark Steaming, Spark SQL, MLLib, GraphX
+  - Pig, Hive, HBase
+  - Ambari / Hue (Cloudera), Oozie (Airflow), ZooKeeper
+  - Data ingestion: Sqoop, Flume, Kafka
+  - External Data Storage - Query Engine
 
 - Cache
   - Types
