@@ -26,7 +26,7 @@
   - Explore the data to gain insights (field expert)
   - Prepare the data to better expose the underlying data patterns
     1. data clean/data analysis
-    2. **feature engineering**
+    2. feature engineering ([feature engine](https://feature-engine.readthedocs.io/en/latest/index.html))
         - variable characteristics
         - missing data imputation
         - categorical encoding
@@ -267,6 +267,7 @@
     - Stan
   - Latent variable vs Observable variable
     - Latent Variable Modeling
+  - [Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/index.html)
 
 #### Unsupervised learning
 
@@ -398,7 +399,9 @@
   - Solution deployment: technical implementation, data collection, data transformation (ETL)
   - Business as usual: data presentation, tactical reporting
   - Analytics consulting: driving vision and strategy, change management
-  - Tools: Tableau, Power BI, QlikView
+  - Tools
+    - Tableau ([reference guide](http://www.tableaureferenceguide.com/))
+    - Power BI
   - Models
     - Customer Experience (CX)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html)

@@ -32,13 +32,14 @@
     - Microservices
       - Pros: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
       - When not to use: small, intermingled functionality or data, performance sensitive, quick and dirty, no planned updates
-      - Style
-        - A suite of small services
-        - Bare minimum of centralized management of these services
+      - Reactive system (vs: Declarative system)
       - Service Mesh
         - Istio
         - Data Plane - Control Plane
       - Service discovery (SDP)
+      - Challenges
+        - Design and runtime complexity
+        - Network are slow compared to monolith
     - Serverless (run in stateless compute containers that are event triggered)
       - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
       - Function as a Service
@@ -70,16 +71,22 @@
 - DevOps
   - Version control
     - Git: branch, tag
-  - Infrastructure as code
+  - Infrastructure as code (consider hardware: networks, servers, storage, etc.)
     - Terraform: Write → Plan → Apply
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Provision: Docker file / Puppet / Chef
-  - Configuration
+  - Configuration (deploy and configure software: operating systems, applications, etc.)
     - Jenkins (CI/CD: Continuous integration / Continuous delivery / Continuous deployment)
     - ZooKeeper (central coordinator: manage state and hold configuration)
     - Automation and Orchestration
       - Automation refers to a single task
       - Orchestration refers to the management of many Automated tasks, often a complicated ordering with dependencies
+  - DevSecOps
+    - Static application security testing (SAST): Find Security Bugs
+    - Dynamic application security testing (DAST): ZAP, WebInspect
+    - Interactive application security testing (IAST)
+    - Vulnerability scanning: OpenVAS
+    - Others: sqlmap, Recon-ng, OWASP Glue
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
       - Manage kernel features
@@ -98,12 +105,6 @@
       - Storage class
       - Persistent Volume Claim
       - Rancher + Helm charts - KEDA
-  - Reliability
-    - Mean time to recovery (MTTR)
-    - Mean time between failures (MTBF)
-    - Chaos Monkey
-    - Hystrix (Circuit Breaker pattern: cascading failures)
-    - Profiler
   - Monitor
     - Synthetic check and uptime (is it working?)
     - Software component metrics
@@ -121,14 +122,22 @@
     - Collection → Transport → Storage → Analysis → Alerting
     - Centralized Logging
     - ELK (Elastic)
-      - Elasticsearch: Data Store
-      - Logstash (Fluentd): Data collection pipeline
+      - Elasticsearch: Search engine + document store (JSON)
+      - Logstash (vs: Fluentd): Data collection pipeline
+        - Filter plugin: Grok (log parser)
+        - Input plugin: Twitter
       - Kibana: Viewer with filter capabilities
-      - Beats: Log shipping
+        - Kibana Query Language (KQL)
+      - [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html): Data shipping
+  - Reliability
+    - Mean time to recovery (MTTR)
+    - Mean time between failures (MTBF)
+    - Chaos Monkey
+    - Hystrix (Circuit Breaker pattern: cascading failures)
+    - Profiler
   - Others
     - OpenStack
     - Heroku (dynamic page)
-    - VirtualBox + Vagrant
 
 - API
   - RPC: for actions (procedures / commands)
@@ -186,7 +195,7 @@
   - Service calls (RPC vs REST API)
   - Asynchronous message passing (via message broker or actor)
 
-- Message broker (Message-oriented middleware: MOM)
+- Messaging (Message-oriented middleware: MOM)
   - Type
     - Advanced Message Queuing Protocol (AMQP)/Java Message Service (JMS) style message broker
     - Log based message broker
@@ -215,6 +224,7 @@
       - Directed Acyclic Graph (DAG)
       - Operator: action, transfer, sensor
       - Executor: Sequential, Local, Celery, K8s (get the tasks to run from its internal queue and specify how to execute it)
+        - Celery: tasks queues to distribute work across threads or machines
       - CI/CD pipeline with Airflow image containing DAGs: Github repo → Jenkins → K8s → Pod
       - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana)
     - Apache Storm / Apache Flink
@@ -318,6 +328,8 @@
     - Distribute cache: each of its nodes own part of cached data, the cache is divided up using a consistent hashing function
     - Global cache: all nodes use the same single cache space
     - Content delivery network (**CDN**): first request ask the CDN for data, if not, CDN will query the backend servers
+      - Fastly
+  - Client-side cache: Varnish
   - Cache coherence / invalidation
     - Writing policies
       - Write-through cache: data is written to cache & DB at the same time, this minimizes the risk of data loss, but higher latency for write 
@@ -325,7 +337,6 @@
       - Write-back cache: data is written to cache alone, this results in low latency & high throughput, but comes with the risk of data loss in case of crash
     - Distributed lock manager (DLM)
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
-  - Varnish Cache: client-side cache
 
 - References
   - Comparisons
@@ -339,7 +350,7 @@
     - CAP theorem: Consistency, Availability, Partition tolerance
       - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
   - Applications
-    - Data encryption at rest: [Amazon S3 data encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html)
+    - Encryption at rest: [Amazon S3 data encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html)
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
   - Big data
     - Spark SQL
@@ -413,6 +424,7 @@
 - Python
   - [cProfile](https://docs.python.org/3/library/profile.html)
   - [Packaging Projects](https://packaging.python.org/tutorials/packaging-projects/)
+  - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
 
 - Node.js
   - npm
@@ -513,17 +525,15 @@
 
 ### Practice
 
-- Code review
-  - Programming style
-  - Code review best practice
-    - [what to look for](https://blog.jetbrains.com/upsource/tag/what-to-look-for/)
-    - Human reviewers should be doing what cannot be automated (automate everything you can)
-    - Understand the constraints
-    - Knowledge sharing (focus on how to understand the code easily)
-    - Gateway type code review: should have a list of specific checks (not right time for: design patterns, SOLID, reusability)
-    - Reviews should be small
-    - Reviewing respond in a timely fashion
-    - Comments with Why, When and What
+- WBS (Work breakdown structure)
+  - Problem statements: RfQ (Request for quotation), SoW (Statement of work)
+  - PoC (Proof of concept)
+  - **User story** & Feature list
+    - An end user going through a domain-level process to achieve some valuable outcome
+    - Who, What, Why, Acceptance Criteria (AC)
+  - Architecture design
+  - Coding, testing, release
+  - Maintenance & Iterative and incremental development
 
 - Development Approach
   - TDD (Test driven): state desired outcome as a test
@@ -536,23 +546,26 @@
       - Message broker
     - Event storming: design a system that models the structure and flow of activities within the business itself
 
+- Code Review
+  - Programming style
+  - Code review best practice
+    - [what to look for](https://blog.jetbrains.com/upsource/tag/what-to-look-for/)
+    - Human reviewers should be doing what cannot be automated (automate everything you can)
+    - Understand the constraints
+    - Knowledge sharing (focus on how to understand the code easily)
+    - Gateway type code review: should have a list of specific checks (not right time for: design patterns, SOLID, reusability)
+    - Reviews should be small
+    - Reviewing respond in a timely fashion
+    - Comments with Why, When and What
+
 - Project Management
   - Systems development life cycle (SDLC): requirement analysis → design → development and testing → implementation → documentation → evaluation
   - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
+    - Conway's law
   - Scrum: Transparency, Inspection, Adaptation
-  - Kanban
+    - Scrum master
   - Waterfall: System and software requirements → Analysis → Design → Coding → Testing → Operations
   - Project Management Committee ([PMC](https://www.apache.org/foundation/how-it-works.html))
 
-- WBS: Work breakdown structure
-  - RfQ: Request for quotation
-  - PoC: Proof of concept & SoW: Statement of work
-  - Feature (list) & [User story](http://www.myagilediary.com/the-art-of-story-writing-in-agile/)
-    - Who, What, Why, Acceptance Criteria (AC)
-  - Software architecture design
-  - Coding, testing, release
-  - Maintenance & Iterative and incremental development
-
 - Team Management
-  - Interview
-    - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)
+  - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)
