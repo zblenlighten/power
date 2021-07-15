@@ -57,8 +57,8 @@
     - Three-phase commit protocol (3PC): for solving atomic commit
     - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
     - RPC
-      - Dubbo (tcp)
-      - gRPC (http2)
+      - gRPC (http/2)
+      - Thrift
   - Load balancer
     - Hardware LB - Software LB: HAProxy
     - Algorithms: Round Robin, Round Robin with weighted server, Least connections, Least response time, Source IP hash, URL hash
@@ -105,6 +105,7 @@
       - Storage class
       - Persistent Volume Claim
       - Rancher + Helm charts - KEDA
+    - Nvidia docker
   - Monitor
     - Synthetic check and uptime (is it working?)
     - Software component metrics
@@ -113,11 +114,12 @@
     - Performance
       - Application performance management (APM)
       - Real user monitoring (RUM)
-    - Security
     - Tools
       - Prometheus (service oriented)
         - Metric ([types](https://prometheus.io/docs/concepts/metric_types/))
+        - Grafana
       - Zabbix (ip oriented)
+      - Datadog
   - Logging
     - Collection → Transport → Storage → Analysis → Alerting
     - Centralized Logging
@@ -135,6 +137,11 @@
     - Chaos Monkey
     - Hystrix (Circuit Breaker pattern: cascading failures)
     - Profiler
+  - Security
+    - Penetration test
+    - [Web Application Security Checklist](https://www.appsecmonkey.com/blog/web-application-security-checklist)
+  - Testing
+    - Code coverage
   - Others
     - OpenStack
     - Heroku (dynamic page)
@@ -204,6 +211,7 @@
   - Kafka (real time analysis, streams, no cluster required)
     - Use cases (Perfect for data intensive scenarios): Messaging, Activity Tracking, Metrics Gathering, Log Aggregation, Stream Processing, Decoupling of System Dependencies
     - Core APIs: Producer, Consumer, Streams, Connector (Record: key, value, timestamp)
+      - RTSP (Real time streaming protocol) producer
     - Reasons to fast:
       - Avoids Random Disk Access (sequential write)
       - Memory Mapped Files (mmap)
@@ -279,35 +287,43 @@
     - Durability
 
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL) (schemas are dynamic, horizontally scalable, designed to be scaled across multiple servers)
-  - Key-value: LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
-    - Fast & light: caching stores, managing user sessions, ad servicing, recommendations
-  - Document: MongoDB, CouchDB, Elasticsearch
-    - Schema flexibility: managing user profiles (XML or JSON documents)
+  - Key-value (fast & light: caching stores, managing user sessions, ad servicing, recommendations)
+    - LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
+  - Document (schema flexibility: managing user profiles (XML or JSON documents) )
+    - MongoDB
+      - Document - Collection - Database
+      - Replication sets: single master architecture
+      - Support many indices (only one can be used for sharding): text search, geospatial
+    - CouchDB
     - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
       - Search engine: **Solr** (Lucene)
         - Inverted index
-      - Scheme-free JSON documents (Distributed)
-      - HTTP web interface (Rest API)
-  - Wide-column: Cassandra, HBase
-    - Reduce disk resources & fast querying and processing: big-data store
-  - Graph: Neo4j
-  - Ledger: Hyperledger
+      - Scheme-free JSON documents (distributed)
+  - Wide-column (reduce disk resources & fast querying and processing: big data store)
+    - Cassandra
+      - No master node → No single point of failure
+      - Gossip protocol
+      - CQL, CQLSH
+      - DataStax: Spark + Cassandra
+    - HBase
+  - Graph
+    - Neo4j
+  - Ledger
+    - Hyperledger
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
     - Column-oriented
-    - Database (Data warehouse): Teradata, Redshift, Hive, Greenplum
-      - Star schema (vs: 3NF schema)
-        - Fact table: grain
-        - Dimension table
-      - Snowflake schema
+    - Database (Data warehouse): Hive, Teradata, Greenplum
+    - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
+    - Databricks
+      - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
+    - Schemas
       - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
-    - High availability and low latency
-    - Business Intelligence: optimization for analytic access patterns
-    - On-premises vs Cloud data warehouses (e.g. Ads Data Hub)
+    - High availability and low latency (business Intelligence: optimization for analytic access patterns)
   - Transaction processing systems (OLTP: online transaction processing)
     - Row-oriented
-    - Database: Oracle, MySql, PostgreSQL
+    - Database: MySql, PostgreSQL, Oracle
 
 - Hadoop
   - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
@@ -317,9 +333,14 @@
     - MapReduce: Scatter/gather paradigm
     - Resilient Distributed Dataset (RDD)
     - Components: Spark Core, Spark Steaming, Spark SQL, MLLib, GraphX
-  - Pig, Hive, HBase
-  - Ambari / Hue (Cloudera), Oozie (Airflow), ZooKeeper
-  - Data ingestion: Sqoop, Flume, Kafka
+  - Hive
+    - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
+    - High latency (not appropriate for OLTP), no transactions, no record (because under the hood there are no real database)
+  - Pig
+  - HBase ([Bigtable](https://en.wikipedia.org/wiki/Bigtable))
+    - ZooKeeper
+    - Access ways: HBase shell, Java API, Spark, Hive, Pig, Rest API, Thrift, Avro
+  - Data ingestion: Sqoop (relational database), Flume, Kafka
   - External Data Storage - Query Engine
 
 - Cache
@@ -328,7 +349,9 @@
     - Distribute cache: each of its nodes own part of cached data, the cache is divided up using a consistent hashing function
     - Global cache: all nodes use the same single cache space
     - Content delivery network (**CDN**): first request ask the CDN for data, if not, CDN will query the backend servers
-      - Fastly
+      - Fastly, Cloudflare vs Amazon CloudFront
+      - Static page vs Dynamic page (CGI)
+      - [CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820)
   - Client-side cache: Varnish
   - Cache coherence / invalidation
     - Writing policies
@@ -349,26 +372,15 @@
   - How to Choose: Integration, Scaling, Support(security, budget, etc.), Simplicity
     - CAP theorem: Consistency, Availability, Partition tolerance
       - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
-  - Applications
-    - Encryption at rest: [Amazon S3 data encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html)
-    - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
   - Big data
     - Spark SQL
       - Broadcast join
     - Dask (Pandas)
+  - Applications
+    - [Amazon Redshift DISTKEY and SORTKEY](https://www.flydata.com/blog/amazon-redshift-distkey-and-sortkey/)
+    - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
 
 ### Backend
-
-- Server Content
-  - Static page: CDN ([CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820))
-  - Dynamic page: CGI
-    - Servlet
-      - Life cycle: init → service (request & response) → destroy
-      - Container: Apache Tomcat (services provided by the Servlet container)
-      - Info & Config
-    - Session management in HTTP
-    - Listener (Event): changing the state of an object
-    - Filter (authentication, log, ...)
 
 - Design patterns
   - Object oriented programming (OOP): Polymorphism
@@ -418,6 +430,14 @@
       - Spring Data JPA (Spring Data REST)
     - Spring Cloud
     - Projects: [link](https://spring.io/projects)
+  - Server Content
+    - Servlet
+      - Life cycle: init → service (request & response) → destroy
+      - Container: Apache Tomcat (services provided by the Servlet container)
+      - Info & Config
+    - Session management in HTTP
+    - Listener (Event): changing the state of an object
+    - Filter (authentication, log, ...)
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
@@ -427,36 +447,29 @@
   - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
 
 - Node.js
-  - npm
   - Express
   - [ES6 教程](https://wangdoc.com/es6/)
 
 ### Frontend
 
-- WWW standards
-  - CSS ([animation](https://animate.style/))
-  - DOM
-  - HTML
-  - SVG
-  - XML
-
-- Web
-  - Vue.js
-    - Vue Instance - Virtual DOM - DOM
-    - VueResource, VueRouter, Vuex
-      - MVVM: two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
-    - Developer Tools: Vue.js devtools
-  - Webpack (module bundler, vs: template processor)
-    - Lazy Loading
-
-- Mobile
-  - SwiftUI
-  - WeChat Mini Program
-
-- Desktop
-  - Electron
-
-- Others
+- Knowledge
+  - WWW standards
+    - CSS ([animation](https://animate.style/))
+    - DOM
+    - HTML
+    - SVG
+    - XML
+  - Web
+    - Vue.js
+      - Vue Instance - Virtual DOM - DOM
+      - VueResource, VueRouter, Vuex
+        - MVVM: two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
+      - Developer Tools: Vue.js devtools
+  - Mobile
+    - SwiftUI
+    - WeChat Mini Program
+  - Desktop
+    - Electron
   - Website audit
   - UI design (e.g. Figma, Adobe XD)
   - UI component: Bootstrap, Ant Design
@@ -477,7 +490,7 @@
     - Throughput = # tasks / time
       - hps, tps, qps: number of HTTP requests/Transactions/Queries per second
     - Latency = time / task
-    - Number of concurrent sessions/users
+    - Number of concurrent sessions/users (Concurrency = throughput * latency)
     - Internal metrics: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
   - Optimization
     - Global Data Center (multi-data center architecture)

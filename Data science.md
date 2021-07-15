@@ -78,6 +78,12 @@
       - Javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
     - Web crawler
       - Selenium
+    - Devices: Laser radar, 3D human pose machine
+  - Data labeling / Data generating
+    - Tools: LabelImg, LabelMe
+    - [Active learning](https://en.wikipedia.org/wiki/Active_learning_(machine_learning))
+    - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
+    - GAN (Generative Adversarial Network)
   - Dimensionality reduction
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
@@ -97,7 +103,6 @@
     - Filters & Convolutions
       - [Kernel](https://en.wikipedia.org/wiki/Kernel_(image_processing))
       - Blind watermark (frequency domain)
-    - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
   - Data quality
     - Completeness: whole picture
     - Accuracy
@@ -106,9 +111,10 @@
     - Usage
   - Data security
     - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
-    - Encryption, Data masking, Data erasure
+    - Encryption (data at rest, data in transit), Data masking, Data erasure
     - General Data Protection Regulation (GDPR)
   - Big Data Maturity Model
+  - Data Trusts
 
 - Applications
   - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
@@ -148,10 +154,10 @@
     - Evaluation: BLEU, ROUGE, METEOR, etc.
   - Computer Vision
     - Tasks
-      - Image classification
-      - Object detection
-      - Sematic segmentation / Instance segmentation / Panoptic segmentation
-      - Object traction (Video tracking)
+      - Classification
+      - Detection
+      - Segmentation: Sematic / Instance / Panoptic
+      - Tracking (Video)
     - Similar picture search
       - Perceptual hashing: pHash, SIFT
       - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
@@ -211,19 +217,23 @@
   - Object detection
     - Backbone (feature extractor): Inception, ResNet, MobileNet
     - Detection head (output layer): Groundtruth
-    - YOLO
-      - Intersection over Union: IoU
-      - Anchor Boxes
+    - Two stage: R-CNN
+      - RoI pooling
+      - RPN (Region Proposal Network)
+    - One stage: YOLO
+      - Anchor boxes (a set of predefined bounding boxes) + Loss
+      - IoU (Intersection over Union) = area of overlap / area of union
+      - **NMS** (Non-Maximal Suppression)
+      - FPN (Feature Pyramid Networks)
+    - Anchor free
     - CRNN + ctc (text recognition)
   - Semantic segmentation / Lane detection
     - Backbone (feature extractor): ResNet
     - U-Net
     - DeepLab (vs: FCN)
       - Encoder (Backbone + ASPP: atrous spatial pyramid pooling) - Decoder
+  - Object Tracking
   - [Keras Models](https://keras.io/applications/)
-
-- Further topics
-  - GAN (Generative Adversarial Network)
   - Complexity: Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
 
 ### Machine learning
@@ -499,5 +509,7 @@
 | System management difficulty  | So so  | Easy  | Very hard  | So so  |
 
 - References
+  - [MLeap](https://combust.github.io/mleap-docs/)
+  - [Oryx 2](http://oryx.io/)
   - [Big data pipeline architecture](https://www.satishchandragupta.com/tech/scalable-efficient-big-data-analytics-machine-learning-pipeline-architecture-on-cloud.html)
   - [Best practices for performance and cost optimization for machine learning](https://cloud.google.com/solutions/machine-learning/best-practices-for-ml-performance-cost)
