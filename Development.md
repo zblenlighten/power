@@ -2,7 +2,7 @@
 
 ## Blogs
 
-- [top 100 on GitHub](https://twosigmaventures.com/open-source-index/)
+- [Top 100 on GitHub](https://twosigmaventures.com/open-source-index/)
 - [Netflix](https://medium.com/netflix-techblog)
 - [Airbnb](https://medium.com/airbnb-engineering)
 - [Uber](https://eng.uber.com/)
@@ -55,13 +55,13 @@
       - [Azure Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
   - Distributed system (storage + computation + messaging)
     - Three-phase commit protocol (3PC): for solving atomic commit
-    - Paxos: for solving consensus in a network (Chubby, ZooKeeper)
+    - Paxos: for solving consensus in a network (e.g. Chubby, ZooKeeper)
     - RPC
       - gRPC (http/2)
       - Thrift
   - Load balancer
     - Hardware LB - Software LB: HAProxy
-    - Algorithms: Round Robin, Round Robin with weighted server, Least connections, Least response time, Source IP hash, URL hash
+    - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
     - Nginx ([入门](https://yq.aliyun.com/articles/423970))
   - User Interface (UI)
     - MVC: Model-view-controller
@@ -77,7 +77,9 @@
     - Provision: Docker file / Puppet / Chef
   - Configuration (deploy and configure software: operating systems, applications, etc.)
     - Jenkins (CI/CD: Continuous integration / Continuous delivery / Continuous deployment)
-    - ZooKeeper (central coordinator: manage state and hold configuration)
+    - ZooKeeper
+      - Central coordinator: manage state and hold configuration (Zookeeper ensemble)
+      - Recover from partial failures: master crashes, worker crashes, network trouble
     - Automation and Orchestration
       - Automation refers to a single task
       - Orchestration refers to the management of many Automated tasks, often a complicated ordering with dependencies
@@ -96,6 +98,7 @@
       - Docker components
         - Dockerfile → Docker Client → Docker Host (images, containers, volumes) → Docker Registry
         - Dockerfile: multi-stage builds
+      - Nvidia docker
     - Kubernetes (Docker compose, Docker swarm)
       - [Do I need K8s?](https://mbird.biz/writing/do-i-need-kubernetes.html)
       - Pod
@@ -105,7 +108,6 @@
       - Storage class
       - Persistent Volume Claim
       - Rancher + Helm charts - KEDA
-    - Nvidia docker
   - Monitor
     - Synthetic check and uptime (is it working?)
     - Software component metrics
@@ -116,7 +118,7 @@
       - Real user monitoring (RUM)
     - Tools
       - Prometheus (service oriented)
-        - Metric ([types](https://prometheus.io/docs/concepts/metric_types/))
+        - Metric [types](https://prometheus.io/docs/concepts/metric_types/)
         - Grafana
       - Zabbix (ip oriented)
       - Datadog
@@ -140,33 +142,31 @@
   - Security
     - Penetration test
     - [Web Application Security Checklist](https://www.appsecmonkey.com/blog/web-application-security-checklist)
-  - Testing
-    - Code coverage
   - Others
+    - Testing: Code coverage
     - OpenStack
     - Heroku (dynamic page)
 
 - API
   - RPC: for actions (procedures / commands)
   - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): for modeling domain (resources / entities) & making CRUD
-    - Uniform Resource Identifier (URI) = URL + URN
-      - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
-    - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
+    - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
     - Versioning
       - Accept header
       - Resource URL
     - Media Type & Content-Type
     - Authentication (AuthN: who you are)
       - Basic authentication & Digest authentication
-      - Login form, HTTP authentication, ...
+      - Login form, HTTP authentication
       - Key management (cryptographic keys)
     - Authorization (AuthZ: what you can do)
       - Role-based access control (RBAC)
-      - URL access controls, ...
+      - URL access controls
       - Access control list (ACL)
         - Filesystem ACL
         - Network ACL
         - SQL ACL
+    - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
   - Design of REST APIs
     - Identify participants
     - Identify activities
@@ -187,63 +187,76 @@
       - Monitor: logging for analytics and monitoring
     - Swagger (OpenAPI Specification)
     - REST client tool (e.g. Postman)
-  - References
     - [API Directory](https://www.programmableweb.com/)
 
 ### Modes of dataflow
 
-- Rolling upgrades
-  - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
-  - Serialization: from data structures in memory to self-contained sequence of bytes (e.g. JSON document) write to file or send over network (vs: Parsing / Deserialization) ([Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
-  - Binary schema driven formats
+- Knowledge
+  - Rolling upgrades
+    - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
+    - Serialization: from data structures in memory to self-contained sequence of bytes (e.g. JSON document) write to file or send over network (vs: Parsing / Deserialization) ([Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
+    - Binary schema driven formats
+  - Scenarios
+    - Database: sending a message to your future self
+    - Service calls (RPC vs REST API)
+    - Asynchronous message passing (via message broker or actor)
 
-- Scenarios
-  - Database: sending a message to your future self
-  - Service calls (RPC vs REST API)
-  - Asynchronous message passing (via message broker or actor)
-
-- Messaging (Message-oriented middleware: MOM)
+- Messaging (Message-oriented middleware)
   - Type
     - Advanced Message Queuing Protocol (AMQP)/Java Message Service (JMS) style message broker
     - Log based message broker
   - Message queue: decoupling
     - Examples: RabbitMQ, ZeroMQ, ActiveMQ
-  - Kafka (real time analysis, streams, no cluster required)
-    - Use cases (Perfect for data intensive scenarios): Messaging, Activity Tracking, Metrics Gathering, Log Aggregation, Stream Processing, Decoupling of System Dependencies
-    - Core APIs: Producer, Consumer, Streams, Connector (Record: key, value, timestamp)
-      - RTSP (Real time streaming protocol) producer
-    - Reasons to fast:
+  - Kafka
+    - Use cases (data intensive scenarios): messaging, activity tracking, metrics gathering, log aggregation, stream processing, decoupling of system dependencies
+    - Topic (partitions and offsets)
+      - Bootstrap server (connection + metadata request)
+      - Topic partitioning: What if a topic gets too big for one computer or one computer is not reliable
+    - Core APIs (record: key, value, timestamp)
+      - Producer
+        - acks: 0, 1, all
+        - Message keys: key to partition hashing (vs: round robin)
+        - Example: RTSP (Real time streaming protocol) producer
+      - Consumer
+        - Consumers read data from a topic in order within each partitions (consumer groups)
+        - Consumer Offsets (delivery semantics: at most once, at least once, exactly once)
+      - Streams
+      - Connector
+    - Zookeeper (leader + followers)
+      - Manages brokers
+      - Performs leader election for partitions
+      - Sends notifications
+    - Reasons to fast
       - Avoids Random Disk Access (sequential write)
       - Memory Mapped Files (mmap)
       - Zero Copy ([原理](https://www.jianshu.com/p/2581342317ce))
       - Batch Data in Chunks
       - Can Scale Horizontally
-    - Topic partitioning: What if a topic gets too big for one computer or one computer is not reliable
     - Kafka Stream (Kafka: data pipeline, Kafka Stream: stream processing, [details](https://www.knowledgehut.com/blog/big-data/kafka-vs-spark))
 
-- Extract (**ETL**: Extract - Transform - Load)
+- Data Integration
+  - **ETL** (Extract - Transform - Load)
+    - Data validations: file validations & archival (data source → staging / data lake & data transformation)
+    - Business validations: calculations & aggregations (staging → data warehouse - data mart)
   - Batch: raw logs, files, assets, etc.
   - Stream: events, metrics, etc. (event time, state, deployment, correctness)
     - Windowing: slicing data into chunks
     - Watermarks - Trigger - Accumulators (discarding, accumulating, retracting)
     - Streaming SQL
   - Applications
-    - Airflow (web server + scheduler + metadata database + executor + worker)
+    - Airflow (web server + scheduler + metadata database + executor + worker, vs: Luigi)
       - Directed Acyclic Graph (DAG)
       - Operator: action, transfer, sensor
       - Executor: Sequential, Local, Celery, K8s (get the tasks to run from its internal queue and specify how to execute it)
         - Celery: tasks queues to distribute work across threads or machines
       - CI/CD pipeline with Airflow image containing DAGs: Github repo → Jenkins → K8s → Pod
       - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana)
-    - Apache Storm / Apache Flink
-  - ETL
-    - Data validations: file validations & archival (data source → staging / data lake & data transformation)
-    - Business validations: calculations & aggregations (staging → data warehouse - data mart)
+    - Storm / Flink
 
 ### Data storage
 
 - Knowledge
-  - Data Volume & Retention period (delete or move to archive data store)
+  - Data Volume & Retention period
   - Query Tuning
     - Index types
       - B tree
@@ -268,6 +281,7 @@
     - Pessimistic locking
     - Optimistic locking
   - Connection pooling
+  - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
 
 - RDBMS (each record has fixed schema, vertically scalable)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
@@ -285,6 +299,7 @@
       - Read committed
       - Read uncommitted
     - Durability
+  - TiDB
 
 - [NoSQL](https://en.wikipedia.org/wiki/NoSQL) (schemas are dynamic, horizontally scalable, designed to be scaled across multiple servers)
   - Key-value (fast & light: caching stores, managing user sessions, ad servicing, recommendations)
@@ -326,22 +341,24 @@
     - Database: MySql, PostgreSQL, Oracle
 
 - Hadoop
+  - **HDFS** (Hadoop Distributed File System: NameNode - DataNode, Storage)
+  - Yarn (Resource manager, Compute)
+    - Tez (faster: only one read and one write)
+    - Mesos (vs: Kubernetes)
   - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
-  - Hadoop Distributed File System (**HDFS**: NameNode - DataNode)
-  - Yarn
   - Spark (Livy)
     - MapReduce: Scatter/gather paradigm
     - Resilient Distributed Dataset (RDD)
     - Components: Spark Core, Spark Steaming, Spark SQL, MLLib, GraphX
+  - Pig
   - Hive
     - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
     - High latency (not appropriate for OLTP), no transactions, no record (because under the hood there are no real database)
-  - Pig
   - HBase ([Bigtable](https://en.wikipedia.org/wiki/Bigtable))
     - ZooKeeper
     - Access ways: HBase shell, Java API, Spark, Hive, Pig, Rest API, Thrift, Avro
   - Data ingestion: Sqoop (relational database), Flume, Kafka
-  - External Data Storage - Query Engine
+  - Query engine: Hue, Drill (Dremel), Phoenix (HBase), [Presto](https://prestodb.io/docs/current/overview/concepts.html)
 
 - Cache
   - Types
@@ -362,22 +379,18 @@
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
 
 - References
-  - Comparisons
-    - [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases)
-    - [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch)
-    - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
-  - Log
-    - Mysql (binlog): replication / synchronization, data recovery
-    - MongoDB (oplog)
   - How to Choose: Integration, Scaling, Support(security, budget, etc.), Simplicity
     - CAP theorem: Consistency, Availability, Partition tolerance
       - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
+    - Comparisons: [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases), [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch), [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
+  - Log
+    - Mysql (binlog): replication / synchronization, data recovery
+    - MongoDB (oplog)
   - Big data
     - Spark SQL
       - Broadcast join
     - Dask (Pandas)
   - Applications
-    - [Amazon Redshift DISTKEY and SORTKEY](https://www.flydata.com/blog/amazon-redshift-distkey-and-sortkey/)
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
 
 ### Backend
@@ -430,14 +443,6 @@
       - Spring Data JPA (Spring Data REST)
     - Spring Cloud
     - Projects: [link](https://spring.io/projects)
-  - Server Content
-    - Servlet
-      - Life cycle: init → service (request & response) → destroy
-      - Container: Apache Tomcat (services provided by the Servlet container)
-      - Info & Config
-    - Session management in HTTP
-    - Listener (Event): changing the state of an object
-    - Filter (authentication, log, ...)
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
@@ -445,10 +450,6 @@
   - [cProfile](https://docs.python.org/3/library/profile.html)
   - [Packaging Projects](https://packaging.python.org/tutorials/packaging-projects/)
   - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
-
-- Node.js
-  - Express
-  - [ES6 教程](https://wangdoc.com/es6/)
 
 ### Frontend
 
@@ -473,9 +474,6 @@
   - Website audit
   - UI design (e.g. Figma, Adobe XD)
   - UI component: Bootstrap, Ant Design
-  - Applications
-    - Rich Text Editor
-    - BPMN: Business Process Model and Notation (e.g. Rappid)
 
 ### System design
 
@@ -485,7 +483,7 @@
   - Availability vs Consistency
 
 - Performance
-  - If the **system goes slow**: scalability, performance
+  - **If the system goes slow**: scalability, performance
   - Testing
     - Throughput = # tasks / time
       - hps, tps, qps: number of HTTP requests/Transactions/Queries per second
@@ -502,7 +500,7 @@
     - Programming: algorithms, data structure, design pattern, asynchronous I/O
 
 - Availability
-  - If the **system goes down**: resiliency (SPOF: single point of failure), availability, stability
+  - **If the system goes down**: resiliency (SPOF: single point of failure), availability, stability
   - Redundancy backup: Load balancing, database with multi master replication
   - Fault and latency tolerance: Hystrix, message broker
   - Flow control & degrade

@@ -1,9 +1,12 @@
 # Knowledge Memo
 
-[Kaggle blog](https://medium.com/kaggle-blog)  
-[state-of-the-art model](https://paperswithcode.com/sota)  
-[state-of-the-art 模型](http://www.jiqizhixin.com/sota)  
-[格物钛 open dataset](https://www.graviti.cn/open-datasets)  
+## Blogs
+
+- [Deepmind](https://deepmind.com/blog)
+- [Kaggle](https://medium.com/kaggle-blog)
+- [state-of-the-art model](https://paperswithcode.com/sota)
+- [state-of-the-art 模型](http://www.jiqizhixin.com/sota)
+- [格物钛公开数据集](https://www.graviti.cn/open-datasets)
 
 ## Contents
 
@@ -12,8 +15,8 @@
 - [Machine Learning](#machine-learning)
 - [Recommender System](#recommender-system)
 - [Digital Advertising](#digital-advertising)
-- [Data Analysis](#data-analysis)
 - [Statistics](#statistics)
+- [Data Analysis](#data-analysis)
 - [Deployment](#deployment)
 
 ## Data science
@@ -113,8 +116,9 @@
     - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
     - Encryption (data at rest, data in transit), Data masking, Data erasure
     - General Data Protection Regulation (GDPR)
-  - Big Data Maturity Model
-  - Data Trusts
+  - Others
+    - Big Data Maturity Model
+    - Data Trusts
 
 - Applications
   - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
@@ -170,7 +174,10 @@
 - Neural Network
   - CNN (Convolutional Neural Network)
     - Shape of the convolution kernel = in_channels (3) * kernel_size (h * w) * out_channels (+ padding & stride)
-    - Pooling: max pooling & average pooling
+    - Convolutional layer
+    - Pooling layer
+      - Pooling: max pooling & average pooling
+    - Fully connected layer
     - Upsampling: uppooling, interpolation, transposed convolution
   - RNN (Recurrent Neural Network)
     - LSTM (Long short-term memory)
@@ -351,7 +358,7 @@
     - A/B test
 
 - Cases
-  - YouTube ([Youtube 排序系统](https://zhuanlan.zhihu.com/p/82584437))
+  - [Youtube 排序系统](https://zhuanlan.zhihu.com/p/82584437)
 
 ### Digital Advertising
 
@@ -403,15 +410,44 @@
     - Search Ads (search management platform)
     - Display & Video (DSP)
 
+### Statistics
+
+[Tutorial](https://stattrek.com/tutorials/ap-statistics-tutorial.aspx)
+
+- Statistical significance
+  - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
+    - Type I error: occurs when you reject a **null hypothesis** that is actually true（False Positive = FP / (FP + TN), convict an innocent defendant)
+    - Type II error: non-rejection of a false **null hypothesis**（False Negative = FN / (FN + TP), acquit a criminal)
+  - Confidence levels & Confidence intervals
+  - Statistical power
+  - Steps in Hypothesis Testing
+    1. Specify the **null hypothesis** and **alternative hypothesis**
+    2. Set the Significance Level (common values are 0.05 and 0.01)
+        - Significance Level: the probability of rejecting the **null hypothesis** when it is true (probability of making a Type I error)
+    3. Compute from the observations the observed value of the test statistic
+        - one-tail test
+        - two-tail test
+    4. Calculate the **[p-value](https://statisticsbyjim.com/glossary/p-value/)** based on the test statistic
+    5. If **p-value** <= Significance Level, then **null hypothesis** is rejected
+    6. Draw a conclusion
+  - Examples
+    - Student's t-test
+    - Chi-squared test
+    - F-test (Analysis of variance: ANOVA)
+
+- Cases
+  - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
+  - Simpson's paradox
+  - St. Petersburg paradox
+  - Monty Hall problem
+
 ### Data analysis
 
 - Business analytics
   - Solution deployment: technical implementation, data collection, data transformation (ETL)
   - Business as usual: data presentation, tactical reporting
   - Analytics consulting: driving vision and strategy, change management
-  - Tools
-    - Tableau ([reference guide](http://www.tableaureferenceguide.com/))
-    - Power BI
+  - Tools: Tableau, Power BI
   - Models
     - Customer Experience (CX)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html)
@@ -448,38 +484,14 @@
 
 - Acquisition mediums: Organic, CPC / CPM (Cost Per Click / Cost Per Mille), Referreal, Email, None
 
-### Statistics
-
-[Tutorial](https://stattrek.com/tutorials/ap-statistics-tutorial.aspx)
-
-- Statistical significance
-  - Confidence levels & Confidence intervals
-  - Statistical power
-  - Steps in Hypothesis Testing
-    1. Specify the **null hypothesis** and **alternative hypothesis**
-    2. Set the Significance Level (common values are 0.05 and 0.01)
-        - Significance Level: the probability of rejecting the **null hypothesis** when it is true (probability of making a Type I error)
-    3. Compute from the observations the observed value of the test statistic
-        - one-tail test
-        - two-tail test
-    4. Calculate the **[p-value](https://statisticsbyjim.com/glossary/p-value/)** based on the test statistic
-    5. If **p-value** <= Significance Level, then **null hypothesis** is rejected
-    6. Draw a conclusion
-  - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
-    - Type I error: occurs when you reject a **null hypothesis** that is actually true（False Positive = FP / (FP + TN), convict an innocent defendant)
-    - Type II error: non-rejection of a false **null hypothesis**（False Negative = FN / (FN + TP), acquit a criminal)
-  - Examples
-    - Student's t-test
-    - Chi-squared test
-    - F-test (Analysis of variance: ANOVA)
-
-- Cases
-  - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
-  - Simpson's paradox
-  - St. Petersburg paradox
-  - Monty Hall problem
-
 ### Deployment
+
+- Frameworks
+  - TensorFlow
+    - Often use API: tf.data, tf.dtypes, tf.initializers, tf.keras, tf.optimizers, tf.quantization, tf.saved_model
+    - Computational graph: static → dynamical
+  - PyTorch
+    - Computational graph: dynamical
 
 - Questions of note
   - Do you need to be able to serve predictions in real time (and if so, do you mean like, within a dozen milliseconds or after a second or two), or will delivery of predictions 30 minutes or a day after the input data is received suffice?
@@ -492,12 +504,6 @@
   - Can this task be done without ML?
   - How large and experienced is your team - including data scientists, engineers and DevOps?
 
-- Incremental learning
-
-- Online learning
-
-- ML Design Patterns
-
 - Potential ML system architecture approaches
 
 |   | REST API  | Shared DB  | Streaming  | Mobile App  |
@@ -507,6 +513,11 @@
 | Prediction result delivery  | Via REST API  | Though the shared DB  | Streaming via message queue  | Via in-process API on mobile  |
 | Latency for prediction  | So so  | High  | Very low  | Low  |
 | System management difficulty  | So so  | Easy  | Very hard  | So so  |
+
+- Further topics
+  - Incremental learning
+  - Online learning
+  - ML Design Patterns
 
 - References
   - [MLeap](https://combust.github.io/mleap-docs/)

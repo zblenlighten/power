@@ -9,4 +9,5 @@
 ## AWS
 
 - [A practical guide](https://github.com/open-guides/og-aws)
+- [Awesome AWS](https://github.com/donnemartin/awesome-aws)
 - [Security Groups vs Network Access Control List](https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae)

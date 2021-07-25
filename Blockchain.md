@@ -3,6 +3,7 @@
 ## Contents
 
 - [Knowledge](#knowledge)
+- [HD Wallets](#hierarchical-deterministic-wallets)
 - [Hyperledger Fabric](#hyperledger-fabric-consortium-blockchain)
 
 ## Blockchain
@@ -50,6 +51,13 @@
     - Accounts
       - EOA: externally owned accounts (private keys) → ECC: Elliptic Curve Cryptography
       - contract accounts (contract code)
+
+### Hierarchical Deterministic Wallets
+
+- Bitcoin Improvement Proposals (BIPs)
+  - BIP32: seed → key pairs
+  - BIP39: mnemonic code
+  - BIP44: coin type - account - change - address_index
 
 ### Hyperledger Fabric (Consortium blockchain)
 

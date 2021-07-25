@@ -33,11 +33,10 @@
   5. Hash (hash function: easy to compute, even distribution, less collision)
       - [Collision](http://www.ruanyifeng.com/blog/2018/09/hash-collision-and-birthday-attack.html): Separate chaining, Open addressing, 2-choice hashing ([Perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function))
       - Bloom Filter
-      - SimHash
-      - GeoHash
       - Fingerprint
         - Pseudorandom number generator (PRNG): Mersenne Twister
         - [Content ID system](https://en.wikipedia.org/wiki/Content_ID_(system))
+      - SimHash, GeoHash
 
 - Trees
   1. Binary search trees
@@ -48,7 +47,7 @@
       - B+ tree
   4. Trie ([Implementation](https://leetcode.com/articles/implement-trie-prefix-tree/))
   5. Heap
-  6. traversals: [preorder](https://leetcode.com/problems/binary-tree-preorder-traversal/), [inorder](https://leetcode.com/problems/binary-tree-inorder-traversal/), [postorder](https://leetcode.com/problems/binary-tree-postorder-traversal/), BFS, DFS
+  6. traversals: preorder, inorder, postorder, BFS, DFS
 
 - Graph
   1. directed
@@ -68,10 +67,10 @@
   6. Dynamic programing
   7. Union find
   8. Greedy
-  9. [Regular expression](https://regexr.com/) ([Python](https://www.runoob.com/python/python-reg-expressions.html))
+  9. [Regular expression](https://regexr.com/)
 
 - Time complexity
-  - General [Big-O](https://linux.cn/article-7480-1.html) ([Python](https://wiki.python.org/moin/TimeComplexity))
+  - General [Big-O](https://linux.cn/article-7480-1.html) ([Java](https://www.baeldung.com/java-collections-complexity), [Python](https://wiki.python.org/moin/TimeComplexity))
 
 ### Operating system
 
@@ -160,7 +159,7 @@
     - Debian → Ubuntu
     - Fedora → Red Hat → CentOS
     - Android
-  - [Shell command](https://docs.cs.cf.ac.uk/notes/linux-shell-commands/) ([Explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
+  - Shell command ([explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
     - Files and directories: cat, touch, grep, find, mount
     - Manipulating data: cut, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html), sort, uniq, wc, sed, tr, paste
     - File editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
@@ -183,7 +182,7 @@
   3. Network Layer: Router → Datagram
       - Internet Protocol (**IP**)
         - Network address translation (NAT)
-          - Public IP (ISP: Internet service provider) vs Private IP (DHCP server / Router / LAN administrator)
+        - Public IP (ISP: Internet service provider) vs Private IP (DHCP server / Router / LAN administrator)
       - Routing: Static routing & Dynamic routing
   4. Transport Layer → Segment
       - User Datagram Protocol (UDP)
@@ -210,7 +209,7 @@
     - publish–subscribe: [WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html), Message Queuing Telemetry Transport (MQTT)
   - Network model
     - client–server
-    - peer-to-peer: Extensible Messaging and Presence Protocol (XMPP)
+    - peer-to-peer
 
 - The Hypertext Transfer Protocol (HTTP): stateless
   - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
@@ -247,7 +246,7 @@
         - Common Gateway Interface (CGI)
     - Tunnel & Relay
 
-- What happens when type in a URL?
+- What happens when type in a Uniform Resource Locator (URL)?
   1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Browser
   2. Browser:
       - **DNS resolution**: cache (browser, OS, router)/DNS server → IP address
@@ -285,7 +284,6 @@
       - Digital signature (Electronic signature: DocuSign)
       - Public key infrastructure (PKI)
         - Certificate authority (CA)
-  - Authentication and authorization
   - Protocols
     - Central Authentication Service (CAS): single sign-on (SSO)
     - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
