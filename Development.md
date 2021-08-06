@@ -209,17 +209,21 @@
     - Examples: RabbitMQ, ZeroMQ, ActiveMQ
   - Kafka
     - Use cases (data intensive scenarios): messaging, activity tracking, metrics gathering, log aggregation, stream processing, decoupling of system dependencies
-    - Topic (partitions and offsets)
+    - Topics - Partitions - Offsets
       - Bootstrap server (connection + metadata request)
       - Topic partitioning: What if a topic gets too big for one computer or one computer is not reliable
-    - Core APIs (record: key, value, timestamp)
+    - Core APIs
       - Producer
         - acks: 0, 1, all
-        - Message keys: key to partition hashing (vs: round robin)
+        - Keys: key to partition hashing (vs: round robin)
         - Example: RTSP (Real time streaming protocol) producer
       - Consumer
-        - Consumers read data from a topic in order within each partitions (consumer groups)
-        - Consumer Offsets (delivery semantics: at most once, at least once, exactly once)
+        - read data from a topic in order within each partitions (subscribe vs assign to a partition and seek to offsets)
+        - Consumer groups (same group read from mutually exclusive partitions)
+          - lag = log end offset - current offset
+          - reset offset
+          - rebalancing (when a consumer joins or leaves a group)
+        - Consumer offsets (delivery semantics: at most once, at least once, exactly once)
       - Streams
       - Connector
     - Zookeeper (leader + followers)
@@ -278,14 +282,15 @@
   - Filesystem ACL (file vs blob: binary large object)
     - blob storage: relational db, file system, object storage (Ceph), cloud storage
   - Concurrency control
-    - Pessimistic locking
-    - Optimistic locking
+    - Pessimistic locking: Java synchronized, MySQL exclusive lock (InnoDB locking)
+    - Optimistic locking: version, timestamp, compare and swap (CAS)
   - Connection pooling
   - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
 
 - RDBMS (each record has fixed schema, vertically scalable)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
   - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (e.g. InnoDB, MyIsam, [区别](https://www.zhihu.com/question/20596402))
+  - Keys: Super key, Candidate key, Primary key, Foreign key
   - PrepareStatement
     - Get pre compiled and access plan cached in database
     - Prevent SQL Injection attacks

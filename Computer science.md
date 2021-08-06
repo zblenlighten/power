@@ -160,7 +160,7 @@
     - Fedora → Red Hat → CentOS
     - Android
   - Shell command ([explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
-    - Files and directories: cat, touch, grep, find, mount
+    - Files and directories: cat, touch, grep, find, mount, ls
     - Manipulating data: cut, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html), sort, uniq, wc, sed, tr, paste
     - File editors: [vim](http://www.ruanyifeng.com/blog/2018/09/vimrc.html)
     - Compressed files: tar
@@ -333,6 +333,14 @@ Read 1 MB sequentially from 1 Gbps  10,000,000   ns   10,000 us   10 ms  40x mem
 Read 1 MB sequentially from disk    30,000,000   ns   30,000 us   30 ms 120x memory, 30X SSD
 Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
 ```
+
+- Knowledge
+  - Compiler
+  - Type system
+    - Static vs Dynamic 
+    - Strong vs Weak
+  - Programming paradigm
+    - Imperative programming vs Declarative programming
 
 &emsp;(1) [Falsehoods CS Students (Still) Believe Upon Graduating](https://www.netmeister.org/blog/cs-falsehoods.html)  
 &emsp;(2) [記号と読み方](https://memotec.net/etc/mark.html)  

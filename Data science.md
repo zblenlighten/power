@@ -73,6 +73,7 @@
       - Integer
       - Float
       - Boolean
+  - Data Cleaning: OpenRefine
   - Data collection
     - ETL / API
       - Funnel.io (data aggregating), KNIME ([cheat sheet](https://www.knime.com/cheat-sheets))
@@ -205,6 +206,7 @@
   - Learning rate
   - Prevent over-fitting
     - L1 & L2 Regularization (Lasso regression & Ridge regression → Linear regression)
+      - Regularization significantly reduces variance without substantial increase in bias
     - Dropout
     - Data augmentation
     - Early stopping
@@ -304,6 +306,7 @@
 
 #### Evaluation
 
+- Error = Bias + Variance
 - Metrics ([sklearn metrics and scoring](https://scikit-learn.org/stable/modules/model_evaluation.html))
 - Cross Validation
 - Confusion Matrix
