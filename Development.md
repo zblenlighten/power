@@ -62,7 +62,7 @@
   - Load balancer
     - Hardware LB - Software LB: HAProxy
     - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
-    - Nginx ([入门](https://yq.aliyun.com/articles/423970))
+    - Nginx
   - User Interface (UI)
     - MVC: Model-view-controller
     - MVVM: Model–view–viewmodel
@@ -126,7 +126,7 @@
     - Collection → Transport → Storage → Analysis → Alerting
     - Centralized Logging
     - ELK (Elastic)
-      - Elasticsearch: Search engine + document store (JSON)
+      - Elasticsearch
       - Logstash (vs: Fluentd): Data collection pipeline
         - Filter plugin: Grok (log parser)
         - Input plugin: Twitter
@@ -318,7 +318,7 @@
     - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
       - Search engine: **Solr** (Lucene)
         - Inverted index
-      - Scheme-free JSON documents (distributed)
+      - Scheme-free JSON (distributed document storage)
   - Wide-column (reduce disk resources & fast querying and processing: big data store)
     - Cassandra
       - No master node → No single point of failure

@@ -116,10 +116,12 @@
     - Threads share: address space, heap, static data, code segments, and file descriptors
     - Threads have their own: program counter, registers, stack, and state
     - Thread pool: reuses threads to reduce the overhead that would be required to create a new separate thread for every concurrent task
+  - Coroutine ([协程](https://www.liaoxuefeng.com/wiki/1016959663602400/1017968846697824))
   - CPU bound, Memory bound, I/O bound
   - Inter process communication (IPC)
+    - Shared memory, Pipe, Message queue, Semaphore
     - Remote procedure call (**RPC**)
-    - Sockets and pipes, Shared memory
+    - Sockets
   - Concurrency
     - Achieved via context switching in a single core or parallelism in a multi-core
     - Construct concurrent programs

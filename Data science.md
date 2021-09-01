@@ -169,6 +169,8 @@
       - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
     - CUDA (Compute Unified Device Architecture) programming
       - Host / CPU (Kernel) → Device / GPU (Grid - Block - Thread)
+  - Speech Recognition
+    - Kaldi
 
 ### Deep learning
 
@@ -188,6 +190,9 @@
     - Gradient descent (vs: gradient ascent)
     - Global minimum
     - Back propagation (reverse topological order)
+  - Transfer learning
+    - Add new layers
+    - Fine-tune
 
 - Fine-tune
   - Random initialization
@@ -199,9 +204,9 @@
       - Maximum likelihood estimation (MLE)
         - Expectation maximization (EM)
   - Activation function
-    - Softmax: multiclass
-    - Sigmoid: binary
     - ReLU, LeakyRelu, ELU: hidden layer
+    - Sigmoid: binary
+    - Softmax, Softmin: multiclass
     - Tanh: RNN
   - Learning rate
   - Prevent over-fitting
@@ -299,7 +304,10 @@
 
 #### Reinforcement learning
 
+- [Gym](https://gym.openai.com/)
 - Q-learning / DQN
+  - Input: system state
+  - Output: Q(s, a) for all possible actions
 - Multi-armed bandit
   - Explore-exploit tradeoff (Information Cocoon)
   - Upper confidence bound (UCB) → Monte Carlo tree search (MCTS)
@@ -357,6 +365,7 @@
   - Ground truth
   - Metrics
     - CTR, CVR, GPM (GMV per mille: Gross merchandise volume / impression * 1000)
+    - Top N Hit Rate
   - Offline vs Online
     - A/B test
 
@@ -491,10 +500,14 @@
 
 - Frameworks
   - TensorFlow
-    - Often use API: tf.data, tf.dtypes, tf.initializers, tf.keras, tf.optimizers, tf.quantization, tf.saved_model
     - Computational graph: static → dynamical
-  - PyTorch
+    - More [data types](https://www.tensorflow.org/api_docs/python/tf/dtypes)
+    - model.save vs model.save_weights
+    - TensorBoard
+  - PyTorch (a PyTorch Tensor is basically the same as a NumPy array)
     - Computational graph: dynamical
+    - Less [data types](https://pytorch.org/docs/stable/tensors.html)
+  - JAX
 
 - Questions of note
   - Do you need to be able to serve predictions in real time (and if so, do you mean like, within a dozen milliseconds or after a second or two), or will delivery of predictions 30 minutes or a day after the input data is received suffice?

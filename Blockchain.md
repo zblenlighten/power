@@ -5,6 +5,7 @@
 - [Knowledge](#knowledge)
 - [HD Wallets](#hierarchical-deterministic-wallets)
 - [Hyperledger Fabric](#hyperledger-fabric-consortium-blockchain)
+- [Non-fungible token](#non-fungible-token-nft)
 
 ## Blockchain
 
@@ -45,12 +46,16 @@
 
 - Openness: transparency
 
-- Uses
-  - Bitcoin ([Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem)) → SHA-256
+- Cryptocurrency
+  - Bitcoin → SHA-256
+    - [Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem)
+    - SegWit
+    - Lightning Network
   - Ethereum → Keccak 256 (SHA-3)
     - Accounts
       - EOA: externally owned accounts (private keys) → ECC: Elliptic Curve Cryptography
       - contract accounts (contract code)
+  - Stablecoin
 
 ### Hierarchical Deterministic Wallets
 
@@ -58,6 +63,8 @@
   - BIP32: seed → key pairs
   - BIP39: mnemonic code
   - BIP44: coin type - account - change - address_index
+
+- [Know Your Customer (KYC)](https://academy.binance.com/en/glossary/know-your-customer)
 
 ### Hyperledger Fabric (Consortium blockchain)
 
@@ -96,3 +103,11 @@
     - Interface
     - Stub
   - Configuration and system chaincodes
+
+### Non-fungible token (NFT)
+
+- InterPlanetary File System (IPFS)
+
+- NFT sales
+  - [Sotheby's](https://www.sothebys.com/en/digital-catalogues/natively-digital-a-curated-nft-sale)
+  - [Christie's](https://www.christies.com/auctions/christies-encrypted)
