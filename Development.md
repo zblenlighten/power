@@ -74,17 +74,17 @@
   - Infrastructure as code (consider hardware: networks, servers, storage, etc.)
     - Terraform: Write → Plan → Apply
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
-    - Provision: Docker file / Puppet / Chef
+    - Provision: Dockerfile / Puppet / Chef
   - Configuration (deploy and configure software: operating systems, applications, etc.)
     - Jenkins (CI/CD: Continuous integration / Continuous delivery / Continuous deployment)
     - ZooKeeper
       - Central coordinator: manage state and hold configuration (Zookeeper ensemble)
       - Recover from partial failures: master crashes, worker crashes, network trouble
-    - Automation and Orchestration
+    - Automation vs Orchestration
       - Automation refers to a single task
       - Orchestration refers to the management of many Automated tasks, often a complicated ordering with dependencies
   - DevSecOps
-    - Static application security testing (SAST): Find Security Bugs
+    - Static application security testing (SAST): find security bugs
     - Dynamic application security testing (DAST): ZAP, WebInspect
     - Interactive application security testing (IAST)
     - Vulnerability scanning: OpenVAS
@@ -108,6 +108,7 @@
       - Storage class
       - Persistent Volume Claim
       - Rancher + Helm charts - KEDA
+      - etcd
   - Monitor
     - Synthetic check and uptime (is it working?)
     - Software component metrics
@@ -141,11 +142,21 @@
     - Profiler
   - Security
     - Penetration test
+    - Vault
+      - Data in transit: TLS encrypts data between server and client (asymmetric) 
+      - Internal data: AES256 (symmetric, faster)
+      - Key sharding: the master key is split into several unseal keys using Shamir's Secret Sharing (two-man rule)
+      - Authentication: data that must be kept confidential is a secret, access to secret is performed by token
+        - wrap-ttl: generate a wrapping token
+      - Policy (Authorization): policy is associated to tokens and grants capabilities to a secrets engine path
+      - AppRole: Jenkins
     - [Web Application Security Checklist](https://www.appsecmonkey.com/blog/web-application-security-checklist)
+  - Testing: Code coverage
   - Others
-    - Testing: Code coverage
-    - OpenStack
     - Heroku (dynamic page)
+    - OpenStack
+    - Vagrant: synced folder, networking, provider (hypervisor), provisioner
+    - Packer: co-ordinates the lifecycle of image (for containers and virtual machines) creation, provision with simple scripting or configuration management tool such as Ansible
 
 - API
   - RPC: for actions (procedures / commands)
@@ -203,10 +214,9 @@
 
 - Messaging (Message-oriented middleware)
   - Type
-    - Advanced Message Queuing Protocol (AMQP)/Java Message Service (JMS) style message broker
+    - Advanced Message Queuing Protocol (AMQP) / Java Message Service (JMS) style message broker
     - Log based message broker
-  - Message queue: decoupling
-    - Examples: RabbitMQ, ZeroMQ, ActiveMQ
+  - Message queue: decoupling (e.g. RabbitMQ, ZeroMQ, ActiveMQ)
   - Kafka
     - Use cases (data intensive scenarios): messaging, activity tracking, metrics gathering, log aggregation, stream processing, decoupling of system dependencies
     - Topics - Partitions - Offsets
@@ -256,11 +266,11 @@
       - CI/CD pipeline with Airflow image containing DAGs: Github repo → Jenkins → K8s → Pod
       - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana)
     - Storm / Flink
+    - dbt (data build tool)
 
 ### Data storage
 
 - Knowledge
-  - Data Volume & Retention period
   - Query Tuning
     - Index types
       - B tree
@@ -287,14 +297,16 @@
   - Connection pooling
   - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
 
-- RDBMS (each record has fixed schema, vertically scalable)
+- RDBMS (Relational Database Management System)
+  - Pros: SQL, normalized data (minimize chances of introducing problem), widely used across domains, widely supported
+  - Cons: fixed schema (each record), costly to join tables, limited data structures, difficult to horizontal scale (vertically scalable)
+    - Workarounds: denormalization, sharding, replication (master and read replicas)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
-  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (e.g. InnoDB, MyIsam, [区别](https://www.zhihu.com/question/20596402))
+  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (InnoDB vs MyIsam, [区别](https://www.zhihu.com/question/20596402))
   - Keys: Super key, Candidate key, Primary key, Foreign key
   - PrepareStatement
     - Get pre compiled and access plan cached in database
     - Prevent SQL Injection attacks
-  - Database normalization
   - Database transaction (ACID, vs: BASE)
     - Atomicity
     - Consistency
@@ -304,9 +316,15 @@
       - Read committed
       - Read uncommitted
     - Durability
+  - Database normalization
+    - Organizing the columns (attributes) and tables (relations) to ensure that their dependencies are properly enforced by database integrity constraints
+    - Normal forms
+    - Denormalization: the process of trying to improve the read performance by adding redundant copies of data or by grouping data, avoid joins
   - TiDB
+    - [Tutorial](https://pingcap.com/tidb-academy/)
 
-- [NoSQL](https://en.wikipedia.org/wiki/NoSQL) (schemas are dynamic, horizontally scalable, designed to be scaled across multiple servers)
+- NoSQL
+  - Pros: flexible schemas, distributed (horizontally scalable, designed to be scaled across multiple servers), replication
   - Key-value (fast & light: caching stores, managing user sessions, ad servicing, recommendations)
     - LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
   - Document (schema flexibility: managing user profiles (XML or JSON documents) )
@@ -326,7 +344,7 @@
       - CQL, CQLSH
       - DataStax: Spark + Cassandra
     - HBase
-  - Graph
+  - Graph (based on sets of nodes and edges between nodes)
     - Neo4j
   - Ledger
     - Hyperledger
@@ -336,8 +354,6 @@
     - Column-oriented
     - Database (Data warehouse): Hive, Teradata, Greenplum
     - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
-    - Databricks
-      - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
     - Schemas
       - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
@@ -395,6 +411,16 @@
     - Spark SQL
       - Broadcast join
     - Dask (Pandas)
+    - Databricks
+      - Optimization
+        - Data: compress, partition, convert to optimized formats (e.g. parquet), Databricks Delta
+        - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
+        - Cluster: add memory / CPU / GPU, increase number of nodes
+      - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
+  - Types of analyze to structure data
+    - Machine learning and statistics: tables and data frames
+    - Real time analysis: queues and streams
+    - Network analysis: graphs
   - Applications
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
 
@@ -455,6 +481,7 @@
   - [cProfile](https://docs.python.org/3/library/profile.html)
   - [Packaging Projects](https://packaging.python.org/tutorials/packaging-projects/)
   - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
+  - [Awesome Python](https://github.com/vinta/awesome-python)
 
 ### Frontend
 
@@ -471,6 +498,7 @@
       - VueResource, VueRouter, Vuex
         - MVVM: two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
       - Developer Tools: Vue.js devtools
+    - GraphQL
   - Mobile
     - SwiftUI
     - WeChat Mini Program
@@ -520,7 +548,23 @@
   - Write Architecture Document
   - Support the Team
 
-- Cases:
+- Edge Computing
+  - Network architectural pattern for compute and storage
+    - Networking + Storage + Compute + Management
+    - Edge computing leverages federated architectures
+  - Components
+    - Sensor/Data input
+    - Edge device/Computer: processor, solid-state storage (SSD), network interfaces (5G, wifi, bluetooth, etc.), operating system, machine learning (e.g. Raspberry Pi)
+    - Cloud-based Central Computer: databases (e.g. AWS IoT)
+  - Considerations
+    - Security: sensors, device, backend cloud based systems
+    - Governance (integrated with all security): use of services, policies
+    - Management (device side - cloud side): long-term operation, updates, hardware, network
+    - Data management: storage, metadata, security, business continuity, disaster recovery, change management
+    - Operations: monitor, consistent, automate, visibility/access/identity
+    - AI and machine learning
+
+- Cases
   1. Web crawler
       - BFS & DFS (Overhead time) by Scheduler (Priority queue stores URLs that have been discovered but not yet downloaded)
       - Page analysis and URL extraction (parsing Javascript)
@@ -578,6 +622,7 @@
   - Systems development life cycle (SDLC): requirement analysis → design → development and testing → implementation → documentation → evaluation
   - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
     - Conway's law
+    - Agile Release Train (ART)
   - Scrum: Transparency, Inspection, Adaptation
     - Scrum master
   - Waterfall: System and software requirements → Analysis → Design → Coding → Testing → Operations
@@ -585,3 +630,6 @@
 
 - Team Management
   - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)
+
+- Others
+  - Write up report: background, methods, results, conclusion

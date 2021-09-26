@@ -148,7 +148,7 @@
         - LDA (Latent Dirichlet Allocation)
       - Embedding
         - Word2Vec (Continues bag of words: CBOW vs Skip-gram)
-          - Word vector → article vector (对词向量方差归一化：因为一些常出现的词反而特征更不明显，需要突显较少出现词的向量特征) → Word Mover's distance (WMD) / Cosine distance / Euclidean distance
+          - Word Mover's distance (WMD) / Cosine distance / Euclidean distance
           - Out-of-vocabulary (OOV)
           - Negative sampling
           - Visualization: t-SNE
@@ -276,6 +276,7 @@
   - Lazy learning vs Eager learning
     - Lazy: k Nearest Neighbor
     - Eager: Decision tree, Naive Bayes, Neural Network
+  - Predictive Model Markup Language (PMML)
 
 - Further topics
   - Multiple regression
@@ -447,6 +448,14 @@
     - Chi-squared test
     - F-test (Analysis of variance: ANOVA)
 
+- A/B test (experimental test)
+  - Confidence intervals
+    - Problem: overlapping confidence intervals mean that the samples are likely to have the same population-level conversion rate
+  - Chi-squared test
+    - Telling if the two conditions are associated with conversions
+  - Simulate sample size and plan timeline → Time series analysis → Chi-squared p-value
+  - Conditional tests
+
 - Cases
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
   - Simpson's paradox
@@ -507,6 +516,7 @@
   - PyTorch (a PyTorch Tensor is basically the same as a NumPy array)
     - Computational graph: dynamical
     - Less [data types](https://pytorch.org/docs/stable/tensors.html)
+  - Horovod
   - JAX
 
 - Questions of note
