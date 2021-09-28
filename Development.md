@@ -294,7 +294,7 @@
   - Concurrency control
     - Pessimistic locking: Java synchronized, MySQL exclusive lock (InnoDB locking)
     - Optimistic locking: version, timestamp, compare and swap (CAS)
-  - Connection pooling
+  - Connection pooling - [Bulkhead](https://docs.microsoft.com/en-us/azure/architecture/patterns/bulkhead)
   - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
 
 - RDBMS (Relational Database Management System)
@@ -339,13 +339,28 @@
       - Scheme-free JSON (distributed document storage)
   - Wide-column (reduce disk resources & fast querying and processing: big data store)
     - Cassandra
+      - Table - Keyspace
+      - Primary key - **Partition** key - Cluster key
+      - Index: primary - secondary - cost
       - No master node → No single point of failure
       - Gossip protocol
       - CQL, CQLSH
       - DataStax: Spark + Cassandra
+      - Tips
+        - data is denormalized and ordered: no normalization
+        - eventually consistent so read operation can return inconsistent data: read from multiple replicas
+        - data duplication and missing columns are common
     - HBase
-  - Graph (based on sets of nodes and edges between nodes)
+  - Graph database
     - Neo4j
+      - Graph: hierarchical or nonhierarchical, number of nodes and edged, the longest distance between nodes
+      - Nodes (entity) - Properties (columns in a relational database table)
+      - Edges (relationship): directed or undirected, symmetric or asymmetric
+      - Tips
+        - Traverse paths instead of joins
+        - Identify important nodes
+        - Consider the weigh of edges
+        - Beware of cycles: it's possible to visit same node repeatedly
   - Ledger
     - Hyperledger
 
@@ -400,9 +415,9 @@
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
 
 - References
-  - How to Choose: Integration, Scaling, Support(security, budget, etc.), Simplicity
-    - CAP theorem: Consistency, Availability, Partition tolerance
-      - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
+  - CAP: Consistency, Availability, Partition tolerance
+    - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
+  - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
     - Comparisons: [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases), [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch), [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
   - Log
     - Mysql (binlog): replication / synchronization, data recovery

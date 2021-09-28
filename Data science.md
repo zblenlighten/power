@@ -469,8 +469,8 @@
   - Business as usual: data presentation, tactical reporting
   - Analytics consulting: driving vision and strategy, change management
   - Tools: Tableau, Power BI
-  - Models
-    - Customer Experience (CX)
+  - Topics
+    - Account based marketing (ABM)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html)
     - Marketing mix modeling (MMM)
     - Survival regression (survival analysis): duration in Churn analysis
