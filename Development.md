@@ -646,5 +646,15 @@
 - Team Management
   - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)
 
-- Others
+- Soft skills
+  - Leadership
+    - Vision: articulates a realistic, desirable, and positive future state, indirectly answering where you are going
+    - 4 Cs: culture, connectivity, clarity and courage
+    - Blueprint: future state, current state, barriers or challenges, enhancers & support, and goals & actions
+  - Presentation
+    - Good communicator: someone who looks and sounds like they mean what they're talking about
+    - Imagining how you want to be perceived will help you focus
+    - Delivering one thought at one time
+    - Two-way communication
+    - Diaphragmatic breathing: taking slow breaths through the nose, and focusing on belly expansion with inhalation
   - Write up report: background, methods, results, conclusion
