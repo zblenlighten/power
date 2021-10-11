@@ -12,8 +12,8 @@
 ## Contents
 
 - [Infrastructure](#infrastructure)
-- [Modes of dataflow](#modes-of-dataflow)
 - [Data storage](#data-storage)
+- [Modes of dataflow](#modes-of-dataflow)
 - [Backend](#backend)
 - [Frontend](#frontend)
 - [System design](#system-design)
@@ -158,116 +158,6 @@
     - Vagrant: synced folder, networking, provider (hypervisor), provisioner
     - Packer: co-ordinates the lifecycle of image (for containers and virtual machines) creation, provision with simple scripting or configuration management tool such as Ansible
 
-- API
-  - RPC: for actions (procedures / commands)
-  - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): for modeling domain (resources / entities) & making CRUD
-    - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
-    - Versioning
-      - Accept header
-      - Resource URL
-    - Media Type & Content-Type
-    - Authentication (AuthN: who you are)
-      - Basic authentication & Digest authentication
-      - Login form, HTTP authentication
-      - Key management (cryptographic keys)
-    - Authorization (AuthZ: what you can do)
-      - Role-based access control (RBAC)
-      - URL access controls
-      - Access control list (ACL)
-        - Filesystem ACL
-        - Network ACL
-        - SQL ACL
-    - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
-  - Design of REST APIs
-    - Identify participants
-    - Identify activities
-    - Break into steps
-    - Create API definition
-      - Identify the resources
-        - Items resource: list, view, search, add, edit
-      - Map activities to resource lifecycle (map actions to HTTP Nouns & Verbs)
-        - Mapping: GET /items, GET /items/:id, GET /items?search=param, POST /items/, PUT /items/:id
-      - Map remaining activities to custom actions
-        - Relationships types: Independent, Dependent, Associative
-    - Validate API
-  - Tools
-    - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul
-    - Gateway
-      - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
-      - Admin: API lifecycle (draft, publish, upgrade, etc.)
-      - Monitor: logging for analytics and monitoring
-    - Swagger (OpenAPI Specification)
-    - REST client tool (e.g. Postman)
-    - [API Directory](https://www.programmableweb.com/)
-
-### Modes of dataflow
-
-- Knowledge
-  - Rolling upgrades
-    - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
-    - Serialization: from data structures in memory to self-contained sequence of bytes (e.g. JSON document) write to file or send over network (vs: Parsing / Deserialization) ([Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
-    - Binary schema driven formats
-  - Scenarios
-    - Database: sending a message to your future self
-    - Service calls (RPC vs REST API)
-    - Asynchronous message passing (via message broker or actor)
-
-- Messaging (Message-oriented middleware)
-  - Type
-    - Advanced Message Queuing Protocol (AMQP) / Java Message Service (JMS) style message broker
-    - Log based message broker
-  - Message queue: decoupling (e.g. RabbitMQ, ZeroMQ, ActiveMQ)
-  - Kafka
-    - Use cases (data intensive scenarios): messaging, activity tracking, metrics gathering, log aggregation, stream processing, decoupling of system dependencies
-    - Topics - Partitions - Offsets
-      - Bootstrap server (connection + metadata request)
-      - Topic partitioning: What if a topic gets too big for one computer or one computer is not reliable
-    - Core APIs
-      - Producer
-        - acks: 0, 1, all
-        - Keys: key to partition hashing (vs: round robin)
-        - Example: RTSP (Real time streaming protocol) producer
-      - Consumer
-        - read data from a topic in order within each partitions (subscribe vs assign to a partition and seek to offsets)
-        - Consumer groups (same group read from mutually exclusive partitions)
-          - lag = log end offset - current offset
-          - reset offset
-          - rebalancing (when a consumer joins or leaves a group)
-        - Consumer offsets (delivery semantics: at most once, at least once, exactly once)
-      - Streams
-      - Connector
-    - Zookeeper (leader + followers)
-      - Manages brokers
-      - Performs leader election for partitions
-      - Sends notifications
-    - Reasons to fast
-      - Avoids Random Disk Access (sequential write)
-      - Memory Mapped Files (mmap)
-      - Zero Copy ([原理](https://www.jianshu.com/p/2581342317ce))
-      - Batch Data in Chunks
-      - Can Scale Horizontally
-    - Kafka Stream (Kafka: data pipeline, Kafka Stream: stream processing, [details](https://www.knowledgehut.com/blog/big-data/kafka-vs-spark))
-
-- Data Integration
-  - **ETL** (Extract - Transform - Load)
-    - Data validations: file validations & archival (data source → staging / data lake & data transformation)
-    - Business validations: calculations & aggregations (staging → data warehouse - data mart)
-  - Batch: raw logs, files, assets, etc.
-  - Stream: events, metrics, etc. (event time, state, deployment, correctness)
-    - Windowing: slicing data into chunks
-    - Watermarks - Trigger - Accumulators (discarding, accumulating, retracting)
-    - Streaming SQL
-  - Applications
-    - Airflow (web server + scheduler + metadata database + executor + worker, vs: Luigi)
-      - Directed Acyclic Graph (DAG)
-      - Operator: action, transfer, sensor
-      - Executor: Sequential, Local, Celery, K8s (get the tasks to run from its internal queue and specify how to execute it)
-        - Celery: tasks queues to distribute work across threads or machines
-      - CI/CD pipeline with Airflow image containing DAGs: Github repo → Jenkins → K8s → Pod
-      - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana)
-    - Storm / Flink
-    - dbt (data build tool)
-
 ### Data storage
 
 - Knowledge
@@ -289,13 +179,15 @@
   - Engines
     - log-structure storage (SSTable → LSM Tree)
     - page-oriented storage (B tree)
+  - Logs
+    - Mysql (binlog): replication / synchronization, data recovery
+    - MongoDB (oplog)
   - Filesystem ACL (file vs blob: binary large object)
     - blob storage: relational db, file system, object storage (Ceph), cloud storage
   - Concurrency control
     - Pessimistic locking: Java synchronized, MySQL exclusive lock (InnoDB locking)
     - Optimistic locking: version, timestamp, compare and swap (CAS)
   - Connection pooling - [Bulkhead](https://docs.microsoft.com/en-us/azure/architecture/patterns/bulkhead)
-  - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
 
 - RDBMS (Relational Database Management System)
   - Pros: SQL, normalized data (minimize chances of introducing problem), widely used across domains, widely supported
@@ -326,7 +218,7 @@
 - NoSQL
   - Pros: flexible schemas, distributed (horizontally scalable, designed to be scaled across multiple servers), replication
   - Key-value (fast & light: caching stores, managing user sessions, ad servicing, recommendations)
-    - LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098))
+    - LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098), vs: [Ignite](https://github.com/apache/ignite))
   - Document (schema flexibility: managing user profiles (XML or JSON documents) )
     - MongoDB
       - Document - Collection - Database
@@ -376,26 +268,6 @@
     - Row-oriented
     - Database: MySql, PostgreSQL, Oracle
 
-- Hadoop
-  - **HDFS** (Hadoop Distributed File System: NameNode - DataNode, Storage)
-  - Yarn (Resource manager, Compute)
-    - Tez (faster: only one read and one write)
-    - Mesos (vs: Kubernetes)
-  - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
-  - Spark (Livy)
-    - MapReduce: Scatter/gather paradigm
-    - Resilient Distributed Dataset (RDD)
-    - Components: Spark Core, Spark Steaming, Spark SQL, MLLib, GraphX
-  - Pig
-  - Hive
-    - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
-    - High latency (not appropriate for OLTP), no transactions, no record (because under the hood there are no real database)
-  - HBase ([Bigtable](https://en.wikipedia.org/wiki/Bigtable))
-    - ZooKeeper
-    - Access ways: HBase shell, Java API, Spark, Hive, Pig, Rest API, Thrift, Avro
-  - Data ingestion: Sqoop (relational database), Flume, Kafka
-  - Query engine: Hue, Drill (Dremel), Phoenix (HBase), [Presto](https://prestodb.io/docs/current/overview/concepts.html)
-
 - Cache
   - Types
     - Application server cache: placing a cache on request layer node enables the local storage of response data
@@ -414,14 +286,29 @@
     - Distributed lock manager (DLM)
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
 
-- References
-  - CAP: Consistency, Availability, Partition tolerance
-    - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
-  - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
-    - Comparisons: [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases), [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch), [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
-  - Log
-    - Mysql (binlog): replication / synchronization, data recovery
-    - MongoDB (oplog)
+- Hadoop
+  - **HDFS** (Hadoop Distributed File System: NameNode - DataNode, Storage)
+  - **Yarn** (resource manager, compute)
+    - Tez (faster: only one read and one write)
+    - Mesos (vs: Kubernetes)
+  - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
+  - Spark (Livy)
+    - MapReduce: Scatter/gather paradigm
+    - Resilient Distributed Dataset (RDD)
+    - Components: Spark Core, Spark Steaming, Spark SQL, MLLib, GraphX
+    - Spark streaming (work on micro batches)
+      - Batch interval vs Slide interval vs Window interval
+  - Pig
+  - Hive (vs: Impala)
+    - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
+    - High latency (not appropriate for OLTP), no transactions, no record (because under the hood there are no real database)
+  - HBase ([Bigtable](https://en.wikipedia.org/wiki/Bigtable), vs: Accumulo)
+    - ZooKeeper
+    - Access ways: HBase shell, Java API, Spark, Hive, Pig, Rest API, Thrift, Avro
+  - Data ingestion: Sqoop (relational database), Flume (source → channel → sink), Kafka
+  - Query engine: Hue, Drill (Dremel), Phoenix (HBase), [Presto](https://prestodb.io/docs/current/overview/concepts.html)
+
+- Applications
   - Big data
     - Spark SQL
       - Broadcast join
@@ -432,14 +319,133 @@
         - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
         - Cluster: add memory / CPU / GPU, increase number of nodes
       - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
-  - Types of analyze to structure data
-    - Machine learning and statistics: tables and data frames
-    - Real time analysis: queues and streams
-    - Network analysis: graphs
-  - Applications
+  - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
+    - CAP: Consistency, Availability, Partition tolerance
+      - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
+    - Types of analyze to structure data
+      - Machine learning and statistics: tables and data frames
+      - Real time analysis: queues and streams
+      - Network analysis: graphs
+    - Comparisons: [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases), [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch), [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
+  - Others
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
+    - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
+
+### Modes of dataflow
+
+- Knowledge
+  - Rolling upgrades
+    - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
+    - Serialization: from data structures in memory to self-contained sequence of bytes (e.g. JSON document) write to file or send over network (vs: Parsing / Deserialization) ([Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
+    - Binary schema driven formats
+  - Scenarios
+    - Database: sending a message to your future self
+    - Service calls (RPC vs REST API)
+    - Asynchronous message passing (via message broker or actor)
+
+- Data Integration
+  - **ETL** (Extract - Transform - Load)
+    - Data validations: file validations & archival (data source → staging / data lake & data transformation)
+    - Business validations: calculations & aggregations (staging → data warehouse - data mart)
+  - Batch: raw logs, files, assets, etc.
+  - Stream: events, metrics, etc. (event time, state, deployment, correctness)
+    - Windowing: slicing data into chunks
+    - Watermarks - Trigger - Accumulators (discarding, accumulating, retracting)
+    - Streaming SQL
+    - Storm (work on individual events, truly real-time processing compared with Spark streaming)
+      - Tuples: Topology (Spouts and Bolts)
+      - Nimbus - Zookeeper - Supervisor
+    - Flink (faster than Storm, work on events, highly scalable, fault tolerant using [state snapshots](https://ci.apache.org/projects/flink/flink-docs-master/docs/learn-flink/fault_tolerance/))
+      - Standalone cluster / YARN on Hadoop / Cloud / Local - Flink runtime - API
+  - Applications
+    - Airflow (web server + scheduler + metadata database + executor + worker, vs: Luigi)
+      - Directed Acyclic Graph (DAG)
+      - Operator: action, transfer, sensor
+      - Executor: Sequential, Local, Celery, K8s (get the tasks to run from its internal queue and specify how to execute it)
+        - Celery: tasks queues to distribute work across threads or machines
+      - CI/CD pipeline with Airflow image containing DAGs: Github repo → Jenkins → K8s → Pod
+      - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana)
+    - dbt (data build tool)
+
+- Messaging (Message-oriented middleware)
+  - Type
+    - Advanced Message Queuing Protocol (AMQP) / Java Message Service (JMS) style message broker
+    - Log based message broker
+  - Message queue: decoupling (e.g. RabbitMQ, ZeroMQ, ActiveMQ)
+  - Kafka
+    - Use cases (data intensive scenarios): messaging, activity tracking, metrics gathering, log aggregation, stream processing, decoupling of system dependencies
+    - Topics - Partitions - Offsets
+      - Bootstrap server (connection + metadata request)
+      - Topic partitioning: What if a topic gets too big for one computer or one computer is not reliable
+    - Core APIs
+      - Producer
+        - acks: 0, 1, all
+        - Keys: key to partition hashing (vs: round robin)
+        - Example: RTSP (Real time streaming protocol) producer
+      - Consumer
+        - read data from a topic in order within each partitions (subscribe vs assign to a partition and seek to offsets)
+        - Consumer groups (same group read from mutually exclusive partitions)
+          - lag = log end offset - current offset
+          - reset offset
+          - rebalancing (when a consumer joins or leaves a group)
+        - Consumer offsets (delivery semantics: at most once, at least once, exactly once)
+      - Streams
+      - Connector
+    - Zookeeper (leader + followers)
+      - Manages brokers
+      - Performs leader election for partitions
+      - Sends notifications
+    - Reasons to fast
+      - Avoids Random Disk Access (sequential write)
+      - Memory Mapped Files (mmap)
+      - Zero Copy ([原理](https://www.jianshu.com/p/2581342317ce))
+      - Batch Data in Chunks
+      - Can Scale Horizontally
+    - Kafka Stream (Kafka: data pipeline, Kafka Stream: stream processing, [details](https://www.knowledgehut.com/blog/big-data/kafka-vs-spark))
 
 ### Backend
+
+- API
+  - RPC: for actions (procedures / commands)
+  - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): for modeling domain (resources / entities) & making CRUD
+    - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
+    - Versioning
+      - Accept header
+      - Resource URL
+    - Media Type & Content-Type
+    - Authentication (AuthN: who you are)
+      - Basic authentication & Digest authentication
+      - Login form, HTTP authentication
+      - Key management (cryptographic keys)
+    - Authorization (AuthZ: what you can do)
+      - Role-based access control (RBAC)
+      - URL access controls
+      - Access control list (ACL)
+        - Filesystem ACL
+        - Network ACL
+        - SQL ACL
+    - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
+  - Design of REST APIs
+    - Identify participants
+    - Identify activities
+    - Break into steps
+    - Create API definition
+      - Identify the resources
+        - Items resource: list, view, search, add, edit
+      - Map activities to resource lifecycle (map actions to HTTP Nouns & Verbs)
+        - Mapping: GET /items, GET /items/:id, GET /items?search=param, POST /items/, PUT /items/:id
+      - Map remaining activities to custom actions
+        - Relationships types: Independent, Dependent, Associative
+    - Validate API
+  - Tools
+    - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul
+    - Gateway
+      - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
+      - Admin: API lifecycle (draft, publish, upgrade, etc.)
+      - Monitor: logging for analytics and monitoring
+    - Swagger (OpenAPI Specification)
+    - REST client tool (e.g. Postman)
+    - [API Directory](https://www.programmableweb.com/)
 
 - Design patterns
   - Object oriented programming (OOP): Polymorphism
@@ -643,10 +649,8 @@
   - Waterfall: System and software requirements → Analysis → Design → Coding → Testing → Operations
   - Project Management Committee ([PMC](https://www.apache.org/foundation/how-it-works.html))
 
-- Team Management
+- Soft Skills
   - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)
-
-- Soft skills
   - Leadership
     - Vision: articulates a realistic, desirable, and positive future state, indirectly answering where you are going
     - 4 Cs: culture, connectivity, clarity and courage
