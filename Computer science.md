@@ -31,7 +31,8 @@
   3. Stack
   4. Queue
   5. Hash (hash function: easy to compute, even distribution, less collision)
-      - [Collision](http://www.ruanyifeng.com/blog/2018/09/hash-collision-and-birthday-attack.html): Separate chaining, Open addressing, 2-choice hashing ([Perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function))
+      - Requirements: One-way, Deterministic, Fast computation, [Avalanche effect](https://en.wikipedia.org/wiki/Avalanche_effect), Must withstand collisions
+        - [Collision](http://www.ruanyifeng.com/blog/2018/09/hash-collision-and-birthday-attack.html): Separate chaining, Open addressing, 2-choice hashing ([Perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function))
       - Bloom Filter
       - Fingerprint
         - Pseudorandom number generator (PRNG): Mersenne Twister

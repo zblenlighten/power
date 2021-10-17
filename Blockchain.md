@@ -4,75 +4,103 @@
 
 - [Knowledge](#knowledge)
 - [HD Wallets](#hierarchical-deterministic-wallets)
+- [Ethereum use cases](#ethereum-use-cases)
 - [Hyperledger Fabric](#hyperledger-fabric-consortium-blockchain)
-- [Non-fungible token](#non-fungible-token-nft)
 
 ## Blockchain
 
 ### Knowledge
 
-- Block
-  - Headers
-  - Transactions (distributed immutable ledger): Merkle tree → Cryptographic hash
-
-- Fork
-  - Accidental fork
-  - Intentional fork
-    - Hard fork (incompatible)
-    - Soft fork
+- Technology
+  - Blocks cryptographically linked together ([demo](https://tools.superdatascience.com/blockchain/blockchain))
+    - Immutable ledger: Merkle tree → Hash cryptography
+    - A block stores multiple transactions
+  - Decentralization (centralized example: client-server model)
+    - Distributed peer-to-peer network (nodes: light client, full node, miner node)
+    - Best-effort delivery (vs: reliable delivery)
+  - Mining
+    - Finding the golden nonce which will generate a hash value below a certain target (bits)
+    - Hardware: CPU ( < 10 MH/s), GPU ( < 1 GH/s), ASIC ( > 1000 GH/s)
+    - Mining Pool, Mempool, Orphan Block, 51% Attack
+  - Fork
+    - Accidental fork
+    - Intentional fork
+      - Hard fork: not backwards compatible, resulting in permanent splits of the blockchain
+        - Ethereum (DAO attack): Ethereum (ETH) and Ethereum Classic (ETC)
+        - Bitcoin (SegWit): Bitcoin (BTC) and Bitcoin Cash (BCH)
+      - Soft fork: new rules are a subgroup of old rules, a temporary divergence
+  - Openness: transparency
 
 - Consensus Protocol
-  - Byzantine fault
-  - Purposes
+  - Byzantine Fault
+  - Challenges: Attackers, Competing chains
+  - Cryptographic puzzles (hard to solve & easy to verify)
     - Verify the legitimacy of a transaction, ensure all participating nodes come to an agreement about the true and valid state of the network, avoid double-spending
     - Create new digital currencies by rewarding miners
-  - Proof of work (Bitcoin mining: Hashcash)
+  - Proof of Work (Bitcoin mining: Hashcash)
     - Transactions are bundled together into a block
     - Miners verify transactions within each block are legitimate
     - Miners solve proof-of-work problem (inverse hashing) by computational resources
     - A cryptocurrency prize provided by the protocol (reward) is given to the first miner who solves each blocks problem
     - Verified transactions are stored in the public blockchain
-  - Proof of stake
+  - Proof of Stake
     - Validators take turns proposing and voting on the next block
     - The weight of each validator's vote depends on the size of its deposit (i.e. stake)
     - Energy efficiency, security and reduced risk of centralization
-  - Proof of burn
+  - Proof of Burn
     - The more coins burned by the miner, the bigger the ensuing virtual mining rig
 
-- Decentralization (centralized example: client-server model)
-  - Peer-to-peer network (nodes: light client, full node, miner node)
-  - Best-effort delivery (vs: reliable delivery)
-  - Public-key cryptography (Unspent Transaction Output (UTXO) represents a chain of ownership)
-
-- Openness: transparency
-
-- Cryptocurrency
+- Cryptocurrency: technology - protocol - token
   - Bitcoin → SHA-256
+    - [Bitcoin Core](https://bitcoin.org/en/bitcoin-core/)
+    - Monetary policy: halving principle, block time
     - [Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem)
-    - SegWit
-    - Lightning Network
-  - Ethereum → Keccak 256 (SHA-3)
+  - Ethereum → Keccak 256 (Ether)
     - Accounts
-      - EOA: externally owned accounts (private keys) → ECC: Elliptic Curve Cryptography
-      - contract accounts (contract code)
+      - Externally owned account (EOA, has no associated code, controlled by private keys → Elliptic Curve Cryptography (ECC))
+      - Contract account (has associated code)
+    - Smart contract is a program / code that runs on the blockchain
+    - Ethereum virtual machine: [Gas](https://ethereum.org/en/developers/docs/gas/)
+    - Token: ERC-20
   - Stablecoin
+  - [Market](https://coinmarketcap.com/)
+  - Initial coin offering (ICO, e.g. KodakCoin)
+  - Exchange-traded fund (ETF)
 
 ### Hierarchical Deterministic Wallets
 
+- Transaction
+  - Unspent Transaction Output (UTXO)
+  - Signatures ([demo](https://tools.superdatascience.com/blockchain/public-private-keys/signatures))
+    - private key (send money) → public key (verification function) → address (for additional security, receive money)
+  - Latency and Throughput
+    - SegWit
+    - Lightning Network
+  - [Know Your Customer (KYC)](https://academy.binance.com/en/glossary/know-your-customer)
+
 - Bitcoin Improvement Proposals (BIPs)
   - BIP32: seed → key pairs
+    - master private key → private key → public key → address
+    - master public key (recreate public key to auditor or someone who doesn't send money)
   - BIP39: mnemonic code
   - BIP44: coin type - account - change - address_index
 
-- [Know Your Customer (KYC)](https://academy.binance.com/en/glossary/know-your-customer)
+### Ethereum use cases
+
+- Non-fungible token (NFT)
+  - InterPlanetary File System (IPFS)
+    - [Decentralizing NFT metadata on OpenSea](https://opensea.io/blog/announcements/decentralizing-nft-metadata-on-opensea/)
+  - NFT sales
+    - [Sotheby's](https://www.sothebys.com/en/digital-catalogues/natively-digital-a-curated-nft-sale)
+    - [Christie's](https://www.christies.com/auctions/christies-encrypted)
+
+- Decentralized finance (DeFi)
+
+- Decentralized applications (dApps)
+
+- Decentralized autonomous organization (DAO)
 
 ### Hyperledger Fabric (Consortium blockchain)
-
-- Private & permissioned
-
-- Distributed application of Fabric
-  - Smart contract: chaincode
-  - Endorsement policy
 
 - Nodes
   - Clients: submit transaction proposals for execution
@@ -90,6 +118,7 @@
 - Fabric components
   - Membership service provider (MSP)
     - Certification authorities (CAs)
+    - Private & permissioned
   - Ordering service: channels
     - solo, kafka
   - Peer gossip
@@ -97,17 +126,9 @@
   - Ledger: block store, peer transaction manager (PTM)
     - world state (Key-Value Store of current values): Merkle Patricia tries (Radix tree)
     - blockchain (transaction log, immutable)
-  - Chaincode (execution of smart contracts): Go, Java, Node.js...
+  - Chaincode (execution of smart contracts): Go, Java and Node.js
     - Channel: indentify each of the chaincode in the network
     - Shim API
     - Interface
     - Stub
   - Configuration and system chaincodes
-
-### Non-fungible token (NFT)
-
-- InterPlanetary File System (IPFS)
-
-- NFT sales
-  - [Sotheby's](https://www.sothebys.com/en/digital-catalogues/natively-digital-a-curated-nft-sale)
-  - [Christie's](https://www.christies.com/auctions/christies-encrypted)

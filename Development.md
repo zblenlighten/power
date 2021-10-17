@@ -379,8 +379,16 @@
       - Topic partitioning: What if a topic gets too big for one computer or one computer is not reliable
     - Core APIs
       - Producer
-        - acks: 0, 1, all
-        - Keys: key to partition hashing (vs: round robin)
+        - Configuration
+          - acks
+            - 0: it's ok to lose data
+            - 1: replica is not guaranteed
+            - all: leader and replicas ack requested, add latency and safety
+              - Must be used in conjunction with min.insync.replicas
+          - retries, delivery.timeout.ms, max.in.flight.request.per.connection (set to 1 to ensure ordering of retries)
+          - enable.idempotence (set to true to prevent duplicates)
+          - compression.type ([snappy](https://github.com/google/snappy)), linger.ms, batch.size
+        - Keys: key to partition hashing (unless the number of partition changes, vs: round robin)
         - Example: RTSP (Real time streaming protocol) producer
       - Consumer
         - read data from a topic in order within each partitions (subscribe vs assign to a partition and seek to offsets)
