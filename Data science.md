@@ -6,7 +6,7 @@
 - [Kaggle](https://medium.com/kaggle-blog)
 - [state-of-the-art model](https://paperswithcode.com/sota)
 - [state-of-the-art 模型](http://www.jiqizhixin.com/sota)
-- [格物钛公开数据集](https://www.graviti.cn/open-datasets)
+- [格物钛公开数据集](https://gas.graviti.cn/open-datasets)
 
 ## Contents
 
@@ -43,6 +43,7 @@
   - Fine-tune
   - Present your solution
   - Launch, monitor and maintain your system
+  - Project structure: [Cookiecutter Data Science](http://drivendata.github.io/cookiecutter-data-science/)
 
 - Data processing
   - Data
@@ -80,7 +81,7 @@
     - Web beacon
       - Invisible tracking script (e.g. Google Analytics)
       - Javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
-    - Web crawler
+    - Data scraping / crawling
       - Selenium
     - Devices: Laser radar, 3D human pose machine
   - Data labeling / Data generating
@@ -354,7 +355,9 @@
       - User behavior / User profile
       - Personalized topic model
     - Problems: Explore-exploit (lack of diversity), Cold start (new community, new item, new user)
-    - SVD (Matrix Factorization)
+    - Matrix Factorization
+      - Singular Value Decomposition (SVD)
+      - Alternating Least Squares (ALS)
 
 - Retrieval / Ranking ([CTR](https://zhuanlan.zhihu.com/p/61154299): Click Through Rate): depends on business needs and development stage
   - XGBoost (GBM、GBRT、GBDT)
@@ -455,6 +458,7 @@
     - Telling if the two conditions are associated with conversions
   - Simulate sample size and plan timeline → Time series analysis → Chi-squared p-value
   - Conditional tests
+  - Multi-Armed Bandit test
 
 - Cases
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
@@ -468,7 +472,6 @@
   - Solution deployment: technical implementation, data collection, data transformation (ETL)
   - Business as usual: data presentation, tactical reporting
   - Analytics consulting: driving vision and strategy, change management
-  - Tools: Tableau, Power BI
   - Topics
     - Account based marketing (ABM)
     - Customer Lifetime Value: [lifetimes](https://lifetimes.readthedocs.io/en/latest/index.html)

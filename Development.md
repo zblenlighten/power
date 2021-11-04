@@ -193,7 +193,6 @@
   - Pros: SQL, normalized data (minimize chances of introducing problem), widely used across domains, widely supported
   - Cons: fixed schema (each record), costly to join tables, limited data structures, difficult to horizontal scale (vertically scalable)
     - Workarounds: denormalization, sharding, replication (master and read replicas)
-  - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
   - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (InnoDB vs MyIsam, [区别](https://www.zhihu.com/question/20596402))
   - Keys: Super key, Candidate key, Primary key, Foreign key
   - PrepareStatement
@@ -212,6 +211,7 @@
     - Organizing the columns (attributes) and tables (relations) to ensure that their dependencies are properly enforced by database integrity constraints
     - Normal forms
     - Denormalization: the process of trying to improve the read performance by adding redundant copies of data or by grouping data, avoid joins
+  - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
   - TiDB
     - [Tutorial](https://pingcap.com/tidb-academy/)
 
@@ -219,16 +219,6 @@
   - Pros: flexible schemas, distributed (horizontally scalable, designed to be scaled across multiple servers), replication
   - Key-value (fast & light: caching stores, managing user sessions, ad servicing, recommendations)
     - LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098), vs: [Ignite](https://github.com/apache/ignite))
-  - Document (schema flexibility: managing user profiles (XML or JSON documents) )
-    - MongoDB
-      - Document - Collection - Database
-      - Replication sets: single master architecture
-      - Support many indices (only one can be used for sharding): text search, geospatial
-    - CouchDB
-    - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
-      - Search engine: **Solr** (Lucene)
-        - Inverted index
-      - Scheme-free JSON (distributed document storage)
   - Wide-column (reduce disk resources & fast querying and processing: big data store)
     - Cassandra
       - Table - Keyspace
@@ -243,11 +233,22 @@
         - eventually consistent so read operation can return inconsistent data: read from multiple replicas
         - data duplication and missing columns are common
     - HBase
+  - Document (schema flexibility: managing user profiles (XML or JSON documents) )
+    - MongoDB
+      - Document - Collection - Database
+      - Replication sets: single master architecture
+      - Support many indices (only one can be used for sharding): text search, geospatial
+    - CouchDB
+    - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
+      - Search engine: **Solr** (Lucene)
+        - Inverted index
+      - Scheme-free JSON (distributed document storage)
   - Graph database
-    - Neo4j
+    - Neo4j (property graph model, vs: triple-store model)
       - Graph: hierarchical or nonhierarchical, number of nodes and edged, the longest distance between nodes
       - Nodes (entity) - Properties (columns in a relational database table)
       - Edges (relationship): directed or undirected, symmetric or asymmetric
+      - Cypher query language
       - Tips
         - Traverse paths instead of joins
         - Identify important nodes
@@ -255,13 +256,15 @@
         - Beware of cycles: it's possible to visit same node repeatedly
   - Ledger
     - Hyperledger
+  - Others
+    - Sequence database (e.g. GenBank)
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
     - Column-oriented
     - Database (Data warehouse): Hive, Teradata, Greenplum
     - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
-    - Schemas
+    - Dimensional model (vs: normalized model, e.g. 3NF data model)
       - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
   - Transaction processing systems (OLTP: online transaction processing)
@@ -293,11 +296,14 @@
     - Mesos (vs: Kubernetes)
   - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
   - Spark (Livy)
-    - MapReduce: Scatter/gather paradigm
-    - Resilient Distributed Dataset (RDD)
-    - Components: Spark Core, Spark Steaming, Spark SQL, MLLib, GraphX
+    - MapReduce: scatter/gather paradigm
+    - Resilient Distributed Dataset (RDD) - DataSet
+    - Components: Spark Core - Spark SQL - spark.ml - Spark Steaming - GraphFrames (Pregel API)
     - Spark streaming (work on micro batches)
       - Batch interval vs Slide interval vs Window interval
+    - Spark SQL
+      - Broadcast join
+    - Scala
   - Pig
   - Hive (vs: Impala)
     - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
@@ -310,8 +316,6 @@
 
 - Applications
   - Big data
-    - Spark SQL
-      - Broadcast join
     - Dask (Pandas)
     - Databricks
       - Optimization
@@ -421,17 +425,19 @@
       - Accept header
       - Resource URL
     - Media Type & Content-Type
-    - Authentication (AuthN: who you are)
-      - Basic authentication & Digest authentication
-      - Login form, HTTP authentication
-      - Key management (cryptographic keys)
-    - Authorization (AuthZ: what you can do)
-      - Role-based access control (RBAC)
-      - URL access controls
-      - Access control list (ACL)
-        - Filesystem ACL
-        - Network ACL
-        - SQL ACL
+    - Identity Access Management (IAM)
+      - Authentication (AuthN: who you are)
+        - Basic authentication & Digest authentication
+        - Login form, HTTP authentication
+        - Key management (cryptographic keys)
+      - Authorization (AuthZ: what you can do)
+        - Role-based access control (RBAC)
+        - URL access controls
+        - Access control list (ACL)
+          - Filesystem ACL
+          - Network ACL
+          - SQL ACL
+      - [Intro to IAM](https://auth0.com/intro-to-iam/)
     - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
   - Design of REST APIs
     - Identify participants
@@ -445,6 +451,8 @@
       - Map remaining activities to custom actions
         - Relationships types: Independent, Dependent, Associative
     - Validate API
+    - References
+      - [How We Design Our APIs at Slack](https://slack.engineering/how-we-design-our-apis-at-slack/)
   - Tools
     - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul
     - Gateway
@@ -518,9 +526,9 @@
   - WWW standards
     - CSS ([animation](https://animate.style/))
     - DOM
-    - HTML
     - SVG
     - XML
+    - HTML
   - Web
     - Vue.js
       - Vue Instance - Virtual DOM - DOM
@@ -659,6 +667,7 @@
 
 - Soft Skills
   - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)
+  - [What Does a Hiring Manager Do](https://www.indeed.com/career-advice/finding-a-job/hiring-manager)
   - Leadership
     - Vision: articulates a realistic, desirable, and positive future state, indirectly answering where you are going
     - 4 Cs: culture, connectivity, clarity and courage
