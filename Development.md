@@ -161,6 +161,16 @@
 ### Data storage
 
 - Knowledge
+  - Storage Engines
+    - Log-structured storage engine: SSTable → LSM Tree
+      - Database: LevelDB, Cassandra, HBase, Lucene
+    - Page oriented storage engine: B tree
+      - All major relational databases and some nonrelational ones
+  - Indexing structures
+    - Primary key & Secondary index
+    - Multi-column index: R tree
+    - Fuzzy index (full-text search)
+    - clustered index vs nonclustered index
   - Query Tuning
     - Index types
       - B tree
@@ -175,10 +185,7 @@
       - Range
       - List
       - Hash
-    - Materialized view (vs: view)
-  - Engines
-    - log-structure storage (SSTable → LSM Tree)
-    - page-oriented storage (B tree)
+    - Materialized view (vs: view) - OLAP Cube
   - Logs
     - Mysql (binlog): replication / synchronization, data recovery
     - MongoDB (oplog)
@@ -261,15 +268,16 @@
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
-    - Column-oriented
     - Database (Data warehouse): Hive, Teradata, Greenplum
+    - Column-oriented (Bitmap index)
+    - Vectorized Processing in CPU cache
     - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
     - Dimensional model (vs: normalized model, e.g. 3NF data model)
       - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
   - Transaction processing systems (OLTP: online transaction processing)
-    - Row-oriented
     - Database: MySql, PostgreSQL, Oracle
+    - Row-oriented
 
 - Cache
   - Types
