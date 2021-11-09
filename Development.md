@@ -13,7 +13,7 @@
 
 - [Infrastructure](#infrastructure)
 - [Data storage](#data-storage)
-- [Modes of dataflow](#modes-of-dataflow)
+- [Dataflow](#dataflow)
 - [Backend](#backend)
 - [Frontend](#frontend)
 - [System design](#system-design)
@@ -57,8 +57,9 @@
     - Three-phase commit protocol (3PC): for solving atomic commit
     - Paxos: for solving consensus in a network (e.g. Chubby, ZooKeeper)
     - RPC
-      - gRPC (http/2)
-      - Thrift
+      - Thrift & Avro
+      - gRPC: HTTP/2 & Protocol Buffers
+      - Finagle: Futures
   - Load balancer
     - Hardware LB - Software LB: HAProxy
     - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
@@ -194,6 +195,14 @@
   - Concurrency control
     - Pessimistic locking: Java synchronized, MySQL exclusive lock (InnoDB locking)
     - Optimistic locking: version, timestamp, compare and swap (CAS)
+  - Replication
+    - Approaches
+      - Single leader
+      - Multi leader
+      - Leaderless
+    - Write conflict resolution
+      - [Conflict-free replicated data type](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) (CRDT)
+      - Operational transformation ([demo](http://operational-transformation.github.io)): Google Docs
   - Connection pooling - [Bulkhead](https://docs.microsoft.com/en-us/azure/architecture/patterns/bulkhead)
 
 - RDBMS (Relational Database Management System)
@@ -231,25 +240,26 @@
       - Table - Keyspace
       - Primary key - **Partition** key - Cluster key
       - Index: primary - secondary - cost
-      - No master node → No single point of failure
+      - Replication: leaderless (no master node → no single point of failure)
       - Gossip protocol
       - CQL, CQLSH
-      - DataStax: Spark + Cassandra
       - Tips
         - data is denormalized and ordered: no normalization
         - eventually consistent so read operation can return inconsistent data: read from multiple replicas
         - data duplication and missing columns are common
+        - [Why Cassandra Doesn’t Need Vector Clocks](https://www.datastax.com/blog/why-cassandra-doesnt-need-vector-clocks)
     - HBase
   - Document (schema flexibility: managing user profiles (XML or JSON documents) )
     - MongoDB
       - Document - Collection - Database
-      - Replication sets: single master architecture
+      - Replication: single leader
       - Support many indices (only one can be used for sharding): text search, geospatial
     - CouchDB
     - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
+      - Document with properties - Index
+        - Scheme-free JSON (distributed document storage)
       - Search engine: **Solr** (Lucene)
-        - Inverted index
-      - Scheme-free JSON (distributed document storage)
+        - Data structure: Inverted index
   - Graph database
     - Neo4j (property graph model, vs: triple-store model)
       - Graph: hierarchical or nonhierarchical, number of nodes and edged, the longest distance between nodes
@@ -312,7 +322,7 @@
     - Spark SQL
       - Broadcast join
     - Scala
-  - Pig
+  - Pig (AvroStorage)
   - Hive (vs: Impala)
     - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
     - High latency (not appropriate for OLTP), no transactions, no record (because under the hood there are no real database)
@@ -323,14 +333,6 @@
   - Query engine: Hue, Drill (Dremel), Phoenix (HBase), [Presto](https://prestodb.io/docs/current/overview/concepts.html)
 
 - Applications
-  - Big data
-    - Dask (Pandas)
-    - Databricks
-      - Optimization
-        - Data: compress, partition, convert to optimized formats (e.g. parquet), Databricks Delta
-        - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
-        - Cluster: add memory / CPU / GPU, increase number of nodes
-      - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
   - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
     - CAP: Consistency, Availability, Partition tolerance
       - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
@@ -339,21 +341,32 @@
       - Real time analysis: queues and streams
       - Network analysis: graphs
     - Comparisons: [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases), [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch), [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
+  - Big data
+    - Dask (Pandas)
+    - Databricks
+      - Optimization
+        - Data: compress, partition, convert to optimized formats (e.g. parquet), Databricks Delta
+        - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
+        - Cluster: add memory / CPU / GPU, increase number of nodes
+      - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
   - Others
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
     - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
 
-### Modes of dataflow
+### Dataflow
 
 - Knowledge
-  - Rolling upgrades
+  - Schema evolution
+    - Rolling upgrade
     - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
-    - Serialization: from data structures in memory to self-contained sequence of bytes (e.g. JSON document) write to file or send over network (vs: Parsing / Deserialization) ([Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
-    - Binary schema driven formats
-  - Scenarios
-    - Database: sending a message to your future self
+    - Encoding / Serialization: from data structures in memory to self-contained sequence of bytes, **write** to file or send over network, e.g. [Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424)
+    - Decoding / Deserialization / Parsing: bytes to string, **read** or receive
+    - Textual formats: JSON, XML, CSV
+    - Binary encoding formats: Thrift, Protocol Buffers, Avro
+  - Modes of dataflow
+    - Database
     - Service calls (RPC vs REST API)
-    - Asynchronous message passing (via message broker or actor)
+    - Asynchronous message passing (via message broker or [actor](https://github.com/akka/akka))
 
 - Data Integration
   - **ETL** (Extract - Transform - Load)
@@ -379,16 +392,17 @@
       - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana)
     - dbt (data build tool)
 
-- Messaging (Message-oriented middleware)
-  - Type
+- Message broker
+  - Message: a client's request of a sequence of bytes with some metadata
+  - Types
     - Advanced Message Queuing Protocol (AMQP) / Java Message Service (JMS) style message broker
     - Log based message broker
-  - Message queue: decoupling (e.g. RabbitMQ, ZeroMQ, ActiveMQ)
+  - Message queue: RabbitMQ, ZeroMQ, ActiveMQ
   - Kafka
     - Use cases (data intensive scenarios): messaging, activity tracking, metrics gathering, log aggregation, stream processing, decoupling of system dependencies
     - Topics - Partitions - Offsets
       - Bootstrap server (connection + metadata request)
-      - Topic partitioning: What if a topic gets too big for one computer or one computer is not reliable
+      - Topic partitioning: what if a topic gets too big for one computer or one computer is not reliable
     - Core APIs
       - Producer
         - Configuration
@@ -408,7 +422,11 @@
           - lag = log end offset - current offset
           - reset offset
           - rebalancing (when a consumer joins or leaves a group)
-        - Consumer offsets (delivery semantics: at most once, at least once, exactly once)
+        - Consumer offsets
+          - Message delivery semantics: at most once, at least once, exactly once)
+        - Internal threads
+          - Detecting consumer down: Heartbeat.interval.ms (Session.timeout.ms)
+          - Detecting big data processing issue: max.poll.interval.ms
       - Streams
       - Connector
     - Zookeeper (leader + followers)
@@ -426,12 +444,12 @@
 ### Backend
 
 - API
-  - RPC: for actions (procedures / commands)
-  - [REST API](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): for modeling domain (resources / entities) & making CRUD
+  - RPC: communicates between processes, requests between services owned by the same organization / datacenter
+  - [REST](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): public APIs (vs: SOAP)
     - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
     - Versioning
-      - Accept header
-      - Resource URL
+      - Version number in the URL
+      - HTTP Accept header
     - Media Type & Content-Type
     - Identity Access Management (IAM)
       - Authentication (AuthN: who you are)
@@ -549,8 +567,6 @@
     - WeChat Mini Program
   - Desktop
     - Electron
-  - Website audit
-  - UI design (e.g. Figma, Adobe XD)
   - UI component: Bootstrap, Ant Design
 
 ### System design
