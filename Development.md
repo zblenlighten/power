@@ -78,6 +78,7 @@
     - Provision: Dockerfile / Puppet / Chef
   - Configuration (deploy and configure software: operating systems, applications, etc.)
     - Jenkins (CI/CD: Continuous integration / Continuous delivery / Continuous deployment)
+      - JFrog Artifactory
     - ZooKeeper
       - Central coordinator: manage state and hold configuration (Zookeeper ensemble)
       - Recover from partial failures: master crashes, worker crashes, network trouble
@@ -203,6 +204,21 @@
     - Write conflict resolution
       - [Conflict-free replicated data type](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) (CRDT)
       - Operational transformation ([demo](http://operational-transformation.github.io)): Google Docs
+  - Partition
+    - Approaches: Key range, Hash of key
+    - Secondary index (full-text index is a particular kind of secondary index)
+      - Document partitioned index / Local index: scatter/gather (tail latency amplification)
+      - Term partitioned index / Global index (more efficient reads, however more complicated writes)
+  - Transaction
+    - Safety guarantees (ACID, vs: BASE, Basically Available, Soft state, Eventual consistency)
+      - Atomicity
+      - Consistency
+      - Isolation
+        - Serializable
+        - Repeatable reads
+        - Read committed
+        - Read uncommitted
+      - Durability
   - Connection pooling - [Bulkhead](https://docs.microsoft.com/en-us/azure/architecture/patterns/bulkhead)
 
 - RDBMS (Relational Database Management System)
@@ -214,15 +230,6 @@
   - PrepareStatement
     - Get pre compiled and access plan cached in database
     - Prevent SQL Injection attacks
-  - Database transaction (ACID, vs: BASE)
-    - Atomicity
-    - Consistency
-    - Isolation
-      - Serializable
-      - Repeatable reads
-      - Read committed
-      - Read uncommitted
-    - Durability
   - Database normalization
     - Organizing the columns (attributes) and tables (relations) to ensure that their dependencies are properly enforced by database integrity constraints
     - Normal forms
@@ -359,6 +366,7 @@
   - Schema evolution
     - Rolling upgrade
     - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
+      - Full compatibility
     - Encoding / Serialization: from data structures in memory to self-contained sequence of bytes, **write** to file or send over network, e.g. [Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424)
     - Decoding / Deserialization / Parsing: bytes to string, **read** or receive
     - Textual formats: JSON, XML, CSV
@@ -399,10 +407,14 @@
     - Log based message broker
   - Message queue: RabbitMQ, ZeroMQ, ActiveMQ
   - Kafka
-    - Use cases (data intensive scenarios): messaging, activity tracking, metrics gathering, log aggregation, stream processing, decoupling of system dependencies
-    - Topics - Partitions - Offsets
+    - Offsets - Segments - Partitions - Topics
       - Bootstrap server (connection + metadata request)
       - Topic partitioning: what if a topic gets too big for one computer or one computer is not reliable
+        - Partitions count (each partition for a single topic runs at a throughput of about 10 MB/s)
+        - Replication factor (set to 3 as default)
+        - It is recommended that each broker to have up to 4K partitions and each cluster to have up to 200K partitions
+        - Log compaction
+        - Advertised Host: advertised.host.name, advertised.listeners
     - Core APIs
       - Producer
         - Configuration
@@ -427,19 +439,25 @@
         - Internal threads
           - Detecting consumer down: Heartbeat.interval.ms (Session.timeout.ms)
           - Detecting big data processing issue: max.poll.interval.ms
-      - Streams
-      - Connector
+        - Schema registry
+      - Kafka Connect (Source connector / Sink connector)
+        - Change data capture (CDC) connector
+      - Kafka Streams (ksqlDB)
     - Zookeeper (leader + followers)
       - Manages brokers
       - Performs leader election for partitions
       - Sends notifications
+    - Others
+      - Cluster (the minimum number of nodes in Zookeeper is 3 because of the quorum attribute)
+        - Replication (multiple clusters): active-passive vs active-active
+      - Monitoring (JMX metrics) and Operations
+      - Security
     - Reasons to fast
       - Avoids Random Disk Access (sequential write)
       - Memory Mapped Files (mmap)
-      - Zero Copy ([原理](https://www.jianshu.com/p/2581342317ce))
+      - Zero Copy (receives bytes and sends bytes, [原理](https://www.jianshu.com/p/2581342317ce))
       - Batch Data in Chunks
       - Can Scale Horizontally
-    - Kafka Stream (Kafka: data pipeline, Kafka Stream: stream processing, [details](https://www.knowledgehut.com/blog/big-data/kafka-vs-spark))
 
 ### Backend
 
