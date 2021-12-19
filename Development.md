@@ -54,8 +54,15 @@
       - [Microservices Patterns](https://microservices.io/patterns/)
       - [Azure Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
   - Distributed system (storage + computation + messaging)
-    - Three-phase commit protocol (3PC): for solving atomic commit
-    - Paxos: for solving consensus in a network (e.g. Chubby, ZooKeeper)
+    - Fault-tolerant Consensus: for solving consensus in a network
+      - Properties: uniform agreement, integrity, validity, termination
+      - Algorithms: Paxos, Zab (ZooKeeper)
+      - ZooKeeper (Chubby)
+        - Features: linearizable atomic operations, total ordering operations, failure detection, change notifications
+        - Central coordinator: manage state and hold configuration (Zookeeper ensemble)
+        - Recover from partial failures: master crashes, worker crashes, network trouble
+        - Service discovery: leader election
+        - Membership / coordination service
     - RPC
       - Thrift & Avro
       - gRPC: HTTP/2 & Protocol Buffers
@@ -76,12 +83,10 @@
     - Terraform: Write → Plan → Apply
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Provision: Dockerfile / Puppet / Chef
+    - [checkov](https://github.com/bridgecrewio/checkov/blob/master/docs/5.Policy%20Index/all.md)
   - Configuration (deploy and configure software: operating systems, applications, etc.)
     - Jenkins (CI/CD: Continuous integration / Continuous delivery / Continuous deployment)
       - JFrog Artifactory
-    - ZooKeeper
-      - Central coordinator: manage state and hold configuration (Zookeeper ensemble)
-      - Recover from partial failures: master crashes, worker crashes, network trouble
     - Automation vs Orchestration
       - Automation refers to a single task
       - Orchestration refers to the management of many Automated tasks, often a complicated ordering with dependencies
@@ -99,17 +104,11 @@
         - copy-on-write: unionfs
       - Docker components
         - Dockerfile → Docker Client → Docker Host (images, containers, volumes) → Docker Registry
-        - Dockerfile: multi-stage builds
+        - Dockerfile: multi-stage builds, [linter](https://github.com/hadolint/hadolint)
       - Nvidia docker
-    - Kubernetes (Docker compose, Docker swarm)
-      - [Do I need K8s?](https://mbird.biz/writing/do-i-need-kubernetes.html)
-      - Pod
-      - Replica set
-      - Deployment
-      - Service
-      - Storage class
-      - Persistent Volume Claim
-      - Rancher + Helm charts - KEDA
+    - Kubernetes (vs: Docker compose, Docker swarm)
+      - Pod - Node - Cluster
+      - ReplicaSet
       - etcd
   - Monitor
     - Synthetic check and uptime (is it working?)
@@ -193,9 +192,6 @@
     - MongoDB (oplog)
   - Filesystem ACL (file vs blob: binary large object)
     - blob storage: relational db, file system, object storage (Ceph), cloud storage
-  - Concurrency control
-    - Pessimistic locking: Java synchronized, MySQL exclusive lock (InnoDB locking)
-    - Optimistic locking: version, timestamp, compare and swap (CAS)
   - Replication
     - Approaches
       - Single leader
@@ -212,13 +208,25 @@
   - Transaction
     - Safety guarantees (ACID, vs: BASE, Basically Available, Soft state, Eventual consistency)
       - Atomicity
-      - Consistency
-      - Isolation
-        - Serializable
-        - Repeatable reads
-        - Read committed
-        - Read uncommitted
+      - Consistency: maintain database invariants (a transaction can only bring the database from one valid state to another)
+      - Isolation: avoid race conditions due to concurrently executing transactions
+        - Serializability
+          - Pessimistic concurrency control: Java synchronized, MySQL exclusive lock (InnoDB locking)
+            - Actual serial execution
+            - Two-phase locking (2PL): provide serializable isolation
+          - Optimistic concurrency control: version, timestamp, compare and swap (CAS)
+            - Serializable snapshot isolation (SSI)
+        - Snapshot isolation (Repeatable reads)
+          - Implementation: multi-version concurrency control (MVCC)
+          - Problems: Lost updates, Write skew
+        - Read committed (vs: Read uncommitted)
       - Durability
+  - Consensus (recency guarantee)
+    - Linearizability / Sequential consistency: coordinate the state of replicas in the face of delays and faults
+      - CAP: Consistency, Availability, Partition tolerance
+        - CP (Linearizability) vs AP (BASE: Basically Available Soft state Eventual consistency)
+    - Total order broadcast
+    - Two-phase Commit (2PC): provide atomic commit in a distributed database
   - Connection pooling - [Bulkhead](https://docs.microsoft.com/en-us/azure/architecture/patterns/bulkhead)
 
 - RDBMS (Relational Database Management System)
@@ -341,8 +349,6 @@
 
 - Applications
   - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
-    - CAP: Consistency, Availability, Partition tolerance
-      - CP vs AP (BASE: Basically Available Soft state Eventual consistency)
     - Types of analyze to structure data
       - Machine learning and statistics: tables and data frames
       - Real time analysis: queues and streams
@@ -481,7 +487,9 @@
           - Filesystem ACL
           - Network ACL
           - SQL ACL
-      - [Intro to IAM](https://auth0.com/intro-to-iam/)
+      - References
+        - [Intro to IAM](https://auth0.com/intro-to-iam/)
+        - [What is IAM](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)
     - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
   - Design of REST APIs
     - Identify participants
@@ -706,6 +714,7 @@
     - Scrum master
   - Waterfall: System and software requirements → Analysis → Design → Coding → Testing → Operations
   - Project Management Committee ([PMC](https://www.apache.org/foundation/how-it-works.html))
+  - [RACI](https://en.wikipedia.org/wiki/Responsibility_assignment_matrix)
 
 - Soft Skills
   - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)
