@@ -358,7 +358,7 @@
     - Dask (Pandas)
     - Databricks
       - Optimization
-        - Data: compress, partition, convert to optimized formats (e.g. parquet), Databricks Delta
+        - Data: compress, partition, convert to optimized formats (e.g. Parquet), Databricks Delta
         - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
         - Cluster: add memory / CPU / GPU, increase number of nodes
       - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)

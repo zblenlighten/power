@@ -99,6 +99,7 @@
 - Decentralized applications (dApps)
 
 - Decentralized autonomous organization (DAO)
+  - [daolist](https://daolist.fyi/)
 
 ### Hyperledger Fabric (Consortium blockchain)
 

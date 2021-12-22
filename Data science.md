@@ -116,7 +116,7 @@
     - Usage
   - Data security
     - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
-    - Encryption (data at rest, data in transit), Data masking, Data erasure
+    - Encryption (data at rest & data in transit), Data masking, Data erasure
     - General Data Protection Regulation (GDPR)
   - Others
     - Big Data Maturity Model
@@ -407,24 +407,15 @@
       - Measurement and attribution (automated bidding requires automated measurement)
       - Reporting (dashboards, intelligent reports in Analytics)
     - Measurement
-      - Clearly define your measurement owner.
-      - Keep business impact in mind.
-      - Be relentlessly curious and passionate about the customer journey.
-      - Focus on objective-driven KPIs.
-      - Master multiple tools.
-      - Develop strong data interpretation skills.
-      - Make measurement lead to action.
-      - Have a learning mindset.
-      - Make measurement a habit.
-  - Google Marketing Platform
-    - Google Analytics
-    - Data Studio
-    - Optimize
-    - Google Tag Manager
-    - Ads Data Hub (Bigquery)
-    - Campaign Manager
-    - Search Ads (search management platform)
-    - Display & Video (DSP)
+      - Clearly define your measurement owner
+      - Keep business impact in mind
+      - Be relentlessly curious and passionate about the customer journey
+      - Focus on objective-driven KPIs
+      - Master multiple tools
+      - Develop strong data interpretation skills
+      - Make measurement lead to action
+      - Have a learning mindset
+      - Make measurement a habit
 
 ### Statistics
 
@@ -465,6 +456,7 @@
   - Simpson's paradox
   - St. Petersburg paradox
   - Monty Hall problem
+  - [Spurious correlations](http://tylervigen.com/spurious-correlations)
 
 ### Data analysis
 
