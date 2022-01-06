@@ -273,8 +273,29 @@
     - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
       - Document with properties - Index
         - Scheme-free JSON (distributed document storage)
-      - Search engine: **Solr** (Lucene)
-        - Data structure: Inverted index
+      - Search engine
+        - Characteristics: text centric, read dominant, document oriented, large volumes of data, flexible schema
+        - **Solr** (Lucene, Inverted Index)
+          - Solr core - Jetty web server - Java JVM
+          - Documents, fields and schema design
+            - Solr's data modeling consists of denormalized documents, meaning all the data that belongs to an entity is in the same document
+          - Indexing
+            - Updating parts of documents: atomic updates, in-place updates, optimistic concurrency (version)
+            - Commit: data sent to Solr is not searchable until it has been committed to the index
+              - auto commit: tradeoff between performance and accuracy
+            - Nested child documents
+            - Reindexing: schema changes, Solrconfig changes, upgrade
+          - Text Analysis
+            - Analyzer - Tokenizer - Filter
+          - Searching
+            - Relevance score (e.g. TF-IDF)
+            - Near real time searching: soft commit (vs: hard commit)
+            - Request handlers (SearchHandler) → Search Components (QueryComponent) → Query parser (Lucene)
+            - Query syntax and parsing
+              - Query parameters
+              - Standard query parser
+                - Term modifiers: wildcard search, fuzzy search, range search, boosting
+            - Faceted search: field faceting, query faceting, range faceting
   - Graph database
     - Neo4j (property graph model, vs: triple-store model)
       - Graph: hierarchical or nonhierarchical, number of nodes and edged, the longest distance between nodes
@@ -396,7 +417,7 @@
       - Nimbus - Zookeeper - Supervisor
     - Flink (faster than Storm, work on events, highly scalable, fault tolerant using [state snapshots](https://ci.apache.org/projects/flink/flink-docs-master/docs/learn-flink/fault_tolerance/))
       - Standalone cluster / YARN on Hadoop / Cloud / Local - Flink runtime - API
-  - Applications
+  - Tools
     - Airflow (web server + scheduler + metadata database + executor + worker, vs: Luigi)
       - Directed Acyclic Graph (DAG)
       - Operator: action, transfer, sensor
@@ -404,7 +425,9 @@
         - Celery: tasks queues to distribute work across threads or machines
       - CI/CD pipeline with Airflow image containing DAGs: Github repo → Jenkins → K8s → Pod
       - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana)
-    - dbt (data build tool)
+    - dbt: data build tool
+      - [airflow dbt demo](https://github.com/astronomer/airflow-dbt-demo)
+    - Great Expectations: data testing
 
 - Message broker
   - Message: a client's request of a sequence of bytes with some metadata
