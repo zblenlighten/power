@@ -77,18 +77,19 @@
   - Data Cleaning: OpenRefine
   - Data collection
     - ETL / API
-      - Funnel.io (data aggregating), KNIME ([cheat sheet](https://www.knime.com/cheat-sheets))
+      - KNIME ([cheat sheet](https://www.knime.com/cheat-sheets)), Funnel.io (data aggregating)
     - Web beacon
-      - Invisible tracking script (e.g. Google Analytics)
+      - Invisible tracking script (e.g. Google Analytics, Crazy Egg)
       - Javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
     - Data scraping / crawling
       - Selenium
     - Devices: Laser radar, 3D human pose machine
   - Data labeling / Data generating
     - Tools: LabelImg, LabelMe
+    - Image augmentation
     - [Active learning](https://en.wikipedia.org/wiki/Active_learning_(machine_learning))
-    - [Image augmentation](http://imgaug.readthedocs.io): Crop, Symmetry, Rotation, Scale, Noise, Hue, Obstruction, Blur
     - GAN (Generative Adversarial Network)
+    - Data security, privacy, and compliance requirements
   - Dimensionality reduction
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
@@ -101,6 +102,7 @@
     - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
     - Named-entity recognition: entity insertion and extraction
   - Digital Image (OpenCV)
+    - Crop, Resize, Padding, Normalize, Equalization, Balance
     - Visual descriptor
       - HOG (Histogram of oriented gradients)
       - LBP (Local binary patterns)
@@ -142,8 +144,8 @@
       - Semantic similarity
       - Sentiment analysis
     - Models
-      - Bag of Words & N-gram: term frequency — inverse document frequency (tf–idf)
-        - Article vector (each dimension is the tf–idf of the word) → Cosine distance
+      - Bag of Words & N-gram: term frequency — inverse document frequency (TF-IDF)
+        - Article vector (each dimension is the TF-IDF of the word) → Cosine distance
       - Topic model
         - pLSA (Probabilistic Latent Semantic Analysis)
         - LDA (Latent Dirichlet Allocation)
@@ -168,8 +170,6 @@
       - Perceptual hashing: pHash, SIFT
       - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
       - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
-    - CUDA (Compute Unified Device Architecture) programming
-      - Host / CPU (Kernel) → Device / GPU (Grid - Block - Thread)
   - Speech Recognition
     - Kaldi
 
@@ -204,12 +204,12 @@
     - Objective function: general term for any optimize function during training
       - Maximum likelihood estimation (MLE)
         - Expectation maximization (EM)
-  - Activation function
+  - Activation functions
     - ReLU, LeakyRelu, ELU: hidden layer
     - Sigmoid: binary
     - Softmax, Softmin: multiclass
     - Tanh: RNN
-  - Learning rate
+  - Learning rate ([how to adjust learning rate](https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate))
   - Prevent over-fitting
     - L1 & L2 Regularization (Lasso regression & Ridge regression → Linear regression)
       - Regularization significantly reduces variance without substantial increase in bias
@@ -249,7 +249,6 @@
       - Encoder (Backbone + ASPP: atrous spatial pyramid pooling) - Decoder
   - Object Tracking
   - [Keras Models](https://keras.io/applications/)
-  - Complexity: Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
 
 ### Machine learning
 
@@ -316,27 +315,31 @@
 
 #### Evaluation
 
-- Error = Bias + Variance
-- Metrics ([sklearn metrics and scoring](https://scikit-learn.org/stable/modules/model_evaluation.html))
-- Cross Validation
-- Confusion Matrix
-- F1 Score
-  - Precision = TP / (TP + FP)
-  - Recall = TP / (TP + FN)
-- Receiver Operating Characteristic (AUC: Area Under the ROC Curve)
-  - [ROC](http://mlwiki.org/index.php/ROC_Analysis)
-  - True Positive Rate = TP / (TP + FN)
-  - False Positive Rate = FP / (FP + TN)
-- Precision-Recall (PR) curve
-- Cost function / Loss function
-  - RMSE: Root Mean Squared Error (MSE: Mean squared error)
-  - MAPE: Mean Absolute Percent Error (MAE: Mean absolute error)
-- Others
-  - Log Loss
-  - Gain and Lift Charts
-  - Kolmogorov Smirnov Chart
-  - Concordant – Discordant Ratio
-- Multi-classification: F1 score, Average Accuracy, Log-loss
+- Evaluating accuracy
+  - Error = Bias + Variance
+  - Metrics ([sklearn metrics and scoring](https://scikit-learn.org/stable/modules/model_evaluation.html))
+  - Cross Validation
+  - Confusion Matrix
+  - F1 Score
+    - Precision = TP / (TP + FP)
+    - Recall = TP / (TP + FN)
+  - Receiver Operating Characteristic (AUC: Area Under the ROC Curve)
+    - [ROC](http://mlwiki.org/index.php/ROC_Analysis)
+    - True Positive Rate = TP / (TP + FN)
+    - False Positive Rate = FP / (FP + TN)
+  - Precision-Recall (PR) curve
+  - Cost function / Loss function
+    - RMSE: Root Mean Squared Error (MSE: Mean squared error)
+    - MAPE: Mean Absolute Percent Error (MAE: Mean absolute error)
+  - Others
+    - Log Loss
+    - Gain and Lift Charts
+    - Kolmogorov Smirnov Chart
+    - Concordant – Discordant Ratio
+  - Multi-classification: F1 score, Average Accuracy, Log-loss
+- Evaluating performance
+  - Resource usage (memory, GPU / CPU)
+  - Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
 
 ### Recommender System
 
@@ -513,6 +516,14 @@
     - Less [data types](https://pytorch.org/docs/stable/tensors.html)
   - Horovod
   - JAX
+
+- Tools
+  - CUDA (Compute Unified Device Architecture) programming
+    - Host / CPU (Kernel) → Device / GPU (Grid - Block - Thread)
+  - TensorRT
+  - TensorFlow Lite
+  - [ONNX](https://onnx.ai/)
+  - Kubeflow
 
 - Questions of note
   - Do you need to be able to serve predictions in real time (and if so, do you mean like, within a dozen milliseconds or after a second or two), or will delivery of predictions 30 minutes or a day after the input data is received suffice?

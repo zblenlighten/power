@@ -61,11 +61,14 @@
       - Contract account (has associated code)
     - Smart contract is a program / code that runs on the blockchain
     - Ethereum virtual machine: [Gas](https://ethereum.org/en/developers/docs/gas/)
-    - Token: ERC-20
-  - Stablecoin
-  - [Market](https://coinmarketcap.com/)
+    - ERC-20 (e.g. SHIB)
+  - [Crypto Tokens](https://www.investopedia.com/terms/c/crypto-token.asp)
   - Initial coin offering (ICO, e.g. KodakCoin)
   - Exchange-traded fund (ETF)
+  - [Market](https://coinmarketcap.com/)
+
+- Web3
+  - open, transparent, permissionless
 
 ### Hierarchical Deterministic Wallets
 

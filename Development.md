@@ -32,11 +32,11 @@
     - Microservices
       - Pros: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
       - When not to use: small, intermingled functionality or data, performance sensitive, quick and dirty, no planned updates
-      - Reactive system (vs: Declarative system)
       - Service Mesh
         - Istio
         - Data Plane - Control Plane
       - Service discovery (SDP)
+      - Reactive system (vs: Declarative system)
       - Challenges
         - Design and runtime complexity
         - Network are slow compared to monolith
@@ -67,10 +67,9 @@
       - Thrift & Avro
       - gRPC: HTTP/2 & Protocol Buffers
       - Finagle: Futures
-  - Load balancer
+  - Load balancer (Nginx)
     - Hardware LB - Software LB: HAProxy
     - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
-    - Nginx
   - User Interface (UI)
     - MVC: Model-view-controller
     - MVVM: Model–view–viewmodel
@@ -89,13 +88,14 @@
       - JFrog Artifactory
     - Automation vs Orchestration
       - Automation refers to a single task
-      - Orchestration refers to the management of many Automated tasks, often a complicated ordering with dependencies
+      - Orchestration refers to the management of many automated tasks, often a complicated ordering with dependencies
   - DevSecOps
     - Static application security testing (SAST): find security bugs
     - Dynamic application security testing (DAST): ZAP, WebInspect
     - Interactive application security testing (IAST)
     - Vulnerability scanning: OpenVAS
     - Others: sqlmap, Recon-ng, OWASP Glue
+    - Toolchain: Pre-commit → Commit (continuous integration) → Acceptance (continuous delivery) → Production (continuous deployment) → Operations
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
       - Manage kernel features
@@ -135,12 +135,6 @@
       - Kibana: Viewer with filter capabilities
         - Kibana Query Language (KQL)
       - [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html): Data shipping
-  - Reliability
-    - Mean time to recovery (MTTR)
-    - Mean time between failures (MTBF)
-    - Chaos Monkey
-    - Hystrix (Circuit Breaker pattern: cascading failures)
-    - Profiler
   - Security
     - Penetration test
     - Vault
@@ -152,6 +146,12 @@
       - Policy (Authorization): policy is associated to tokens and grants capabilities to a secrets engine path
       - AppRole: Jenkins
     - [Web Application Security Checklist](https://www.appsecmonkey.com/blog/web-application-security-checklist)
+  - Reliability
+    - Mean time to recovery (MTTR)
+    - Mean time between failures (MTBF)
+    - Chaos Monkey
+    - Hystrix (Circuit Breaker pattern: cascading failures)
+    - Profiler
   - Testing: Code coverage
   - Others
     - Heroku (dynamic page)
@@ -243,8 +243,7 @@
     - Normal forms
     - Denormalization: the process of trying to improve the read performance by adding redundant copies of data or by grouping data, avoid joins
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
-  - TiDB
-    - [Tutorial](https://pingcap.com/tidb-academy/)
+  - TiDB ([tutorial](https://pingcap.com/tidb-academy/))
 
 - NoSQL
   - Pros: flexible schemas, distributed (horizontally scalable, designed to be scaled across multiple servers), replication
@@ -290,7 +289,7 @@
           - Searching
             - Relevance score (e.g. TF-IDF)
             - Near real time searching: soft commit (vs: hard commit)
-            - Request handlers (SearchHandler) → Search Components (QueryComponent) → Query parser (Lucene)
+            - Request handlers (SearchHandler) → Search components (QueryComponent) → Query parser (Lucene)
             - Query syntax and parsing
               - Query parameters
               - Standard query parser
@@ -346,19 +345,27 @@
 - Hadoop
   - **HDFS** (Hadoop Distributed File System: NameNode - DataNode, Storage)
   - **Yarn** (resource manager, compute)
-    - Tez (faster: only one read and one write)
     - Mesos (vs: Kubernetes)
   - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
+    - Reduce-side joins
+      - Sort-merge joins
+    - Map-side joins
+      - Broadcast hash joins (Spark SQL)
+      - Partitioned hash joins
   - Spark (Livy)
-    - MapReduce: scatter/gather paradigm
     - Resilient Distributed Dataset (RDD) - DataSet
+      - Fault tolerance: tracking the the intermediate states of the data
     - Components: Spark Core - Spark SQL - spark.ml - Spark Steaming - GraphFrames (Pregel API)
     - Spark streaming (work on micro batches)
       - Batch interval vs Slide interval vs Window interval
-    - Spark SQL
-      - Broadcast join
-    - Scala
-  - Pig (AvroStorage)
+    - Databricks
+      - Optimization
+        - Data: compress, partition, convert to optimized formats (e.g. Parquet), Databricks Delta
+        - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
+        - Cluster: add memory / CPU / GPU, increase number of nodes
+      - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
+    - Tez (coordinated by YARN)
+  - Pig (AvroStorage, Skewed Joins)
   - Hive (vs: Impala)
     - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
     - High latency (not appropriate for OLTP), no transactions, no record (because under the hood there are no real database)
@@ -368,22 +375,14 @@
   - Data ingestion: Sqoop (relational database), Flume (source → channel → sink), Kafka
   - Query engine: Hue, Drill (Dremel), Phoenix (HBase), [Presto](https://prestodb.io/docs/current/overview/concepts.html)
 
-- Applications
+- Others
   - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
     - Types of analyze to structure data
       - Machine learning and statistics: tables and data frames
       - Real time analysis: queues and streams
       - Network analysis: graphs
     - Comparisons: [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases), [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch), [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
-  - Big data
-    - Dask (Pandas)
-    - Databricks
-      - Optimization
-        - Data: compress, partition, convert to optimized formats (e.g. Parquet), Databricks Delta
-        - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
-        - Cluster: add memory / CPU / GPU, increase number of nodes
-      - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
-  - Others
+  - References
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
     - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
 
@@ -394,7 +393,7 @@
     - Rolling upgrade
     - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
       - Full compatibility
-    - Encoding / Serialization: from data structures in memory to self-contained sequence of bytes, **write** to file or send over network, e.g. [Java: serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python: pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424)
+    - Encoding / Serialization: from data structures in memory to self-contained sequence of bytes, **write** to file or send over network (e.g. [Java serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
     - Decoding / Deserialization / Parsing: bytes to string, **read** or receive
     - Textual formats: JSON, XML, CSV
     - Binary encoding formats: Thrift, Protocol Buffers, Avro
@@ -408,6 +407,8 @@
     - Data validations: file validations & archival (data source → staging / data lake & data transformation)
     - Business validations: calculations & aggregations (staging → data warehouse - data mart)
   - Batch: raw logs, files, assets, etc.
+    - Problems: partitioning, fault tolerance
+    - Graph processing: GraphChi, Pregel (PageRank)
   - Stream: events, metrics, etc. (event time, state, deployment, correctness)
     - Windowing: slicing data into chunks
     - Watermarks - Trigger - Accumulators (discarding, accumulating, retracting)
@@ -593,6 +594,7 @@
   - [cProfile](https://docs.python.org/3/library/profile.html)
   - [Packaging Projects](https://packaging.python.org/tutorials/packaging-projects/)
   - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
+  - [Dask](https://docs.dask.org/en/stable/dataframe.html)
   - [Awesome Python](https://github.com/vinta/awesome-python)
 
 ### Frontend
@@ -679,12 +681,10 @@
       - BFS & DFS (Overhead time) by Scheduler (Priority queue stores URLs that have been discovered but not yet downloaded)
       - Page analysis and URL extraction (parsing Javascript)
       - URL table (In the case of thousands of servers: 明确每台下载服务器的分工，向散列表发送询问判断URL是否下载)
-
   2. URL shortening
       - Distributed ID Generator
       - Key-value store
       - URL redirection (302)
-
   3. Messenger service (feature → architecture)
       - One to one text
       - Sent / Delivered / Read
