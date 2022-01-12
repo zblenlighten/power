@@ -90,12 +90,14 @@
       - Automation refers to a single task
       - Orchestration refers to the management of many automated tasks, often a complicated ordering with dependencies
   - DevSecOps
-    - Static application security testing (SAST): find security bugs
-    - Dynamic application security testing (DAST): ZAP, WebInspect
-    - Interactive application security testing (IAST)
-    - Vulnerability scanning: OpenVAS
-    - Others: sqlmap, Recon-ng, OWASP Glue
     - Toolchain: Pre-commit → Commit (continuous integration) → Acceptance (continuous delivery) → Production (continuous deployment) → Operations
+      - Apiiro
+    - Legacy tools
+      - Static application security testing (SAST): find security bugs
+      - Dynamic application security testing (DAST): ZAP, WebInspect
+      - Interactive application security testing (IAST)
+      - Vulnerability scanning: OpenVAS
+      - Others: sqlmap, Recon-ng, OWASP Glue
   - Container
     - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
       - Manage kernel features
@@ -406,10 +408,10 @@
   - **ETL** (Extract - Transform - Load)
     - Data validations: file validations & archival (data source → staging / data lake & data transformation)
     - Business validations: calculations & aggregations (staging → data warehouse - data mart)
-  - Batch: raw logs, files, assets, etc.
+  - Batch: file
     - Problems: partitioning, fault tolerance
     - Graph processing: GraphChi, Pregel (PageRank)
-  - Stream: events, metrics, etc. (event time, state, deployment, correctness)
+  - Stream: event
     - Windowing: slicing data into chunks
     - Watermarks - Trigger - Accumulators (discarding, accumulating, retracting)
     - Streaming SQL
@@ -432,62 +434,63 @@
 
 - Message broker
   - Message: a client's request of a sequence of bytes with some metadata
-  - Types
-    - Advanced Message Queuing Protocol (AMQP) / Java Message Service (JMS) style message broker
-    - Log based message broker
-  - Message queue: RabbitMQ, ZeroMQ, ActiveMQ
-  - Kafka
-    - Offsets - Segments - Partitions - Topics
-      - Bootstrap server (connection + metadata request)
-      - Topic partitioning: what if a topic gets too big for one computer or one computer is not reliable
-        - Partitions count (each partition for a single topic runs at a throughput of about 10 MB/s)
-        - Replication factor (set to 3 as default)
-        - It is recommended that each broker to have up to 4K partitions and each cluster to have up to 200K partitions
-        - Log compaction
-        - Advertised Host: advertised.host.name, advertised.listeners
-    - Core APIs
-      - Producer
-        - Configuration
-          - acks
-            - 0: it's ok to lose data
-            - 1: replica is not guaranteed
-            - all: leader and replicas ack requested, add latency and safety
-              - Must be used in conjunction with min.insync.replicas
-          - retries, delivery.timeout.ms, max.in.flight.request.per.connection (set to 1 to ensure ordering of retries)
-          - enable.idempotence (set to true to prevent duplicates)
-          - compression.type ([snappy](https://github.com/google/snappy)), linger.ms, batch.size
-        - Keys: key to partition hashing (unless the number of partition changes, vs: round robin)
-        - Example: RTSP (Real time streaming protocol) producer
-      - Consumer
-        - read data from a topic in order within each partitions (subscribe vs assign to a partition and seek to offsets)
-        - Consumer groups (same group read from mutually exclusive partitions)
-          - lag = log end offset - current offset
-          - reset offset
-          - rebalancing (when a consumer joins or leaves a group)
-        - Consumer offsets
-          - Message delivery semantics: at most once, at least once, exactly once)
-        - Internal threads
-          - Detecting consumer down: Heartbeat.interval.ms (Session.timeout.ms)
-          - Detecting big data processing issue: max.poll.interval.ms
-        - Schema registry
-      - Kafka Connect (Source connector / Sink connector)
-        - Change data capture (CDC) connector
-      - Kafka Streams (ksqlDB)
-    - Zookeeper (leader + followers)
-      - Manages brokers
-      - Performs leader election for partitions
-      - Sends notifications
-    - Others
-      - Cluster (the minimum number of nodes in Zookeeper is 3 because of the quorum attribute)
-        - Replication (multiple clusters): active-passive vs active-active
-      - Monitoring (JMX metrics) and Operations
-      - Security
-    - Reasons to fast
-      - Avoids Random Disk Access (sequential write)
-      - Memory Mapped Files (mmap)
-      - Zero Copy (receives bytes and sends bytes, [原理](https://www.jianshu.com/p/2581342317ce))
-      - Batch Data in Chunks
-      - Can Scale Horizontally
+  - Advanced Message Queuing Protocol (AMQP) / Java Message Service (JMS) style message broker
+    - Situation: expensive message processing, parallelize processing on a message-by-message basis, and message ordering is not so important
+    - ZeroMQ, ActiveMQ, RabbitMQ
+  - Log based message broker
+    - Situation: high message throughput, each message is fast to process, and message ordering is important
+    - Kafka
+      - Offsets - Segments - Partitions - Topics
+        - Bootstrap server (connection + metadata request)
+        - Topic partitioning: what if a topic gets too big for one computer or one computer is not reliable
+          - Partitions count (each partition for a single topic runs at a throughput of about 10 MB/s)
+          - Replication factor (set to 3 as default)
+          - It is recommended that each broker to have up to 4K partitions and each cluster to have up to 200K partitions
+          - Log compaction
+          - Advertised Host: advertised.host.name, advertised.listeners
+      - Core APIs
+        - Producer
+          - Configuration
+            - acks
+              - 0: it's ok to lose data
+              - 1: replica is not guaranteed
+              - all: leader and replicas ack requested, add latency and safety
+                - Must be used in conjunction with min.insync.replicas
+            - retries, delivery.timeout.ms, max.in.flight.request.per.connection (set to 1 to ensure ordering of retries)
+            - enable.idempotence (set to true to prevent duplicates)
+            - compression.type ([snappy](https://github.com/google/snappy)), linger.ms, batch.size
+          - Keys: key to partition hashing (unless the number of partition changes, vs: round robin)
+          - Example: RTSP (Real time streaming protocol) producer
+        - Consumer
+          - read data from a topic in order within each partitions (subscribe vs assign to a partition and seek to offsets)
+          - Consumer groups (same group read from mutually exclusive partitions)
+            - lag = log end offset - current offset
+            - reset offset
+            - rebalancing (when a consumer joins or leaves a group)
+          - Consumer offsets
+            - Message delivery semantics: at most once, at least once, exactly once)
+          - Internal threads
+            - Detecting consumer down: Heartbeat.interval.ms (Session.timeout.ms)
+            - Detecting big data processing issue: max.poll.interval.ms
+          - Schema registry
+        - Kafka Connect (Source connector / Sink connector)
+          - Change data capture (CDC) connector
+        - Kafka Streams (ksqlDB)
+      - Zookeeper (leader + followers)
+        - Manages brokers
+        - Performs leader election for partitions
+        - Sends notifications
+      - Others
+        - Cluster (the minimum number of nodes in Zookeeper is 3 because of the quorum attribute)
+          - Replication (multiple clusters): active-passive vs active-active
+        - Monitoring (JMX metrics) and Operations
+        - Security
+      - Reasons to fast
+        - Avoids Random Disk Access (sequential write)
+        - Memory Mapped Files (mmap)
+        - Zero Copy (receives bytes and sends bytes, [原理](https://www.jianshu.com/p/2581342317ce))
+        - Batch Data in Chunks
+        - Can Scale Horizontally
 
 ### Backend
 
