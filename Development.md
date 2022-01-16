@@ -73,7 +73,6 @@
       - MVVM: Model–view–viewmodel
   - References
     - [Microservices Patterns](https://microservices.io/patterns/)
-    - [Azure Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
 
 - DevOps
   - Version control
@@ -316,10 +315,10 @@
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
+    - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
     - Database (Data warehouse): Hive, Teradata, Greenplum
     - Column-oriented (Bitmap index)
     - Vectorized Processing in CPU cache
-    - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
     - Dimensional model (vs: normalized model, e.g. 3NF data model)
       - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
@@ -436,7 +435,7 @@
     - Capture the changelog (downside: asynchronous)
       - Change data capture (CDC)
       - Event sourcing
-    - Command query responsibility segregation (CQRS): deriving several views from the same event log
+    - Command query responsibility segregation ([CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)): deriving several views from the same event log
 
 - Message broker
   - Message: a client's request of a sequence of bytes with some metadata
@@ -703,6 +702,16 @@
   - [服务端高并发分布式架构演进之路](https://segmentfault.com/a/1190000018626163)
 
 ### Practice
+
+- Cloud
+  - Comparison
+    - [AWS/Azure/GCPサービス比較](https://qiita.com/hayao_k/items/906ac1fba9e239e08ae8)
+    - [Compare AWS and Azure services to Google Cloud](https://cloud.google.com/free/docs/aws-azure-gcp-service-comparison)
+    - [AWS to Azure services comparison](https://docs.microsoft.com/en-us/azure/architecture/aws-professional/services)
+  - AWS
+    - [A practical guide](https://github.com/open-guides/og-aws)
+    - [Awesome AWS](https://github.com/donnemartin/awesome-aws)
+    - [Security Groups vs Network Access Control List](https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae)
 
 - WBS (Work breakdown structure)
   - Problem statements: RfQ (Request for quotation), SoW (Statement of work)
