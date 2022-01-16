@@ -3,6 +3,7 @@
 ## Blogs
 
 - [Top 100 on GitHub](https://twosigmaventures.com/open-source-index/)
+- [Open Source Libraries](https://opensourcelibs.com/)
 - [Netflix](https://medium.com/netflix-techblog)
 - [Airbnb](https://medium.com/airbnb-engineering)
 - [Uber](https://eng.uber.com/)
@@ -48,11 +49,6 @@
       - Backend as a Service
         - Firebase
     - Peer-to-peer
-  - Application Structure
-    - Command query responsibility segregation (CQRS) & event sourcing
-    - References
-      - [Microservices Patterns](https://microservices.io/patterns/)
-      - [Azure Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
   - Distributed system (storage + computation + messaging)
     - Fault-tolerant Consensus: for solving consensus in a network
       - Properties: uniform agreement, integrity, validity, termination
@@ -67,13 +63,17 @@
       - Thrift & Avro
       - gRPC: HTTP/2 & Protocol Buffers
       - Finagle: Futures
-  - Load balancer (Nginx)
-    - Hardware LB - Software LB: HAProxy
-    - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
-  - User Interface (UI)
-    - MVC: Model-view-controller
-    - MVVM: Model–view–viewmodel
-  - Single vs Multi-tenant
+    - Load balancer (Nginx)
+      - Hardware LB - Software LB: HAProxy
+      - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
+  - Others
+    - Single vs Multi-tenant
+    - User Interface (UI)
+      - MVC: Model-view-controller
+      - MVVM: Model–view–viewmodel
+  - References
+    - [Microservices Patterns](https://microservices.io/patterns/)
+    - [Azure Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
 
 - DevOps
   - Version control
@@ -189,9 +189,6 @@
       - List
       - Hash
     - Materialized view (vs: view) - OLAP Cube
-  - Logs
-    - Mysql (binlog): replication / synchronization, data recovery
-    - MongoDB (oplog)
   - Filesystem ACL (file vs blob: binary large object)
     - blob storage: relational db, file system, object storage (Ceph), cloud storage
   - Replication
@@ -208,6 +205,9 @@
       - Document partitioned index / Local index: scatter/gather (tail latency amplification)
       - Term partitioned index / Global index (more efficient reads, however more complicated writes)
   - Transaction
+    - [Transaction log](https://en.wikipedia.org/wiki/Transaction_log)
+      - [Log-based Incremental Replication](https://www.stitchdata.com/docs/replication/replication-methods/log-based-incremental)
+      - Log compaction
     - Safety guarantees (ACID, vs: BASE, Basically Available, Soft state, Eventual consistency)
       - Atomicity
       - Consistency: maintain database invariants (a transaction can only bring the database from one valid state to another)
@@ -297,6 +297,7 @@
               - Standard query parser
                 - Term modifiers: wildcard search, fuzzy search, range search, boosting
             - Faceted search: field faceting, query faceting, range faceting
+      - Percolator: search on streams
   - Graph database
     - Neo4j (property graph model, vs: triple-store model)
       - Graph: hierarchical or nonhierarchical, number of nodes and edged, the longest distance between nodes
@@ -357,8 +358,8 @@
   - Spark (Livy)
     - Resilient Distributed Dataset (RDD) - DataSet
       - Fault tolerance: tracking the the intermediate states of the data
-    - Components: Spark Core - Spark SQL - spark.ml - Spark Steaming - GraphFrames (Pregel API)
-    - Spark streaming (work on micro batches)
+    - Components: Spark Core - Spark SQL - spark.ml - Spark Streaming - GraphFrames (Pregel API)
+    - Spark streaming (work on microbatching)
       - Batch interval vs Slide interval vs Window interval
     - Databricks
       - Optimization
@@ -408,19 +409,6 @@
   - **ETL** (Extract - Transform - Load)
     - Data validations: file validations & archival (data source → staging / data lake & data transformation)
     - Business validations: calculations & aggregations (staging → data warehouse - data mart)
-  - Batch: file
-    - Problems: partitioning, fault tolerance
-    - Graph processing: GraphChi, Pregel (PageRank)
-  - Stream: event
-    - Windowing: slicing data into chunks
-    - Watermarks - Trigger - Accumulators (discarding, accumulating, retracting)
-    - Streaming SQL
-    - Storm (work on individual events, truly real-time processing compared with Spark streaming)
-      - Tuples: Topology (Spouts and Bolts)
-      - Nimbus - Zookeeper - Supervisor
-    - Flink (faster than Storm, work on events, highly scalable, fault tolerant using [state snapshots](https://ci.apache.org/projects/flink/flink-docs-master/docs/learn-flink/fault_tolerance/))
-      - Standalone cluster / YARN on Hadoop / Cloud / Local - Flink runtime - API
-  - Tools
     - Airflow (web server + scheduler + metadata database + executor + worker, vs: Luigi)
       - Directed Acyclic Graph (DAG)
       - Operator: action, transfer, sensor
@@ -431,6 +419,24 @@
     - dbt: data build tool
       - [airflow dbt demo](https://github.com/astronomer/airflow-dbt-demo)
     - Great Expectations: data testing
+  - Batch: file (a sequence of bytes)
+    - Problems: partitioning, fault tolerance
+    - Graph processing: GraphChi, Pregel (PageRank)
+  - Stream: event (a record of something that happened at some point in time)
+    - Windows: Tumbling window, Hopping window, Sliding window, Session window
+    - Stream joins: stream-stream, stream-table, table-table
+    - Problems: fault tolerance and exactly-once semantics
+      - Microbatching and Checkpointing, Transaction, Idempotent writes
+    - Storm (work on individual events, truly real-time processing compared with Spark streaming)
+      - Tuples: Topology (Spouts and Bolts)
+      - Nimbus - Zookeeper - Supervisor
+    - Flink (faster than Storm, work on events, highly scalable, fault tolerant using [state snapshots](https://ci.apache.org/projects/flink/flink-docs-master/docs/learn-flink/fault_tolerance/))
+      - Standalone cluster / YARN on Hadoop / Cloud / Local - Flink runtime - API
+  - Database and Stream: keeping systems in sync
+    - Capture the changelog (downside: asynchronous)
+      - Change data capture (CDC)
+      - Event sourcing
+    - Command query responsibility segregation (CQRS): deriving several views from the same event log
 
 - Message broker
   - Message: a client's request of a sequence of bytes with some metadata
@@ -474,7 +480,7 @@
             - Detecting big data processing issue: max.poll.interval.ms
           - Schema registry
         - Kafka Connect (Source connector / Sink connector)
-          - Change data capture (CDC) connector
+          - CDC connector → Search index (e.g. Solr) / Database / Data warehouse / Cache
         - Kafka Streams (ksqlDB)
       - Zookeeper (leader + followers)
         - Manages brokers
