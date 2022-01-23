@@ -187,7 +187,7 @@
       - Range
       - List
       - Hash
-    - Materialized view (vs: view) - OLAP Cube
+    - **Materialized view** (vs: view) - OLAP Cube
   - Filesystem ACL (file vs blob: binary large object)
     - blob storage: relational db, file system, object storage (Ceph), cloud storage
   - Replication
@@ -200,7 +200,7 @@
       - Operational transformation ([demo](http://operational-transformation.github.io)): Google Docs
   - Partition
     - Approaches: Key range, Hash of key
-    - Secondary index (full-text index is a particular kind of secondary index)
+    - **Secondary index** (full-text index is a particular kind of secondary index)
       - Document partitioned index / Local index: scatter/gather (tail latency amplification)
       - Term partitioned index / Global index (more efficient reads, however more complicated writes)
   - Transaction
@@ -242,7 +242,7 @@
   - Database normalization
     - Organizing the columns (attributes) and tables (relations) to ensure that their dependencies are properly enforced by database integrity constraints
     - Normal forms
-    - Denormalization: the process of trying to improve the read performance by adding redundant copies of data or by grouping data, avoid joins
+    - [Denormalization](https://www.geeksforgeeks.org/denormalization-in-databases/)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
   - TiDB ([tutorial](https://pingcap.com/tidb-academy/))
 
@@ -313,19 +313,6 @@
   - Others
     - Sequence database (e.g. GenBank)
 
-- Data Warehouse
-  - Analytic systems (OLAP: online analytical processing)
-    - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
-    - Database (Data warehouse): Hive, Teradata, Greenplum
-    - Column-oriented (Bitmap index)
-    - Vectorized Processing in CPU cache
-    - Dimensional model (vs: normalized model, e.g. 3NF data model)
-      - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
-    - High availability and low latency (business Intelligence: optimization for analytic access patterns)
-  - Transaction processing systems (OLTP: online transaction processing)
-    - Database: MySql, PostgreSQL, Oracle
-    - Row-oriented
-
 - Cache
   - Types
     - Application server cache: placing a cache on request layer node enables the local storage of response data
@@ -344,38 +331,18 @@
     - Distributed lock manager (DLM)
   - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
 
-- Hadoop
-  - **HDFS** (Hadoop Distributed File System: NameNode - DataNode, Storage)
-  - **Yarn** (resource manager, compute)
-    - Mesos (vs: Kubernetes)
-  - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
-    - Reduce-side joins
-      - Sort-merge joins
-    - Map-side joins
-      - Broadcast hash joins (Spark SQL)
-      - Partitioned hash joins
-  - Spark (Livy)
-    - Resilient Distributed Dataset (RDD) - DataSet
-      - Fault tolerance: tracking the the intermediate states of the data
-    - Components: Spark Core - Spark SQL - spark.ml - Spark Streaming - GraphFrames (Pregel API)
-    - Spark streaming (work on microbatching)
-      - Batch interval vs Slide interval vs Window interval
-    - Databricks
-      - Optimization
-        - Data: compress, partition, convert to optimized formats (e.g. Parquet), Databricks Delta
-        - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
-        - Cluster: add memory / CPU / GPU, increase number of nodes
-      - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
-    - Tez (coordinated by YARN)
-  - Pig (AvroStorage, Skewed Joins)
-  - Hive (vs: Impala)
-    - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
-    - High latency (not appropriate for OLTP), no transactions, no record (because under the hood there are no real database)
-  - HBase ([Bigtable](https://en.wikipedia.org/wiki/Bigtable), vs: Accumulo)
-    - ZooKeeper
-    - Access ways: HBase shell, Java API, Spark, Hive, Pig, Rest API, Thrift, Avro
-  - Data ingestion: Sqoop (relational database), Flume (source → channel → sink), Kafka
-  - Query engine: Hue, Drill (Dremel), Phoenix (HBase), [Presto](https://prestodb.io/docs/current/overview/concepts.html)
+- Data Warehouse
+  - Analytic systems (OLAP: online analytical processing)
+    - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
+    - Database (Data warehouse): Hive, Teradata, Greenplum
+    - Column-oriented (Bitmap index)
+    - Vectorized Processing in CPU cache
+    - Dimensional model (vs: normalized model, e.g. 3NF data model)
+      - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
+    - High availability and low latency (business Intelligence: optimization for analytic access patterns)
+  - Transaction processing systems (OLTP: online transaction processing)
+    - Database: MySql, PostgreSQL, Oracle
+    - Row-oriented
 
 - Others
   - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
@@ -387,6 +354,7 @@
   - References
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
     - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
+    - [Big data architectures](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/)
 
 ### Dataflow
 
@@ -403,6 +371,37 @@
     - Database
     - Service calls (RPC vs REST API)
     - Asynchronous message passing (via message broker or [actor](https://github.com/akka/akka))
+
+- Hadoop
+  - **HDFS** (Hadoop Distributed File System: NameNode - DataNode, Storage)
+  - **Yarn** (resource manager, compute)
+    - Mesos (vs: Kubernetes)
+  - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
+    - Reduce-side joins
+      - Sort-merge joins
+    - Map-side joins
+      - Broadcast hash joins (Spark SQL)
+      - Partitioned hash joins
+  - Spark (Livy)
+    - Resilient Distributed Dataset (RDD) - DataSet
+      - Fault tolerance: tracking the the intermediate states of the data
+    - Components: Spark Core - Spark SQL - spark.ml - Spark Streaming - GraphFrames (Pregel API)
+    - Spark streaming (work on microbatching)
+      - Batch interval vs Slide interval vs Window interval
+    - Databricks Optimization
+      - Data: compress, partition, convert to optimized formats (e.g. Parquet), Databricks Delta
+      - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
+      - Cluster: add memory / CPU / GPU, increase number of nodes
+    - Tez (coordinated by YARN)
+  - Pig (AvroStorage, Skewed Joins)
+  - Hive (vs: Impala)
+    - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
+    - High latency (not appropriate for OLTP), no transactions, no record (because under the hood there are no real database)
+  - HBase ([Bigtable](https://en.wikipedia.org/wiki/Bigtable), vs: Accumulo)
+    - ZooKeeper
+    - Access ways: HBase shell, Java API, Spark, Hive, Pig, Rest API, Thrift, Avro
+  - Data ingestion: Sqoop (relational database), Flume (source → channel → sink), Kafka
+  - Query engine: Hue, Drill (Dremel), Phoenix (HBase), [Presto](https://prestodb.io/docs/current/overview/concepts.html)
 
 - Data Integration
   - **ETL** (Extract - Transform - Load)
@@ -436,6 +435,8 @@
       - Change data capture (CDC)
       - Event sourcing
     - Command query responsibility segregation ([CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)): deriving several views from the same event log
+    - [Hudi](https://hudi.apache.org/) (Hadoop Upserts Deletes and Incrementals)
+      - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
 
 - Message broker
   - Message: a client's request of a sequence of bytes with some metadata
@@ -560,7 +561,7 @@
     - Single Responsibility Principle
     - Interface Segregation Principle
 
-- Java ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html), [field](http://tutorials.jenkov.com/java-reflection/fields.html), jar & war)
+- Java ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html), [field](http://tutorials.jenkov.com/java-reflection/fields.html))
   - JVM
     - Architecture: Class Loader - JVM Memory - Execution Engine
     - Application program - Tomcat container - **JVM** process - Operating system - Physical server
@@ -594,6 +595,14 @@
       - Standard Java Persistence API (JPA)
       - Spring Data JPA (Spring Data REST)
     - Spring Cloud
+    - Spring WebFlux
+      - Reactive programming: high load
+        - Asynchronous & Non-blocking
+        - Dataflow: Event / Message driven stream
+        - Backpressure
+        - Reactive Streams
+      - Reactor: Flux, Mono
+      - Netty
     - Projects: [link](https://spring.io/projects)
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
