@@ -4,11 +4,7 @@
 
 - [Top 100 on GitHub](https://twosigmaventures.com/open-source-index/)
 - [Open Source Libraries](https://opensourcelibs.com/)
-- [Netflix](https://medium.com/netflix-techblog)
-- [Airbnb](https://medium.com/airbnb-engineering)
-- [Uber](https://eng.uber.com/)
-- [LinkedIn](https://engineering.linkedin.com/blog)
-- [Facebook](https://engineering.fb.com)
+- [Engineering Blogs](https://github.com/kilimchoi/engineering-blogs)
 
 ## Contents
 
@@ -30,17 +26,24 @@
       - Cons: agility, scalability, fault tolerance, single framework
     - Multitier architecture (N-tier): an MVC design is often implemented using an 3-tier architecture
     - Service-oriented architecture (SOA)
+      - Event-driven architecture
     - Microservices
       - Pros: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
       - When not to use: small, intermingled functionality or data, performance sensitive, quick and dirty, no planned updates
-      - Service Mesh
-        - Istio
-        - Data Plane - Control Plane
-      - Service discovery (SDP)
+      - Kubernetes
+        - Service Mesh: Istio
+      - Componentization via services
+        - Service discovery (SDP, Eureka service registry)
+        - API Gateway ([WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul)
+          - Gateway = Route (basic building block) + Filter (optional function)
+        - Load Balancing (Nginx)
+          - Hardware LB - Software LB: HAProxy
+          - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
       - Reactive system (vs: Declarative system)
       - Challenges
         - Design and runtime complexity
         - Network are slow compared to monolith
+      - [Microservices Patterns](https://microservices.io/patterns/)
     - Serverless (run in stateless compute containers that are event triggered)
       - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
       - Function as a Service
@@ -61,18 +64,13 @@
         - Membership / coordination service
     - RPC
       - Thrift & Avro
-      - gRPC: HTTP/2 & Protocol Buffers
+      - [gRPC](https://github.com/grpc-ecosystem/awesome-grpc): HTTP/2 & Protocol Buffers
       - Finagle: Futures
-    - Load balancer (Nginx)
-      - Hardware LB - Software LB: HAProxy
-      - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
   - Others
     - Single vs Multi-tenant
     - User Interface (UI)
       - MVC: Model-view-controller
       - MVVM: Model–view–viewmodel
-  - References
-    - [Microservices Patterns](https://microservices.io/patterns/)
 
 - DevOps
   - Version control
@@ -107,7 +105,7 @@
         - Dockerfile → Docker Client → Docker Host (images, containers, volumes) → Docker Registry
         - Dockerfile: multi-stage builds, [linter](https://github.com/hadolint/hadolint)
       - Nvidia docker
-    - Kubernetes (vs: Docker compose, Docker swarm)
+    - Kubernetes (vs: Docker Swarm, Apache Mesos)
       - Pod - Node - Cluster
       - ReplicaSet
       - etcd
@@ -318,10 +316,6 @@
     - Application server cache: placing a cache on request layer node enables the local storage of response data
     - Distribute cache: each of its nodes own part of cached data, the cache is divided up using a consistent hashing function
     - Global cache: all nodes use the same single cache space
-    - Content delivery network (**CDN**): first request ask the CDN for data, if not, CDN will query the backend servers
-      - Fastly, Cloudflare vs Amazon CloudFront
-      - Static page vs Dynamic page (CGI)
-      - [CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820)
   - Client-side cache: Varnish
   - Cache coherence / invalidation
     - Writing policies
@@ -329,7 +323,16 @@
       - Write-around cache: data is written directly to DB, this reduces flooded write operations, but creates a cache miss
       - Write-back cache: data is written to cache alone, this results in low latency & high throughput, but comes with the risk of data loss in case of crash
     - Distributed lock manager (DLM)
-  - [Cache replacement policies](https://en.wikipedia.org/wiki/Cache_replacement_policies)
+  - Considerations: when data is read frequently but modified infrequently
+    - Expiration policy
+    - Consistency
+    - Mitigating failures
+    - [Eviction policy](https://en.wikipedia.org/wiki/Cache_replacement_policies)
+
+- Content Delivery Network (CDN): first request ask the CDN for data, if not, CDN will query the backend servers
+  - Fastly, Cloudflare, Amazon CloudFront
+  - Static page vs Dynamic page (CGI)
+  - [CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820)
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
@@ -375,7 +378,7 @@
 - Hadoop
   - **HDFS** (Hadoop Distributed File System: NameNode - DataNode, Storage)
   - **Yarn** (resource manager, compute)
-    - Mesos (vs: Kubernetes)
+    - Mesos
   - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
     - Reduce-side joins
       - Sort-merge joins
@@ -536,16 +539,9 @@
       - Map remaining activities to custom actions
         - Relationships types: Independent, Dependent, Associative
     - Validate API
-    - References
-      - [How We Design Our APIs at Slack](https://slack.engineering/how-we-design-our-apis-at-slack/)
-  - Tools
-    - Manager: [WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul
-    - Gateway
-      - Core: portal features, security, load balancing, protocol transformation, routing, orchestration
-      - Admin: API lifecycle (draft, publish, upgrade, etc.)
-      - Monitor: logging for analytics and monitoring
-    - Swagger (OpenAPI Specification)
-    - REST client tool (e.g. Postman)
+  - References
+    - [How We Design Our APIs at Slack](https://slack.engineering/how-we-design-our-apis-at-slack/)
+    - [RESTful API resources](https://github.com/marmelab/awesome-rest)
     - [API Directory](https://www.programmableweb.com/)
 
 - Design patterns
@@ -652,13 +648,20 @@
     - Latency = time / task
     - Number of concurrent sessions/users (Concurrency = throughput * latency)
     - Internal metrics: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
-  - Optimization
-    - Global Data Center (multi-data center architecture)
+  - Optimization & Scaling
     - Hardware
     - Operating system (Linux: transparent huge page)
     - JVM
     - Infrastructure: web container, database connection pooling, MVC framework
-    - Architecture: cache (read-through vs cache-aside), message broker, clustered architecture
+      - Moniter the system and use automation tools
+    - Architecture (clustered architecture)
+      - Split tiers into individual services
+      - Stateless architecture
+      - Data sharding
+      - Global data center (support multiple data center)
+      - Cache (read-through vs cache-aside)
+      - Host static assets in CDN
+      - Message broker
     - Programming: algorithms, data structure, design pattern, asynchronous I/O
 
 - Availability

@@ -82,19 +82,13 @@
   - Memory segmentation
     - Code segment - Data segment - .bss - Heap - Stack
   - Garbage Collection (Implicit Memory Allocator, vs: Explicit Allocator)
-    - Java
-      - GC Roots
-      - JVM Heap
-        - Young Generation: minor GC
-          - Eden - From (s0) - To (s1)
-        - Old Generation: major GC
-        - Permanent Generation: full GC
-      - Garbage Collector: G1 (Serial, Parallel, CMS)
-    - Python
-      - Tracing: Mark-and-sweep, Generational GC
-      - Reference Counting
-    - C
-      - Manual Memory Management
+    - GC Roots
+    - JVM Heap
+      - Young Generation: minor GC
+        - Eden - From (s0) - To (s1)
+      - Old Generation: major GC
+      - Permanent Generation: full GC
+    - [JVM Garbage Collectors](https://www.baeldung.com/jvm-garbage-collectors)
 
 - I/O
   - Communication
@@ -310,12 +304,13 @@
 |---|---|---|---|
 | 7  | 128  |   |   |
 | 8  | 256  |   |   |
-| 10  | 1024  | thousand  | 1K  |
-| 16  | 65 536  |   | 64K  |
-| 20  | 1 048 576  | million  | 1MB  |
-| 30  | 1 073 741 824  | billion  | 1GB  |
-| 32  | 4 294 967 296  |   | 4GB  |
-| 40  |   | trillion  | 1TB  |
+| 10  | 1024  | thousand  | 1 Kilobyte  |
+| 16  | 65 536  |   | 64 KB  |
+| 20  | 1 048 576  | million  | 1 Megabyte  |
+| 30  | 1 073 741 824  | billion  | 1 Gigabyte  |
+| 32  | 4 294 967 296  |   | 4 GB  |
+| 40  |   | trillion  | 1 Terabyte  |
+| 50  |   | quadrillion  | 1 Petabyte  |
 
 ```
 Latency Comparison Numbers
@@ -334,8 +329,12 @@ Read 1 MB sequentially from SSD*     1,000,000   ns    1,000 us    1 ms  ~1GB/se
 Disk seek                           10,000,000   ns   10,000 us   10 ms  20x datacenter roundtrip
 Read 1 MB sequentially from 1 Gbps  10,000,000   ns   10,000 us   10 ms  40x memory, 10X SSD
 Read 1 MB sequentially from disk    30,000,000   ns   30,000 us   30 ms 120x memory, 30X SSD
-Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
+Send packet CA → Netherlands → CA  150,000,000   ns  150,000 us  150 ms
 ```
+- Conclusions
+  - Memory is fast but the disk is slow, avoid disk I/O when possible
+  - Simple compression algorithms are fast, compress data before sending it over the network if possible
+  - Data centers are usually in different regions and it takes time to send data between them
 
 - Knowledge
   - Compiler
