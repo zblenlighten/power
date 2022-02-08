@@ -109,7 +109,7 @@
       - Pod - Node - Cluster
       - ReplicaSet
       - etcd
-  - Monitor
+  - Monitors, metrics, alerts
     - Synthetic check and uptime (is it working?)
     - Software component metrics
     - System metrics
@@ -117,12 +117,8 @@
     - Performance
       - Application performance management (APM)
       - Real user monitoring (RUM)
-    - Tools
-      - Prometheus (service oriented)
-        - Metric [types](https://prometheus.io/docs/concepts/metric_types/)
-        - Grafana
-      - Zabbix (ip oriented)
-      - Datadog
+    - [Tools list](https://github.com/adriannovegil/awesome-observability)
+      - [decision record](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/examples/metrics-monitors-alerts/index.md)
   - Logging
     - Collection → Transport → Storage → Analysis → Alerting
     - Centralized Logging
@@ -505,7 +501,7 @@
 
 - API
   - RPC: communicates between processes, requests between services owned by the same organization / datacenter
-  - [REST](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): public APIs (vs: SOAP)
+  - [REST](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): public APIs
     - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
     - Versioning
       - Version number in the URL
@@ -526,23 +522,24 @@
       - References
         - [Intro to IAM](https://auth0.com/intro-to-iam/)
         - [What is IAM](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)
-    - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
-  - Design of REST APIs
-    - Identify participants
-    - Identify activities
-    - Break into steps
-    - Create API definition
-      - Identify the resources
-        - Items resource: list, view, search, add, edit
-      - Map activities to resource lifecycle (map actions to HTTP Nouns & Verbs)
-        - Mapping: GET /items, GET /items/:id, GET /items?search=param, POST /items/, PUT /items/:id
-      - Map remaining activities to custom actions
-        - Relationships types: Independent, Dependent, Associative
-    - Validate API
-  - References
-    - [How We Design Our APIs at Slack](https://slack.engineering/how-we-design-our-apis-at-slack/)
-    - [RESTful API resources](https://github.com/marmelab/awesome-rest)
-    - [API Directory](https://www.programmableweb.com/)
+    - Design of REST APIs
+      - Identify participants
+      - Identify activities
+      - Break into steps
+      - Create API definition
+        - Identify the resources
+          - Items resource: list, view, search, add, edit
+        - Map activities to resource lifecycle (map actions to HTTP Nouns & Verbs)
+          - Mapping: GET /items, GET /items/:id, GET /items?search=param, POST /items/, PUT /items/:id
+        - Map remaining activities to custom actions
+          - Relationships types: Independent, Dependent, Associative
+      - Validate API
+      - References
+        - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
+        - [How We Design Our APIs at Slack](https://slack.engineering/how-we-design-our-apis-at-slack/)
+        - [RESTful API resources](https://github.com/marmelab/awesome-rest)
+        - [API Directory](https://www.programmableweb.com/)
+  - GraphQL
 
 - Design patterns
   - Object oriented programming (OOP): Polymorphism
@@ -625,7 +622,6 @@
       - VueResource, VueRouter, Vuex
         - MVVM: two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
       - Developer Tools: Vue.js devtools
-    - GraphQL
   - Mobile
     - SwiftUI
     - WeChat Mini Program
