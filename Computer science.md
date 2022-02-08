@@ -252,7 +252,7 @@
   3. Browser → NIC → Wifi router → Global IP Network (Internet) → NIC → Host server
   4. Host server:
       - Load balancing ([Consistent hashing](https://vitalflux.com/wtf-consistent-hashing-databases/): using virtual nodes to create better key distribution in a hash ring)
-        - Inverse proxy (HTTP)
+        - Reverse proxy (vs: forward proxy)
       - Web application firewall (WAF)
       - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview): Apache
       - Application server: Servlet container
