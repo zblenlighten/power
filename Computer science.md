@@ -153,8 +153,8 @@
 
 - Linux (pipe)
   - Distribution (/etc/*-release)
-    - Debian → Ubuntu
-    - Fedora → Red Hat → CentOS
+    - Debian -> Ubuntu
+    - Fedora -> Red Hat -> CentOS
     - Android
   - Shell command ([explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
     - Files and directories: cat, touch, grep, find, mount, ls
@@ -170,18 +170,18 @@
 ### Network
 
 - Internet Protocol Suite
-  1. Physical Layer: Hub → Bit
-  2. Data Link Layer: Switch → Frame
+  1. Physical Layer: Hub -> Bit
+  2. Data Link Layer: Switch -> Frame
       - Network Interface Card (NIC)
       - **MAC** (media access control) address
       - Address Resolution Protocol (ARP)
       - Bridging
-  3. Network Layer: Router → Datagram
+  3. Network Layer: Router -> Datagram
       - Internet Protocol (**IP**)
         - Network address translation (NAT)
         - Public IP (ISP: Internet service provider) vs Private IP (DHCP server / Router / LAN administrator)
       - Routing: Static routing & Dynamic routing
-  4. Transport Layer → Segment
+  4. Transport Layer -> Segment
       - User Datagram Protocol (UDP)
       - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (**TCP**)
         - Round-trip delay (RTD)
@@ -190,7 +190,7 @@
         - Echo server
         - Socket Programming: connect, bind, listen, accept, send, recv
       - Reliable Data Protocol (RDP)
-  7. Application Layer → Message
+  7. Application Layer -> Message
       - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
       - File Transfer Protocol (FTP)
       - Simple Mail Transfer Protocol (SMTP)
@@ -244,19 +244,19 @@
     - Tunnel & Relay
 
 - What happens when type in a Uniform Resource Locator (URL)?
-  1. Capacitive touchscreen → CPU → OS kernel → OS GUI → Browser
+  1. Capacitive touchscreen -> CPU -> OS kernel -> OS GUI -> Browser
   2. Browser:
-      - **DNS resolution**: cache (browser, OS, router)/DNS server → IP address
+      - **DNS resolution**: cache (browser, OS, router)/DNS server -> IP address
       - **TCP three-way handshake**
       - **HTTP request**
-  3. Browser → NIC → Wifi router → Global IP Network (Internet) → NIC → Host server
+  3. Browser -> NIC -> Wifi router -> Global IP Network (Internet) -> NIC -> Host server
   4. Host server:
       - Load balancing ([Consistent hashing](https://vitalflux.com/wtf-consistent-hashing-databases/): using virtual nodes to create better key distribution in a hash ring)
         - Reverse proxy (vs: forward proxy)
       - Web application firewall (WAF)
       - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview): Apache
       - Application server: Servlet container
-  5. Host server → Host client:
+  5. Host server -> Host client:
       - **The server handles the request and sends back an HTTP response**
       - **The browser displays the HTML content**
         - The browser sends a request to the web server to retrieve a HTML document
@@ -267,7 +267,7 @@
           - Paint the render tree (i.e. takes in the final render tree and renders the pixels to the screen)
           - [HTML DOM 事件](https://www.runoob.com/jsref/dom-obj-event.html)
       - **TCP four-way handshake**
-  6. Browser → LCD screen
+  6. Browser -> LCD screen
 
 - Security
   - Cryptography
@@ -315,28 +315,28 @@
 ```
 Latency Comparison Numbers
 --------------------------
-L1 cache reference                           0.5 ns
-Branch mispredict                            5   ns
-L2 cache reference                           7   ns                      14x L1 cache
-Mutex lock/unlock                           25   ns
-Main memory reference                      100   ns                      20x L2 cache, 200x L1 cache
-Compress 1K bytes with Zippy            10,000   ns       10 us
-Send 1 KB bytes over 1 Gbps network     10,000   ns       10 us
-Read 4 KB randomly from SSD*           150,000   ns      150 us          ~1GB/sec SSD
-Read 1 MB sequentially from memory     250,000   ns      250 us
-Round trip within same datacenter      500,000   ns      500 us
-Read 1 MB sequentially from SSD*     1,000,000   ns    1,000 us    1 ms  ~1GB/sec SSD, 4X memory
-Disk seek                           10,000,000   ns   10,000 us   10 ms  20x datacenter roundtrip
-Read 1 MB sequentially from 1 Gbps  10,000,000   ns   10,000 us   10 ms  40x memory, 10X SSD
-Read 1 MB sequentially from disk    30,000,000   ns   30,000 us   30 ms 120x memory, 30X SSD
-Send packet CA → Netherlands → CA  150,000,000   ns  150,000 us  150 ms
+L1 cache reference                            0.5 ns
+Branch mispredict                             5   ns
+L2 cache reference                            7   ns                      14x L1 cache
+Mutex lock/unlock                            25   ns
+Main memory reference                       100   ns                      20x L2 cache, 200x L1 cache
+Compress 1K bytes with Zippy             10,000   ns       10 us
+Send 1 KB bytes over 1 Gbps network      10,000   ns       10 us
+Read 4 KB randomly from SSD*            150,000   ns      150 us          ~1GB/sec SSD
+Read 1 MB sequentially from memory      250,000   ns      250 us
+Round trip within same datacenter       500,000   ns      500 us
+Read 1 MB sequentially from SSD*      1,000,000   ns    1,000 us    1 ms  ~1GB/sec SSD, 4X memory
+Disk seek                            10,000,000   ns   10,000 us   10 ms  20x datacenter roundtrip
+Read 1 MB sequentially from 1 Gbps   10,000,000   ns   10,000 us   10 ms  40x memory, 10X SSD
+Read 1 MB sequentially from disk     30,000,000   ns   30,000 us   30 ms 120x memory, 30X SSD
+Send packet CA -> Netherlands -> CA 150,000,000   ns  150,000 us  150 ms
+--------------------------
+- Memory is fast but the disk is slow, avoid disk I/O when possible
+- Simple compression algorithms are fast, compress data before sending it over the network if possible
+- Data centers are usually in different regions and it takes time to send data between them
 ```
-- Conclusions
-  - Memory is fast but the disk is slow, avoid disk I/O when possible
-  - Simple compression algorithms are fast, compress data before sending it over the network if possible
-  - Data centers are usually in different regions and it takes time to send data between them
 
-- Knowledge
+- Others
   - Compiler
   - Type system
     - Static vs Dynamic 

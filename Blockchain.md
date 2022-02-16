@@ -13,7 +13,7 @@
 
 - Technology
   - Blocks cryptographically linked together ([demo](https://tools.superdatascience.com/blockchain/blockchain))
-    - Immutable ledger: Merkle tree → Hash cryptography
+    - Immutable ledger: Merkle tree -> Hash cryptography
     - A block stores multiple transactions
   - Decentralization (centralized example: client-server model)
     - Distributed peer-to-peer network (nodes: light client, full node, miner node)
@@ -51,13 +51,13 @@
     - The more coins burned by the miner, the bigger the ensuing virtual mining rig
 
 - Cryptocurrency: technology - protocol - token
-  - Bitcoin → SHA-256
+  - Bitcoin -> SHA-256
     - [Bitcoin Core](https://bitcoin.org/en/bitcoin-core/)
     - Monetary policy: halving principle, block time
     - [Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem)
-  - Ethereum → Keccak 256 (Ether)
+  - Ethereum -> Keccak 256 (Ether)
     - Accounts
-      - Externally owned account (EOA, has no associated code, controlled by private keys → Elliptic Curve Cryptography (ECC))
+      - Externally owned account (EOA, has no associated code, controlled by private keys -> Elliptic Curve Cryptography (ECC))
       - Contract account (has associated code)
     - Smart contract is a program / code that runs on the blockchain
     - Ethereum virtual machine: [Gas](https://ethereum.org/en/developers/docs/gas/)
@@ -75,15 +75,17 @@
 - Transaction
   - Unspent Transaction Output (UTXO)
   - Signatures ([demo](https://tools.superdatascience.com/blockchain/public-private-keys/signatures))
-    - private key (send money) → public key (verification function) → address (for additional security, receive money)
+    - private key (send money) -> public key (verification function) -> address (for additional security, receive money)
   - Latency and Throughput
     - SegWit
-    - Lightning Network
+    - Layer 2 Scaling
+      - Bitcoin Lightning Network
+      - Ethereum Plasma
   - [Know Your Customer (KYC)](https://academy.binance.com/en/glossary/know-your-customer)
 
 - Bitcoin Improvement Proposals (BIPs)
-  - BIP32: seed → key pairs
-    - master private key → private key → public key → address
+  - BIP32: seed -> key pairs
+    - master private key -> private key -> public key -> address
     - master public key (recreate public key to auditor or someone who doesn't send money)
   - BIP39: mnemonic code
   - BIP44: coin type - account - change - address_index

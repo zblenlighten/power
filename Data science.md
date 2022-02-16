@@ -23,7 +23,7 @@
 
 ### Project Preparation
 
-- Project Checklist: Obtain → Scrub → Explore → Model → Interpret
+- Project Checklist: Obtain -> Scrub -> Explore -> Model -> Interpret
   - Frame the problem and look at the big picture
   - Get the data (automate)
   - Explore the data to gain insights (field expert)
@@ -79,7 +79,7 @@
     - ETL / API
       - KNIME ([cheat sheet](https://www.knime.com/cheat-sheets)), Funnel.io (data aggregating)
     - Web beacon
-      - Invisible tracking script (e.g. Google Analytics, Crazy Egg)
+      - Invisible tracking script ([list of analytics tools](https://github.com/0xnr/awesome-analytics))
       - Javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
     - Data scraping / crawling
       - Selenium
@@ -145,7 +145,7 @@
       - Sentiment analysis
     - Models
       - Bag of Words & N-gram: term frequency — inverse document frequency (TF-IDF)
-        - Article vector (each dimension is the TF-IDF of the word) → Cosine distance
+        - Article vector (each dimension is the TF-IDF of the word) -> Cosine distance
       - Topic model
         - pLSA (Probabilistic Latent Semantic Analysis)
         - LDA (Latent Dirichlet Allocation)
@@ -185,7 +185,7 @@
     - Upsampling: uppooling, interpolation, transposed convolution
   - RNN (Recurrent Neural Network)
     - LSTM (Long short-term memory)
-      - Cell state: forget gate → input gate → output gate
+      - Cell state: forget gate -> input gate -> output gate
   - Training (one epoch = batch size * iteration)
     - Feed forward
     - Gradient descent (vs: gradient ascent)
@@ -211,7 +211,7 @@
     - Tanh: RNN
   - Learning rate ([how to adjust learning rate](https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate))
   - Prevent over-fitting
-    - L1 & L2 Regularization (Lasso regression & Ridge regression → Linear regression)
+    - L1 & L2 Regularization (Lasso regression & Ridge regression -> Linear regression)
       - Regularization significantly reduces variance without substantial increase in bias
     - Dropout
     - Data augmentation
@@ -311,7 +311,8 @@
   - Output: Q(s, a) for all possible actions
 - Multi-armed bandit
   - Explore-exploit tradeoff (Information Cocoon)
-  - Upper confidence bound (UCB) → Monte Carlo tree search (MCTS)
+  - Epsilon-Greedy Algorithm
+  - Upper confidence bound (UCB) -> Monte Carlo tree search (MCTS)
 
 #### Evaluation
 
@@ -390,7 +391,7 @@
 - Online Advertising Platforms
   - **SSP** (Supply side platform): publisher, ad network
   - Audience
-  - **DSP** (Demand side platform): advertiser → target audience
+  - **DSP** (Demand side platform): advertiser -> target audience
   - ADX (Ad exchange platform): publisher / ad network - advertiser
     - RTB: second-price auction
     - DSP buys ad space as cheaply as possible from publisher, SSP sells ad space for the highest possible price
@@ -450,7 +451,7 @@
     - Problem: overlapping confidence intervals mean that the samples are likely to have the same population-level conversion rate
   - Chi-squared test
     - Telling if the two conditions are associated with conversions
-  - Simulate sample size and plan timeline → Time series analysis → Chi-squared p-value
+  - Simulate sample size and plan timeline -> Time series analysis -> Chi-squared p-value
   - Conditional tests
   - Multi-Armed Bandit test
 
@@ -507,7 +508,7 @@
 
 - Frameworks
   - TensorFlow
-    - Computational graph: static → dynamical
+    - Computational graph: static -> dynamical
     - More [data types](https://www.tensorflow.org/api_docs/python/tf/dtypes)
     - model.save vs model.save_weights
     - TensorBoard
@@ -519,7 +520,7 @@
 
 - Tools
   - CUDA (Compute Unified Device Architecture) programming
-    - Host / CPU (Kernel) → Device / GPU (Grid - Block - Thread)
+    - Host / CPU (Kernel) -> Device / GPU (Grid - Block - Thread)
   - TensorRT
   - TensorFlow Lite
   - [ONNX](https://onnx.ai/)

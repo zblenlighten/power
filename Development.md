@@ -76,7 +76,7 @@
   - Version control
     - Git: branch, tag
   - Infrastructure as code (consider hardware: networks, servers, storage, etc.)
-    - Terraform: Write → Plan → Apply
+    - Terraform: Write -> Plan -> Apply
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Provision: Dockerfile / Puppet / Chef
     - [checkov](https://github.com/bridgecrewio/checkov/blob/master/docs/5.Policy%20Index/all.md)
@@ -87,7 +87,7 @@
       - Automation refers to a single task
       - Orchestration refers to the management of many automated tasks, often a complicated ordering with dependencies
   - DevSecOps
-    - Toolchain: Pre-commit → Commit (continuous integration) → Acceptance (continuous delivery) → Production (continuous deployment) → Operations
+    - Toolchain: Pre-commit -> Commit (continuous integration) -> Acceptance (continuous delivery) -> Production (continuous deployment) -> Operations
       - Apiiro
     - Legacy tools
       - Static application security testing (SAST): find security bugs
@@ -102,7 +102,7 @@
         - namespaces: networks
         - copy-on-write: unionfs
       - Docker components
-        - Dockerfile → Docker Client → Docker Host (images, containers, volumes) → Docker Registry
+        - Dockerfile -> Docker Client -> Docker Host (images, containers, volumes) -> Docker Registry
         - Dockerfile: multi-stage builds, [linter](https://github.com/hadolint/hadolint)
       - Nvidia docker
     - Kubernetes (vs: Docker Swarm, Apache Mesos)
@@ -120,7 +120,7 @@
     - [Tools list](https://github.com/adriannovegil/awesome-observability)
       - [decision record](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/examples/metrics-monitors-alerts/index.md)
   - Logging
-    - Collection → Transport → Storage → Analysis → Alerting
+    - Collection -> Transport -> Storage -> Analysis -> Alerting
     - Centralized Logging
     - ELK (Elastic)
       - Elasticsearch
@@ -158,7 +158,7 @@
 
 - Knowledge
   - Storage Engines
-    - Log-structured storage engine: SSTable → LSM Tree
+    - Log-structured storage engine: SSTable -> LSM Tree
       - Database: LevelDB, Cassandra, HBase, Lucene
     - Page oriented storage engine: B tree
       - All major relational databases and some nonrelational ones
@@ -228,7 +228,7 @@
   - Pros: SQL, normalized data (minimize chances of introducing problem), widely used across domains, widely supported
   - Cons: fixed schema (each record), costly to join tables, limited data structures, difficult to horizontal scale (vertically scalable)
     - Workarounds: denormalization, sharding, replication (master and read replicas)
-  - SQL query → Server connector → Parser (parse tree) → Optimization → Execution (InnoDB vs MyIsam, [区别](https://www.zhihu.com/question/20596402))
+  - SQL query -> Server connector -> Parser (parse tree) -> Optimization -> Execution (InnoDB vs MyIsam, [区别](https://www.zhihu.com/question/20596402))
   - Keys: Super key, Candidate key, Primary key, Foreign key
   - PrepareStatement
     - Get pre compiled and access plan cached in database
@@ -249,7 +249,7 @@
       - Table - Keyspace
       - Primary key - **Partition** key - Cluster key
       - Index: primary - secondary - cost
-      - Replication: leaderless (no master node → no single point of failure)
+      - Replication: leaderless (no master node -> no single point of failure)
       - Gossip protocol
       - CQL, CQLSH
       - Tips
@@ -284,7 +284,7 @@
           - Searching
             - Relevance score (e.g. TF-IDF)
             - Near real time searching: soft commit (vs: hard commit)
-            - Request handlers (SearchHandler) → Search components (QueryComponent) → Query parser (Lucene)
+            - Request handlers (SearchHandler) -> Search components (QueryComponent) -> Query parser (Lucene)
             - Query syntax and parsing
               - Query parameters
               - Standard query parser
@@ -340,7 +340,7 @@
       - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
   - Transaction processing systems (OLTP: online transaction processing)
-    - Database: MySql, PostgreSQL, Oracle
+    - Database: MySQL, PostgreSQL, Oracle
     - Row-oriented
 
 - Others
@@ -399,19 +399,19 @@
   - HBase ([Bigtable](https://en.wikipedia.org/wiki/Bigtable), vs: Accumulo)
     - ZooKeeper
     - Access ways: HBase shell, Java API, Spark, Hive, Pig, Rest API, Thrift, Avro
-  - Data ingestion: Sqoop (relational database), Flume (source → channel → sink), Kafka
+  - Data ingestion: Sqoop (relational database), Flume (source -> channel -> sink), Kafka
   - Query engine: Hue, Drill (Dremel), Phoenix (HBase), [Presto](https://prestodb.io/docs/current/overview/concepts.html)
 
 - Data Integration
   - **ETL** (Extract - Transform - Load)
-    - Data validations: file validations & archival (data source → staging / data lake & data transformation)
-    - Business validations: calculations & aggregations (staging → data warehouse - data mart)
+    - Data validations: file validations & archival (data source -> staging / data lake & data transformation)
+    - Business validations: calculations & aggregations (staging -> data warehouse - data mart)
     - Airflow (web server + scheduler + metadata database + executor + worker, vs: Luigi)
       - Directed Acyclic Graph (DAG)
       - Operator: action, transfer, sensor
       - Executor: Sequential, Local, Celery, K8s (get the tasks to run from its internal queue and specify how to execute it)
         - Celery: tasks queues to distribute work across threads or machines
-      - CI/CD pipeline with Airflow image containing DAGs: Github repo → Jenkins → K8s → Pod
+      - CI/CD pipeline with Airflow image containing DAGs: Github repo -> Jenkins -> K8s -> Pod
       - Metrics: counters, gauges, timers (TIG: Telegraf, InfluxDB, Grafana)
     - dbt: data build tool
       - [airflow dbt demo](https://github.com/astronomer/airflow-dbt-demo)
@@ -479,7 +479,7 @@
             - Detecting big data processing issue: max.poll.interval.ms
           - Schema registry
         - Kafka Connect (Source connector / Sink connector)
-          - CDC connector → Search index (e.g. Solr) / Database / Data warehouse / Cache
+          - CDC connector -> Search index (e.g. Solr) / Database / Data warehouse / Cache
         - Kafka Streams (ksqlDB)
       - Zookeeper (leader + followers)
         - Manages brokers
@@ -554,14 +554,14 @@
     - Single Responsibility Principle
     - Interface Segregation Principle
 
-- Java ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html), [field](http://tutorials.jenkov.com/java-reflection/fields.html))
-  - JVM
+- Java
+  - JVM ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html))
     - Architecture: Class Loader - JVM Memory - Execution Engine
     - Application program - Tomcat container - **JVM** process - Operating system - Physical server
   - Spring
     - Core
       - Inversion of Control (IoC) Container
-        - Bean life cycle: bean instantiated → dependencies injected → internal Spring processing → custom init method → destroy (except for the "prototype" scoped bean)
+        - Bean life cycle: bean instantiated -> dependencies injected -> internal Spring processing -> custom init method -> destroy (except for the "prototype" scoped bean)
       - Annotation: Spring configuration (vs: XML)
         - Inversion of Control: Component
         - Dependency Injection: Autowired, Qualifier, Value, Bean, Configuration, PropertySource
@@ -701,7 +701,7 @@
       - Distributed ID Generator
       - Key-value store
       - URL redirection (302)
-  3. Messenger service (feature → architecture)
+  3. Messenger service (feature -> architecture)
       - One to one text
       - Sent / Delivered / Read
       - Push notification
@@ -755,13 +755,13 @@
     - Comments with Why, When and What
 
 - Project Management
-  - Systems development life cycle (SDLC): requirement analysis → design → development and testing → implementation → documentation → evaluation
+  - Systems development life cycle (SDLC): requirement analysis -> design -> development and testing -> implementation -> documentation -> evaluation
   - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
     - Conway's law
     - Agile Release Train (ART)
   - Scrum: Transparency, Inspection, Adaptation
     - Scrum master
-  - Waterfall: System and software requirements → Analysis → Design → Coding → Testing → Operations
+  - Waterfall: System and software requirements -> Analysis -> Design -> Coding -> Testing -> Operations
   - Project Management Committee ([PMC](https://www.apache.org/foundation/how-it-works.html))
   - [RACI](https://en.wikipedia.org/wiki/Responsibility_assignment_matrix)
 
