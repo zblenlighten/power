@@ -68,7 +68,7 @@
   6. Dynamic programing
   7. Union find
   8. Greedy
-  9. [Regular expression](https://regexr.com/)
+  9. Regular expression: [regexr](https://regexr.com/), [regex101](https://regex101.com/)
 
 - Time complexity
   - General [Big-O](https://linux.cn/article-7480-1.html) ([Java](https://www.baeldung.com/java-collections-complexity), [Python](https://wiki.python.org/moin/TimeComplexity))
@@ -337,9 +337,9 @@ Send packet CA -> Netherlands -> CA 150,000,000   ns  150,000 us  150 ms
 ```
 
 - Others
-  - Compiler
+  - Compiler vs Interpreter (parser)
   - Type system
-    - Static vs Dynamic 
+    - Static vs Dynamic
     - Strong vs Weak
   - Programming paradigm
     - Imperative programming vs Declarative programming

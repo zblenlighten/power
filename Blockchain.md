@@ -68,7 +68,7 @@
   - [Market](https://coinmarketcap.com/)
 
 - Web3
-  - open, transparent, permissionless
+  - Principles: decentralized, permissionless, native payments, trustless
 
 ### Hierarchical Deterministic Wallets
 
@@ -100,6 +100,7 @@
     - [Christie's](https://www.christies.com/auctions/christies-encrypted)
 
 - Decentralized finance (DeFi)
+  - [defipulse](https://www.defipulse.com/)
 
 - Decentralized applications (dApps)
 
@@ -107,6 +108,8 @@
   - [daolist](https://daolist.fyi/)
 
 ### Hyperledger Fabric (Consortium blockchain)
+
+- Blockchain type: Public, Private, Consortium
 
 - Nodes
   - Clients: submit transaction proposals for execution

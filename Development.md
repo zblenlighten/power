@@ -82,7 +82,6 @@
     - [checkov](https://github.com/bridgecrewio/checkov/blob/master/docs/5.Policy%20Index/all.md)
   - Configuration (deploy and configure software: operating systems, applications, etc.)
     - Jenkins (CI/CD: Continuous integration / Continuous delivery / Continuous deployment)
-      - JFrog Artifactory
     - Automation vs Orchestration
       - Automation refers to a single task
       - Orchestration refers to the management of many automated tasks, often a complicated ordering with dependencies
@@ -103,7 +102,7 @@
         - copy-on-write: unionfs
       - Docker components
         - Dockerfile -> Docker Client -> Docker Host (images, containers, volumes) -> Docker Registry
-        - Dockerfile: multi-stage builds, [linter](https://github.com/hadolint/hadolint)
+        - Dockerfile: multi-stage builds
       - Nvidia docker
     - Kubernetes (vs: Docker Swarm, Apache Mesos)
       - Pod - Node - Cluster
@@ -117,7 +116,10 @@
     - Performance
       - Application performance management (APM)
       - Real user monitoring (RUM)
-    - [Tools list](https://github.com/adriannovegil/awesome-observability)
+    - [Tools](https://github.com/adriannovegil/awesome-observability)
+      - Splunk
+        - [data pipeline](https://docs.splunk.com/Documentation/Splunk/latest/Deploy/Datapipeline)
+        - Components: Forwarder, Indexer, Search head
       - [decision record](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/examples/metrics-monitors-alerts/index.md)
   - Logging
     - Collection -> Transport -> Storage -> Analysis -> Alerting
@@ -147,7 +149,6 @@
     - Chaos Monkey
     - Hystrix (Circuit Breaker pattern: cascading failures)
     - Profiler
-  - Testing: Code coverage
   - Others
     - Heroku (dynamic page)
     - OpenStack
@@ -587,7 +588,6 @@
         - Fetch: lazy vs eager
       - Standard Java Persistence API (JPA)
       - Spring Data JPA (Spring Data REST)
-    - Spring Cloud
     - Spring WebFlux
       - Reactive programming: high load
         - Asynchronous & Non-blocking
@@ -596,16 +596,16 @@
         - Reactive Streams
       - Reactor: Flux, Mono
       - Netty
+    - Spring Cloud
     - Projects: [link](https://spring.io/projects)
 
 - Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
 - Python
-  - [cProfile](https://docs.python.org/3/library/profile.html)
-  - [Packaging Projects](https://packaging.python.org/tutorials/packaging-projects/)
-  - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
-  - [Dask](https://docs.dask.org/en/stable/dataframe.html)
   - [Awesome Python](https://github.com/vinta/awesome-python)
+  - [cProfile](https://docs.python.org/3/library/profile.html), [timeit](https://docs.python.org/3/library/timeit.html)
+  - [Dask](https://docs.dask.org/en/stable/dataframe.html)
+  - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
 
 ### Frontend
 
@@ -692,20 +692,6 @@
     - Operations: monitor, consistent, automate, visibility/access/identity
     - AI and machine learning
 
-- Cases
-  1. Web crawler
-      - BFS & DFS (Overhead time) by Scheduler (Priority queue stores URLs that have been discovered but not yet downloaded)
-      - Page analysis and URL extraction (parsing Javascript)
-      - URL table (In the case of thousands of servers: 明确每台下载服务器的分工，向散列表发送询问判断URL是否下载)
-  2. URL shortening
-      - Distributed ID Generator
-      - Key-value store
-      - URL redirection (302)
-  3. Messenger service (feature -> architecture)
-      - One to one text
-      - Sent / Delivered / Read
-      - Push notification
-
 - References
   - [服务端高并发分布式架构演进之路](https://segmentfault.com/a/1190000018626163)
 
@@ -742,17 +728,26 @@
       - Message broker
     - Event storming: design a system that models the structure and flow of activities within the business itself
 
-- Code Review
-  - Programming style
-  - Code review best practice
-    - [what to look for](https://blog.jetbrains.com/upsource/tag/what-to-look-for/)
-    - Human reviewers should be doing what cannot be automated (automate everything you can)
-    - Understand the constraints
-    - Knowledge sharing (focus on how to understand the code easily)
-    - Gateway type code review: should have a list of specific checks (not right time for: design patterns, SOLID, reusability)
-    - Reviews should be small
-    - Reviewing respond in a timely fashion
-    - Comments with Why, When and What
+- Coding
+  - Testing: unit test, code coverage
+  - Debugging: Exception breakpoint, Conditional breakpoint, Suspend policy (thread vs VM), Evaluate
+  - Packages
+    - JFrog Artifactory
+    - [Packaging Python Projects](https://packaging.python.org/tutorials/packaging-projects/)
+  - Guidelines
+    - Python: isort, autopep8, black ([mkdocs](https://www.mkdocs.org/))
+    - [Dockerfile linter](https://github.com/hadolint/hadolint)
+  - Code Review
+    - Programming style
+    - Code review best practice
+      - [what to look for](https://blog.jetbrains.com/upsource/tag/what-to-look-for/)
+      - Human reviewers should be doing what cannot be automated (automate everything you can)
+      - Understand the constraints
+      - Knowledge sharing (focus on how to understand the code easily)
+      - Gateway type code review: should have a list of specific checks (not right time for: design patterns, SOLID, reusability)
+      - Reviews should be small
+      - Reviewing respond in a timely fashion
+      - Comments with Why, When and What
 
 - Project Management
   - Systems development life cycle (SDLC): requirement analysis -> design -> development and testing -> implementation -> documentation -> evaluation
