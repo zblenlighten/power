@@ -108,7 +108,7 @@
       - Pod - Node - Cluster
       - ReplicaSet
       - etcd
-  - Monitors, metrics, alerts
+  - Monitors (metrics, events, logs, traces)
     - Synthetic check and uptime (is it working?)
     - Software component metrics
     - System metrics
@@ -117,10 +117,9 @@
       - Application performance management (APM)
       - Real user monitoring (RUM)
     - [Tools](https://github.com/adriannovegil/awesome-observability)
-      - Splunk
-        - [data pipeline](https://docs.splunk.com/Documentation/Splunk/latest/Deploy/Datapipeline)
-        - Components: Forwarder, Indexer, Search head
+      - [OpenTelemetry](https://opentelemetry.lightstep.com/)
       - [decision record](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/examples/metrics-monitors-alerts/index.md)
+    - [Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals)
   - Logging
     - Collection -> Transport -> Storage -> Analysis -> Alerting
     - Centralized Logging
@@ -132,6 +131,9 @@
       - Kibana: Viewer with filter capabilities
         - Kibana Query Language (KQL)
       - [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html): Data shipping
+    - Splunk
+      - [data pipeline](https://docs.splunk.com/Documentation/Splunk/latest/Deploy/Datapipeline)
+      - Components: Forwarder, Indexer, Search head
   - Security
     - Penetration test
     - Vault
