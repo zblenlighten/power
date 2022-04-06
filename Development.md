@@ -108,6 +108,7 @@
       - Pod - Node - Cluster
       - ReplicaSet
       - etcd
+      - [lens](https://k8slens.dev/) - [starboard](https://aquasecurity.github.io/starboard/)
   - Monitors (metrics, events, logs, traces)
     - Synthetic check and uptime (is it working?)
     - Software component metrics
@@ -120,9 +121,8 @@
       - [OpenTelemetry](https://opentelemetry.lightstep.com/)
       - [decision record](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/examples/metrics-monitors-alerts/index.md)
     - [Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals)
-  - Logging
+  - Logging (centralized)
     - Collection -> Transport -> Storage -> Analysis -> Alerting
-    - Centralized Logging
     - ELK (Elastic)
       - Elasticsearch
       - Logstash (vs: Fluentd): Data collection pipeline
@@ -204,7 +204,7 @@
     - [Transaction log](https://en.wikipedia.org/wiki/Transaction_log)
       - [Log-based Incremental Replication](https://www.stitchdata.com/docs/replication/replication-methods/log-based-incremental)
       - Log compaction
-    - Safety guarantees (ACID, vs: BASE, Basically Available, Soft state, Eventual consistency)
+    - Safety guarantees (ACID)
       - Atomicity
       - Consistency: maintain database invariants (a transaction can only bring the database from one valid state to another)
       - Isolation: avoid race conditions due to concurrently executing transactions
@@ -270,29 +270,8 @@
     - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
       - Document with properties - Index
         - Scheme-free JSON (distributed document storage)
-      - Search engine
+      - Search engine (Lucene)
         - Characteristics: text centric, read dominant, document oriented, large volumes of data, flexible schema
-        - **Solr** (Lucene, Inverted Index)
-          - Solr core - Jetty web server - Java JVM
-          - Documents, fields and schema design
-            - Solr's data modeling consists of denormalized documents, meaning all the data that belongs to an entity is in the same document
-          - Indexing
-            - Updating parts of documents: atomic updates, in-place updates, optimistic concurrency (version)
-            - Commit: data sent to Solr is not searchable until it has been committed to the index
-              - auto commit: tradeoff between performance and accuracy
-            - Nested child documents
-            - Reindexing: schema changes, Solrconfig changes, upgrade
-          - Text Analysis
-            - Analyzer - Tokenizer - Filter
-          - Searching
-            - Relevance score (e.g. TF-IDF)
-            - Near real time searching: soft commit (vs: hard commit)
-            - Request handlers (SearchHandler) -> Search components (QueryComponent) -> Query parser (Lucene)
-            - Query syntax and parsing
-              - Query parameters
-              - Standard query parser
-                - Term modifiers: wildcard search, fuzzy search, range search, boosting
-            - Faceted search: field faceting, query faceting, range faceting
       - Percolator: search on streams
   - Graph database
     - Neo4j (property graph model, vs: triple-store model)
@@ -309,6 +288,29 @@
     - Hyperledger
   - Others
     - Sequence database (e.g. GenBank)
+
+- Search engine
+  - Solr (Lucene, Inverted Index)
+    - Solr core - Jetty web server - Java JVM
+    - Documents, fields and schema design
+      - Solr's data modeling consists of denormalized documents, meaning all the data that belongs to an entity is in the same document
+    - Indexing
+      - Updating parts of documents: atomic updates, in-place updates, optimistic concurrency (version)
+      - Commit: data sent to Solr is not searchable until it has been committed to the index
+        - auto commit: tradeoff between performance and accuracy
+      - Nested child documents
+      - Reindexing: schema changes, Solrconfig changes, upgrade
+    - Text Analysis
+      - Analyzer - Tokenizer - Filter
+    - Searching
+      - Relevance score (e.g. TF-IDF)
+      - Near real time searching: soft commit (vs: hard commit)
+      - Request handlers (SearchHandler) -> Search components (QueryComponent) -> Query parser (Lucene)
+      - Query syntax and parsing
+        - Query parameters
+        - Standard query parser
+          - Term modifiers: wildcard search, fuzzy search, range search, boosting
+      - Faceted search: field faceting, query faceting, range faceting
 
 - Cache
   - Types
