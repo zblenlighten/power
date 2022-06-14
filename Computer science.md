@@ -11,6 +11,8 @@
 
 ### Algorithms and Data structure
 
+- [The Algorithms](https://the-algorithms.com/)
+
 - Sorting
 
 | Name  | Average  | Worst  | Stable (array) | Method  |
@@ -94,7 +96,10 @@
   - Communication
     - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
       - Possible causes: I/O, lock, network request, database connection
+      - Blocking operations: disk, network
+      - Non-blocking operations: L1 L2 L3 cache, RAM
     - Synchronous (vs: Asynchronous): code executing one at a time in sequence, blocking communication
+    - [Boost application performance using asynchronous I/O](https://developer.ibm.com/articles/l-async/)
     - Overhead: compute time/resources spent on communication
     - Latency: time to send message from A to B (μs)
     - Bandwidth: amount to data communicated per seconds (GB/s)
@@ -105,6 +110,7 @@
     - Socket
 
 - Process & Thread (task execution)
+  - CPU bound, Memory bound, I/O bound
   - Process
     - States: Running([User space vs Kernel space](http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html)), Waiting, Blocked
   - Thread (subset of a process)
@@ -112,7 +118,6 @@
     - Threads have their own: program counter, registers, stack, and state
     - Thread pool: reuses threads to reduce the overhead that would be required to create a new separate thread for every concurrent task
   - Coroutine ([协程](https://www.liaoxuefeng.com/wiki/1016959663602400/1017968846697824))
-  - CPU bound, Memory bound, I/O bound
   - Inter process communication (IPC)
     - Shared memory, Pipe, Message queue, Semaphore
     - Remote procedure call (**RPC**)
@@ -182,9 +187,10 @@
         - Public IP (ISP: Internet service provider) vs Private IP (DHCP server / Router / LAN administrator)
       - Routing: Static routing & Dynamic routing
   4. Transport Layer -> Segment
-      - User Datagram Protocol (UDP)
       - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (**TCP**)
-        - Round-trip delay (RTD)
+        - connection setup, reliability, flow control, congestion control, timing, throughput guarantee, security
+      - User Datagram Protocol (UDP)
+        - no ack, used when speed is desirable and error correction is not necessary (e.g. streaming video, online games)
       - Socket = IP + port
         - Port acts as an interface between the application process and transport layer of the OSI model (internal port vs external port)
         - Echo server
@@ -226,6 +232,7 @@
       - 404 - Not found
     - 5xx (Server error): The server failed to fulfill an apparently valid request
       - 500 - Interval server error
+  - [HTTP safe and idempotent](https://www.rfc-editor.org/rfc/rfc7231#section-8.1.3)
   - Security
     - [Content security policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
     - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-origin resource sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
@@ -281,6 +288,7 @@
       - Digital signature (Electronic signature: DocuSign)
       - Public key infrastructure (PKI)
         - Certificate authority (CA)
+    - Post-quantum cryptography
   - Protocols
     - Central Authentication Service (CAS): single sign-on (SSO)
     - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
@@ -345,4 +353,5 @@ Send packet CA -> Netherlands -> CA 150,000,000   ns  150,000 us  150 ms
     - Imperative programming vs Declarative programming
 
 &emsp;(1) [Falsehoods CS Students (Still) Believe Upon Graduating](https://www.netmeister.org/blog/cs-falsehoods.html)  
-&emsp;(2) [記号と読み方](https://memotec.net/etc/mark.html)  
+&emsp;(2) [How many bytes for...](https://www.techtarget.com/searchstorage/definition/How-many-bytes-for)  
+&emsp;(3) [記号と読み方](https://memotec.net/etc/mark.html)  

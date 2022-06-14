@@ -50,6 +50,12 @@
   - Proof of Burn
     - The more coins burned by the miner, the bigger the ensuing virtual mining rig
 
+- Blockchain type: Public, Private, Consortium
+  - [Dune Analytics](https://dune.com/browse/dashboards)
+  - Explorer
+    - [Blockchain.com Explorer](https://www.blockchain.com/explorer)
+    - [Blockchair](https://blockchair.com/)
+
 - Cryptocurrency: technology - protocol - token
   - Bitcoin -> SHA-256
     - [Bitcoin Core](https://bitcoin.org/en/bitcoin-core/)
@@ -81,7 +87,6 @@
     - Layer 2 Scaling
       - Bitcoin Lightning Network
       - Ethereum Plasma
-  - [Know Your Customer (KYC)](https://academy.binance.com/en/glossary/know-your-customer)
 
 - Bitcoin Improvement Proposals (BIPs)
   - BIP32: seed -> key pairs
@@ -109,8 +114,6 @@
 
 ### Hyperledger Fabric (Consortium blockchain)
 
-- Blockchain type: Public, Private, Consortium
-
 - Nodes
   - Clients: submit transaction proposals for execution
   - Peers: execute transaction proposals and validate transactions
@@ -129,7 +132,7 @@
     - Certification authorities (CAs)
     - Private & permissioned
   - Ordering service: channels
-    - solo, kafka
+    - solo, Kafka
   - Peer gossip
     - The communication layer for gossip is based on gRPC and utilizes TLS with mutual authentication
   - Ledger: block store, peer transaction manager (PTM)

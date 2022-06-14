@@ -38,6 +38,7 @@
           - Gateway = Route (basic building block) + Filter (optional function)
         - Load Balancing (Nginx)
           - Hardware LB - Software LB: HAProxy
+          - Features: Routing and traffic management, Health checks
           - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
       - Reactive system (vs: Declarative system)
       - Challenges
@@ -52,16 +53,18 @@
       - Backend as a Service
         - Firebase
     - Peer-to-peer
+      - Peer-to-peer file sharing: BitTorrent
   - Distributed system (storage + computation + messaging)
     - Fault-tolerant Consensus: for solving consensus in a network
       - Properties: uniform agreement, integrity, validity, termination
       - Algorithms: Paxos, Zab (ZooKeeper)
-      - ZooKeeper (Chubby)
+      - [ZooKeeper](https://zookeeper.apache.org/doc/current/zookeeperInternals.html) (vs: Chubby)
         - Features: linearizable atomic operations, total ordering operations, failure detection, change notifications
-        - Central coordinator: manage state and hold configuration (Zookeeper ensemble)
+        - Central coordinator: manage state and hold configuration (ZooKeeper ensemble)
         - Recover from partial failures: master crashes, worker crashes, network trouble
         - Service discovery: leader election
         - Membership / coordination service
+    - [Thrashing in Distributed Shared Memory](https://www.geeksforgeeks.org/distributed-system-thrashing-in-distributed-shared-memory/)
     - RPC
       - Thrift & Avro
       - [gRPC](https://github.com/grpc-ecosystem/awesome-grpc): HTTP/2 & Protocol Buffers
@@ -81,7 +84,10 @@
     - Provision: Dockerfile / Puppet / Chef
     - [checkov](https://github.com/bridgecrewio/checkov/blob/master/docs/5.Policy%20Index/all.md)
   - Configuration (deploy and configure software: operating systems, applications, etc.)
-    - Jenkins (CI/CD: Continuous integration / Continuous delivery / Continuous deployment)
+    - CI/CD: automating the stages of app development (Jenkins)
+      - Continuous integration: build -> test -> merge
+      - Continuous delivery: automatically release to repository
+      - Continuous deployment: automatically deploy to production
     - Automation vs Orchestration
       - Automation refers to a single task
       - Orchestration refers to the management of many automated tasks, often a complicated ordering with dependencies
@@ -108,7 +114,7 @@
       - Pod - Node - Cluster
       - ReplicaSet
       - etcd
-      - [lens](https://k8slens.dev/) - [starboard](https://aquasecurity.github.io/starboard/)
+      - [lens](https://k8slens.dev/) - [starboard](https://aquasecurity.github.io/starboard/) - [karpenter](https://karpenter.sh/)
   - Monitors (metrics, events, logs, traces)
     - Synthetic check and uptime (is it working?)
     - Software component metrics
@@ -145,6 +151,7 @@
       - Policy (Authorization): policy is associated to tokens and grants capabilities to a secrets engine path
       - AppRole: Jenkins
     - [Web Application Security Checklist](https://www.appsecmonkey.com/blog/web-application-security-checklist)
+    - [Top 10 CI/CD Security Risks](https://github.com/cider-security-research/top-10-cicd-security-risks)
   - Reliability
     - Mean time to recovery (MTTR)
     - Mean time between failures (MTBF)
@@ -152,7 +159,7 @@
     - Hystrix (Circuit Breaker pattern: cascading failures)
     - Profiler
   - Others
-    - Heroku (dynamic page)
+    - Heroku
     - OpenStack
     - Vagrant: synced folder, networking, provider (hypervisor), provisioner
     - Packer: co-ordinates the lifecycle of image (for containers and virtual machines) creation, provision with simple scripting or configuration management tool such as Ansible
@@ -165,11 +172,12 @@
       - Database: LevelDB, Cassandra, HBase, Lucene
     - Page oriented storage engine: B tree
       - All major relational databases and some nonrelational ones
-  - Indexing structures
+  - Index
     - Primary key & Secondary index
-    - Multi-column index: R tree
+      - Secondary index: Gloabl secondary index, Local secondary index
+    - clustered index - covered index - only reference index (write amplification)
+    - Multi-column index: Geohash, R tree
     - Fuzzy index (full-text search)
-    - clustered index vs nonclustered index
   - Query Tuning
     - Index types
       - B tree
@@ -223,7 +231,7 @@
     - Linearizability / Sequential consistency: coordinate the state of replicas in the face of delays and faults
       - CAP: Consistency, Availability, Partition tolerance
         - CP (Linearizability) vs AP (BASE: Basically Available Soft state Eventual consistency)
-    - Total order broadcast
+    - Total order broadcast (e.g. ZooKeeper Atomic Broadcast, ZAB)
     - Two-phase Commit (2PC): provide atomic commit in a distributed database
   - Connection pooling - [Bulkhead](https://docs.microsoft.com/en-us/azure/architecture/patterns/bulkhead)
 
@@ -247,7 +255,7 @@
   - Pros: flexible schemas, distributed (horizontally scalable, designed to be scaled across multiple servers), replication
   - Key-value (fast & light: caching stores, managing user sessions, ad servicing, recommendations)
     - LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098), vs: [Ignite](https://github.com/apache/ignite))
-  - Wide-column (reduce disk resources & fast querying and processing: big data store)
+  - Wide-column (reduce disk resources & fast querying and processing: big data store, **not** column-oriented)
     - Cassandra
       - Table - Keyspace
       - Primary key - **Partition** key - Cluster key
@@ -270,9 +278,8 @@
     - [Elasticsearch](http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
       - Document with properties - Index
         - Scheme-free JSON (distributed document storage)
-      - Search engine (Lucene)
-        - Characteristics: text centric, read dominant, document oriented, large volumes of data, flexible schema
       - Percolator: search on streams
+      - Node discovery and cluster management: [built-in subsystem](https://www.elastic.co/blog/a-new-era-for-cluster-coordination-in-elasticsearch)
   - Graph database
     - Neo4j (property graph model, vs: triple-store model)
       - Graph: hierarchical or nonhierarchical, number of nodes and edged, the longest distance between nodes
@@ -289,30 +296,37 @@
   - Others
     - Sequence database (e.g. GenBank)
 
-- Search engine
-  - Solr (Lucene, Inverted Index)
-    - Solr core - Jetty web server - Java JVM
-    - Documents, fields and schema design
-      - Solr's data modeling consists of denormalized documents, meaning all the data that belongs to an entity is in the same document
-    - Indexing
-      - Updating parts of documents: atomic updates, in-place updates, optimistic concurrency (version)
-      - Commit: data sent to Solr is not searchable until it has been committed to the index
-        - auto commit: tradeoff between performance and accuracy
-      - Nested child documents
-      - Reindexing: schema changes, Solrconfig changes, upgrade
-    - Text Analysis
-      - Analyzer - Tokenizer - Filter
-    - Searching
-      - Relevance score (e.g. TF-IDF)
-      - Near real time searching: soft commit (vs: hard commit)
-      - Request handlers (SearchHandler) -> Search components (QueryComponent) -> Query parser (Lucene)
-      - Query syntax and parsing
-        - Query parameters
-        - Standard query parser
-          - Term modifiers: wildcard search, fuzzy search, range search, boosting
-      - Faceted search: field faceting, query faceting, range faceting
+- Search Engine
+  - Lucene + Inverted Index
+    - Characteristics: text centric, read dominant, document oriented, flexible schema, large volumes of data
+    - Solr
+      - Solr core - Jetty web server - Java JVM
+      - Documents, fields and schema design
+        - Solr's data modeling consists of denormalized documents, meaning all the data that belongs to an entity is in the same document
+      - Indexing
+        - Updating parts of documents: atomic updates, in-place updates, optimistic concurrency (version)
+        - Commit: data sent to Solr is not searchable until it has been committed to the index
+          - auto commit: tradeoff between performance and accuracy
+        - Nested child documents
+        - Reindexing: schema changes, Solrconfig changes, upgrade
+      - Text Analysis
+        - Analyzer - Tokenizer - Filter
+      - Searching
+        - Relevance score (e.g. TF-IDF)
+        - Near real time searching: soft commit (vs: hard commit)
+        - Request handlers (SearchHandler) -> Search components (QueryComponent) -> Query parser (Lucene)
+        - Query syntax and parsing
+          - Query parameters
+          - Standard query parser
+            - Term modifiers: wildcard search, fuzzy search, range search, boosting
+        - Faceted search: field faceting, query faceting, range faceting
+      - Node discovery and cluster management: ZooKeeper
+    - Elasticsearch
+      - [Similarity](https://www.elastic.co/guide/en/elasticsearch/reference/current/similarity.html): BM25
+  - Image search
+    - Thumbnail
 
-- Cache
+- In-memory database (Cache + Processing / Querying)
   - Types
     - Application server cache: placing a cache on request layer node enables the local storage of response data
     - Distribute cache: each of its nodes own part of cached data, the cache is divided up using a consistent hashing function
@@ -330,16 +344,24 @@
     - Mitigating failures
     - [Eviction policy](https://en.wikipedia.org/wiki/Cache_replacement_policies)
 
-- Content Delivery Network (CDN): first request ask the CDN for data, if not, CDN will query the backend servers
+- Content Delivery Network (CDN): cacheable content such as images and videos (static content vs dynamic content)
+  - Benefits (first request ask the CDN for data, if not, CDN will query the backend servers)
+    - Improving website load times
+    - Reducing bandwidth costs
+    - Increasing content availability and redundancy
+    - Improving website security
+    - TTL features for certain uses cases
   - Fastly, Cloudflare, Amazon CloudFront
-  - Static page vs Dynamic page (CGI)
+    - [How is AWS Global Accelerator different from Amazon CloudFront](https://aws.amazon.com/global-accelerator/faqs/)
   - [CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820)
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
     - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
     - Database (Data warehouse): Hive, Teradata, Greenplum
-    - Column-oriented (Bitmap index)
+    - Column-oriented (Bitmap encoding vs Run-length encoding)
+    - Main read pattern: aggregate over large number of records
+    - Main write pattern: bulk import (ETL) or event stream
     - Vectorized Processing in CPU cache
     - Dimensional model (vs: normalized model, e.g. 3NF data model)
       - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
@@ -347,6 +369,8 @@
   - Transaction processing systems (OLTP: online transaction processing)
     - Database: MySQL, PostgreSQL, Oracle
     - Row-oriented
+    - Main read pattern: small number of records per query, fetched by key
+    - Main write pattern: random access, low latency writes from user input
 
 - Others
   - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
@@ -354,7 +378,7 @@
       - Machine learning and statistics: tables and data frames
       - Real time analysis: queues and streams
       - Network analysis: graphs
-    - Comparisons: [MongoDB vs MySQL](https://www.simform.com/mongodb-vs-mysql-databases), [MongoDB vs Elasticsearch](https://mindmajix.com/mongodb-vs-elasticsearch), [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
+    - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
   - References
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
     - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
@@ -372,7 +396,7 @@
     - Textual formats: JSON, XML, CSV
     - Binary encoding formats: Thrift, Protocol Buffers, Avro
   - Modes of dataflow
-    - Database
+    - ~~Database~~
     - Service calls (RPC vs REST API)
     - Asynchronous message passing (via message broker or [actor](https://github.com/akka/akka))
 
@@ -389,6 +413,7 @@
   - Spark (Livy)
     - Resilient Distributed Dataset (RDD) - DataSet
       - Fault tolerance: tracking the the intermediate states of the data
+      - [Shuffle](https://spark.apache.org/docs/latest/rdd-programming-guide.html#shuffle-operations)
     - Components: Spark Core - Spark SQL - spark.ml - Spark Streaming - GraphFrames (Pregel API)
     - Spark streaming (work on microbatching)
       - Batch interval vs Slide interval vs Window interval
@@ -431,12 +456,12 @@
       - Microbatching and Checkpointing, Transaction, Idempotent writes
     - Storm (work on individual events, truly real-time processing compared with Spark streaming)
       - Tuples: Topology (Spouts and Bolts)
-      - Nimbus - Zookeeper - Supervisor
+      - Nimbus - ZooKeeper - Supervisor
     - Flink (faster than Storm, work on events, highly scalable, fault tolerant using [state snapshots](https://ci.apache.org/projects/flink/flink-docs-master/docs/learn-flink/fault_tolerance/))
       - Standalone cluster / YARN on Hadoop / Cloud / Local - Flink runtime - API
   - Database and Stream: keeping systems in sync
     - Capture the changelog (downside: asynchronous)
-      - Change data capture (CDC)
+      - [Change data capture](https://scaling.dev/replication/cdc) (CDC)
       - Event sourcing
     - Command query responsibility segregation ([CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)): deriving several views from the same event log
     - [Hudi](https://hudi.apache.org/) (Hadoop Upserts Deletes and Incrementals)
@@ -446,7 +471,8 @@
   - Message: a client's request of a sequence of bytes with some metadata
   - Advanced Message Queuing Protocol (AMQP) / Java Message Service (JMS) style message broker
     - Situation: expensive message processing, parallelize processing on a message-by-message basis, and message ordering is not so important
-    - ZeroMQ, ActiveMQ, RabbitMQ
+    - [RabbitMQ](https://www.rabbitmq.com/tutorials/amqp-concepts.html) (ZeroMQ, ActiveMQ)
+      - publisher -> exchange -> queue -> consumer
   - Log based message broker
     - Situation: high message throughput, each message is fast to process, and message ordering is important
     - Kafka
@@ -486,12 +512,12 @@
         - Kafka Connect (Source connector / Sink connector)
           - CDC connector -> Search index (e.g. Solr) / Database / Data warehouse / Cache
         - Kafka Streams (ksqlDB)
-      - Zookeeper (leader + followers)
-        - Manages brokers
-        - Performs leader election for partitions
-        - Sends notifications
+      - ~~ZooKeeper (leader + followers)~~
+        - ~~Manages brokers~~
+        - ~~Performs leader election for partitions~~
+        - ~~Sends notifications~~
       - Others
-        - Cluster (the minimum number of nodes in Zookeeper is 3 because of the quorum attribute)
+        - Cluster (the minimum number of nodes in ZooKeeper is 3 because of the quorum attribute)
           - Replication (multiple clusters): active-passive vs active-active
         - Monitoring (JMX metrics) and Operations
         - Security
@@ -544,7 +570,7 @@
         - [How We Design Our APIs at Slack](https://slack.engineering/how-we-design-our-apis-at-slack/)
         - [RESTful API resources](https://github.com/marmelab/awesome-rest)
         - [API Directory](https://www.programmableweb.com/)
-  - GraphQL
+  - GraphQL: asking for specific fields on objects
 
 - Design patterns
   - Object oriented programming (OOP): Polymorphism
@@ -559,7 +585,7 @@
     - Single Responsibility Principle
     - Interface Segregation Principle
 
-- Java
+- [Java](https://github.com/akullpp/awesome-java)
   - JVM ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html))
     - Architecture: Class Loader - JVM Memory - Execution Engine
     - Application program - Tomcat container - **JVM** process - Operating system - Physical server
@@ -596,17 +622,16 @@
       - Reactive programming: high load
         - Asynchronous & Non-blocking
         - Dataflow: Event / Message driven stream
-        - Backpressure
+        - Backpressure (provides the client the control on how much data the client needs from the server, different from throttling)
         - Reactive Streams
       - Reactor: Flux, Mono
       - Netty
     - Spring Cloud
     - Projects: [link](https://spring.io/projects)
 
-- Go ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
+- [Go](https://github.com/avelino/awesome-go) ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
 
-- Python
-  - [Awesome Python](https://github.com/vinta/awesome-python)
+- [Python](https://github.com/vinta/awesome-python)
   - [cProfile](https://docs.python.org/3/library/profile.html), [timeit](https://docs.python.org/3/library/timeit.html)
   - [Dask](https://docs.dask.org/en/stable/dataframe.html)
   - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
@@ -624,7 +649,7 @@
     - Vue.js
       - Vue Instance - Virtual DOM - DOM
       - VueResource, VueRouter, Vuex
-        - MVVM: two-way data bindings([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
+        - MVVM: two-way data bindings ([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
       - Developer Tools: Vue.js devtools
   - Mobile
     - SwiftUI
@@ -643,9 +668,11 @@
 - Performance
   - **If the system goes slow**: scalability, performance
   - Testing
-    - Throughput = # tasks / time
+    - Throughput = # tasks / time (Batch)
       - hps, tps, qps: number of HTTP requests/Transactions/Queries per second
-    - Latency = time / task
+    - Response time = transport latency + processing time (Stream)
+      - Latency = time / task
+      - mean / average, p50 (median), p95, p99, p999
     - Number of concurrent sessions/users (Concurrency = throughput * latency)
     - Internal metrics: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
   - Optimization & Scaling
@@ -656,7 +683,8 @@
       - Moniter the system and use automation tools
     - Architecture (clustered architecture)
       - Split tiers into individual services
-      - Stateless architecture
+      - Stateless architecture ([Stateful vs Stateless Architecture: Why Stateless Won
+](https://www.virtasant.com/blog/stateful-vs-stateless-architecture-why-stateless-won))
       - Data sharding
       - Global data center (support multiple data center)
       - Cache (read-through vs cache-aside)
@@ -665,20 +693,28 @@
     - Programming: algorithms, data structure, design pattern, asynchronous I/O
 
 - Availability
-  - **If the system goes down**: resiliency (SPOF: single point of failure), availability, stability
+  - **If the system goes down**: reliability, resiliency (SPOF: single point of failure), availability
   - Redundancy backup: Load balancing, database with multi master replication
   - Fault and latency tolerance: Hystrix, message broker
   - Flow control & degrade
   - Global server load balancing (GSLB)
 
+- Maintainability: operability, simplicity, evolvability
+
 - The Architecture Process
   - Understand the System’s Requirements
-  - Understand the Non-Functional Requirements (NFR, SLA: Service-level agreement)
+  - Understand the Non-Functional Requirements (NFR, SLA)
+    - [AWS Service Level Agreements](https://aws.amazon.com/legal/service-level-agreements) (SLAs)
+    - [AMS service level objectives](https://docs.aws.amazon.com/managedservices/latest/userguide/apx-slo.html) (SLOs)
   - Map the Components (logic diagram, technical diagram, physical diagram)
   - Select the Technology Stack
   - Design the Architecture
   - Write Architecture Document
   - Support the Team
+
+- Topics
+  - Unique Identifiers:Universally unique identifier (UUID)
+    - True Random Numbers - Pseudorandom Numbers - RDRAND
 
 - Edge Computing
   - Network architectural pattern for compute and storage
@@ -733,14 +769,14 @@
     - Event storming: design a system that models the structure and flow of activities within the business itself
 
 - Coding
-  - Testing: unit test, code coverage
-  - Debugging: Exception breakpoint, Conditional breakpoint, Suspend policy (thread vs VM), Evaluate
+  - System design -> Code development -> System testing -> System monitoring -> Product Rollout
   - Packages
     - JFrog Artifactory
     - [Packaging Python Projects](https://packaging.python.org/tutorials/packaging-projects/)
   - Guidelines
     - Python: isort, autopep8, black ([mkdocs](https://www.mkdocs.org/))
     - [Dockerfile linter](https://github.com/hadolint/hadolint)
+  - Debugging: Exception breakpoint, Conditional breakpoint, Suspend policy (thread vs VM), Evaluate
   - Code Review
     - Programming style
     - Code review best practice
@@ -752,6 +788,7 @@
       - Reviews should be small
       - Reviewing respond in a timely fashion
       - Comments with Why, When and What
+  - Testabiilty: unit test - load test - sanity test - canary test - all active test - regression test, code coverage
 
 - Project Management
   - Systems development life cycle (SDLC): requirement analysis -> design -> development and testing -> implementation -> documentation -> evaluation

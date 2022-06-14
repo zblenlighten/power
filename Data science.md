@@ -29,16 +29,8 @@
   - Explore the data to gain insights (field expert)
   - Prepare the data to better expose the underlying data patterns
     1. data clean/data analysis
-    2. feature engineering ([feature engine](https://feature-engine.readthedocs.io/en/latest/index.html))
-        - variable characteristics
-        - missing data imputation
-        - categorical encoding
-        - variable transformation
-        - discretization
-        - ourliers
-        - dates
-        - feature scaling
-    3. feature selection
+    2. [**feature engineering**](https://trainindata.medium.com/feature-engineering-for-machine-learning-a-comprehensive-overview-a7ad04c896f8) ([feature engine](https://feature-engine.readthedocs.io/en/latest/index.html))
+    3. [feature selection](https://trainindata.medium.com/feature-selection-for-machine-learning-a-comprehensive-overview-bd571db5dd2d)
   - Explore many different models and short-list the promising ones
   - Fine-tune
   - Present your solution
@@ -90,6 +82,12 @@
     - [Active learning](https://en.wikipedia.org/wiki/Active_learning_(machine_learning))
     - GAN (Generative Adversarial Network)
     - Data security, privacy, and compliance requirements
+  - Data transformation
+    - Categorical variable encoding ([Category Encoders](https://contrib.scikit-learn.org/category_encoders/))
+    - Variable transformation
+      - Power transform
+        - Box–Cox transformation
+        - Yeo–Johnson transformation
   - Dimensionality reduction
     - Principal Component Analysis (PCA)
     - Linear Discriminant Analysis (LDA)
@@ -157,6 +155,8 @@
           - Visualization: t-SNE
         - Item2vec
         - Graph Embedding
+          - DeepWalk
+          - Node2vec
       - Transformer (Attention)
         - BERT ([Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3))
     - Evaluation: BLEU, ROUGE, METEOR, etc.
@@ -276,7 +276,6 @@
   - Lazy learning vs Eager learning
     - Lazy: k Nearest Neighbor
     - Eager: Decision tree, Naive Bayes, Neural Network
-  - Predictive Model Markup Language (PMML)
 
 - Further topics
   - Multiple regression
@@ -337,48 +336,37 @@
     - Gain and Lift Charts
     - Kolmogorov Smirnov Chart
     - Concordant – Discordant Ratio
-  - Multi-classification: F1 score, Average Accuracy, Log-loss
+  - Multi-classification: F1 Score, Average Accuracy, Log Loss
 - Evaluating performance
   - Resource usage (memory, GPU / CPU)
   - Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
 
 ### Recommender System
 
-- Framework
-  - Online serving
-  - Distributed computing
-  - Stream computing
-  - Data highway
-
-- Candidate Generation
-  - Content-based
-  - Collaborative filtering (NCF: Neural Collaborative Filtering)
-    - Item based
-    - User based
+- Models
+  - Collaborative Filtering
+    - ItemCF
+    - UserCF
       - Demographic characteristic
       - User behavior / User profile
       - Personalized topic model
     - Problems: Explore-exploit (lack of diversity), Cold start (new community, new item, new user)
-    - Matrix Factorization
-      - Singular Value Decomposition (SVD)
-      - Alternating Least Squares (ALS)
-
-- Retrieval / Ranking ([CTR](https://zhuanlan.zhihu.com/p/61154299): Click Through Rate): depends on business needs and development stage
-  - XGBoost (GBM、GBRT、GBDT)
-  - Factorization Machine (FM), FFM, DeepFM ([说明](https://blog.csdn.net/john_xyz/article/details/78933253))
-  - [DNN](https://zhuanlan.zhihu.com/p/35484389): FNN, PNN, AFM, ect
+  - Matrix Factorization
+    - Eigen Decomposition
+    - Singular Value Decomposition (SVD)
+    - Gradient Descent
+  - [CTR预估模型的演化之路](https://zhuanlan.zhihu.com/p/61154299)
+  - [深度学习在CTR预估中的应用](https://zhuanlan.zhihu.com/p/35484389)
 
 - Evaluation
   - Spot check
   - Ground truth
   - Metrics
+    - Precision@N, Recall@N, PR curve, ROC curve, mAP
     - CTR, CVR, GPM (GMV per mille: Gross merchandise volume / impression * 1000)
     - Top N Hit Rate
-  - Offline vs Online
-    - A/B test
-
-- Cases
-  - [Youtube 排序系统](https://zhuanlan.zhihu.com/p/82584437)
+  - A/B test
+    - [Innovating Faster on Personalization Algorithms at Netflix Using Interleaving](https://netflixtechblog.com/interleaving-in-online-experiments-at-netflix-a04ee392ec55)
 
 ### Digital Advertising
 
@@ -455,6 +443,10 @@
   - Conditional tests
   - Multi-Armed Bandit test
 
+- Anomaly detection
+  - Z-score
+  - [Simple Anomaly Detection Using Plain SQL](https://hakibenita.com/sql-anomaly-detection)
+
 - Cases
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)
   - Simpson's paradox
@@ -523,6 +515,7 @@
   - CUDA (Compute Unified Device Architecture) programming
     - Host / CPU (Kernel) -> Device / GPU (Grid - Block - Thread)
   - TensorRT
+  - TensorFlow.js
   - TensorFlow Lite
   - [ONNX](https://onnx.ai/)
   - Kubeflow
@@ -552,9 +545,16 @@
   - Incremental learning
   - Online learning
   - ML Design Patterns
+  - Model drift: concept drift, data drift, upstream data changes
+  - Predictive Model Markup Language (PMML)
+  - TensorFlow Serving
+  - Parameter Server
+    - [TensorFlow](https://www.tensorflow.org/tutorials/distribute/parameter_server_training)
+    - [PyTorch](https://pytorch.org/tutorials/intermediate/rpc_param_server_tutorial.html)
 
 - References
   - [MLeap](https://combust.github.io/mleap-docs/)
   - [Oryx 2](http://oryx.io/)
   - [Big data pipeline architecture](https://www.satishchandragupta.com/tech/scalable-efficient-big-data-analytics-machine-learning-pipeline-architecture-on-cloud.html)
   - [Best practices for performance and cost optimization for machine learning](https://cloud.google.com/solutions/machine-learning/best-practices-for-ml-performance-cost)
+  - [Lambda or Kappa? The need for a new data processing architecture](https://www.qlik.com/blog/lambda-or-kappa-the-need-for-a-new-data-processing-architecture)
