@@ -77,7 +77,7 @@
   - General [Big-O](https://linux.cn/article-7480-1.html) ([Java](https://www.baeldung.com/java-collections-complexity), [Python](https://wiki.python.org/moin/TimeComplexity))
 
 - Others
-  - Unique Identifiers:Universally unique identifier (UUID)
+  - Unique Identifiers: Universally unique identifier (UUID)
     - True Random Numbers - Pseudorandom Numbers - RDRAND
   - Probabilistic data structures
     - **Bloom filter** (eliminate costly lookups)
