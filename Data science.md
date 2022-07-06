@@ -445,7 +445,11 @@
 
 - Anomaly detection
   - Z-score
-  - [Simple Anomaly Detection Using Plain SQL](https://hakibenita.com/sql-anomaly-detection)
+  - Local outlier factor (LOF)
+  - Isolation forest
+  - References
+    - [Simple Anomaly Detection Using Plain SQL](https://hakibenita.com/sql-anomaly-detection)
+    - Python: [package-outlier](https://pypi.org/project/package-outlier/), [pyod](https://pypi.org/project/pyod/)
 
 - Cases
   - [Lady tasting tea](https://en.wikipedia.org/wiki/Lady_tasting_tea)

@@ -34,7 +34,7 @@
         - Service Mesh: Istio
       - Componentization via services
         - Service discovery (SDP, Eureka service registry)
-        - API Gateway ([WSO2](https://docs.wso2.com/display/AM260/Key+Concepts), Kong, Tyk, Zuul)
+        - API Gateway ([WSO2](https://apim.docs.wso2.com/en/latest/get-started/key-concepts/), Kong, Tyk, Zuul)
           - Gateway = Route (basic building block) + Filter (optional function)
         - Load Balancing (Nginx)
           - Hardware LB - Software LB: HAProxy
@@ -57,7 +57,7 @@
   - Distributed system (storage + computation + messaging)
     - Fault-tolerant Consensus: for solving consensus in a network
       - Properties: uniform agreement, integrity, validity, termination
-      - Algorithms: Paxos, Zab (ZooKeeper)
+      - Consensus algorithms: Paxos, Raft, Zab (ZooKeeper)
       - [ZooKeeper](https://zookeeper.apache.org/doc/current/zookeeperInternals.html) (vs: Chubby)
         - Features: linearizable atomic operations, total ordering operations, failure detection, change notifications
         - Central coordinator: manage state and hold configuration (ZooKeeper ensemble)
@@ -174,7 +174,7 @@
       - All major relational databases and some nonrelational ones
   - Index
     - Primary key & Secondary index
-      - Secondary index: Gloabl secondary index, Local secondary index
+      - Secondary index: Gloabl secondary index (asynchronous updating), Local secondary index
     - clustered index - covered index - only reference index (write amplification)
     - Multi-column index: Geohash, R tree
     - Fuzzy index (full-text search)
@@ -202,7 +202,7 @@
       - Leaderless
     - Write conflict resolution
       - [Conflict-free replicated data type](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) (CRDT)
-      - Operational transformation ([demo](http://operational-transformation.github.io)): Google Docs
+      - Operational transformation (collaborative editing, [demo](http://operational-transformation.github.io)): Google Docs
   - Partition
     - Approaches: Key range, Hash of key
     - **Secondary index** (full-text index is a particular kind of secondary index)
@@ -473,6 +473,7 @@
     - Situation: expensive message processing, parallelize processing on a message-by-message basis, and message ordering is not so important
     - [RabbitMQ](https://www.rabbitmq.com/tutorials/amqp-concepts.html) (ZeroMQ, ActiveMQ)
       - publisher -> exchange -> queue -> consumer
+      - [Dead Lettering](https://www.rabbitmq.com/dlx.html)
   - Log based message broker
     - Situation: high message throughput, each message is fast to process, and message ordering is important
     - Kafka
@@ -640,23 +641,23 @@
 
 - Knowledge
   - WWW standards
-    - CSS ([animation](https://animate.style/))
+    - CSS
     - DOM
     - SVG
     - XML
     - HTML
-  - Web
+  - JavaScript
     - Vue.js
       - Vue Instance - Virtual DOM - DOM
       - VueResource, VueRouter, Vuex
         - MVVM: two-way data bindings ([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
       - Developer Tools: Vue.js devtools
-  - Mobile
-    - SwiftUI
-    - WeChat Mini Program
-  - Desktop
     - Electron
-  - UI component: Bootstrap, Ant Design
+  - Dart
+  - Others
+    - Swift
+      - SwiftUI
+    - WeChat Mini Program
 
 ### System design
 
@@ -704,6 +705,7 @@
 - The Architecture Process
   - Understand the System’s Requirements
   - Understand the Non-Functional Requirements (NFR, SLA)
+    - SLIs drive SLOs which inform SLAs
     - [AWS Service Level Agreements](https://aws.amazon.com/legal/service-level-agreements) (SLAs)
     - [AMS service level objectives](https://docs.aws.amazon.com/managedservices/latest/userguide/apx-slo.html) (SLOs)
   - Map the Components (logic diagram, technical diagram, physical diagram)
@@ -711,10 +713,6 @@
   - Design the Architecture
   - Write Architecture Document
   - Support the Team
-
-- Topics
-  - Unique Identifiers:Universally unique identifier (UUID)
-    - True Random Numbers - Pseudorandom Numbers - RDRAND
 
 - Edge Computing
   - Network architectural pattern for compute and storage

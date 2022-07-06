@@ -35,22 +35,23 @@
   5. Hash (hash function: easy to compute, even distribution, less collision)
       - Requirements: One-way, Deterministic, Fast computation, [Avalanche effect](https://en.wikipedia.org/wiki/Avalanche_effect), Must withstand collisions
         - [Collision](http://www.ruanyifeng.com/blog/2018/09/hash-collision-and-birthday-attack.html): Separate chaining, Open addressing, 2-choice hashing ([Perfect hash function](https://en.wikipedia.org/wiki/Perfect_hash_function))
-      - Bloom Filter
       - Fingerprint
         - Pseudorandom number generator (PRNG): Mersenne Twister
         - [Content ID system](https://en.wikipedia.org/wiki/Content_ID_(system))
-      - SimHash, GeoHash
+      - SimHash, **GeoHash** (location based service)
 
 - Trees
   1. Binary search trees
   2. Self-balancing binary search tree
-      - **AVL tree**
+      - AVL tree
       - Red-black tree
   3. B tree
       - B+ tree
-  4. Trie ([Implementation](https://leetcode.com/articles/implement-trie-prefix-tree/))
-  5. Heap
-  6. traversals: preorder, inorder, postorder, BFS, DFS
+  4. **Trie** (search autocomplete, [implementation](https://leetcode.com/articles/implement-trie-prefix-tree/))
+  5. **Quadtree** (location based service)
+  6. Merkle tree (identify inconsistencies between nodes)
+  7. Heap
+  8. traversals: preorder, inorder, postorder, BFS, DFS
 
 - Graph
   1. directed
@@ -74,6 +75,14 @@
 
 - Time complexity
   - General [Big-O](https://linux.cn/article-7480-1.html) ([Java](https://www.baeldung.com/java-collections-complexity), [Python](https://wiki.python.org/moin/TimeComplexity))
+
+- Others
+  - Unique Identifiers:Universally unique identifier (UUID)
+    - True Random Numbers - Pseudorandom Numbers - RDRAND
+  - Probabilistic data structures
+    - **Bloom filter** (eliminate costly lookups)
+    - [HyperLogLog](https://engineering.fb.com/2018/12/13/data-infrastructure/hyperloglog/) (count unique values fast)
+    - Count–min sketch (estimate frequencies of items)
 
 ### Operating system
 
@@ -108,6 +117,7 @@
     - Directory
       - Linking: Static library (.lib) & Dynamic-link library (.dll)
     - Socket
+    - [rsync](https://en.wikipedia.org/wiki/Rsync) (file transfers)
 
 - Process & Thread (task execution)
   - CPU bound, Memory bound, I/O bound
@@ -171,6 +181,7 @@
     - Messages between users
     - Networking: scp, curl, ssh
     - Job scheduler: cron, crontab
+      - [Hierarchical timing wheels](https://github.com/apache/kafka/blob/trunk/core/src/main/scala/kafka/utils/timer/TimingWheel.scala) (job scheduler)
 
 ### Network
 
@@ -213,6 +224,9 @@
   - Network model
     - client–server
     - peer-to-peer
+  - Traffic shaping algorithms
+    - **Leaky bucket** (rate limiter)
+    - **Token bucket** (rate limiter)
 
 - The Hypertext Transfer Protocol (HTTP): stateless
   - [Message](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
@@ -258,7 +272,7 @@
       - **HTTP request**
   3. Browser -> NIC -> Wifi router -> Global IP Network (Internet) -> NIC -> Host server
   4. Host server:
-      - Load balancing ([Consistent hashing](https://vitalflux.com/wtf-consistent-hashing-databases/): using virtual nodes to create better key distribution in a hash ring)
+      - Load balancing ([**Consistent hashing**](https://vitalflux.com/wtf-consistent-hashing-databases/): using virtual nodes to create better key distribution in a hash ring)
         - Reverse proxy (vs: forward proxy)
       - Web application firewall (WAF)
       - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview): Apache
