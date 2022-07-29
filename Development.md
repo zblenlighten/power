@@ -77,7 +77,8 @@
 
 - DevOps
   - Version control
-    - Git: branch, tag
+    - Git (tag - branch)
+    - dvc: data version control (vs: Git LFS, lakeFS)
   - Infrastructure as code (consider hardware: networks, servers, storage, etc.)
     - Terraform: Write -> Plan -> Apply
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
@@ -374,6 +375,7 @@
     - Row-oriented
     - Main read pattern: small number of records per query, fetched by key
     - Main write pattern: random access, low latency writes from user input
+  - [Data Mesh Architecture](https://www.datamesh-architecture.com/)
 
 - Others
   - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
@@ -447,7 +449,10 @@
       - CI/CD pipeline with Airflow image containing DAGs: Github repo -> Jenkins -> K8s -> Pod
     - dbt: data build tool
       - [airflow dbt demo](https://github.com/astronomer/airflow-dbt-demo)
-    - Great Expectations: data testing
+  - Data management
+    - [OpenMetadata](https://docs.open-metadata.org/)
+      - Data lineage: OpenLineage
+      - Data testing: [Great Expectations](https://docs.greatexpectations.io/docs/)
   - Batch: file (a sequence of bytes)
     - Problems: partitioning, fault tolerance
     - Graph processing: GraphChi, Pregel (PageRank)
