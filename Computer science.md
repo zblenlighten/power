@@ -71,7 +71,7 @@
   6. Dynamic programing
   7. Union find
   8. Greedy
-  9. Regular expression: [regexr](https://regexr.com/), [regex101](https://regex101.com/)
+  9. Regular expression ([regexr](https://regexr.com/))
 
 - Time complexity
   - General [Big-O](https://linux.cn/article-7480-1.html) ([Java](https://www.baeldung.com/java-collections-complexity), [Python](https://wiki.python.org/moin/TimeComplexity))
@@ -179,7 +179,7 @@
     - Information: man
     - Status: ps, top, netstat
     - Messages between users
-    - Networking: scp, curl, ssh
+    - Networking: scp, curl, ssh, ifconfig, traceroute, telnet
     - Job scheduler: cron, crontab
       - [Hierarchical timing wheels](https://github.com/apache/kafka/blob/trunk/core/src/main/scala/kafka/utils/timer/TimingWheel.scala) (job scheduler)
 
@@ -194,9 +194,11 @@
       - Bridging
   3. Network Layer: Router -> Datagram
       - Internet Protocol (**IP**)
-        - Network address translation (NAT)
         - Public IP (ISP: Internet service provider) vs Private IP (DHCP server / Router / LAN administrator)
+        - Network address translation (NAT)
+        - Classless Inter-Domain Routing (CIDR)
       - Routing: Static routing & Dynamic routing
+      - Gateway address / Default gateway
   4. Transport Layer -> Segment
       - [Transmission Control Protocol](http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html) (**TCP**)
         - connection setup, reliability, flow control, congestion control, timing, throughput guarantee, security
@@ -272,7 +274,7 @@
       - **HTTP request**
   3. Browser -> NIC -> Wifi router -> Global IP Network (Internet) -> NIC -> Host server
   4. Host server:
-      - Load balancing ([**Consistent hashing**](https://vitalflux.com/wtf-consistent-hashing-databases/): using virtual nodes to create better key distribution in a hash ring)
+      - Load balancing ([**Consistent hashing**](https://www.toptal.com/big-data/consistent-hashing))
         - Reverse proxy (vs: forward proxy)
       - Web application firewall (WAF)
       - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview): Apache
@@ -315,6 +317,7 @@
       - OpenSSL
       - Network security services (NSS)
     - Virtual Private Network (VPN)
+      - [VPN error code](https://www.paessler.com/help/vpn-errors)
   - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 
 - References

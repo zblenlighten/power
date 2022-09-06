@@ -36,10 +36,7 @@
         - Service discovery (SDP, Eureka service registry)
         - API Gateway ([WSO2](https://apim.docs.wso2.com/en/latest/get-started/key-concepts/), Kong, Tyk, Zuul)
           - Gateway = Route (basic building block) + Filter (optional function)
-        - Load Balancing (Nginx)
-          - Hardware LB - Software LB: HAProxy
-          - Features: Routing and traffic management, Health checks
-          - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
+        - Load balancing (Nginx)
       - Reactive system (vs: Declarative system)
       - Challenges
         - Design and runtime complexity
@@ -147,6 +144,7 @@
         - Vulnerability scanning: OpenVAS
         - Others: sqlmap, Recon-ng, OWASP Glue
     - Penetration test
+    - Cyber incident response test
     - Vault
       - Data in transit: TLS encrypts data between server and client (asymmetric) 
       - Internal data: AES256 (symmetric, faster)
@@ -157,12 +155,6 @@
       - AppRole: Jenkins
     - [Web Application Security Checklist](https://www.appsecmonkey.com/blog/web-application-security-checklist)
     - [Top 10 CI/CD Security Risks](https://github.com/cider-security-research/top-10-cicd-security-risks)
-  - Reliability
-    - Mean time to recovery (MTTR)
-    - Mean time between failures (MTBF)
-    - Chaos Monkey
-    - Hystrix (Circuit Breaker pattern: cascading failures)
-    - Profiler
   - Others
     - OpenStack
     - Vagrant: synced folder, networking, provider (hypervisor), provisioner
@@ -258,7 +250,7 @@
 - NoSQL
   - Pros: flexible schemas, distributed (horizontally scalable, designed to be scaled across multiple servers), replication
   - Key-value (fast & light: caching stores, managing user sessions, ad servicing, recommendations)
-    - LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098), vs: [Ignite](https://github.com/apache/ignite))
+    - LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098), vs: [Ignite](https://github.com/apache/ignite), [Hazelcast](https://github.com/hazelcast/hazelcast))
   - Wide-column (reduce disk resources & fast querying and processing: big data store, **not** column-oriented)
     - Cassandra
       - Table - Keyspace
@@ -269,7 +261,7 @@
       - CQL, CQLSH
       - Tips
         - data is denormalized and ordered: no normalization
-        - eventually consistent so read operation can return inconsistent data: read from multiple replicas
+        - eventual consistency so read operation can return inconsistent data: read from multiple replicas
         - data duplication and missing columns are common
         - [Why Cassandra Doesn’t Need Vector Clocks](https://www.datastax.com/blog/why-cassandra-doesnt-need-vector-clocks)
     - HBase
@@ -295,10 +287,11 @@
         - Identify important nodes
         - Consider the weigh of edges
         - Beware of cycles: it's possible to visit same node repeatedly
-  - Ledger
+  - Ledger database
     - Hyperledger
-  - Others
-    - Sequence database (e.g. GenBank)
+  - Time series database / Sequence database
+    - InfluxDB
+    - GenBank
 
 - Search Engine
   - Lucene + Inverted Index
@@ -330,34 +323,34 @@
   - Image search
     - Thumbnail
 
-- In-memory database (Cache + Processing / Querying)
-  - Types
-    - Application server cache: placing a cache on request layer node enables the local storage of response data
-    - Distribute cache: each of its nodes own part of cached data, the cache is divided up using a consistent hashing function
-    - Global cache: all nodes use the same single cache space
-  - Client-side cache: Varnish
-  - Cache coherence / invalidation
-    - Writing policies
-      - Write-through cache: data is written to cache & DB at the same time, this minimizes the risk of data loss, but higher latency for write 
-      - Write-around cache: data is written directly to DB, this reduces flooded write operations, but creates a cache miss
-      - Write-back cache: data is written to cache alone, this results in low latency & high throughput, but comes with the risk of data loss in case of crash
-    - Distributed lock manager (DLM)
-  - Considerations: when data is read frequently but modified infrequently
-    - Expiration policy
-    - Consistency
-    - Mitigating failures
-    - [Eviction policy](https://en.wikipedia.org/wiki/Cache_replacement_policies)
-
-- Content Delivery Network (CDN): cacheable content such as images and videos (static content vs dynamic content)
-  - Benefits (first request ask the CDN for data, if not, CDN will query the backend servers)
-    - Improving website load times
-    - Reducing bandwidth costs
-    - Increasing content availability and redundancy
-    - Improving website security
-    - TTL features for certain uses cases
-  - Fastly, Cloudflare, Amazon CloudFront
-    - [How is AWS Global Accelerator different from Amazon CloudFront](https://aws.amazon.com/global-accelerator/faqs/)
-  - [CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820)
+- Caching
+  - In-memory database (Cache + Processing / Querying)
+    - Types
+      - Application server cache: placing a cache on request layer node enables the local storage of response data
+      - Distribute cache: each of its nodes own part of cached data, the cache is divided up using consistent hashing
+      - Global cache: all nodes use the same single cache space
+    - Client-side cache: Varnish
+    - Cache coherence / invalidation
+      - Writing policies
+        - Write-through cache: data is written to cache & DB at the same time, this minimizes the risk of data loss, but higher latency for write
+        - Write-around cache: data is written directly to DB, this reduces flooded write operations, but creates a cache miss
+        - Write-back cache: data is written to cache alone, this results in low latency & high throughput, but comes with the risk of data loss in case of crash
+      - Distributed lock manager (DLM)
+    - Considerations: when data is read frequently but modified infrequently
+      - Expiration policy
+      - Consistency
+      - Mitigating failures
+      - [Eviction policy](https://en.wikipedia.org/wiki/Cache_replacement_policies)
+  - Content Delivery Network (CDN): cacheable content such as images and videos (static content vs dynamic content)
+    - Benefits (first request ask the CDN for data, if not, CDN will query the backend servers)
+      - Improving website load times
+      - Reducing bandwidth costs
+      - Increasing content availability and redundancy
+      - Improving website security
+      - Time to live (TTL) features for certain uses cases
+    - Fastly, Cloudflare, Amazon CloudFront
+      - [How is AWS Global Accelerator different from Amazon CloudFront](https://aws.amazon.com/global-accelerator/faqs/)
+    - [CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820)
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
@@ -407,8 +400,7 @@
 
 - Hadoop
   - **HDFS** (Hadoop Distributed File System: NameNode - DataNode, Storage)
-  - **Yarn** (resource manager, compute)
-    - Mesos
+  - **Yarn** (cluster resource management, vs: Mesos)
   - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
     - Reduce-side joins
       - Sort-merge joins
@@ -459,7 +451,7 @@
   - Stream: event (a record of something that happened at some point in time)
     - Windows: Tumbling window, Hopping window, Sliding window, Session window
     - Stream joins: stream-stream, stream-table, table-table
-    - Problems: fault tolerance and exactly-once semantics
+    - Problems: fault tolerance and exactly once semantics
       - Microbatching and Checkpointing, Transaction, Idempotent writes
     - Storm (work on individual events, truly real-time processing compared with Spark streaming)
       - Tuples: Topology (Spouts and Bolts)
@@ -582,6 +574,7 @@
       - References
         - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
         - [How We Design Our APIs at Slack](https://slack.engineering/how-we-design-our-apis-at-slack/)
+        - [Evolving API Pagination at Slack](https://slack.engineering/evolving-api-pagination-at-slack/)
         - [RESTful API resources](https://github.com/marmelab/awesome-rest)
         - [API Directory](https://www.programmableweb.com/)
   - GraphQL: asking for specific fields on objects
@@ -689,7 +682,7 @@
       - mean / average, p50 (median), p95, p99, p999
     - Number of concurrent sessions/users (Concurrency = throughput * latency)
     - Internal metrics: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
-  - Optimization & Scaling
+  - Scalability
     - Hardware
     - Operating system (Linux: transparent huge page)
     - JVM
@@ -697,9 +690,8 @@
       - Moniter the system and use automation tools
     - Architecture (clustered architecture)
       - Split tiers into individual services
-      - Stateless architecture ([Stateful vs Stateless Architecture: Why Stateless Won
-](https://www.virtasant.com/blog/stateful-vs-stateless-architecture-why-stateless-won))
-      - Data sharding
+      - Stateless architecture ([Stateful vs Stateless Architecture: Why Stateless Won](https://www.virtasant.com/blog/stateful-vs-stateless-architecture-why-stateless-won))
+      - Data sharding (shard key, hotspotting)
       - Global data center (support multiple data center)
       - Cache (read-through vs cache-aside)
       - Host static assets in CDN
@@ -708,10 +700,18 @@
 
 - Availability
   - **If the system goes down**: reliability, resiliency (SPOF: single point of failure), availability
-  - Redundancy backup: Load balancing, database with multi master replication
-  - Fault and latency tolerance: Hystrix, message broker
-  - Flow control & degrade
-  - Global server load balancing (GSLB)
+  - Mean time between failures (MTBF)
+  - Mean time to repair (MTTR)
+  - Reliability
+    - Load balancing
+      - Features: Routing and traffic management, Health checks
+      - Algorithms: round robin, round robin with weighted server, least connections, least response time, source IP hash, URL hash
+      - Hardware LB - Software LB: HAProxy
+      - Global server load balancing (GSLB)
+    - Read replicas
+    - Fault and latency tolerance: message broker, Hystrix (Circuit Breaker pattern: cascading failures), Chaos Monkey
+    - Monitoring & Profiler
+    - Flow control & degrade
 
 - Maintainability: operability, simplicity, evolvability
 

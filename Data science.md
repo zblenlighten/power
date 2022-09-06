@@ -13,9 +13,8 @@
 - [Project Preparation](#project-preparation)
 - [Deep Learning](#deep-learning)
 - [Machine Learning](#machine-learning)
-- [Recommender System](#recommender-system)
-- [Digital Advertising](#digital-advertising)
 - [Statistics](#statistics)
+- [ML Applications](#ml-applications)
 - [Data Analysis](#data-analysis)
 - [Deployment](#deployment)
 
@@ -70,7 +69,7 @@
   - Data collection
     - ETL / API
       - KNIME ([cheat sheet](https://www.knime.com/cheat-sheets)), Funnel.io (data aggregating)
-    - Web beacon
+    - Click stream / Web analytical data (Web beacon / JavaScript Tag)
       - Invisible tracking script ([list of analytics tools](https://github.com/0xnr/awesome-analytics))
       - Javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
     - Data scraping / crawling
@@ -114,13 +113,18 @@
     - Age: how often is data updated
     - Consistency: rules and naming convention
     - Usage
-  - Data security
-    - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
-    - Encryption (data at rest & data in transit), Data masking, Data erasure
-    - General Data Protection Regulation (GDPR)
-  - Others
     - Big Data Maturity Model
-    - Data Trusts
+  - Data security
+    - Access control (RBAC, PBAC, centralized vs decentralized)
+      - Identity and Access Management (IAM)
+      - Privileged Access Management (PAM)
+    - Encryption (data at rest & data in transit), Data masking, Data erasure
+    - Data loss prevention (DLP)
+    - Data integrity monitoring
+      - File integrity monitoring
+    - Law and Industry Regulations
+      - General Data Protection Regulation (GDPR)
+    - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
 
 - Applications
   - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
@@ -278,6 +282,7 @@
     - Eager: Decision tree, Naive Bayes, Neural Network
 
 - Further topics
+  - [Computational Complexity of Machine Learning Algorithms](https://medium.com/mlearning-ai/computational-complexity-of-machine-learning-algorithms-254c275de84)
   - Multiple regression
   - Bayesian decision theory
   - Probabilistic graphical model
@@ -341,74 +346,6 @@
   - Resource usage (memory, GPU / CPU)
   - Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
 
-### Recommender System
-
-- Models
-  - Collaborative Filtering
-    - ItemCF
-    - UserCF
-      - Demographic characteristic
-      - User behavior / User profile
-      - Personalized topic model
-    - Problems: Explore-exploit (lack of diversity), Cold start (new community, new item, new user)
-  - Matrix Factorization
-    - Eigen Decomposition
-    - Singular Value Decomposition (SVD)
-    - Gradient Descent
-  - [CTR预估模型的演化之路](https://zhuanlan.zhihu.com/p/61154299)
-  - [深度学习在CTR预估中的应用](https://zhuanlan.zhihu.com/p/35484389)
-
-- Evaluation
-  - Spot check
-  - Ground truth
-  - Metrics
-    - Precision@N, Recall@N, PR curve, ROC curve, mAP
-    - CTR, CVR, GPM (GMV per mille: Gross merchandise volume / impression * 1000)
-    - Top N Hit Rate
-  - A/B test
-    - [Innovating Faster on Personalization Algorithms at Netflix Using Interleaving](https://netflixtechblog.com/interleaving-in-online-experiments-at-netflix-a04ee392ec55)
-
-### Digital Advertising
-
-- Programmatic Advertising
-  - **RTB**: Real time bidding
-  - PMP: Private marketplace
-  - Preferred deals
-  - Programmatic guaranteed
-
-- Online Advertising Platforms
-  - **SSP** (Supply side platform): publisher, ad network
-  - Audience
-  - **DSP** (Demand side platform): advertiser -> target audience
-  - ADX (Ad exchange platform): publisher / ad network - advertiser
-    - RTB: second-price auction
-    - DSP buys ad space as cheaply as possible from publisher, SSP sells ad space for the highest possible price
-  - DMP (Data management platform): DSP
-  - Types of programmatic media buying: Open auction/RTB, Private auction, Preferred deal, Programmatic guaranteed, Direct deal
-
-- Google's display advertising stack
-  - Google Ads: advertisers (a type of DSP only limited to Google’s inventory)
-    - [Campaign](https://support.google.com/google-ads/answer/7450050)
-    - Quality score: expected clickthrough rate (CTRs), ad relevance, landing page experience
-    - Automation in media
-      - Creative assets
-      - Inventory (product feeds)
-      - Bidding
-      - Targeting
-      - Placements
-      - Measurement and attribution (automated bidding requires automated measurement)
-      - Reporting (dashboards, intelligent reports in Analytics)
-    - Measurement
-      - Clearly define your measurement owner
-      - Keep business impact in mind
-      - Be relentlessly curious and passionate about the customer journey
-      - Focus on objective-driven KPIs
-      - Master multiple tools
-      - Develop strong data interpretation skills
-      - Make measurement lead to action
-      - Have a learning mindset
-      - Make measurement a habit
-
 ### Statistics
 
 [Tutorial](https://stattrek.com/tutorials/ap-statistics-tutorial.aspx)
@@ -457,6 +394,81 @@
   - St. Petersburg paradox
   - Monty Hall problem
   - [Spurious correlations](http://tylervigen.com/spurious-correlations)
+
+### ML Applications
+
+#### Recommender System
+
+- Models
+  - Collaborative Filtering
+    - ItemCF
+    - UserCF
+      - Demographic characteristic
+      - User behavior / User profile
+      - Personalized topic model
+    - Problems: Explore-exploit (lack of diversity), Cold start (new community, new item, new user)
+  - Matrix Factorization
+    - Eigen Decomposition
+    - Singular Value Decomposition (SVD)
+    - Gradient Descent
+  - [CTR预估模型的演化之路](https://zhuanlan.zhihu.com/p/61154299)
+  - [深度学习在CTR预估中的应用](https://zhuanlan.zhihu.com/p/35484389)
+
+- Evaluation
+  - Spot check
+  - Ground truth
+  - Metrics
+    - Precision@N, Recall@N, PR curve, ROC curve, mAP
+    - CTR, CVR, GPM (GMV per mille: Gross merchandise volume / impression * 1000)
+    - Top N Hit Rate
+  - A/B test
+    - [Innovating Faster on Personalization Algorithms at Netflix Using Interleaving](https://netflixtechblog.com/interleaving-in-online-experiments-at-netflix-a04ee392ec55)
+
+#### Digital Advertising
+
+- Programmatic Advertising
+  - **RTB**: Real time bidding
+  - PMP: Private marketplace
+  - Preferred deals
+  - Programmatic guaranteed
+
+- Online Advertising Platforms
+  - **SSP** (Supply side platform): publisher, ad network
+  - Audience
+  - **DSP** (Demand side platform): advertiser -> target audience
+  - ADX (Ad exchange platform): publisher / ad network - advertiser
+    - RTB: second-price auction
+    - DSP buys ad space as cheaply as possible from publisher, SSP sells ad space for the highest possible price
+  - DMP (Data management platform): DSP
+  - Types of programmatic media buying: Open auction/RTB, Private auction, Preferred deal, Programmatic guaranteed, Direct deal
+
+- Google's display advertising stack
+  - Google Ads: advertisers (a type of DSP only limited to Google’s inventory)
+    - [Campaign](https://support.google.com/google-ads/answer/7450050)
+    - Quality score: expected clickthrough rate (CTRs), ad relevance, landing page experience
+    - Automation in media
+      - Creative assets
+      - Inventory (product feeds)
+      - Bidding
+      - Targeting
+      - Placements
+      - Measurement and attribution (automated bidding requires automated measurement)
+      - Reporting (dashboards, intelligent reports in Analytics)
+    - Measurement
+      - Clearly define your measurement owner
+      - Keep business impact in mind
+      - Be relentlessly curious and passionate about the customer journey
+      - Focus on objective-driven KPIs
+      - Master multiple tools
+      - Develop strong data interpretation skills
+      - Make measurement lead to action
+      - Have a learning mindset
+      - Make measurement a habit
+
+#### Moderation System
+
+- References
+  - [How to build a message moderation system](https://hackernoon.com/message-moderation-system-ac9472962bf)
 
 ### Data analysis
 
