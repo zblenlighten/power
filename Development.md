@@ -291,6 +291,7 @@
     - Hyperledger
   - Time series database / Sequence database
     - InfluxDB
+    - kdb+
     - GenBank
 
 - Search Engine
@@ -693,7 +694,7 @@
       - Stateless architecture ([Stateful vs Stateless Architecture: Why Stateless Won](https://www.virtasant.com/blog/stateful-vs-stateless-architecture-why-stateless-won))
       - Data sharding (shard key, hotspotting)
       - Global data center (support multiple data center)
-      - Cache (read-through vs cache-aside)
+      - Cache (read-through vs cache-aside, write-through vs write-around vs write-back)
       - Host static assets in CDN
       - Message broker
     - Programming: algorithms, data structure, design pattern, asynchronous I/O
@@ -816,6 +817,7 @@
 - Soft Skills
   - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)
   - [What Does a Hiring Manager Do](https://www.indeed.com/career-advice/finding-a-job/hiring-manager)
+  - [Scaling Engineering Teams via RFCs: Writing Things Down](https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/)
   - Leadership
     - Vision: articulates a realistic, desirable, and positive future state, indirectly answering where you are going
     - 4 Cs: culture, connectivity, clarity and courage

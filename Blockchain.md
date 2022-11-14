@@ -3,15 +3,14 @@
 ## Contents
 
 - [Knowledge](#knowledge)
-- [HD Wallets](#hierarchical-deterministic-wallets)
-- [Ethereum use cases](#ethereum-use-cases)
+- [Web3](#web3)
 - [Hyperledger Fabric](#hyperledger-fabric-consortium-blockchain)
 
 ## Blockchain
 
 ### Knowledge
 
-- Technology
+- Blockchain
   - Blocks cryptographically linked together ([demo](https://tools.superdatascience.com/blockchain/blockchain))
     - Immutable ledger: Merkle tree -> Hash cryptography
     - A block stores multiple transactions
@@ -50,17 +49,17 @@
   - Proof of Burn
     - The more coins burned by the miner, the bigger the ensuing virtual mining rig
 
-- Blockchain type: Public, Private, Consortium
-  - [Dune Analytics](https://dune.com/browse/dashboards)
-  - Explorer
-    - [Blockchain.com Explorer](https://www.blockchain.com/explorer)
-    - [Blockchair](https://blockchair.com/)
-
-- Cryptocurrency: technology - protocol - token
+- Cryptocurrency: technology - protocol - [token]((https://www.investopedia.com/terms/c/crypto-token.asp))
   - Bitcoin -> SHA-256
     - [Bitcoin Core](https://bitcoin.org/en/bitcoin-core/)
     - Monetary policy: halving principle, block time
     - [Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem)
+    - Bitcoin Improvement Proposals (BIPs)
+      - BIP32: seed -> key pairs
+        - master private key -> private key -> public key -> address
+        - master public key (recreate public key to auditor or someone who doesn't send money)
+      - BIP39: mnemonic code
+      - BIP44: coin type - account - change - address_index
   - Ethereum -> Keccak 256 (Ether)
     - Accounts
       - Externally owned account (EOA, has no associated code, controlled by private keys -> Elliptic Curve Cryptography (ECC))
@@ -68,17 +67,17 @@
     - Smart contract is a program / code that runs on the blockchain
     - Ethereum virtual machine: [Gas](https://ethereum.org/en/developers/docs/gas/)
     - ERC-20 (e.g. SHIB)
-  - [Crypto Tokens](https://www.investopedia.com/terms/c/crypto-token.asp)
   - Initial coin offering (ICO, e.g. KodakCoin)
   - Exchange-traded fund (ETF)
   - [Market](https://coinmarketcap.com/)
 
-- Web3
-  - Principles: decentralized, permissionless, native payments, trustless
-
-### Hierarchical Deterministic Wallets
-
 - Transaction
+  - Blockchain trilemma: Decentralization, Security, Scalability
+  - Blockchain type: Public, Private, Consortium
+    - [Dune Analytics](https://dune.com/browse/dashboards)
+    - Explorer
+      - [Blockchain.com Explorer](https://www.blockchain.com/explorer)
+      - [Blockchair](https://blockchair.com/)
   - Unspent Transaction Output (UTXO)
   - Signatures ([demo](https://tools.superdatascience.com/blockchain/public-private-keys/signatures))
     - private key (send money) -> public key (verification function) -> address (for additional security, receive money)
@@ -87,30 +86,40 @@
     - Layer 2 Scaling
       - Bitcoin Lightning Network
       - Ethereum Plasma
+  - Hierarchical Deterministic (HD) Wallet
 
-- Bitcoin Improvement Proposals (BIPs)
-  - BIP32: seed -> key pairs
-    - master private key -> private key -> public key -> address
-    - master public key (recreate public key to auditor or someone who doesn't send money)
-  - BIP39: mnemonic code
-  - BIP44: coin type - account - change - address_index
+### Web3
 
-### Ethereum use cases
-
-- Non-fungible token (NFT)
-  - InterPlanetary File System (IPFS)
-    - [Decentralizing NFT metadata on OpenSea](https://opensea.io/blog/announcements/decentralizing-nft-metadata-on-opensea/)
-  - NFT sales
-    - [Sotheby's](https://www.sothebys.com/en/digital-catalogues/natively-digital-a-curated-nft-sale)
-    - [Christie's](https://www.christies.com/auctions/christies-encrypted)
-
-- Decentralized finance (DeFi)
-  - [defipulse](https://www.defipulse.com/)
-
-- Decentralized applications (dApps)
+- Principles: decentralized, permissionless, native payments, trustless
 
 - Decentralized autonomous organization (DAO)
   - [daolist](https://daolist.fyi/)
+
+- Decentralized finance (DeFi)
+  - MakerDAO (DAI)
+  - Compound Finance
+  - Aave
+  - Uniswap
+    - Automated Market Maker (AMM)
+  - Harvest Finance (FARM)
+  - Stablecoins
+  - Non-fungible token (NFT)
+    - InterPlanetary File System (IPFS)
+      - [Decentralizing NFT metadata on OpenSea](https://opensea.io/blog/announcements/decentralizing-nft-metadata-on-opensea/)
+  - References
+    - [defipulse](https://www.defipulse.com/)
+
+- Applications
+  - GameFi
+    - CryptoKitties
+    - Axie Infinity: Axie Infinity Shards (AXS) and Smooth Love Potions (SLP)
+    - Alien Worlds: Trilium (TLM)
+  - SocialFi
+  - Metaverse
+  - X to Earn
+  - Creator Economy
+    - mirror.xyz
+    - audius.co
 
 ### Hyperledger Fabric (Consortium blockchain)
 
