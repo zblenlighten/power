@@ -49,7 +49,7 @@
   - Proof of Burn
     - The more coins burned by the miner, the bigger the ensuing virtual mining rig
 
-- Cryptocurrency: technology - protocol - [token]((https://www.investopedia.com/terms/c/crypto-token.asp))
+- Cryptocurrency: technology - protocol - [token](https://www.investopedia.com/terms/c/crypto-token.asp)
   - Bitcoin -> SHA-256
     - [Bitcoin Core](https://bitcoin.org/en/bitcoin-core/)
     - Monetary policy: halving principle, block time
@@ -75,9 +75,9 @@
   - Blockchain trilemma: Decentralization, Security, Scalability
   - Blockchain type: Public, Private, Consortium
     - [Dune Analytics](https://dune.com/browse/dashboards)
-    - Explorer
+    - Block Explorer and Analytics Platform
+      - [Etherscan](https://etherscan.io/)
       - [Blockchain.com Explorer](https://www.blockchain.com/explorer)
-      - [Blockchair](https://blockchair.com/)
   - Unspent Transaction Output (UTXO)
   - Signatures ([demo](https://tools.superdatascience.com/blockchain/public-private-keys/signatures))
     - private key (send money) -> public key (verification function) -> address (for additional security, receive money)

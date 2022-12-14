@@ -103,7 +103,7 @@
       - Pod - Node - Cluster
       - ReplicaSet
       - etcd
-      - [lens](https://k8slens.dev/) - [starboard](https://aquasecurity.github.io/starboard/) - [karpenter](https://karpenter.sh/)
+      - Tools: [lens](https://k8slens.dev/), [starboard](https://aquasecurity.github.io/starboard/), [karpenter](https://karpenter.sh/), [infra](https://infrahq.com/), [argo](https://argoproj.github.io/)
   - Observability
     - Metrics: metrics are measurements at a point in time in a system, they can be visualized in various types of graphs such as gauges, counters, and timers, metrics are great for monitoring, profiling, and alerting (do I have a problem)
       - System metrics (CPU, memory, disk)
@@ -122,7 +122,6 @@
         - Collection -> Transport -> Storage (centralized) -> Analysis
     - [Tools](https://github.com/adriannovegil/awesome-observability)
       - [Metrics, monitors, alerts decision record](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/examples/metrics-monitors-alerts/index.md)
-      - [OpenTelemetry](https://opentelemetry.lightstep.com/)
       - ELK (Elastic)
         - Elasticsearch
         - Logstash (vs: Fluentd): Data collection pipeline
@@ -131,9 +130,12 @@
         - Kibana: Viewer with filter capabilities
           - Kibana Query Language (KQL)
         - [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html): Data shipping
+      - New Relic
+        - [OpenTelemetry](https://github.com/newrelic/newrelic-opentelemetry-examples)
       - Splunk
         - [data pipeline](https://docs.splunk.com/Documentation/Splunk/latest/Deploy/Datapipeline)
         - Components: Forwarder, Indexer, Search head
+      - Datadog
   - Security
     - DevSecOps
       - Toolchain: Pre-commit -> Commit (continuous integration) -> Acceptance (continuous delivery) -> Production (continuous deployment) -> Operations
@@ -245,7 +247,6 @@
     - Normal forms
     - [Denormalization](https://www.geeksforgeeks.org/denormalization-in-databases/)
   - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
-  - TiDB ([tutorial](https://pingcap.com/tidb-academy/))
 
 - NoSQL
   - Pros: flexible schemas, distributed (horizontally scalable, designed to be scaled across multiple servers), replication
@@ -361,15 +362,14 @@
     - Main read pattern: aggregate over large number of records
     - Main write pattern: bulk import (ETL) or event stream
     - Vectorized Processing in CPU cache
-    - Dimensional model (vs: normalized model, e.g. 3NF data model)
-      - [Star Schema vs Snowflake Schema](http://www.ssglimited.com/blog/data-warehouse-design-star-schema-vs-snowflake-schema/)
+    - Dimensional model (vs: normalized model, e.g. Third normal form (3NF) data model)
+      - Star Schema vs Snowflake Schema
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
   - Transaction processing systems (OLTP: online transaction processing)
     - Database: MySQL, PostgreSQL, Oracle
     - Row-oriented
     - Main read pattern: small number of records per query, fetched by key
     - Main write pattern: random access, low latency writes from user input
-  - [Data Mesh Architecture](https://www.datamesh-architecture.com/)
 
 - Others
   - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
@@ -379,9 +379,11 @@
       - Network analysis: graphs
     - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
   - References
-    - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
+    - [Modern Data Stack Guide](https://notion.castordoc.com/)
     - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
+    - [Data Mesh Architecture](https://www.datamesh-architecture.com/) (data as a product)
     - [Big data architectures](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/)
+    - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
 
 ### Dataflow
 
@@ -390,6 +392,7 @@
     - Rolling upgrade
     - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
       - Full compatibility
+      - Backward compatibility in machine learning
     - Encoding / Serialization: from data structures in memory to self-contained sequence of bytes, **write** to file or send over network (e.g. [Java serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
     - Decoding / Deserialization / Parsing: bytes to string, **read** or receive
     - Textual formats: JSON, XML, CSV
@@ -430,8 +433,9 @@
   - Data ingestion: Sqoop (relational database), Flume (source -> channel -> sink), Kafka
   - Query engine: Hue, Drill (Dremel), Phoenix (HBase), [Presto](https://prestodb.io/docs/current/overview/concepts.html)
 
-- Data Integration
-  - **ETL** (Extract - Transform - Load)
+- Data Stack
+  - Data Integration
+    - **ETL** (Extract - Transform - Load)
     - Data validations: file validations & archival (data source -> staging / data lake & data transformation)
     - Business validations: calculations & aggregations (staging -> data warehouse - data mart)
     - Airflow (web server + scheduler + metadata database + executor + worker, vs: Luigi)
@@ -440,12 +444,15 @@
       - Executor: Sequential, Local, Celery, K8s (get the tasks to run from its internal queue and specify how to execute it)
         - Celery: tasks queues to distribute work across threads or machines
       - CI/CD pipeline with Airflow image containing DAGs: Github repo -> Jenkins -> K8s -> Pod
+  - Data Transformation
     - dbt: data build tool
       - [airflow dbt demo](https://github.com/astronomer/airflow-dbt-demo)
-  - Data management
+  - Data Management
     - [OpenMetadata](https://docs.open-metadata.org/)
-      - Data lineage: OpenLineage
-      - Data testing: [Great Expectations](https://docs.greatexpectations.io/docs/)
+    - Data lineage: OpenLineage
+    - Data testing: [Great Expectations](https://docs.greatexpectations.io/docs/)
+    - Schema migration: Liquibase (keep database schema in sync with application code)
+  - [Data Migration](https://corporatefinanceinstitute.com/resources/data-science/data-migration/)
   - Batch: file (a sequence of bytes)
     - Problems: partitioning, fault tolerance
     - Graph processing: GraphChi, Pregel (PageRank)
@@ -805,7 +812,7 @@
 
 - Project Management
   - Systems development life cycle (SDLC): requirement analysis -> design -> development and testing -> implementation -> documentation -> evaluation
-  - [Agile](http://cheatsheetworld.com/programming/agile-development-cheat-sheet/)
+  - Agile
     - Conway's law
     - Agile Release Train (ART)
   - Scrum: Transparency, Inspection, Adaptation
@@ -816,7 +823,7 @@
 
 - Soft Skills
   - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)
-  - [What Does a Hiring Manager Do](https://www.indeed.com/career-advice/finding-a-job/hiring-manager)
+  - [Hiring Managers: Duties, Skills and How To Become One](https://www.indeed.com/career-advice/finding-a-job/hiring-manager)
   - [Scaling Engineering Teams via RFCs: Writing Things Down](https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/)
   - Leadership
     - Vision: articulates a realistic, desirable, and positive future state, indirectly answering where you are going

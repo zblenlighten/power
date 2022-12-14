@@ -5,7 +5,7 @@
 - [Deepmind](https://deepmind.com/blog)
 - [Kaggle](https://medium.com/kaggle-blog)
 - [state-of-the-art model](https://paperswithcode.com/sota)
-- [state-of-the-art 模型](http://www.jiqizhixin.com/sota)
+- [state-of-the-art 模型](https://sota.jiqizhixin.com/)
 - [格物钛公开数据集](https://gas.graviti.cn/open-datasets)
 
 ## Contents
@@ -36,85 +36,69 @@
   - Launch, monitor and maintain your system
   - Project structure: [Cookiecutter Data Science](http://drivendata.github.io/cookiecutter-data-science/)
 
-- Data processing
-  - Data
-    - Univariate data
-      - Categorical data
-        - Nominal (identity)
-        - Ordinal (rank)
-      - Numerical data
-        - Discrete (counted)
-        - Continuous (measured)
-          - Interval (no true zero)
-          - Ratio (there is a true zero and ratios make sense)
-    - Multivariate data
-      - Scaler
-      - Vector
-      - Matrix (image)
-      - Tensor
-    - Spatiotemporal data
-      - Time series data
-      - Geographic data
-    - Data provenance
-      - Structured data vs Unstructured data
-      - Raw data vs Processed data
-      - Primary data vs [Inherited data](https://towardsdatascience.com/how-to-work-with-someone-elses-data-f33485d79ed4)
-    - Data type in computer science
-      - String
-      - Character
-      - Integer
-      - Float
-      - Boolean
-  - Data Cleaning: OpenRefine
-  - Data collection
-    - ETL / API
-      - KNIME ([cheat sheet](https://www.knime.com/cheat-sheets)), Funnel.io (data aggregating)
-    - Click stream / Web analytical data (Web beacon / JavaScript Tag)
-      - Invisible tracking script ([list of analytics tools](https://github.com/0xnr/awesome-analytics))
-      - Javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
-    - Data scraping / crawling
-      - Selenium
-    - Devices: Laser radar, 3D human pose machine
-  - Data labeling / Data generating
-    - Tools: LabelImg, LabelMe
-    - Image augmentation
-    - [Active learning](https://en.wikipedia.org/wiki/Active_learning_(machine_learning))
-    - GAN (Generative Adversarial Network)
-    - Data security, privacy, and compliance requirements
-  - Data transformation
-    - Categorical variable encoding ([Category Encoders](https://contrib.scikit-learn.org/category_encoders/))
-    - Variable transformation
-      - Power transform
-        - Box–Cox transformation
-        - Yeo–Johnson transformation
-  - Dimensionality reduction
-    - Principal Component Analysis (PCA)
-    - Linear Discriminant Analysis (LDA)
-    - Singular Value Decomposition (SVD)
-    - Locality Sensitive Hashing
-      - Fuzzy Search
-  - Natural Language
-    - Tokenization: word segmentation, convert characters to lowercase
-    - Remove useless characters, remove stop/rare words
-    - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
-    - Named-entity recognition: entity insertion and extraction
-  - Digital Image (OpenCV)
-    - Crop, Resize, Padding, Normalize, Equalization, Balance
-    - Visual descriptor
-      - HOG (Histogram of oriented gradients)
-      - LBP (Local binary patterns)
-      - Haar-like features
-    - Filters & Convolutions
-      - [Kernel](https://en.wikipedia.org/wiki/Kernel_(image_processing))
-      - Blind watermark (frequency domain)
-  - Data quality
-    - Completeness: whole picture
-    - Accuracy
-    - Age: how often is data updated
-    - Consistency: rules and naming convention
-    - Usage
-    - Big Data Maturity Model
-  - Data security
+- Data
+  - Univariate data
+    - Categorical data
+      - Nominal (identity)
+      - Ordinal (rank)
+    - Numerical data
+      - Discrete (counted)
+      - Continuous (measured)
+        - Interval (no true zero)
+        - Ratio (there is a true zero and ratios make sense)
+  - Multivariate data
+    - Scaler
+    - Vector
+    - Matrix (image)
+    - Tensor
+  - Spatiotemporal data
+    - Time series data
+    - Geographic data
+  - Data provenance
+    - Structured data vs Unstructured data
+    - Raw data vs Processed data
+    - Primary data vs [Inherited data](https://towardsdatascience.com/how-to-work-with-someone-elses-data-f33485d79ed4)
+  - Data type in computer science
+    - String
+    - Character
+    - Integer
+    - Float
+    - Boolean
+
+- Data Management Body of Knowledge (DMBOK)
+  - Data Architecture & Data Development
+    - Data collection
+      - ETL / API
+        - KNIME ([cheat sheet](https://www.knime.com/cheat-sheets)), Funnel.io (data aggregating)
+      - Click stream / Web analytical data (Web beacon / JavaScript Tag)
+        - Invisible tracking script ([list of analytics tools](https://github.com/0xnr/awesome-analytics))
+        - Javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
+      - Data scraping / crawling
+        - Selenium
+      - Devices: Laser radar, 3D human pose machine
+    - Data cleaning: OpenRefine
+    - Data labeling / Data generating
+      - Tools: LabelImg, LabelMe
+      - Image augmentation
+      - [Active learning](https://en.wikipedia.org/wiki/Active_learning_(machine_learning))
+      - GAN (Generative Adversarial Network)
+      - Data security, privacy, and compliance requirements
+    - Data transformation
+      - Categorical variable encoding ([Category Encoders](https://contrib.scikit-learn.org/category_encoders/))
+      - Variable transformation
+        - Power transform
+          - Box–Cox transformation
+          - Yeo–Johnson transformation
+    - Dimensionality reduction
+      - Principal Component Analysis (PCA)
+      - Linear Discriminant Analysis (LDA)
+      - Singular Value Decomposition (SVD)
+      - Locality Sensitive Hashing
+        - Fuzzy Search
+    - Data modeling
+  - Data Operations ([DataOps](https://towardsdatascience.com/the-rise-of-dataops-2788958034ee))
+  - Data Governance: Governance, Risk, Security, and Compliance
+  - Data Security
     - Access control (RBAC, PBAC, centralized vs decentralized)
       - Identity and Access Management (IAM)
       - Privileged Access Management (PAM)
@@ -125,8 +109,33 @@
     - Law and Industry Regulations
       - General Data Protection Regulation (GDPR)
     - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
+  - Data Warehouse
+  - Business Intelligence
+    - [Tableau Public](https://public.tableau.com/en-us/gallery)
+    - [Power BI Community](https://community.powerbi.com/t5/Data-Stories-Gallery/bd-p/DataStoriesGallery)
+  - Reference and Master Data
+  - Document and Content
+  - Metadata
+  - Data Quality
+    - Completeness: whole picture
+    - Accuracy
+    - Age: how often is data updated
+    - Consistency: rules and naming convention
+    - Usage
+    - Big Data Maturity Model
 
 - Applications
+  - Data visualization
+    - Examples
+      - [D3.js](https://observablehq.com/@d3/gallery)
+      - [R Shiny](https://shiny.rstudio.com/gallery)
+      - [Story Telling with Data](http://www.storytellingwithdata.com/blog)
+      - [Seeing Theory](https://seeing-theory.brown.edu/)
+      - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)
+      - [Tupper's self-referential formula](https://en.wikipedia.org/wiki/Tupper%27s_self-referential_formula)
+    - Design
+      - [Misleading graph](https://en.wikipedia.org/wiki/Misleading_graph)
+      - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
   - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
     - Euclidean distance
     - Jaccard index
@@ -141,6 +150,11 @@
       - Pointwise
       - Pairwise
   - Natural Language Processing
+    - Data processing
+      - Tokenization: word segmentation, convert characters to lowercase
+      - Remove useless characters, remove stop/rare words
+      - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
+      - Named-entity recognition: entity insertion and extraction
     - Tasks
       - Text classification
       - Semantic similarity
@@ -165,6 +179,15 @@
         - BERT ([Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3))
     - Evaluation: BLEU, ROUGE, METEOR, etc.
   - Computer Vision
+    - Data processing (OpenCV)
+      - Crop, Resize, Padding, Normalize, Equalization, Balance
+      - Visual descriptor
+        - HOG (Histogram of oriented gradients)
+        - LBP (Local binary patterns)
+        - Haar-like features
+      - Filters & Convolutions
+        - [Kernel](https://en.wikipedia.org/wiki/Kernel_(image_processing))
+        - Blind watermark (frequency domain)
     - Tasks
       - Classification
       - Detection
@@ -309,7 +332,7 @@
 
 #### Reinforcement learning
 
-- [Gym](https://gym.openai.com/)
+- [Gym](https://github.com/openai/gym)
 - Q-learning / DQN
   - Input: system state
   - Output: Q(s, a) for all possible actions
@@ -413,6 +436,7 @@
     - Gradient Descent
   - [CTR预估模型的演化之路](https://zhuanlan.zhihu.com/p/61154299)
   - [深度学习在CTR预估中的应用](https://zhuanlan.zhihu.com/p/35484389)
+  - [RecBole](https://recbole.io/)
 
 - Evaluation
   - Spot check
@@ -486,20 +510,7 @@
     - Price Elasticity of Demand
   - References
     - [Digital Marketing by Kaushik](https://www.kaushik.net/avinash/sitemap/)
-
-- Data visualization
-  - Examples
-    - [D3.js](https://observablehq.com/@d3/gallery)
-    - [Tableau Public](https://public.tableau.com/en-us/gallery)
-    - [Power BI Community](https://community.powerbi.com/t5/Data-Stories-Gallery/bd-p/DataStoriesGallery)
-    - [R Shiny](https://shiny.rstudio.com/gallery)
-    - [Story Telling with Data](http://www.storytellingwithdata.com/blog)
-    - [Seeing Theory](https://seeing-theory.brown.edu/)
-    - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)
-    - [Tupper's self-referential formula](https://en.wikipedia.org/wiki/Tupper%27s_self-referential_formula)
-  - Design
-    - [Misleading graph](https://en.wikipedia.org/wiki/Misleading_graph)
-    - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
+    - [Design your data strategy in six steps](https://www.ibm.com/resources/the-data-differentiator/data-strategy)
 
 - Pirate Funnel
 
@@ -515,26 +526,41 @@
 
 ### Deployment
 
-- Frameworks
-  - TensorFlow
-    - Computational graph: static -> dynamical
-    - More [data types](https://www.tensorflow.org/api_docs/python/tf/dtypes)
-    - model.save vs model.save_weights
-    - TensorBoard
-  - PyTorch (a PyTorch Tensor is basically the same as a NumPy array)
-    - Computational graph: dynamical
-    - Less [data types](https://pytorch.org/docs/stable/tensors.html)
-  - Horovod
-  - JAX
-
-- Tools
-  - CUDA (Compute Unified Device Architecture) programming
-    - Host / CPU (Kernel) -> Device / GPU (Grid - Block - Thread)
-  - TensorRT
-  - TensorFlow.js
-  - TensorFlow Lite
-  - [ONNX](https://onnx.ai/)
-  - Kubeflow
+- Data Science Infrastructure
+  - Model development
+    - CUDA (Compute Unified Device Architecture) programming
+      - Host / CPU (Kernel) -> Device / GPU (Grid - Block - Thread)
+    - TensorFlow
+      - Computational graph: static -> dynamical
+      - More [data types](https://www.tensorflow.org/api_docs/python/tf/dtypes)
+      - model.save vs model.save_weights
+      - TensorBoard
+    - PyTorch (a PyTorch Tensor is basically the same as a NumPy array)
+      - Computational graph: dynamical
+      - Less [data types](https://pytorch.org/docs/stable/tensors.html)
+    - Horovod
+    - JAX
+    - Others
+      - TensorFlow Serving
+      - Parameter Server
+        - [TensorFlow](https://www.tensorflow.org/tutorials/distribute/parameter_server_training)
+        - [PyTorch](https://pytorch.org/tutorials/intermediate/rpc_param_server_tutorial.html)
+      - TensorRT
+      - TensorFlow.js
+      - TensorFlow Lite
+      - [ONNX](https://onnx.ai/)
+      - [MLeap](https://combust.github.io/mleap-docs/)
+      - [Oryx 2](http://oryx.io/)
+  - Feature engineering
+  - Model operations
+    - Kubeflow
+    - [Metaflow](https://outerbounds.com/)
+    - MLflow
+  - Architecture
+  - Versioning
+  - Job scheduler
+  - Compute resources
+  - Data warehouse
 
 - Questions of note
   - Do you need to be able to serve predictions in real time (and if so, do you mean like, within a dozen milliseconds or after a second or two), or will delivery of predictions 30 minutes or a day after the input data is received suffice?
@@ -563,14 +589,8 @@
   - ML Design Patterns
   - Model drift: concept drift, data drift, upstream data changes
   - Predictive Model Markup Language (PMML)
-  - TensorFlow Serving
-  - Parameter Server
-    - [TensorFlow](https://www.tensorflow.org/tutorials/distribute/parameter_server_training)
-    - [PyTorch](https://pytorch.org/tutorials/intermediate/rpc_param_server_tutorial.html)
 
 - References
-  - [MLeap](https://combust.github.io/mleap-docs/)
-  - [Oryx 2](http://oryx.io/)
-  - [Big data pipeline architecture](https://www.satishchandragupta.com/tech/scalable-efficient-big-data-analytics-machine-learning-pipeline-architecture-on-cloud.html)
-  - [Best practices for performance and cost optimization for machine learning](https://cloud.google.com/solutions/machine-learning/best-practices-for-ml-performance-cost)
+  - [Best practices for implementing machine learning on Google Cloud](https://cloud.google.com/architecture/ml-on-gcp-best-practices)
+  - [Best practices for performance and cost optimization for machine learning](https://cloud.google.com/architecture/best-practices-for-ml-performance-cost)
   - [Lambda or Kappa? The need for a new data processing architecture](https://www.qlik.com/blog/lambda-or-kappa-the-need-for-a-new-data-processing-architecture)
