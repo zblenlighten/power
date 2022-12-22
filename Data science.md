@@ -108,7 +108,11 @@
       - File integrity monitoring
     - Law and Industry Regulations
       - General Data Protection Regulation (GDPR)
+      - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
     - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
+    - Payment Card Industry Data Security Standard (PCI DSS)
+    - Data Privacy and Data Protection
+      - Anonymization vs Pseudonymization
   - Data Warehouse
   - Business Intelligence
     - [Tableau Public](https://public.tableau.com/en-us/gallery)

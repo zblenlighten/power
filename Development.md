@@ -516,7 +516,7 @@
           - Internal threads
             - Detecting consumer down: Heartbeat.interval.ms (Session.timeout.ms)
             - Detecting big data processing issue: max.poll.interval.ms
-          - Schema registry
+          - [Schema registry](https://docs.confluent.io/platform/current/schema-registry/avro.html)
         - Kafka Connect (Source connector / Sink connector)
           - CDC connector -> Search index (e.g. Solr) / Database / Data warehouse / Cache
         - Kafka Streams (ksqlDB)
