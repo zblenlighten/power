@@ -106,8 +106,8 @@
     - Data loss prevention (DLP)
     - Data integrity monitoring
       - File integrity monitoring
-    - Law and Industry Regulations
-      - General Data Protection Regulation (GDPR)
+    - Regulatory and Compliance
+      - General Data Protection Regulation (GDPR), Anti-Money Laundering (AML)
       - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
     - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
     - Payment Card Industry Data Security Standard (PCI DSS)
@@ -303,7 +303,7 @@
 - Basic topics
   - Overfitting vs Underfitting
     - Overfitting: too small training data ratio to overall data, too complex model, uneven sampling, no regularization, no outlier handling
-    - Underfitting: too large training data ratio to overall data, too simple model, too concentrated data 
+    - Underfitting: too large training data ratio to overall data, too simple model, too concentrated data
   - Lazy learning vs Eager learning
     - Lazy: k Nearest Neighbor
     - Eager: Decision tree, Naive Bayes, Neural Network
@@ -597,4 +597,3 @@
 - References
   - [Best practices for implementing machine learning on Google Cloud](https://cloud.google.com/architecture/ml-on-gcp-best-practices)
   - [Best practices for performance and cost optimization for machine learning](https://cloud.google.com/architecture/best-practices-for-ml-performance-cost)
-  - [Lambda or Kappa? The need for a new data processing architecture](https://www.qlik.com/blog/lambda-or-kappa-the-need-for-a-new-data-processing-architecture)

@@ -2,9 +2,8 @@
 
 ## Blogs
 
-- [Top 100 on GitHub](https://twosigmaventures.com/open-source-index/)
-- [Open Source Libraries](https://opensourcelibs.com/)
 - [Engineering Blogs](https://github.com/kilimchoi/engineering-blogs)
+- [Top 100 on GitHub](https://twosigmaventures.com/open-source-index/)
 
 ## Contents
 
@@ -45,7 +44,7 @@
     - Serverless (run in stateless compute containers that are event triggered)
       - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
       - Function as a Service
-        - AWS Lambda 
+        - AWS Lambda
         - Google Cloud Functions
       - Backend as a Service
         - Firebase
@@ -80,7 +79,7 @@
     - Terraform: Write -> Plan -> Apply
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Provision: Dockerfile / Puppet / Chef
-    - [checkov](https://github.com/bridgecrewio/checkov/blob/master/docs/5.Policy%20Index/all.md)
+    - [checkov](https://raw.githubusercontent.com/bridgecrewio/checkov/master/docs/5.Policy%20Index/all.md)
   - Configuration (deploy and configure software: operating systems, applications, etc.)
     - CI/CD: automating the stages of app development (Jenkins)
       - Continuous integration: build -> test -> merge
@@ -90,7 +89,7 @@
       - Automation refers to a single task
       - Orchestration refers to the management of many automated tasks, often a complicated ordering with dependencies
   - Container
-    - [Docker](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
+    - Docker
       - Manage kernel features
         - cgroups: processes
         - namespaces: networks
@@ -103,6 +102,7 @@
       - Pod - Node - Cluster
       - ReplicaSet
       - etcd
+      - GitOps: ArgoCD
       - Tools: [lens](https://k8slens.dev/), [starboard](https://aquasecurity.github.io/starboard/), [karpenter](https://karpenter.sh/), [infra](https://infrahq.com/), [argo](https://argoproj.github.io/)
   - Observability
     - Metrics: metrics are measurements at a point in time in a system, they can be visualized in various types of graphs such as gauges, counters, and timers, metrics are great for monitoring, profiling, and alerting (do I have a problem)
@@ -148,7 +148,7 @@
     - Penetration test
     - Cyber incident response test
     - Vault
-      - Data in transit: TLS encrypts data between server and client (asymmetric) 
+      - Data in transit: TLS encrypts data between server and client (asymmetric)
       - Internal data: AES256 (symmetric, faster)
       - Key sharding: the master key is split into several unseal keys using Shamir's Secret Sharing (two-man rule)
       - Authentication: data that must be kept confidential is a secret, access to secret is performed by token
@@ -251,7 +251,13 @@
 - NoSQL
   - Pros: flexible schemas, distributed (horizontally scalable, designed to be scaled across multiple servers), replication
   - Key-value (fast & light: caching stores, managing user sessions, ad servicing, recommendations)
-    - LevelDB, Dynamo, Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098), vs: [Ignite](https://github.com/apache/ignite), [Hazelcast](https://github.com/hazelcast/hazelcast))
+    - Redis ([点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098), vs: [Ignite](https://github.com/apache/ignite), [Hazelcast](https://github.com/hazelcast/hazelcast))
+      - Caching: cache objects or pages, which helps to protect the database from overloading
+      - Session: share user session data between stateless servers
+      - Distributed lock: provide mutually exclusive access to shared resources
+      - Counter and Rate limiter: count the number of times a resource is accessed and also enforce rate limits on our endpoints
+      - Leaderboard: Sorted Set is a nice way to implement leaderboard
+    - LevelDB
   - Wide-column (reduce disk resources & fast querying and processing: big data store, **not** column-oriented)
     - Cassandra
       - Table - Keyspace
@@ -264,9 +270,9 @@
         - data is denormalized and ordered: no normalization
         - eventual consistency so read operation can return inconsistent data: read from multiple replicas
         - data duplication and missing columns are common
-        - [Why Cassandra Doesn’t Need Vector Clocks](https://www.datastax.com/blog/why-cassandra-doesnt-need-vector-clocks)
+        - [Why Cassandra doesn’t need vector clocks](https://www.datastax.com/blog/why-cassandra-doesnt-need-vector-clocks)
     - HBase
-  - Document (schema flexibility: managing user profiles (XML or JSON documents) )
+  - Document (schema flexibility: managing user profiles, XML or JSON documents)
     - MongoDB
       - Document - Collection - Database
       - Replication: single leader
@@ -292,8 +298,7 @@
     - Hyperledger
   - Time series database / Sequence database
     - InfluxDB
-    - kdb+
-    - GenBank
+    - KDB+/Q
 
 - Search Engine
   - Lucene + Inverted Index
@@ -362,9 +367,13 @@
     - Main read pattern: aggregate over large number of records
     - Main write pattern: bulk import (ETL) or event stream
     - Vectorized Processing in CPU cache
-    - Dimensional model (vs: normalized model, e.g. Third normal form (3NF) data model)
-      - Star Schema vs Snowflake Schema
+    - Data modeling
+      - Dimensional model (fact + dimension)
+        - Star Schema: denormalized, better query performance
+        - Snowflake Schema: normalized, better data integrity
+      - Normalization (e.g. third normal form)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
+    - Late Arriving data (late arriving dimensions / early arriving facts)
   - Transaction processing systems (OLTP: online transaction processing)
     - Database: MySQL, PostgreSQL, Oracle
     - Row-oriented
@@ -379,10 +388,11 @@
       - Network analysis: graphs
     - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
   - References
+    - [Lambda or Kappa? The need for a new data processing architecture](https://www.qlik.com/blog/lambda-or-kappa-the-need-for-a-new-data-processing-architecture)
     - [Modern Data Stack Guide](https://notion.castordoc.com/)
-    - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
-    - [Data Mesh Architecture](https://www.datamesh-architecture.com/) (data as a product)
     - [Big data architectures](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/)
+    - [Data Mesh Architecture](https://www.datamesh-architecture.com/) (a way of organizing data management that emphasizes collaboration, decentralization, and self-service, data as a product)
+    - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
 
 ### Dataflow
@@ -401,11 +411,12 @@
     - ~~Database~~
     - Service calls (RPC vs REST API)
     - Asynchronous message passing (via message broker or [actor](https://github.com/akka/akka))
+  - [Comparison of different file formats in Big Data](https://www.adaltas.com/en/2020/07/23/benchmark-study-of-different-file-format/)
 
 - Hadoop
   - **HDFS** (Hadoop Distributed File System: NameNode - DataNode, Storage)
   - **Yarn** (cluster resource management, vs: Mesos)
-  - **MapReduce** (distributed computation: input, split, map, shuffle, reduce, output)
+  - **MapReduce** (distributed computation: input, split, map, [shuffle](https://spark.apache.org/docs/latest/rdd-programming-guide.html#shuffle-operations), reduce, output)
     - Reduce-side joins
       - Sort-merge joins
     - Map-side joins
@@ -414,7 +425,6 @@
   - Spark (Livy)
     - Resilient Distributed Dataset (RDD) - DataSet
       - Fault tolerance: tracking the the intermediate states of the data
-      - [Shuffle](https://spark.apache.org/docs/latest/rdd-programming-guide.html#shuffle-operations)
     - Components: Spark Core - Spark SQL - spark.ml - Spark Streaming - GraphFrames (Pregel API)
     - Spark streaming (work on microbatching)
       - Batch interval vs Slide interval vs Window interval
@@ -449,10 +459,12 @@
       - [airflow dbt demo](https://github.com/astronomer/airflow-dbt-demo)
   - Data Management
     - [OpenMetadata](https://docs.open-metadata.org/)
-    - Data lineage: OpenLineage
+    - Data lineage: [OpenLineage](https://openlineage.io/docs/)
     - Data testing: [Great Expectations](https://docs.greatexpectations.io/docs/)
-    - Schema migration: Liquibase (keep database schema in sync with application code)
+    - Schema migration: [Liquibase](https://docs.liquibase.com/home.html) (keep database schema in sync with application code)
   - [Data Migration](https://corporatefinanceinstitute.com/resources/data-science/data-migration/)
+    - Methods: file-based migration, database replication, ETL, cloud-native migration services
+    - Risks: security, data loss or corruption, compliance and regulatory risks, latency and performance issues, vendor lock-in
   - Batch: file (a sequence of bytes)
     - Problems: partitioning, fault tolerance
     - Graph processing: GraphChi, Pregel (PageRank)
@@ -533,6 +545,7 @@
       - Others
         - Cluster (the minimum number of nodes in ZooKeeper is 3 because of the quorum attribute)
           - Replication (multiple clusters): active-passive vs active-active
+        - Backpressure
         - Monitoring (JMX metrics) and Operations
         - Security
       - Reasons to fast
@@ -564,9 +577,7 @@
           - Filesystem ACL
           - Network ACL
           - SQL ACL
-      - References
-        - [Intro to IAM](https://auth0.com/intro-to-iam/)
-        - [What is IAM](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)
+      - References: [Intro to IAM](https://auth0.com/intro-to-iam/), [What is IAM](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)
     - Design of REST APIs
       - Identify participants
       - Identify activities
@@ -644,7 +655,8 @@
     - Spring Cloud
     - Projects: [link](https://spring.io/projects)
 
-- [Go](https://github.com/avelino/awesome-go) ([pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html))
+- [Go](https://github.com/avelino/awesome-go)
+  - [pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html)
 
 - [Python](https://github.com/vinta/awesome-python)
   - [cProfile](https://docs.python.org/3/library/profile.html), [timeit](https://docs.python.org/3/library/timeit.html)
@@ -672,6 +684,7 @@
     - Swift
       - SwiftUI
     - WeChat Mini Program
+    - [Fonts](https://www.cdnfonts.com)
 
 ### System design
 
@@ -682,14 +695,14 @@
 
 - Performance
   - **If the system goes slow**: scalability, performance
-  - Testing
+  - Common metrics
     - Throughput = # tasks / time (Batch)
       - hps, tps, qps: number of HTTP requests/Transactions/Queries per second
     - Response time = transport latency + processing time (Stream)
       - Latency = time / task
       - mean / average, p50 (median), p95, p99, p999
     - Number of concurrent sessions/users (Concurrency = throughput * latency)
-    - Internal metrics: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
+    - Resource utilization: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
   - Scalability
     - Hardware
     - Operating system (Linux: transparent huge page)
@@ -708,8 +721,10 @@
 
 - Availability
   - **If the system goes down**: reliability, resiliency (SPOF: single point of failure), availability
-  - Mean time between failures (MTBF)
-  - Mean time to repair (MTTR)
+  - Common metrics
+    - Uptime (Failover time)
+    - Mean time between failures (MTBF)
+    - Mean time to repair/recover (MTTR)
   - Reliability
     - Load balancing
       - Features: Routing and traffic management, Health checks
@@ -720,6 +735,7 @@
     - Fault and latency tolerance: message broker, Hystrix (Circuit Breaker pattern: cascading failures), Chaos Monkey
     - Monitoring & Profiler
     - Flow control & degrade
+    - Disaster recovery
 
 - Maintainability: operability, simplicity, evolvability
 
@@ -768,7 +784,7 @@
   - Heroku
 
 - WBS (Work breakdown structure)
-  - Problem statements: RfQ (Request for quotation), SoW (Statement of work)
+  - RFQ (Request for quotation), RFC(Request for comments), SOW (Statement of work)
   - PoC (Proof of concept)
   - **User story** & Feature list
     - An end user going through a domain-level process to achieve some valuable outcome
@@ -794,7 +810,7 @@
     - JFrog Artifactory
     - [Packaging Python Projects](https://packaging.python.org/tutorials/packaging-projects/)
   - Guidelines
-    - Python: isort, autopep8, black ([mkdocs](https://www.mkdocs.org/))
+    - Python: isort, autopep8, black
     - [Dockerfile linter](https://github.com/hadolint/hadolint)
   - Debugging: Exception breakpoint, Conditional breakpoint, Suspend policy (thread vs VM), Evaluate
   - Code Review
@@ -812,6 +828,7 @@
 
 - Project Management
   - Systems development life cycle (SDLC): requirement analysis -> design -> development and testing -> implementation -> documentation -> evaluation
+  - Documentation: [mkdocs](https://www.mkdocs.org/), [mkdocs-material](https://squidfunk.github.io/mkdocs-material/)
   - Agile
     - Conway's law
     - Agile Release Train (ART)

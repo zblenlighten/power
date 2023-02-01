@@ -50,42 +50,40 @@
     - The more coins burned by the miner, the bigger the ensuing virtual mining rig
 
 - Cryptocurrency: technology - protocol - [token](https://www.investopedia.com/terms/c/crypto-token.asp)
-  - Bitcoin -> SHA-256
-    - [Bitcoin Core](https://bitcoin.org/en/bitcoin-core/)
-    - Monetary policy: halving principle, block time
-    - [Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem)
-    - Bitcoin Improvement Proposals (BIPs)
-      - BIP32: seed -> key pairs
-        - master private key -> private key -> public key -> address
-        - master public key (recreate public key to auditor or someone who doesn't send money)
-      - BIP39: mnemonic code
-      - BIP44: coin type - account - change - address_index
-  - Ethereum -> Keccak 256 (Ether)
-    - Accounts
-      - Externally owned account (EOA, has no associated code, controlled by private keys -> Elliptic Curve Cryptography (ECC))
-      - Contract account (has associated code)
-    - Smart contract is a program / code that runs on the blockchain
-    - Ethereum virtual machine: [Gas](https://ethereum.org/en/developers/docs/gas/)
-    - ERC-20 (e.g. SHIB)
-  - Initial coin offering (ICO, e.g. KodakCoin)
-  - Exchange-traded fund (ETF)
-  - [Market](https://coinmarketcap.com/)
+  - Layer 1
+    - [Bitcoin](https://bitcoin.org/bitcoin.pdf) -> SHA-256
+      - [Bitcoin Core](https://bitcoin.org/en/bitcoin-core/)
+      - Monetary policy: halving principle, block time
+      - [Bitcoin scalability problem](https://en.wikipedia.org/wiki/Bitcoin_scalability_problem)
+      - Bitcoin Improvement Proposals (BIPs)
+        - BIP32: seed -> key pairs
+          - master private key -> private key -> public key -> address
+          - master public key (recreate public key to auditor or someone who doesn't send money)
+        - BIP39: mnemonic code
+        - BIP44: coin type - account - change - address_index
+        - [Bitcoin Core file system](https://github.com/bitcoin/bitcoin/blob/master/doc/files.md)
+    - Ethereum -> Keccak 256 (Ether)
+      - Accounts
+        - Externally owned account (EOA, has no associated code, controlled by private keys -> Elliptic Curve Cryptography (ECC))
+        - Contract account (has associated code)
+      - Smart contract is a program / code that runs on the blockchain
+        - Internal Transactions
+      - Ethereum Virtual Machine: [Gas](https://ethereum.org/en/developers/docs/gas/)
+  - Layer 2 (Off-chain)
+    - Polygon
+    - Bitcoin Lightning Network
+    - Ethereum Plasma
+  - Others
+    - Initial coin offering (ICO, e.g. KodakCoin)
+    - Exchange-traded fund (ETF)
+    - [Crypto Tax Guide](https://coinledger.io/crypto-taxes)
 
 - Transaction
   - Blockchain trilemma: Decentralization, Security, Scalability
   - Blockchain type: Public, Private, Consortium
-    - [Dune Analytics](https://dune.com/browse/dashboards)
-    - Block Explorer and Analytics Platform
-      - [Etherscan](https://etherscan.io/)
-      - [Blockchain.com Explorer](https://www.blockchain.com/explorer)
   - Unspent Transaction Output (UTXO)
   - Signatures ([demo](https://tools.superdatascience.com/blockchain/public-private-keys/signatures))
     - private key (send money) -> public key (verification function) -> address (for additional security, receive money)
-  - Latency and Throughput
-    - SegWit
-    - Layer 2 Scaling
-      - Bitcoin Lightning Network
-      - Ethereum Plasma
   - Hierarchical Deterministic (HD) Wallet
 
 ### Web3
@@ -93,23 +91,34 @@
 - Principles: decentralized, permissionless, native payments, trustless
 
 - Decentralized autonomous organization (DAO)
-  - [daolist](https://daolist.fyi/)
 
 - Decentralized finance (DeFi)
-  - MakerDAO (DAI)
-  - Compound Finance
-  - Aave
-  - Uniswap
-    - Automated Market Maker (AMM)
-  - Harvest Finance (FARM)
-  - Stablecoins
   - Non-fungible token (NFT)
     - InterPlanetary File System (IPFS)
       - [Decentralizing NFT metadata on OpenSea](https://opensea.io/blog/announcements/decentralizing-nft-metadata-on-opensea/)
-  - References
-    - [defipulse](https://www.defipulse.com/)
+  - Automated Market Maker (AMM)
+    - Liquidity: allow users to trade assets
+    - Yield Farming: fees come from the trading activity that takes place on exchange or marketplace that uses liquidity pool
+  - Protocols: Uniswap, Aave, Compound, and MakerDAO (DAI)
+  - Regulatory compliance: Zero Hash
+  - [Stablecoin](https://academy.binance.com/en/glossary/stablecoin)
 
 - Applications
+  - Data analytics
+    - [CoinMarketCap](https://coinmarketcap.com/), [CoinGecko](https://www.coingecko.com/)
+    - [Dune Analytics](https://dune.com/browse/dashboards)
+    - [Glassnode](https://studio.glassnode.com/)
+    - [Nansen](https://pro.nansen.ai/)
+    - References
+      - [Blockchain.com Explorer](https://www.blockchain.com/explorer)
+      - [Ethereum Charts & Statistics](https://etherscan.io/charts)
+      - [Key Metrics for the Rapidly Expanding Web3 Ecosystem](https://blog.chain.link/web3-metrics/)
+  - Oracle and data management
+    - Chainlink
+    - The Graph
+  - DApp
+    - Moralis
+    - MetaMask
   - GameFi
     - CryptoKitties
     - Axie Infinity: Axie Infinity Shards (AXS) and Smooth Love Potions (SLP)

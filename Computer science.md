@@ -47,7 +47,7 @@
       - Red-black tree
   3. B tree
       - B+ tree
-  4. **Trie** (search autocomplete, [implementation](https://leetcode.com/articles/implement-trie-prefix-tree/))
+  4. **Trie** (search autocomplete, [implementation](https://leetcode.com/problems/implement-trie-prefix-tree/solutions/127843/official-solution/))
   5. **Quadtree** (location based service)
   6. Merkle tree (identify inconsistencies between nodes)
   7. Heap
@@ -73,9 +73,6 @@
   8. Greedy
   9. Regular expression ([regexr](https://regexr.com/))
 
-- Time complexity
-  - General [Big-O](https://linux.cn/article-7480-1.html) ([Java](https://www.baeldung.com/java-collections-complexity), [Python](https://wiki.python.org/moin/TimeComplexity))
-
 - Others
   - Unique Identifiers: Universally unique identifier (UUID)
     - True Random Numbers - Pseudorandom Numbers - RDRAND
@@ -83,6 +80,9 @@
     - **Bloom filter** (eliminate costly lookups)
     - [HyperLogLog](https://engineering.fb.com/2018/12/13/data-infrastructure/hyperloglog/) (count unique values fast)
     - Count–min sketch (estimate frequencies of items)
+
+- Time complexity
+  - General [Big-O](https://linux.cn/article-7480-1.html) ([Java](https://www.baeldung.com/java-collections-complexity), [Python](https://wiki.python.org/moin/TimeComplexity))
 
 ### Operating system
 
@@ -101,7 +101,7 @@
       - Permanent Generation: full GC
     - [JVM Garbage Collectors](https://www.baeldung.com/jvm-garbage-collectors)
 
-- I/O
+- Input/Output (I/O)
   - Communication
     - Blocking (vs: Non-blocking): connection is blocked until there is some data to read or the data is fully written
       - Possible causes: I/O, lock, network request, database connection
@@ -112,12 +112,18 @@
     - Overhead: compute time/resources spent on communication
     - Latency: time to send message from A to B (μs)
     - Bandwidth: amount to data communicated per seconds (GB/s)
-  - File
-    - Regular file
-    - Directory
-      - Linking: Static library (.lib) & Dynamic-link library (.dll)
-    - Socket
-    - [rsync](https://en.wikipedia.org/wiki/Rsync) (file transfers)
+  - File System (manage the input and output of data to and from storage)
+    - File
+      - Regular file
+      - Directory
+        - Linking: Static library (.lib) & Dynamic-link library (.dll)
+      - Socket
+      - [rsync](https://en.wikipedia.org/wiki/Rsync) (file transfers)
+    - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
+    - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
+    - Distributed File System
+      - Andrew File System (AFS)
+      - InterPlanetary File System (IPFS)
 
 - Process & Thread (task execution)
   - CPU bound, Memory bound, I/O bound
@@ -127,7 +133,7 @@
     - Threads share: address space, heap, static data, code segments, and file descriptors
     - Threads have their own: program counter, registers, stack, and state
     - Thread pool: reuses threads to reduce the overhead that would be required to create a new separate thread for every concurrent task
-  - Coroutine ([协程](https://www.liaoxuefeng.com/wiki/1016959663602400/1017968846697824))
+    - Coroutine ([协程](https://www.liaoxuefeng.com/wiki/1016959663602400/1017968846697824))
   - Inter process communication (IPC)
     - Shared memory, Pipe, Message queue, Semaphore
     - Remote procedure call (**RPC**)
@@ -158,19 +164,10 @@
   - Scheduler
     - Scheduling algorithms (context switch)
     - Scheduling goals
+    - Scheduler data structure: [Hierarchical timing wheels](https://github.com/apache/kafka/blob/trunk/core/src/main/scala/kafka/utils/timer/TimingWheel.scala)
 
-- File System
-  - Linux ([inode](https://www.ruanyifeng.com/blog/2011/12/inode.html))
-  - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
-  - Distributed File System
-    - Andrew File System (AFS)
-    - InterPlanetary File System (IPFS)
-
-- Linux (pipe)
-  - Distribution (/etc/*-release)
-    - Debian -> Ubuntu
-    - Fedora -> Red Hat -> CentOS
-    - Android
+- Linux
+  - Linux distribution (/etc/*-release)
   - Shell command ([explain shell](https://www.explainshell.com/)): [Wildcards](http://www.ruanyifeng.com/blog/2018/09/bash-wildcards.html)
     - Files and directories: cat, touch, grep, find, mount, ls
     - Manipulating data: cut, [awk](http://www.ruanyifeng.com/blog/2018/11/awk.html), sort, uniq, wc, sed, tr, paste
@@ -180,8 +177,8 @@
     - Status: ps, top, netstat
     - Messages between users
     - Networking: scp, curl, ssh, ifconfig, traceroute, telnet
-    - Job scheduler: cron, crontab
-      - [Hierarchical timing wheels](https://github.com/apache/kafka/blob/trunk/core/src/main/scala/kafka/utils/timer/TimingWheel.scala) (job scheduler)
+    - Pipe: xargs
+    - Job scheduler
 
 ### Network
 
@@ -248,15 +245,15 @@
       - 404 - Not found
     - 5xx (Server error): The server failed to fulfill an apparently valid request
       - 500 - Interval server error
+  - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
+  - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
+    - Intelligent Tracking Prevention (ITP)
+    - Server side (HTTP Set-Cookie header) - Client side (JavaScript document.cookie)
   - [HTTP safe and idempotent](https://www.rfc-editor.org/rfc/rfc7231#section-8.1.3)
   - Security
     - [Content security policy](http://www.ruanyifeng.com/blog/2016/09/csp.html) (CSP)
     - [Same-origin policy](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html): [Cross-origin resource sharing](http://www.ruanyifeng.com/blog/2016/04/cors.html) (CORS)
     - [Cross-site request forgery](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html) (CSRF)
-  - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
-  - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
-    - Intelligent Tracking Prevention (ITP)
-    - Server side (HTTP Set-Cookie header) - Client side (JavaScript document.cookie)
   - Applications
     - Proxy (server): Filter requests (IP address blocking, decrease request latency), Cache (optimize request traffic)
     - Web cache: reduce server lag
@@ -304,6 +301,7 @@
       - Digital signature (Electronic signature: DocuSign)
       - Public key infrastructure (PKI)
         - Certificate authority (CA)
+    - Zero-knowledge proof
     - Post-quantum cryptography
   - Protocols
     - Central Authentication Service (CAS): single sign-on (SSO)
