@@ -22,19 +22,28 @@
 
 ### Project Preparation
 
-- Project Checklist: Obtain -> Scrub -> Explore -> Model -> Interpret
-  - Frame the problem and look at the big picture
-  - Get the data (automate)
-  - Explore the data to gain insights (field expert)
-  - Prepare the data to better expose the underlying data patterns
-    1. data clean/data analysis
-    2. [**feature engineering**](https://trainindata.medium.com/feature-engineering-for-machine-learning-a-comprehensive-overview-a7ad04c896f8) ([feature engine](https://feature-engine.readthedocs.io/en/latest/index.html))
-    3. [feature selection](https://trainindata.medium.com/feature-selection-for-machine-learning-a-comprehensive-overview-bd571db5dd2d)
-  - Explore many different models and short-list the promising ones
-  - Fine-tune
-  - Present your solution
-  - Launch, monitor and maintain your system
-  - Project structure: [Cookiecutter Data Science](http://drivendata.github.io/cookiecutter-data-science/)
+- Project Checklist
+  - Clarifying requirements
+    - Business objective
+    - Feature the system needs to support
+    - Data
+    - Constraints
+    - Scale of the system
+    - Performance
+  - Framing the problem
+    - ML objective
+    - Specify the system's input and output
+    - Choosing the ML category
+  - Data preparation
+    - Data engineering (automation)
+    - [**Feature engineering**](https://trainindata.medium.com/feature-engineering-for-machine-learning-a-comprehensive-overview-a7ad04c896f8) ([feature engine](https://feature-engine.readthedocs.io/en/latest/index.html))
+    - [Feature selection](https://trainindata.medium.com/feature-selection-for-machine-learning-a-comprehensive-overview-bd571db5dd2d)
+  - Data exploration (field expert)
+  - Model development
+  - Evaluation
+  - Development and serving
+    - Project structure: [Cookiecutter Data Science](http://drivendata.github.io/cookiecutter-data-science/)
+  - Monitoring and infrastructure
 
 - Data
   - Univariate data
@@ -147,15 +156,15 @@
     - Hamming distance
     - Pearson correlation coefficient
     - Information entropy
-  - Ranking (MLR: machine learned ranking)
-    - [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
-    - [Metrics](http://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples)
+  - Ranking (LTR: learning to rank)
     - Approaches
       - Pointwise
       - Pairwise
+      - Listwise
+    - [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
   - Natural Language Processing
     - Data processing
-      - Tokenization: word segmentation, convert characters to lowercase
+      - Tokenization: word segmentation, lowercasing
       - Remove useless characters, remove stop/rare words
       - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
       - Named-entity recognition: entity insertion and extraction
@@ -164,24 +173,25 @@
       - Semantic similarity
       - Sentiment analysis
     - Models
-      - Bag of Words & N-gram: term frequency — inverse document frequency (TF-IDF)
-        - Article vector (each dimension is the TF-IDF of the word) -> Cosine distance
-      - Topic model
+      - Statistical text encoder
+        - Bag of Words(BoW) & N-gram: term frequency — inverse document frequency (TF-IDF)
+          - Article vector (each dimension is the TF-IDF of the word) -> Cosine distance
+      - ML based text encoder
+        - Embedding
+          - Word2Vec (Continues bag of words: CBOW vs Skip-gram)
+            - Word Mover's distance (WMD) / Cosine distance / Euclidean distance
+            - Out-of-vocabulary (OOV)
+            - Negative sampling
+            - Visualization: t-SNE
+          - Item2vec
+          - Graph Embedding
+            - DeepWalk
+            - Node2vec
+        - Transformer (Attention)
+          - BERT ([Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3))
+      - Topic models
         - pLSA (Probabilistic Latent Semantic Analysis)
         - LDA (Latent Dirichlet Allocation)
-      - Embedding
-        - Word2Vec (Continues bag of words: CBOW vs Skip-gram)
-          - Word Mover's distance (WMD) / Cosine distance / Euclidean distance
-          - Out-of-vocabulary (OOV)
-          - Negative sampling
-          - Visualization: t-SNE
-        - Item2vec
-        - Graph Embedding
-          - DeepWalk
-          - Node2vec
-      - Transformer (Attention)
-        - BERT ([Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3))
-    - Evaluation: BLEU, ROUGE, METEOR, etc.
   - Computer Vision
     - Data processing (OpenCV)
       - Crop, Resize, Padding, Normalize, Equalization, Balance
@@ -231,6 +241,7 @@
   - Optimization
     - Non-iterative vs iterative: Least squares (OLS) vs Gradient descent
     - Loss function: the measures on a single training example
+      - Cross entropy, MSE, MAE, Huber loss
     - Cost function: a sum of the loss function applied to each of the training examples
     - Objective function: general term for any optimize function during training
       - Maximum likelihood estimation (MLE)
@@ -269,7 +280,7 @@
     - One stage: YOLO
       - Anchor boxes (a set of predefined bounding boxes) + Loss
       - IoU (Intersection over Union) = area of overlap / area of union
-      - **NMS** (Non-Maximal Suppression)
+      - **NMS** (Non-Maximal Suppression): select the most appropriate bounding boxes
       - FPN (Feature Pyramid Networks)
     - Anchor free
     - CRNN + ctc (text recognition)
@@ -294,16 +305,14 @@
 | Support Vector Machine  | Low generalization error, computationally inexpensive, easy to interpret results  | Sensitive to tuning parameters and kernel choice, natively only handles binary classification  | Handwriting classification (keep the same performance with less memory used)  |
 | Naive Bayes  | Works with a small amount of data, handles multiple classes  | Sensitive to how the input data is prepared  | Filtering spam email / malicious posts, revealing local attitudes from personal ads  |
 
-- Bagging
-  - Random forest
+- Bagging: Random forest
 
-- Boosting
-  - Adaboost
+- Boosting: Adaboost, XGBoost, Gradient boost
 
 - Basic topics
   - Overfitting vs Underfitting
-    - Overfitting: too small training data ratio to overall data, too complex model, uneven sampling, no regularization, no outlier handling
-    - Underfitting: too large training data ratio to overall data, too simple model, too concentrated data
+    - Overfitting (high variance): too small training data ratio to overall data, too complex model, uneven sampling, no regularization, no outlier handling
+    - Underfitting (high bias): too large training data ratio to overall data, too simple model, too concentrated data
   - Lazy learning vs Eager learning
     - Lazy: k Nearest Neighbor
     - Eager: Decision tree, Naive Bayes, Neural Network
@@ -347,35 +356,48 @@
 
 #### Evaluation
 
-- Evaluating accuracy
-  - Error = Bias + Variance
-  - Metrics ([sklearn metrics and scoring](https://scikit-learn.org/stable/modules/model_evaluation.html))
-  - Cross Validation
-  - Confusion Matrix
-  - F1 Score
-    - Precision = TP / (TP + FP)
-    - Recall = TP / (TP + FN)
-  - Receiver Operating Characteristic (AUC: Area Under the ROC Curve)
-    - [ROC](http://mlwiki.org/index.php/ROC_Analysis)
-    - True Positive Rate = TP / (TP + FN)
-    - False Positive Rate = FP / (FP + TN)
-  - Precision-Recall (PR) curve
-  - Cost function / Loss function
+- Offline Metrics
+  - Basic topics
+    - Error = Bias + Variance
+    - Metrics ([sklearn metrics and scoring](https://scikit-learn.org/stable/modules/model_evaluation.html))
+    - Cross Validation
+  - Classification
+    - F1 Score
+      - Precision = TP / (TP + FP)
+      - Recall = TP / (TP + FN)
+    - Receiver Operating Characteristic (AUC: Area Under the ROC Curve)
+      - [ROC](http://mlwiki.org/index.php/ROC_Analysis)
+      - True Positive Rate = TP / (TP + FN)
+      - False Positive Rate = FP / (FP + TN)
+    - Precision-Recall (PR) curve
+    - Confusion Matrix
+    - Multiclass: F1 Score, Average Accuracy, Log Loss
+  - Regression
     - RMSE: Root Mean Squared Error (MSE: Mean squared error)
     - MAPE: Mean Absolute Percent Error (MAE: Mean absolute error)
+  - [Ranking](http://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples)
   - Others
-    - Log Loss
+    - [Data Leakage in Machine Learning](https://machinelearningmastery.com/data-leakage-machine-learning/)
     - Gain and Lift Charts
     - Kolmogorov Smirnov Chart
     - Concordant – Discordant Ratio
-  - Multi-classification: F1 Score, Average Accuracy, Log Loss
-- Evaluating performance
-  - Resource usage (memory, GPU / CPU)
+  - NLP: BLEU, METEOR, ROUGE, CIDEr, SPICE
+  - CV: FID, Inception Score
+- Online Metrics
+  - Ad click prediction: Click-through rate (CTR), revenue lift, etc.
+  - Harmful content detection: Prevalence, valid appeals, etc.
+  - Video recommendation: CTR, total watch time, number of completed videos, etc.
+  - Friend recommendation: Number of requests sent per day, number, number pf requests accepted per day, etc.
+- Fairness and Bias
+- Operation related metrics
+  - Resource usage: average serving times, throughput, number of prediction requests, memory / GPU / CPU utilization, etc.
   - Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
 
 ### Statistics
 
-[Tutorial](https://stattrek.com/tutorials/ap-statistics-tutorial.aspx)
+- Basic topics
+  - [Normality test](https://en.wikipedia.org/wiki/Normality_test)
+  - [Tutorial](https://stattrek.com/tutorials/ap-statistics-tutorial.aspx)
 
 - Statistical significance
   - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
@@ -427,20 +449,32 @@
 #### Recommender System
 
 - Models
+  - Content-based Filtering
+    - Pros: ability to recommend new items, ability to capture the unique interests of each user
+    - Cons: difficult to discover a user's new interests, requires domain knowledge
   - Collaborative Filtering
     - ItemCF
+      - CF doesn't rely on item features but only upon users' historical interactions
     - UserCF
       - Demographic characteristic
       - User behavior / User profile
       - Personalized topic model
-    - Problems: Explore-exploit (lack of diversity), Cold start (new community, new item, new user)
+    - Pros: no domain knowledge needed, easy to discover users' new areas of interest, efficient
+    - Cons: Exploration-exploitation (lack of diversity, can't handle niche interests), Cold start (new community, new item, new user)
+  - Hybrid filtering
   - Matrix Factorization
-    - Eigen Decomposition
-    - Singular Value Decomposition (SVD)
-    - Gradient Descent
-  - [CTR预估模型的演化之路](https://zhuanlan.zhihu.com/p/61154299)
-  - [深度学习在CTR预估中的应用](https://zhuanlan.zhihu.com/p/35484389)
-  - [RecBole](https://recbole.io/)
+    - Optimization
+      - Stochastic Gradient Descent (SGD)
+      - Weighted Alternating Least Squares (WALS)
+    - Pros: training speed, serving speed
+    - Cons: only relies on user-item interactions, handling new users is difficult
+  - Two-tower neural network
+    - Pros: utilizes user features, handles new users
+    - Cons: slower serving, training is compute-intensive
+  - References
+    - [CTR预估模型的演化之路](https://zhuanlan.zhihu.com/p/61154299)
+    - [深度学习在CTR预估中的应用](https://zhuanlan.zhihu.com/p/35484389)
+    - [RecBole](https://recbole.io/)
 
 - Evaluation
   - Spot check
@@ -473,7 +507,7 @@
 - Google's display advertising stack
   - Google Ads: advertisers (a type of DSP only limited to Google’s inventory)
     - [Campaign](https://support.google.com/google-ads/answer/7450050)
-    - Quality score: expected clickthrough rate (CTRs), ad relevance, landing page experience
+    - Quality score: expected CTR, ad relevance, landing page experience
     - Automation in media
       - Creative assets
       - Inventory (product feeds)
@@ -493,10 +527,14 @@
       - Have a learning mindset
       - Make measurement a habit
 
-#### Moderation System
+#### Harmful Content Detection
 
-- References
-  - [How to build a message moderation system](https://hackernoon.com/message-moderation-system-ac9472962bf)
+- Basic topics
+  - Harmful content: violence, nudity, hate speech, misinformation, etc.
+  - Categories
+    - Harmful content (modality: text, image, video, audio, or any combination of these)
+      - [How to build a message moderation system](https://hackernoon.com/message-moderation-system-ac9472962bf)
+    - Bad actors
 
 ### Data analysis
 
@@ -588,12 +626,20 @@
 | System management difficulty  | So so  | Easy  | Very hard  | So so  |
 
 - Further topics
-  - Incremental learning
-  - Online learning
-  - ML Design Patterns
-  - Model drift: concept drift, data drift, upstream data changes
+  - **Continual Learning**
+  - Model compression
+    - Knowledge distillation
+    - Pruning
+    - Quantization
+  - Monitoring
+    - Drifts: concept drift, data drift, upstream data changes
+    - Model's inputs / outputs
+    - Model accuracy
+    - Model versions
+    - Operation related metrics
   - Predictive Model Markup Language (PMML)
 
 - References
+  - [LF AI & Data Foundation Interactive Landscape](https://landscape.lfai.foundation/)
   - [Best practices for implementing machine learning on Google Cloud](https://cloud.google.com/architecture/ml-on-gcp-best-practices)
   - [Best practices for performance and cost optimization for machine learning](https://cloud.google.com/architecture/best-practices-for-ml-performance-cost)

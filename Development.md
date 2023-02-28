@@ -164,7 +164,7 @@
 
 ### Data storage
 
-- Knowledge
+- Basic topics
   - Storage Engines
     - Log-structured storage engine: SSTable -> LSM Tree
       - Database: LevelDB, Cassandra, HBase, Lucene
@@ -393,11 +393,12 @@
     - [Big data architectures](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/)
     - [Data Mesh Architecture](https://www.datamesh-architecture.com/) (a way of organizing data management that emphasizes collaboration, decentralization, and self-service, data as a product)
     - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
+    - [Open source data-diff](https://www.datafold.com/blog/open-source-data-diff)
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
 
 ### Dataflow
 
-- Knowledge
+- Basic topics
   - Schema evolution
     - Rolling upgrade
     - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
@@ -665,7 +666,7 @@
 
 ### Frontend
 
-- Knowledge
+- Basic topics
   - WWW standards
     - CSS
     - DOM

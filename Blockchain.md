@@ -75,6 +75,7 @@
     - Ethereum Plasma
   - Others
     - Initial coin offering (ICO, e.g. KodakCoin)
+    - Crypto Airdrop
     - Exchange-traded fund (ETF)
     - [Crypto Tax Guide](https://coinledger.io/crypto-taxes)
 
@@ -90,32 +91,35 @@
 
 - Principles: decentralized, permissionless, native payments, trustless
 
+- Crypto data and analytics
+  - [CoinMarketCap](https://coinmarketcap.com/), [CoinGecko](https://www.coingecko.com/)
+  - [DefiLlama](https://defillama.com/)
+  - [Dune Analytics](https://dune.com/browse/dashboards)
+  - [Glassnode](https://studio.glassnode.com/)
+  - [Nansen](https://pro.nansen.ai/)
+  - References
+    - [Blockchain.com Explorer](https://www.blockchain.com/explorer)
+    - [Ethereum Charts & Statistics](https://etherscan.io/charts)
+    - [Key Metrics for the Rapidly Expanding Web3 Ecosystem](https://blog.chain.link/web3-metrics/)
+
 - Decentralized autonomous organization (DAO)
 
 - Decentralized finance (DeFi)
   - Non-fungible token (NFT)
-    - InterPlanetary File System (IPFS)
-      - [Decentralizing NFT metadata on OpenSea](https://opensea.io/blog/announcements/decentralizing-nft-metadata-on-opensea/)
+    - [Decentralizing NFT metadata on OpenSea](https://opensea.io/blog/announcements/decentralizing-nft-metadata-on-opensea/)
   - Automated Market Maker (AMM)
     - Liquidity: allow users to trade assets
     - Yield Farming: fees come from the trading activity that takes place on exchange or marketplace that uses liquidity pool
+      - Annual percentage yield (APY)
   - Protocols: Uniswap, Aave, Compound, and MakerDAO (DAI)
   - Regulatory compliance: Zero Hash
   - [Stablecoin](https://academy.binance.com/en/glossary/stablecoin)
 
 - Applications
-  - Data analytics
-    - [CoinMarketCap](https://coinmarketcap.com/), [CoinGecko](https://www.coingecko.com/)
-    - [Dune Analytics](https://dune.com/browse/dashboards)
-    - [Glassnode](https://studio.glassnode.com/)
-    - [Nansen](https://pro.nansen.ai/)
-    - References
-      - [Blockchain.com Explorer](https://www.blockchain.com/explorer)
-      - [Ethereum Charts & Statistics](https://etherscan.io/charts)
-      - [Key Metrics for the Rapidly Expanding Web3 Ecosystem](https://blog.chain.link/web3-metrics/)
+  - InterPlanetary File System (IPFS)
   - Oracle and data management
     - Chainlink
-    - The Graph
+    - [The Graph](https://github.com/graphprotocol/graph-node)
   - DApp
     - Moralis
     - MetaMask
