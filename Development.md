@@ -36,7 +36,10 @@
         - API Gateway ([WSO2](https://apim.docs.wso2.com/en/latest/get-started/key-concepts/), Kong, Tyk, Zuul)
           - Gateway = Route (basic building block) + Filter (optional function)
         - Load balancing (Nginx)
-      - Reactive system (vs: Declarative system)
+      - Interservice communication
+        - Synchronous - One-to-one: Request and response
+        - Asynchronous - One-to-one: Notification, Request and asynchronous response
+        - Asynchronous - One-to-many: Publish and subscribe, Publish and asynchronous responses
       - Challenges
         - Design and runtime complexity
         - Network are slow compared to monolith
@@ -504,7 +507,7 @@
           - Replication factor (set to 3 as default)
           - It is recommended that each broker to have up to 4K partitions and each cluster to have up to 200K partitions
           - Log compaction
-          - Advertised Host: advertised.host.name, advertised.listeners
+          - Advertised Host: advertised.host.name, advertised.listeners (private IP or public IP)
       - Core APIs
         - Producer
           - Configuration

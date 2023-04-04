@@ -59,7 +59,7 @@
         - BIP32: seed -> key pairs
           - master private key -> private key -> public key -> address
           - master public key (recreate public key to auditor or someone who doesn't send money)
-        - BIP39: mnemonic code
+        - BIP39: mnemonic code ([converter](https://iancoleman.io/bip39/))
         - BIP44: coin type - account - change - address_index
         - [Bitcoin Core file system](https://github.com/bitcoin/bitcoin/blob/master/doc/files.md)
     - Ethereum -> Keccak 256 (Ether)

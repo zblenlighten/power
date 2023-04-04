@@ -444,6 +444,9 @@
   - Monty Hall problem
   - [Spurious correlations](http://tylervigen.com/spurious-correlations)
 
+- References
+  - [Best Practices for ML Engineering](https://developers.google.com/machine-learning/guides/rules-of-ml)
+
 ### ML Applications
 
 #### Recommender System
@@ -565,6 +568,9 @@
 | Referral  | Viral and word-of-mouth invitations to other potential users  | Invites sent, viral coefficient, viral cycle time  |
 
 - Acquisition mediums: Organic, CPC / CPM (Cost Per Click / Cost Per Mille), Referreal, Email, None
+
+- References
+  - [Good Data Analysis](https://developers.google.com/machine-learning/guides/good-data-analysis)
 
 ### Deployment
 
