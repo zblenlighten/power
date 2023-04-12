@@ -513,9 +513,8 @@
           - Configuration
             - acks
               - 0: it's ok to lose data
-              - 1: replica is not guaranteed
-              - all: leader and replicas ack requested, add latency and safety
-                - Must be used in conjunction with min.insync.replicas
+              - 1: leader broker ack requested and replica is not guaranteed
+              - all: leader and in-sync replicas ack requested (min.insync.replicas), add latency and safety
             - retries, delivery.timeout.ms, max.in.flight.request.per.connection (set to 1 to ensure ordering of retries)
             - enable.idempotence (set to true to prevent duplicates)
             - compression.type ([snappy](https://github.com/google/snappy)), linger.ms, batch.size
@@ -843,6 +842,7 @@
   - [RACI](https://en.wikipedia.org/wiki/Responsibility_assignment_matrix)
 
 - Soft Skills
+  - [6 Business Skills Every Engineer Needs](https://online.hbs.edu/blog/post/business-skills-for-engineers)
   - [The Guerrilla Guide to Interviewing](https://www.joelonsoftware.com/2006/10/25/the-guerrilla-guide-to-interviewing-version-30/)
   - [Hiring Managers: Duties, Skills and How To Become One](https://www.indeed.com/career-advice/finding-a-job/hiring-manager)
   - [Scaling Engineering Teams via RFCs: Writing Things Down](https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/)
