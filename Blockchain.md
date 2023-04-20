@@ -69,6 +69,10 @@
       - Smart contract is a program / code that runs on the blockchain
         - Internal Transactions
       - Ethereum Virtual Machine: [Gas](https://ethereum.org/en/developers/docs/gas/)
+      - Development tools
+        - Tenderly
+        - Truffle
+        - Hardhat
   - Layer 2 (Off-chain)
     - Polygon
     - Bitcoin Lightning Network
@@ -86,17 +90,23 @@
   - Signatures ([demo](https://tools.superdatascience.com/blockchain/public-private-keys/signatures))
     - private key (send money) -> public key (verification function) -> address (for additional security, receive money)
   - Hierarchical Deterministic (HD) Wallet
+  - Types of crypto fraud
+    - Payments fraud: stolen card monetization
+    - Scams: investment and social engineering scams
+    - Friendly fraud
+    - Off-ramping fraud
 
 ### Web3
 
 - Principles: decentralized, permissionless, native payments, trustless
 
 - Crypto data and analytics
-  - [CoinMarketCap](https://coinmarketcap.com/), [CoinGecko](https://www.coingecko.com/)
-  - [DefiLlama](https://defillama.com/)
+  - Chainalysis
+  - Coin Metrics
+  - [The Graph](https://github.com/graphprotocol/graph-node)
   - [Dune Analytics](https://dune.com/browse/dashboards)
-  - [Glassnode](https://studio.glassnode.com/)
-  - [Nansen](https://pro.nansen.ai/)
+  - Messari
+  - Others: [DefiLlama](https://defillama.com/), [Glassnode](https://studio.glassnode.com/), [Nansen](https://pro.nansen.ai/), Chainlink
   - References
     - [Blockchain.com Explorer](https://www.blockchain.com/explorer)
     - [Ethereum Charts & Statistics](https://etherscan.io/charts)
@@ -118,10 +128,8 @@
 - Applications
   - InterPlanetary File System (IPFS)
   - Blockchain node services
-  - Oracle and data management
-    - Chainlink
-    - [The Graph](https://github.com/graphprotocol/graph-node)
   - DApp
+    - [Alchemy](https://github.com/alchemyplatform/create-web3-dapp)
     - Moralis
     - MetaMask
   - GameFi
