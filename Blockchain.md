@@ -28,7 +28,7 @@
         - Ethereum (DAO attack): Ethereum (ETH) and Ethereum Classic (ETC)
         - Bitcoin (SegWit): Bitcoin (BTC) and Bitcoin Cash (BCH)
       - Soft fork: new rules are a subgroup of old rules, a temporary divergence
-  - Openness: transparency
+  - Blockchain trilemma: Decentralization, Security, Scalability
 
 - Consensus Protocol
   - Byzantine Fault
@@ -50,7 +50,7 @@
     - The more coins burned by the miner, the bigger the ensuing virtual mining rig
 
 - Cryptocurrency: technology - protocol - [token](https://www.investopedia.com/terms/c/crypto-token.asp)
-  - Layer 1
+  - Layer 1 (main chain network, scalability problem)
     - [Bitcoin](https://bitcoin.org/bitcoin.pdf) -> SHA-256
       - [Bitcoin Core](https://bitcoin.org/en/bitcoin-core/)
       - Monetary policy: halving principle, block time
@@ -73,7 +73,9 @@
         - Tenderly
         - Truffle
         - Hardhat
-  - Layer 2 (Off-chain)
+    - BNB Chain
+    - Solana
+  - Layer 2 (off chain)
     - Polygon
     - Bitcoin Lightning Network
     - Ethereum Plasma
@@ -84,7 +86,6 @@
     - [Crypto Tax Guide](https://coinledger.io/crypto-taxes)
 
 - Transaction
-  - Blockchain trilemma: Decentralization, Security, Scalability
   - Blockchain type: Public, Private, Consortium
   - Unspent Transaction Output (UTXO)
   - Signatures ([demo](https://tools.superdatascience.com/blockchain/public-private-keys/signatures))
@@ -126,7 +127,10 @@
   - [Stablecoin](https://academy.binance.com/en/glossary/stablecoin)
 
 - Applications
-  - InterPlanetary File System (IPFS)
+  - [Zero Hash](https://blog.zerohash.com/)
+  - Decentralized storage
+    - InterPlanetary File System (IPFS)
+    - Filecoin
   - Blockchain node services
   - DApp
     - [Alchemy](https://github.com/alchemyplatform/create-web3-dapp)

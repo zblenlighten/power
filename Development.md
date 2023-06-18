@@ -127,7 +127,7 @@
       - [Metrics, monitors, alerts decision record](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/examples/metrics-monitors-alerts/index.md)
       - ELK (Elastic)
         - Elasticsearch
-        - Logstash (vs: Fluentd): Data collection pipeline
+        - Logstash (vs: Fluentd, Embulk): Data collection pipeline
           - Filter plugin: Grok (log parser)
           - Input plugin: Twitter
         - Kibana: Viewer with filter capabilities
@@ -484,7 +484,7 @@
       - Standalone cluster / YARN on Hadoop / Cloud / Local - Flink runtime - API
   - Database and Stream: keeping systems in sync
     - Capture the changelog (downside: asynchronous)
-      - [Change data capture](https://scaling.dev/replication/cdc) (CDC)
+      - [Change data capture](https://www.qlik.com/us/change-data-capture/cdc-change-data-capture) (CDC)
       - Event sourcing
     - Command query responsibility segregation ([CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)): deriving several views from the same event log
     - [Hudi](https://hudi.apache.org/) (Hadoop Upserts Deletes and Incrementals)
@@ -606,6 +606,7 @@
   - Creational Patterns: Factory, Singleton
   - Structural Patterns: Decorator, Adapter, Facade, Composite, Proxy
   - Behavioral Patterns: Observer, Command, Template, Iterator, State
+  - Others: Lazy loading
   - J2EE Patterns: Compound (MVC)
   - Principles (SOLID)
     - Open Close Principle
@@ -648,15 +649,22 @@
       - Standard Java Persistence API (JPA)
       - Spring Data JPA (Spring Data REST)
     - Spring WebFlux
-      - Reactive programming: high load
-        - Asynchronous & Non-blocking
-        - Dataflow: Event / Message driven stream
-        - Backpressure (provides the client the control on how much data the client needs from the server, different from throttling)
-        - Reactive Streams
       - Reactor: Flux, Mono
       - Netty
     - Spring Cloud
     - Projects: [link](https://spring.io/projects)
+  - RxJava (Reactive programming)
+    - Obeservable and Observers (vs: Iterator)
+      - Variants: Single, Maybe, Completable
+    - Operators
+      - types: Suppressing, transforming, reducing, collection, error recovery, action
+    - Combining observables
+    - Subjects - Replay / Cache
+    - Concurrency and Parallelization
+      - Schedulers (subscribeOn vs observeOn)
+    - Flowable and Subcriber
+      - Backpressure (vs: buffer / window, throttle, switch)
+    - Reactive Streams
 
 - [Go](https://github.com/avelino/awesome-go)
   - [pointer](https://www.runoob.com/go/go-pointers.html), [channel](https://www.runoob.com/w3cnote/go-channel-intro.html)
@@ -828,6 +836,7 @@
       - Reviewing respond in a timely fashion
       - Comments with Why, When and What
   - Testabiilty: unit test - load test - sanity test - canary test - all active test - regression test, code coverage
+    - Test doubles (unit test): fake, dummy, stub, mock, spy
 
 - Project Management
   - Systems development life cycle (SDLC): requirement analysis -> design -> development and testing -> implementation -> documentation -> evaluation
@@ -857,3 +866,5 @@
     - Two-way communication
     - Diaphragmatic breathing: taking slow breaths through the nose, and focusing on belly expansion with inhalation
   - Write up report: background, methods, results, conclusion
+  - Others
+    - [15 Signs Your Boss Likes You](https://www.indeed.com/career-advice/career-development/signs-your-boss-likes-you)
