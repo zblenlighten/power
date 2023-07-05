@@ -68,6 +68,7 @@
         - Contract account (has associated code)
       - Smart contract is a program / code that runs on the blockchain
         - Internal Transactions
+        - Blockchain Oracle
       - Ethereum Virtual Machine: [Gas](https://ethereum.org/en/developers/docs/gas/)
       - Development tools
         - Tenderly
@@ -79,7 +80,9 @@
     - Polygon
     - Bitcoin Lightning Network
     - Ethereum Plasma
+    - Ethereum Optimism
   - Others
+    - [Cross-Chain Interoperability](https://chain.link/education-hub/blockchain-interoperability)
     - Initial coin offering (ICO, e.g. KodakCoin)
     - Crypto Airdrop
     - Exchange-traded fund (ETF)
@@ -90,12 +93,16 @@
   - Unspent Transaction Output (UTXO)
   - Signatures ([demo](https://tools.superdatascience.com/blockchain/public-private-keys/signatures))
     - private key (send money) -> public key (verification function) -> address (for additional security, receive money)
-  - Hierarchical Deterministic (HD) Wallet
   - Types of crypto fraud
     - Payments fraud: stolen card monetization
     - Scams: investment and social engineering scams
     - Friendly fraud
     - Off-ramping fraud
+  - [Crypto Wallets vs Exchanges](https://www.coingecko.com/learn/crypto-wallet-vs-exchange)
+    - Hierarchical Deterministic (HD) Wallet
+    - Multi-party computation (MPC) Wallet
+    - Decentralized Exchange (DEX)
+      - Automated Market Maker (AMM)
 
 ### Web3
 
@@ -118,7 +125,7 @@
 - Decentralized finance (DeFi)
   - Non-fungible token (NFT)
     - [Decentralizing NFT metadata on OpenSea](https://opensea.io/blog/announcements/decentralizing-nft-metadata-on-opensea/)
-  - Automated Market Maker (AMM)
+  - AMM
     - Liquidity: allow users to trade assets
     - Yield Farming: fees come from the trading activity that takes place on exchange or marketplace that uses liquidity pool
       - Annual percentage yield (APY)

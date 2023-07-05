@@ -83,7 +83,7 @@
         - Invisible tracking script ([list of analytics tools](https://github.com/0xnr/awesome-analytics))
         - Javascript code snippet ([comparison](https://data36.com/build-data-tools-google-analytics-vs-sql/))
       - Data scraping / crawling
-        - Selenium
+        - Selenium, Scrapy
       - Devices: Laser radar, 3D human pose machine
     - Data cleaning: OpenRefine
     - Data labeling / Data generating
@@ -162,7 +162,7 @@
       - Pairwise
       - Listwise
     - [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
-  - Natural Language Processing
+  - Natural Language Processing (NLP)
     - Data processing
       - Tokenization: word segmentation, lowercasing
       - Remove useless characters, remove stop/rare words
@@ -192,7 +192,8 @@
       - Topic models
         - pLSA (Probabilistic Latent Semantic Analysis)
         - LDA (Latent Dirichlet Allocation)
-  - Computer Vision
+      - Large Language Model (LLM)
+  - Computer Vision (CV)
     - Data processing (OpenCV)
       - Crop, Resize, Padding, Normalize, Equalization, Balance
       - Visual descriptor
@@ -264,32 +265,37 @@
   - Hyperparameter optimization
 
 - Models
-  - Image classification
-    - LeNet-5
-    - AlexNet
-    - VGG
-    - Inception / GoogleNet
-    - ResNet
-    - MobileNet
-  - Object detection
-    - Backbone (feature extractor): Inception, ResNet, MobileNet
-    - Detection head (output layer): Groundtruth
-    - Two stage: R-CNN
-      - RoI pooling
-      - RPN (Region Proposal Network)
-    - One stage: YOLO
-      - Anchor boxes (a set of predefined bounding boxes) + Loss
-      - IoU (Intersection over Union) = area of overlap / area of union
-      - **NMS** (Non-Maximal Suppression): select the most appropriate bounding boxes
-      - FPN (Feature Pyramid Networks)
-    - Anchor free
-    - CRNN + ctc (text recognition)
-  - Semantic segmentation / Lane detection
-    - Backbone (feature extractor): ResNet
-    - U-Net
-    - DeepLab (vs: FCN)
-      - Encoder (Backbone + ASPP: atrous spatial pyramid pooling) - Decoder
-  - Object Tracking
+  - CV
+    - Image classification
+      - LeNet-5
+      - AlexNet
+      - VGG
+      - Inception / GoogleNet
+      - ResNet
+      - MobileNet
+    - Object detection
+      - Backbone (feature extractor): Inception, ResNet, MobileNet
+      - Detection head (output layer): Groundtruth
+      - Two stage: R-CNN
+        - RoI pooling
+        - RPN (Region Proposal Network)
+      - One stage: YOLO
+        - Anchor boxes (a set of predefined bounding boxes) + Loss
+        - IoU (Intersection over Union) = area of overlap / area of union
+        - **NMS** (Non-Maximal Suppression): select the most appropriate bounding boxes
+        - FPN (Feature Pyramid Networks)
+      - Anchor free
+      - CRNN + ctc (text recognition)
+    - Semantic segmentation / Lane detection
+      - Backbone (feature extractor): ResNet
+      - U-Net
+      - DeepLab (vs: FCN)
+        - Encoder (Backbone + ASPP: atrous spatial pyramid pooling) - Decoder
+    - Object Tracking
+  - LLM
+    - Base LLM: predict next word, based on text training data
+    - Instruction Tuned LLM: fine-tune on instructions and good attempts at following those instructions
+      - Reinforcement learning with human feedback (RLHF)
   - [Keras Models](https://keras.io/applications/)
 
 ### Machine learning
@@ -644,6 +650,7 @@
     - Model versions
     - Operation related metrics
   - Predictive Model Markup Language (PMML)
+  - Zero-knowledge machine learning (ZKML)
 
 - References
   - [LF AI & Data Foundation Interactive Landscape](https://landscape.lfai.foundation/)

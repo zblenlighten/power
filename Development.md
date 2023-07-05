@@ -25,7 +25,6 @@
       - Cons: agility, scalability, fault tolerance, single framework
     - Multitier architecture (N-tier): an MVC design is often implemented using an 3-tier architecture
     - Service-oriented architecture (SOA)
-      - Event-driven architecture
     - Microservices
       - Pros: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
       - When not to use: small, intermingled functionality or data, performance sensitive, quick and dirty, no planned updates
@@ -64,10 +63,20 @@
         - Service discovery: leader election
         - Membership / coordination service
     - [Thrashing in Distributed Shared Memory](https://www.geeksforgeeks.org/distributed-system-thrashing-in-distributed-shared-memory/)
-    - RPC
-      - Thrift & Avro
-      - [gRPC](https://github.com/grpc-ecosystem/awesome-grpc): HTTP/2 & Protocol Buffers
-      - Finagle: Futures
+  - Communication patterns
+    - Synchronous
+      - REST
+      - RPC
+        - Thrift & Avro
+        - [gRPC](https://github.com/grpc-ecosystem/awesome-grpc): HTTP/2 & Protocol Buffers
+        - Finagle: Futures
+    - Asynchronous
+      - publish–subscribe: WebSocket, MQTT
+      - message queue / message broker: RabbitMQ, Kafka
+      - stream: server-sent events, WebRTC
+    - Event-driven
+      - webhooks (vs: API polling)
+      - event-based architectures: Event sourcing, Event-driven microservices
   - Others
     - Single vs Multi-tenant
     - User Interface (UI)
@@ -818,6 +827,7 @@
 - Coding
   - System design -> Code development -> System testing -> System monitoring -> Product Rollout
   - Packages
+    - Maven Helper (IntelliJ plugin): dependency analyzer
     - JFrog Artifactory
     - [Packaging Python Projects](https://packaging.python.org/tutorials/packaging-projects/)
   - Guidelines
