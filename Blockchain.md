@@ -70,6 +70,7 @@
         - Internal Transactions
         - Blockchain Oracle
       - Ethereum Virtual Machine: [Gas](https://ethereum.org/en/developers/docs/gas/)
+      - ERC-20 Token Standard
       - Development tools
         - Tenderly
         - Truffle
@@ -83,7 +84,7 @@
     - Ethereum Optimism
   - Others
     - [Cross-Chain Interoperability](https://chain.link/education-hub/blockchain-interoperability)
-    - Initial coin offering (ICO, e.g. KodakCoin)
+    - Initial coin offering (ICO, e.g. KodakCoin) - Initial dex offering (IDO)
     - Crypto Airdrop
     - Exchange-traded fund (ETF)
     - [Crypto Tax Guide](https://coinledger.io/crypto-taxes)
@@ -134,6 +135,7 @@
   - [Stablecoin](https://academy.binance.com/en/glossary/stablecoin)
 
 - Applications
+  - [How to pass KYC (Know Your Customer)](https://sumsub.com/how-to-pass-verification/)
   - [Zero Hash](https://blog.zerohash.com/)
   - Decentralized storage
     - InterPlanetary File System (IPFS)

@@ -75,7 +75,7 @@
       - message queue / message broker: RabbitMQ, Kafka
       - stream: server-sent events, WebRTC
     - Event-driven
-      - webhooks (vs: API polling)
+      - webhooks (an HTTP callback, vs: API polling)
       - event-based architectures: Event sourcing, Event-driven microservices
   - Others
     - Single vs Multi-tenant
@@ -509,15 +509,18 @@
   - Log based message broker
     - Situation: high message throughput, each message is fast to process, and message ordering is important
     - Kafka
-      - Offsets - Segments - Partitions - Topics
-        - Bootstrap server (connection + metadata request)
+      - Storage layer: cluster -> brokers -> topics -> partitions -> segments -> records with offsets
+        - Topics: append-only, immutable logs of events
+        - Record Schema: [Schema registry](https://docs.confluent.io/platform/current/schema-registry/avro.html)
         - Topic partitioning: what if a topic gets too big for one computer or one computer is not reliable
           - Partitions count (each partition for a single topic runs at a throughput of about 10 MB/s)
           - Replication factor (set to 3 as default)
+            - Data Plane: Replication Protocol
           - It is recommended that each broker to have up to 4K partitions and each cluster to have up to 200K partitions
           - Log compaction
           - Advertised Host: advertised.host.name, advertised.listeners (private IP or public IP)
-      - Core APIs
+        - Bootstrap server (connection + metadata request)
+      - Compute layer: Core APIs
         - Producer
           - Configuration
             - acks
@@ -531,7 +534,7 @@
           - Example: RTSP (Real time streaming protocol) producer
         - Consumer
           - read data from a topic in order within each partitions (subscribe vs assign to a partition and seek to offsets)
-          - Consumer groups (same group read from mutually exclusive partitions)
+          - Consumer Groups (same group read from mutually exclusive partitions)
             - lag = log end offset - current offset
             - reset offset
             - rebalancing (when a consumer joins or leaves a group)
@@ -540,12 +543,11 @@
           - Internal threads
             - Detecting consumer down: Heartbeat.interval.ms (Session.timeout.ms)
             - Detecting big data processing issue: max.poll.interval.ms
-          - [Schema registry](https://docs.confluent.io/platform/current/schema-registry/avro.html)
         - Kafka Connect (Source connector / Sink connector)
           - CDC connector -> Search index (e.g. Solr) / Database / Data warehouse / Cache
         - Kafka Streams (ksqlDB)
-      - KRaft
-        - Pros
+      - Control Plane
+        - KRaft
           - Scale to millions of partitions, easier to maintain and set-up
           - Improve stability, easier to monitor, support and administer
           - Single security model
