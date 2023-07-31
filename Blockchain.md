@@ -130,6 +130,7 @@
     - Liquidity: allow users to trade assets
     - Yield Farming: fees come from the trading activity that takes place on exchange or marketplace that uses liquidity pool
       - Annual percentage yield (APY)
+  - Maximal Extractable Value (MEV)
   - Protocols: Uniswap, Aave, Compound, and MakerDAO (DAI)
   - Regulatory compliance: Zero Hash
   - [Stablecoin](https://academy.binance.com/en/glossary/stablecoin)

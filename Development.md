@@ -157,8 +157,13 @@
         - Interactive application security testing (IAST)
         - Vulnerability scanning: OpenVAS
         - Others: sqlmap, Recon-ng, OWASP Glue
-    - Penetration test
-    - Cyber incident response test
+      - [Top 10 CI/CD Security Risks](https://github.com/cider-security-research/top-10-cicd-security-risks)
+    - Cybersecurity
+      - Penetration test
+      - Incident response
+    - Compliance frameworks
+      - [Do you need penetration testing for compliance?](https://www.vanta.com/resources/do-you-need-penetration-testing-for-compliance)
+      - [What is NIST CSF and why is it important?](https://www.vanta.com/resources/what-is-nist-csf-and-why-is-it-important)
     - Vault
       - Data in transit: TLS encrypts data between server and client (asymmetric)
       - Internal data: AES256 (symmetric, faster)
@@ -168,7 +173,6 @@
       - Policy (Authorization): policy is associated to tokens and grants capabilities to a secrets engine path
       - AppRole: Jenkins
     - [Web Application Security Checklist](https://www.appsecmonkey.com/blog/web-application-security-checklist)
-    - [Top 10 CI/CD Security Risks](https://github.com/cider-security-research/top-10-cicd-security-risks)
   - Others
     - OpenStack
     - Vagrant: synced folder, networking, provider (hypervisor), provisioner
@@ -847,7 +851,7 @@
       - Reviews should be small
       - Reviewing respond in a timely fashion
       - Comments with Why, When and What
-  - Testabiilty: unit test - load test - sanity test - canary test - all active test - regression test, code coverage
+  - Testability: unit test - load test - sanity test - canary test - all active test - regression test, code coverage
     - Test doubles (unit test): fake, dummy, stub, mock, spy
 
 - Project Management
