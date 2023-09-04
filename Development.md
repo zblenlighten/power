@@ -159,8 +159,8 @@
         - Others: sqlmap, Recon-ng, OWASP Glue
       - [Top 10 CI/CD Security Risks](https://github.com/cider-security-research/top-10-cicd-security-risks)
     - Cybersecurity
-      - Penetration test
-      - Incident response
+      - Penetration test & Vulnerability scan
+      - Thread detection & Incident response
     - Compliance frameworks
       - [Do you need penetration testing for compliance?](https://www.vanta.com/resources/do-you-need-penetration-testing-for-compliance)
       - [What is NIST CSF and why is it important?](https://www.vanta.com/resources/what-is-nist-csf-and-why-is-it-important)
@@ -450,6 +450,8 @@
       - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
       - Cluster: add memory / CPU / GPU, increase number of nodes
     - Tez (coordinated by YARN)
+    - References
+      - [Spark — debugging a slow Application](https://blog.devgenius.io/spark-debugging-a-slow-application-7c6e781dc20f)
   - Pig (AvroStorage, Skewed Joins)
   - Hive (vs: Impala)
     - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
@@ -625,10 +627,10 @@
   - J2EE Patterns: Compound (MVC)
   - Principles (SOLID)
     - Open Close Principle
-    - Dependence Inversion Principle
-    - Liskov Substitution Principle
-    - Single Responsibility Principle
-    - Interface Segregation Principle
+    - Dependency Inversion
+    - Liskov Substitution
+    - Single Responsibility
+    - Interface Segregation
 
 - [Java](https://github.com/akullpp/awesome-java)
   - JVM ([stack frame](https://www.artima.com/insidejvm/ed2/jvm2.html))
@@ -688,6 +690,7 @@
   - [cProfile](https://docs.python.org/3/library/profile.html), [timeit](https://docs.python.org/3/library/timeit.html)
   - [Dask](https://docs.dask.org/en/stable/dataframe.html)
   - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
+  - [Status of Python Versions](https://devguide.python.org/versions/)
 
 ### Frontend
 
@@ -855,7 +858,7 @@
     - Test doubles (unit test): fake, dummy, stub, mock, spy
 
 - Project Management
-  - Systems development life cycle (SDLC): requirement analysis -> design -> development and testing -> implementation -> documentation -> evaluation
+  - Systems Development Life Cycle (SDLC)
   - Documentation: [mkdocs](https://www.mkdocs.org/), [mkdocs-material](https://squidfunk.github.io/mkdocs-material/)
   - Agile
     - Conway's law

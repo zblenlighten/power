@@ -116,8 +116,10 @@
     - Data integrity monitoring
       - File integrity monitoring
     - Regulatory and Compliance
-      - General Data Protection Regulation (GDPR), Anti-Money Laundering (AML)
+      - General Data Protection Regulation (GDPR, [checklist](https://www.vanta.com/resources/gdpr-compliance-checklist)), Anti-Money Laundering (AML)
       - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
+      - [What Is a RoPA?](https://www.osano.com/articles/what-is-a-ropa-gdpr-requirements-for-record-of-processing-activities)
+      - [What is a DPIA?](https://www.osano.com/articles/dpia-data-protection-impact-assessments)
     - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
     - Payment Card Industry Data Security Standard (PCI DSS)
     - Data Privacy and Data Protection
@@ -172,27 +174,6 @@
       - Text classification
       - Semantic similarity
       - Sentiment analysis
-    - Models
-      - Statistical text encoder
-        - Bag of Words(BoW) & N-gram: term frequency — inverse document frequency (TF-IDF)
-          - Article vector (each dimension is the TF-IDF of the word) -> Cosine distance
-      - ML based text encoder
-        - Embedding
-          - Word2Vec (Continues bag of words: CBOW vs Skip-gram)
-            - Word Mover's distance (WMD) / Cosine distance / Euclidean distance
-            - Out-of-vocabulary (OOV)
-            - Negative sampling
-            - Visualization: t-SNE
-          - Item2vec
-          - Graph Embedding
-            - DeepWalk
-            - Node2vec
-        - Transformer (Attention)
-          - BERT ([Simple Transformers](https://towardsdatascience.com/simple-transformers-introducing-the-easiest-bert-roberta-xlnet-and-xlm-library-58bf8c59b2a3))
-      - Topic models
-        - pLSA (Probabilistic Latent Semantic Analysis)
-        - LDA (Latent Dirichlet Allocation)
-      - Large Language Model (LLM)
   - Computer Vision (CV)
     - Data processing (OpenCV)
       - Crop, Resize, Padding, Normalize, Equalization, Balance
@@ -208,10 +189,10 @@
       - Detection
       - Segmentation: Sematic / Instance / Panoptic
       - Tracking (Video)
-    - Similar picture search
-      - Perceptual hashing: pHash, SIFT
-      - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
-      - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
+      - Similar picture search
+        - Perceptual hashing: pHash, SIFT
+        - [Color histogram](https://en.wikipedia.org/wiki/Color_histogram)
+        - [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method)
   - Speech Recognition
     - Kaldi
 
@@ -292,10 +273,44 @@
       - DeepLab (vs: FCN)
         - Encoder (Backbone + ASPP: atrous spatial pyramid pooling) - Decoder
     - Object Tracking
-  - LLM
-    - Base LLM: predict next word, based on text training data
-    - Instruction Tuned LLM: fine-tune on instructions and good attempts at following those instructions
-      - Reinforcement learning with human feedback (RLHF)
+  - NLP
+    - Bag of Words(BoW) & N-gram: term frequency — inverse document frequency (TF-IDF)
+      - Article vector (each dimension is the TF-IDF of the word) -> Cosine distance
+    - Topic models
+      - pLSA (Probabilistic Latent Semantic Analysis)
+      - LDA (Latent Dirichlet Allocation)
+    - Embedding
+      - Word2Vec (Continues bag of words: CBOW vs Skip-gram)
+        - Word Mover's distance (WMD) / Cosine distance / Euclidean distance
+        - Out-of-vocabulary (OOV)
+        - Negative sampling
+        - Visualization: t-SNE
+      - Graph Embedding
+        - DeepWalk
+        - Node2vec
+    - Transformer -> BERT vs GPT
+      - Transformer block
+        - Attention
+          - Role
+            - Measure the importance and relevance of each word relative to each other
+            - Allow for the building-up of enriched vectors with more context and logic
+          - Calculation
+            - Input vector is used to create: Query vector (Q), Key vector (K), Value vector (V)
+            - A scale dot-production on Q and K = Attention score -> Attention Weights
+            - V * Attention Weight -> Output for the self-attention layer
+        - position-wise feed-forward networks
+        - residual connections & layer normalization
+      - Important variables in Transformers
+        - Input: vocabulary size (V), embedding / model size (D), sequence / context length (L)
+        - Internal: number of attention heads (H), intermediate size(I), number of layers (N)
+        - Training: batch size (B), tokens trained on (T)
+      - Foundation model training (alignment problem)
+    - Large Language Model (LLM)
+      - Base LLM: predict next word, based on text training data
+      - Instruction Tuned LLM: fine-tune on instructions and good attempts at following those instructions
+        - Reinforcement learning with human feedback (RLHF)
+      - ChatGPT
+        - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
   - [Keras Models](https://keras.io/applications/)
 
 ### Machine learning
@@ -311,9 +326,10 @@
 | Support Vector Machine  | Low generalization error, computationally inexpensive, easy to interpret results  | Sensitive to tuning parameters and kernel choice, natively only handles binary classification  | Handwriting classification (keep the same performance with less memory used)  |
 | Naive Bayes  | Works with a small amount of data, handles multiple classes  | Sensitive to how the input data is prepared  | Filtering spam email / malicious posts, revealing local attitudes from personal ads  |
 
-- Bagging: Random forest
-
-- Boosting: Adaboost, XGBoost, Gradient boost
+- Ensemble Learning
+  - Bagging: Random forest
+  - Boosting: Adaboost, XGBoost, Gradient boost
+  - [Bagging vs Boosting in Machine Learning](https://www.geeksforgeeks.org/bagging-vs-boosting-in-machine-learning/)
 
 - Basic topics
   - Overfitting vs Underfitting
@@ -351,7 +367,7 @@
 
 #### Reinforcement learning
 
-- [Gym](https://github.com/openai/gym)
+- [Gymnasium](https://github.com/Farama-Foundation/Gymnasium)
 - Q-learning / DQN
   - Input: system state
   - Output: Q(s, a) for all possible actions
@@ -423,7 +439,6 @@
     6. Draw a conclusion
   - Examples
     - Student's t-test
-    - Chi-squared test
     - F-test (Analysis of variance: ANOVA)
 
 - A/B test (experimental test)
@@ -432,6 +447,7 @@
   - Chi-squared test
     - Telling if the two conditions are associated with conversions
   - Simulate sample size and plan timeline -> Time series analysis -> Chi-squared p-value
+    - Minimum detectable effect (MDE)
   - Conditional tests
   - Multi-Armed Bandit test
 

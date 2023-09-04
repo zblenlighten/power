@@ -1,5 +1,9 @@
 # Knowledge Memo
 
+## Blogs
+
+- [Mirror's web3 publishing community](https://dao.mirror.xyz/collection)
+
 ## Contents
 
 - [Knowledge](#knowledge)
@@ -83,9 +87,8 @@
     - Ethereum Plasma
     - Ethereum Optimism
   - Others
-    - [Cross-Chain Interoperability](https://chain.link/education-hub/blockchain-interoperability)
     - Initial coin offering (ICO, e.g. KodakCoin) - Initial dex offering (IDO)
-    - Crypto Airdrop
+    - [Crypto Airdrop](https://academy.binance.com/en/articles/what-is-a-crypto-airdrop)
     - Exchange-traded fund (ETF)
     - [Crypto Tax Guide](https://coinledger.io/crypto-taxes)
 
@@ -104,6 +107,8 @@
     - Multi-party computation (MPC) Wallet
     - Decentralized Exchange (DEX)
       - Automated Market Maker (AMM)
+  - [Cross-Chain Interoperability](https://chain.link/education-hub/blockchain-interoperability)
+    - [Blockchain Bridge](https://academy.binance.com/en/articles/what-s-a-blockchain-bridge)
 
 ### Web3
 
