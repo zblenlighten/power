@@ -258,11 +258,14 @@
   - PrepareStatement
     - Get pre compiled and access plan cached in database
     - Prevent SQL Injection attacks
-  - Database normalization
-    - Organizing the columns (attributes) and tables (relations) to ensure that their dependencies are properly enforced by database integrity constraints
-    - Normal forms
-    - [Denormalization](https://www.geeksforgeeks.org/denormalization-in-databases/)
-  - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
+  - Database design
+    - Logical structuring: ER diagram (entity–relationship model)
+    - Physical design
+    - Database normalization
+      - Organizing the columns (attributes) and tables (relations) to ensure that their dependencies are properly enforced by database integrity constraints
+      - Normal forms
+      - [Denormalization](https://www.geeksforgeeks.org/denormalization-in-databases/)
+    - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
 
 - NoSQL
   - Pros: flexible schemas, distributed (horizontally scalable, designed to be scaled across multiple servers), replication
