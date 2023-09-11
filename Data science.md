@@ -137,7 +137,7 @@
     - Age: how often is data updated
     - Consistency: rules and naming convention
     - Usage
-    - Big Data Maturity Model
+    - Data Maturity Model
 
 - Applications
   - Data visualization
@@ -210,15 +210,13 @@
     - LSTM (Long short-term memory)
       - Cell state: forget gate -> input gate -> output gate
   - Training (one epoch = batch size * iteration)
-    - Feed forward
+    - Feedforward
     - Gradient descent (vs: gradient ascent)
-    - Global minimum
-    - Back propagation (reverse topological order)
-  - Transfer learning
-    - Add new layers
-    - Fine-tune
+    - Global minimum of the error or loss
+    - Backpropagation (reverse topological order)
+  - Transfer learning vs Fine-tuning
 
-- Fine-tune
+- Fine-tuning
   - Random initialization
   - Optimization
     - Non-iterative vs iterative: Least squares (OLS) vs Gradient descent
@@ -304,13 +302,17 @@
         - Input: vocabulary size (V), embedding / model size (D), sequence / context length (L)
         - Internal: number of attention heads (H), intermediate size(I), number of layers (N)
         - Training: batch size (B), tokens trained on (T)
-      - Foundation model training (alignment problem)
+      - Training foundation model / pre-trained model  (alignment problem)
     - Large Language Model (LLM)
       - Base LLM: predict next word, based on text training data
-      - Instruction Tuned LLM: fine-tune on instructions and good attempts at following those instructions
+      - Instruction Tuned LLM: fine-tuning on instructions and good attempts at following those instructions
         - Reinforcement learning with human feedback (RLHF)
+      - Efficient Fine-tuning
+        - Parameter-efficient fine-tuning (PEFT, vs: full fine-tuning): reduce # of trainable parameters
+        - LoRA: decompose the weight change matrix into lower-rank matrices
       - ChatGPT
         - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
+        - [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
   - [Keras Models](https://keras.io/applications/)
 
 ### Machine learning

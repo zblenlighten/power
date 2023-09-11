@@ -274,7 +274,7 @@
       - Counter and Rate limiter: count the number of times a resource is accessed and also enforce rate limits on our endpoints
       - Leaderboard: Sorted Set is a nice way to implement leaderboard
     - LevelDB
-  - Wide-column (reduce disk resources & fast querying and processing: big data store, **not** column-oriented)
+  - Wide-column (row-oriented, reduce disk resources & fast querying and processing: big data store)
     - Cassandra
       - Table - Keyspace
       - Primary key - **Partition** key - Cluster key
@@ -288,6 +288,7 @@
         - data duplication and missing columns are common
         - [Why Cassandra doesn’t need vector clocks](https://www.datastax.com/blog/why-cassandra-doesnt-need-vector-clocks)
     - HBase
+    - Amazon DynamoDB
   - Document (schema flexibility: managing user profiles, XML or JSON documents)
     - MongoDB
       - Document - Collection - Database
@@ -378,7 +379,7 @@
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
     - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
-    - Database (Data warehouse): Hive, Teradata, Greenplum
+    - Database (Data warehouse): Druid, Hive, Teradata, Greenplum
     - Column-oriented (Bitmap encoding vs Run-length encoding)
     - Main read pattern: aggregate over large number of records
     - Main write pattern: bulk import (ETL) or event stream
@@ -387,6 +388,7 @@
       - Dimensional model (fact + dimension)
         - Star Schema: denormalized, better query performance
         - Snowflake Schema: normalized, better data integrity
+        - Slowly changing dimension (SCD): types
       - Normalization (e.g. third normal form)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
     - Late Arriving data (late arriving dimensions / early arriving facts)
@@ -395,14 +397,16 @@
     - Row-oriented
     - Main read pattern: small number of records per query, fetched by key
     - Main write pattern: random access, low latency writes from user input
+  - References
+    - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
+    - [Star schema vs OBT](https://www.fivetran.com/blog/star-schema-vs-obt)
 
 - Others
   - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
-    - Types of analyze to structure data
-      - Machine learning and statistics: tables and data frames
-      - Real time analysis: queues and streams
-      - Network analysis: graphs
-    - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
+  - Types of analyze to structure data
+    - Machine learning and statistics: tables and data frames
+    - Real time analysis: queues and streams
+    - Network analysis: graphs
   - References
     - [Lambda or Kappa? The need for a new data processing architecture](https://www.qlik.com/blog/lambda-or-kappa-the-need-for-a-new-data-processing-architecture)
     - [Modern Data Stack Guide](https://notion.castordoc.com/)
@@ -464,7 +468,7 @@
 
 - Data Stack
   - Data Integration
-    - **ETL** (Extract - Transform - Load)
+    - ELT (Extract, Load, and Transform) vs ETL
     - Data validations: file validations & archival (data source -> staging / data lake & data transformation)
     - Business validations: calculations & aggregations (staging -> data warehouse - data mart)
     - Airflow (web server + scheduler + metadata database + executor + worker, vs: Luigi)

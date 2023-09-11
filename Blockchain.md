@@ -141,7 +141,7 @@
   - [Stablecoin](https://academy.binance.com/en/glossary/stablecoin)
 
 - Applications
-  - [How to pass KYC (Know Your Customer)](https://sumsub.com/how-to-pass-verification/)
+  - KYC: [Crypto KYC Guide](https://sumsub.com/blog/crypto-kyc-guide/) and [What Is a KYC Analyst](https://sumsub.com/blog/kyc-analyst/)
   - [Zero Hash](https://blog.zerohash.com/)
   - Decentralized storage
     - InterPlanetary File System (IPFS)
