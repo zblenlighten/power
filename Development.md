@@ -414,7 +414,7 @@
     - [Lambda or Kappa? The need for a new data processing architecture](https://www.qlik.com/blog/lambda-or-kappa-the-need-for-a-new-data-processing-architecture)
     - [Modern Data Stack Guide](https://notion.castordoc.com/)
     - [Big data architectures](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/)
-    - [Data Mesh Architecture](https://www.datamesh-architecture.com/) (a way of organizing data management that emphasizes collaboration, decentralization, and self-service, data as a product)
+    - [Data Mesh](https://atlan.com/what-is-data-mesh/) [Architecture](https://www.datamesh-architecture.com/): a way of organizing data management that emphasizes collaboration, decentralization, and self-service, data as a product
     - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
     - [Open source data-diff](https://www.datafold.com/blog/open-source-data-diff)
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
@@ -732,10 +732,10 @@
 - Performance
   - **If the system goes slow**: scalability, performance
   - Common metrics
-    - Throughput = # tasks / time (Batch)
+    - Throughput: number of tasks completed per unit time (Batch)
       - hps, tps, qps: number of HTTP requests/Transactions/Queries per second
     - Response time = transport latency + processing time (Stream)
-      - Latency = time / task
+      - Latency: time elapsed between start of the task and its finish
       - mean / average, p50 (median), p95, p99, p999
     - Number of concurrent sessions/users (Concurrency = throughput * latency)
     - Resource utilization: CPU (interrupts per second), Memory, Network (bandwidth, connection state), Disk I/O, etc.
@@ -777,10 +777,10 @@
 
 - The Architecture Process
   - Understand the System’s Requirements
-  - Understand the Non-Functional Requirements (NFR, SLA)
-    - SLIs drive SLOs which inform SLAs
-    - [AWS Service Level Agreements](https://aws.amazon.com/legal/service-level-agreements) (SLAs)
-    - [AMS service level objectives](https://docs.aws.amazon.com/managedservices/latest/userguide/apx-slo.html) (SLOs)
+  - Understand the Non-Functional Requirements (NFR)
+    - [Establishing effective service level objectives](https://www.datadoghq.com/blog/establishing-service-level-objectives/) (SLOs)
+    - [How to create programmatic service level indicators](https://newrelic.com/blog/how-to-relic/programmatic-service-level-indicator) (SLIs)
+    - [AWS service level agreements](https://aws.amazon.com/legal/service-level-agreements) (SLAs)
   - Map the Components (logic diagram, technical diagram, physical diagram)
   - Select the Technology Stack
   - Design the Architecture

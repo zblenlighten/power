@@ -15,6 +15,14 @@
 ### Knowledge
 
 - Blockchain
+  - History
+    1. Hash function: one-way
+    2. Public-key cryptography: one-way but can be reversed with private key
+    3. Digital signature: prove who encrypted
+    4. Blockchain
+      - Mine a new block (verified by Bitcoin network) and plus a new nonce
+      - A single history of the order of transactions
+    5. Distributed computer: Ethereum Virtual Machine and smart contracts -> DApps
   - Blocks cryptographically linked together ([demo](https://tools.superdatascience.com/blockchain/blockchain))
     - Immutable ledger: Merkle tree -> Hash cryptography
     - A block stores multiple transactions
@@ -33,6 +41,8 @@
         - Bitcoin (SegWit): Bitcoin (BTC) and Bitcoin Cash (BCH)
       - Soft fork: new rules are a subgroup of old rules, a temporary divergence
   - Blockchain trilemma: Decentralization, Security, Scalability
+    - Bitcoin and Ethereum chose decentralization and security, which makes them fairly slow
+  - Blockchain types: Public, Private, Consortium
 
 - Consensus Protocol
   - Byzantine Fault
@@ -40,21 +50,21 @@
   - Cryptographic puzzles (hard to solve & easy to verify)
     - Verify the legitimacy of a transaction, ensure all participating nodes come to an agreement about the true and valid state of the network, avoid double-spending
     - Create new digital currencies by rewarding miners
-  - Proof of Work (Bitcoin mining: Hashcash)
+  - Proof of Work (PoW: mine blocks)
     - Transactions are bundled together into a block
     - Miners verify transactions within each block are legitimate
     - Miners solve proof-of-work problem (inverse hashing) by computational resources
     - A cryptocurrency prize provided by the protocol (reward) is given to the first miner who solves each blocks problem
     - Verified transactions are stored in the public blockchain
-  - Proof of Stake
+  - Proof of Stake (PoS: validate blocks)
     - Validators take turns proposing and voting on the next block
     - The weight of each validator's vote depends on the size of its deposit (i.e. stake)
     - Energy efficiency, security and reduced risk of centralization
   - Proof of Burn
     - The more coins burned by the miner, the bigger the ensuing virtual mining rig
 
-- Cryptocurrency: technology - protocol - [token](https://www.investopedia.com/terms/c/crypto-token.asp)
-  - Layer 1 (main chain network, scalability problem)
+- Cryptocurrency
+  - Layer 1 blockchains
     - [Bitcoin](https://bitcoin.org/bitcoin.pdf) -> SHA-256
       - [Bitcoin Core](https://bitcoin.org/en/bitcoin-core/)
       - Monetary policy: halving principle, block time
@@ -67,58 +77,55 @@
         - BIP44: coin type - account - change - address_index
         - [Bitcoin Core file system](https://github.com/bitcoin/bitcoin/blob/master/doc/files.md)
     - Ethereum -> Keccak 256 (Ether)
+      - Ethereum Virtual Machine (EVM): Staking, [Gas](https://ethereum.org/en/developers/docs/gas/), [Tokens](https://www.investopedia.com/terms/c/crypto-token.asp)
+        - Standards: ERC-20 (fungible) vs ERC-721 (nonfungible, tokenId)
+      - Smart Contract is a program / code that runs on the blockchain
+        - Internal Transactions
+        - Blockchain Oracle
       - Accounts
         - Externally owned account (EOA, has no associated code, controlled by private keys -> Elliptic Curve Cryptography (ECC))
         - Contract account (has associated code)
-      - Smart contract is a program / code that runs on the blockchain
-        - Internal Transactions
-        - Blockchain Oracle
-      - Ethereum Virtual Machine: [Gas](https://ethereum.org/en/developers/docs/gas/)
-      - ERC-20 Token Standard
+        - Ethereum Name Service (ENS)
+      - Initial coin offering (ICO, e.g. KodakCoin) - Initial dex offering (IDO)
       - Development tools
         - Tenderly
         - Truffle
         - Hardhat
     - BNB Chain
     - Solana
-  - Layer 2 (off chain)
+    - Avalanche
+  - Layer 2 blockchains (off main chain)
     - Polygon
     - Bitcoin Lightning Network
     - Ethereum Plasma
     - Ethereum Optimism
   - Others
-    - Initial coin offering (ICO, e.g. KodakCoin) - Initial dex offering (IDO)
     - [Crypto Airdrop](https://academy.binance.com/en/articles/what-is-a-crypto-airdrop)
     - Exchange-traded fund (ETF)
     - [Crypto Tax Guide](https://coinledger.io/crypto-taxes)
+    - Censorship resistance
 
 - Transaction
-  - Blockchain type: Public, Private, Consortium
   - Unspent Transaction Output (UTXO)
   - Signatures ([demo](https://tools.superdatascience.com/blockchain/public-private-keys/signatures))
     - private key (send money) -> public key (verification function) -> address (for additional security, receive money)
-  - Types of crypto fraud
-    - Payments fraud: stolen card monetization
-    - Scams: investment and social engineering scams
-    - Friendly fraud
-    - Off-ramping fraud
   - [Crypto Wallets vs Exchanges](https://www.coingecko.com/learn/crypto-wallet-vs-exchange)
     - Hierarchical Deterministic (HD) Wallet
     - Multi-party computation (MPC) Wallet
     - Decentralized Exchange (DEX)
       - Automated Market Maker (AMM)
-  - [Cross-Chain Interoperability](https://chain.link/education-hub/blockchain-interoperability)
-    - [Blockchain Bridge](https://academy.binance.com/en/articles/what-s-a-blockchain-bridge)
+    - Fiat off-ramp
+  - [Bridge](https://academy.binance.com/en/articles/what-s-a-blockchain-bridge)
+    - [Cross-Chain Interoperability](https://chain.link/education-hub/blockchain-interoperability)
+  - Crypto scam / fraud
 
 ### Web3
-
-- Principles: decentralized, permissionless, native payments, trustless
 
 - Crypto data and analytics
   - Chainalysis
   - Coin Metrics
   - [The Graph](https://github.com/graphprotocol/graph-node)
-  - [Dune Analytics](https://dune.com/browse/dashboards)
+  - [Dune Analytics](https://dune.com/browse/dashboards) ([tutorial](https://github.com/SixdegreeLab/MasteringChainAnalytics))
   - Messari
   - Others: [DefiLlama](https://defillama.com/), [Glassnode](https://studio.glassnode.com/), [Nansen](https://pro.nansen.ai/), Chainlink
   - References
@@ -126,19 +133,22 @@
     - [Ethereum Charts & Statistics](https://etherscan.io/charts)
     - [Key Metrics for the Rapidly Expanding Web3 Ecosystem](https://blog.chain.link/web3-metrics/)
 
-- Decentralized autonomous organization (DAO)
-
 - Decentralized finance (DeFi)
-  - Non-fungible token (NFT)
+  - Tokens and tokenomics
+    - [In Praise of Ponzis](https://www.drorpoleg.com/content/images/size/w1600/2022/10/Screen-Shot-2022-10-25-at-1.32.11-PM.png)
+  - NFT
     - [Decentralizing NFT metadata on OpenSea](https://opensea.io/blog/announcements/decentralizing-nft-metadata-on-opensea/)
   - AMM
-    - Liquidity: allow users to trade assets
-    - Yield Farming: fees come from the trading activity that takes place on exchange or marketplace that uses liquidity pool
+    - Liquidity pool: provide liquidity in the form of asset pairs
+    - Staking: lock up cryptocurrency in a smart contract to support the network's operation and security
+    - Yield Farming: fees generated by trades in the liquidity pool, newly minted tokens, or a combination of both
       - Annual percentage yield (APY)
   - Maximal Extractable Value (MEV)
   - Protocols: Uniswap, Aave, Compound, and MakerDAO (DAI)
   - Regulatory compliance: Zero Hash
   - [Stablecoin](https://academy.binance.com/en/glossary/stablecoin)
+
+- Decentralized autonomous organization (DAO)
 
 - Applications
   - KYC: [Crypto KYC Guide](https://sumsub.com/blog/crypto-kyc-guide/) and [What Is a KYC Analyst](https://sumsub.com/blog/kyc-analyst/)
@@ -161,6 +171,8 @@
   - Creator Economy
     - mirror.xyz
     - audius.co
+  - Others
+    - Helium
 
 ### Hyperledger Fabric (Consortium blockchain)
 

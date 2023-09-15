@@ -106,24 +106,29 @@
         - Fuzzy Search
     - Data modeling
   - Data Operations ([DataOps](https://towardsdatascience.com/the-rise-of-dataops-2788958034ee))
-  - Data Governance: Governance, Risk, Security, and Compliance
+  - Data Governance
   - Data Security
     - Access control (RBAC, PBAC, centralized vs decentralized)
       - Identity and Access Management (IAM)
       - Privileged Access Management (PAM)
-    - Encryption (data at rest & data in transit), Data masking, Data erasure
     - Data loss prevention (DLP)
-    - Data integrity monitoring
+    - Data monitoring & Incident response
       - File integrity monitoring
-    - Regulatory and Compliance
-      - General Data Protection Regulation (GDPR, [checklist](https://www.vanta.com/resources/gdpr-compliance-checklist)), Anti-Money Laundering (AML)
-      - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
-      - [What Is a RoPA?](https://www.osano.com/articles/what-is-a-ropa-gdpr-requirements-for-record-of-processing-activities)
-      - [What is a DPIA?](https://www.osano.com/articles/dpia-data-protection-impact-assessments)
-    - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
-    - Payment Card Industry Data Security Standard (PCI DSS)
-    - Data Privacy and Data Protection
-      - Anonymization vs Pseudonymization
+    - Encryption (data at rest & data in transit), Data masking, Data erasure
+    - Data Privacy and Data Protection: Anonymization vs Pseudonymization
+    - Law and Industry Regulations
+      - General Data Protection Regulation (GDPR [checklist](https://www.vanta.com/resources/gdpr-compliance-checklist))
+        - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
+        - [What is a DPIA?](https://www.osano.com/articles/dpia-data-protection-impact-assessments)
+        - [What Is a RoPA?](https://www.osano.com/articles/what-is-a-ropa-gdpr-requirements-for-record-of-processing-activities)
+        - Data Subject Access Request (DSAR)
+      - Others
+        - Anti-Money Laundering (AML)
+        - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
+        - Payment Card Industry Data Security Standard (PCI DSS)
+    - Data breach scandals
+      - Facebook–Cambridge Analytica data scandal
+      - Uber 2016 Data Security Incident
   - Data Warehouse
   - Business Intelligence
     - [Tableau Public](https://public.tableau.com/en-us/gallery)
