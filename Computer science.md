@@ -194,6 +194,7 @@
         - Public IP (ISP: Internet service provider) vs Private IP (DHCP server / Router / LAN administrator)
         - Network address translation (NAT)
         - Classless Inter-Domain Routing (CIDR)
+          - [Visual Subnet Calculator](https://www.davidc.net/sites/default/subnets/subnets.html)
       - Routing: Static routing & Dynamic routing
       - Gateway address / Default gateway
   4. Transport Layer -> Segment
@@ -308,6 +309,7 @@
     - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
     - OpenID
     - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
+    - System for Cross-domain Identity Management (SCIM)
     - Kerberos
   - Secure Communication
     - SSH

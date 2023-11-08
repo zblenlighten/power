@@ -382,7 +382,7 @@
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
     - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
-    - Database (Data warehouse): Druid, Hive, Teradata, Greenplum
+    - On-premises data warehouse: Netezza, Druid, Hive, Teradata, Greenplum
     - Column-oriented (Bitmap encoding vs Run-length encoding)
     - Main read pattern: aggregate over large number of records
     - Main write pattern: bulk import (ETL) or event stream
@@ -396,7 +396,7 @@
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
     - Late Arriving data (late arriving dimensions / early arriving facts)
   - Transaction processing systems (OLTP: online transaction processing)
-    - Database: MySQL, PostgreSQL, Oracle
+    - Database: MySQL, PostgreSQL, etc.
     - Row-oriented
     - Main read pattern: small number of records per query, fetched by key
     - Main write pattern: random access, low latency writes from user input
@@ -461,13 +461,14 @@
       - [Spark — debugging a slow Application](https://blog.devgenius.io/spark-debugging-a-slow-application-7c6e781dc20f)
   - Pig (AvroStorage, Skewed Joins)
   - Hive (vs: Impala)
+    - Hive Metastore Server (HMS): metadata
     - HiveQL (easier OLAP query than Mapreduce in Java), scalable, interactive
     - High latency (not appropriate for OLTP), no transactions, no record (because under the hood there are no real database)
   - HBase ([Bigtable](https://en.wikipedia.org/wiki/Bigtable), vs: Accumulo)
     - ZooKeeper
     - Access ways: HBase shell, Java API, Spark, Hive, Pig, Rest API, Thrift, Avro
   - Data ingestion: Sqoop (relational database), Flume (source -> channel -> sink), Kafka
-  - Query engine: Hue, Drill (Dremel), Phoenix (HBase), [Presto](https://prestodb.io/docs/current/overview/concepts.html)
+  - Query engine: Hue, Drill (Dremel), Phoenix (HBase), Presto and Trino
 
 - Data Stack
   - Data Integration
@@ -484,7 +485,7 @@
     - dbt: data build tool
       - [airflow dbt demo](https://github.com/astronomer/airflow-dbt-demo)
   - Data Management
-    - [OpenMetadata](https://docs.open-metadata.org/)
+    - OpenMetadata
     - Data lineage: [OpenLineage](https://openlineage.io/docs/)
     - Data testing: [Great Expectations](https://docs.greatexpectations.io/docs/)
     - Schema migration: [Liquibase](https://docs.liquibase.com/home.html) (keep database schema in sync with application code)
@@ -509,8 +510,9 @@
       - [Change data capture](https://www.qlik.com/us/change-data-capture/cdc-change-data-capture) (CDC)
       - Event sourcing
     - Command query responsibility segregation ([CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)): deriving several views from the same event log
-    - [Hudi](https://hudi.apache.org/) (Hadoop Upserts Deletes and Incrementals)
-      - [Comparison of Delta Lake, Iceberg and Hudi](https://databricks.com/session_na20/a-thorough-comparison-of-delta-lake-iceberg-and-hudi)
+    - [Comparison of Delta Lake, Iceberg and Hudi](https://www.youtube.com/watch?v=Wx8G08jaedo)
+      - Delta Lake (transaction log) -> Lakehouse
+      - Hudi (Hadoop Upserts Deletes and Incrementals)
 
 - Message broker
   - Message: a client's request of a sequence of bytes with some metadata
@@ -772,6 +774,11 @@
     - Monitoring & Profiler
     - Flow control & degrade
     - Disaster recovery
+      - Metrics
+        - Accecptable downtime: Recovery Time Objective (RTO)
+        - Data loss: Recovery Point Objective (RPO)
+      - References
+        - [Disaster recovery options in the cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html)
 
 - Maintainability: operability, simplicity, evolvability
 

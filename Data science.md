@@ -106,7 +106,7 @@
         - Fuzzy Search
     - Data modeling
   - Data Operations ([DataOps](https://towardsdatascience.com/the-rise-of-dataops-2788958034ee))
-  - Data Governance
+  - Data Governance: policies, procedures, and standards that are in place to ensure the availability, usability, integrity, and security of data
   - Data Security
     - Access control (RBAC, PBAC, centralized vs decentralized)
       - Identity and Access Management (IAM)
@@ -142,7 +142,7 @@
     - Age: how often is data updated
     - Consistency: rules and naming convention
     - Usage
-    - Data Maturity Model
+    - Data Maturity
 
 - Applications
   - Data visualization
@@ -318,6 +318,11 @@
       - ChatGPT
         - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
         - [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
+      - Applications
+        - Prompt engineering
+        - Retrieval augmented generation (RAG)
+        - Fine-tuning open source genAI models
+        - Training your own genAI models
   - [Keras Models](https://keras.io/applications/)
 
 ### Machine learning
