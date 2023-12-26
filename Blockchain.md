@@ -33,6 +33,7 @@
     - Finding the golden nonce which will generate a hash value below a certain target (bits)
     - Hardware: CPU ( < 10 MH/s), GPU ( < 1 GH/s), ASIC ( > 1000 GH/s)
     - Mining Pool, Mempool, Orphan Block, 51% Attack
+    - [NiceHash](https://www.nicehash.com/support/mining-help/nicehash-os/what-is-nicehash-os)
   - Fork
     - Accidental fork
     - Intentional fork

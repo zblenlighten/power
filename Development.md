@@ -319,6 +319,7 @@
   - Time series database / Sequence database
     - InfluxDB
     - KDB+/Q
+    - Chroma
 
 - Search Engine
   - Lucene + Inverted Index
@@ -391,7 +392,7 @@
       - Dimensional model (fact + dimension)
         - Star Schema: denormalized, better query performance
         - Snowflake Schema: normalized, better data integrity
-        - Slowly changing dimension (SCD): types
+        - Slowly changing dimension (SCD)
       - Normalization (e.g. third normal form)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
     - Late Arriving data (late arriving dimensions / early arriving facts)
@@ -512,6 +513,7 @@
     - Command query responsibility segregation ([CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)): deriving several views from the same event log
     - [Comparison of Delta Lake, Iceberg and Hudi](https://www.youtube.com/watch?v=Wx8G08jaedo)
       - Delta Lake (transaction log) -> Lakehouse
+        - [Delta Lake Z Order](https://delta.io/blog/2023-06-03-delta-lake-z-order/)
       - Hudi (Hadoop Upserts Deletes and Incrementals)
 
 - Message broker
@@ -723,6 +725,7 @@
       - SwiftUI
     - WeChat Mini Program
     - [Fonts](https://www.cdnfonts.com)
+    - [W3Techs - World Wide Web Technology Surveys](https://w3techs.com/)
 
 ### System design
 
@@ -824,7 +827,6 @@
     - [A practical guide](https://github.com/open-guides/og-aws)
     - [Awesome AWS](https://github.com/donnemartin/awesome-aws)
     - [Security Groups vs Network Access Control List](https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae)
-  - Heroku
 
 - WBS (Work breakdown structure)
   - RFQ (Request for quotation), RFC(Request for comments), SOW (Statement of work)
@@ -882,6 +884,7 @@
   - Waterfall: System and software requirements -> Analysis -> Design -> Coding -> Testing -> Operations
   - Project Management Committee ([PMC](https://www.apache.org/foundation/how-it-works.html))
   - [RACI](https://en.wikipedia.org/wiki/Responsibility_assignment_matrix)
+  - Tools: TeamRetro
 
 - Soft Skills
   - [6 Business Skills Every Engineer Needs](https://online.hbs.edu/blog/post/business-skills-for-engineers)

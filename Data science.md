@@ -331,8 +331,8 @@
 
 | Name  | Advantage  | Disadvantage  | Application  |
 |---|---|---|---|
-| k Nearest Neighbor  | High accuracy, insensitive to outliers, no assumptions about data  | Computationally expensive, requires a lot of memory  | Improving matches from a dating site，handwriting recognition  |
-| Linear regression  | Easy to interpret results, computationally inexpensive  | Poorly models nonlinear data  | Predicting the age of an abalone, forecasting the price of LEGO sets  |
+| k Nearest Neighbor  | High accuracy, insensitive to outliers, no assumptions about data  | Computationally expensive, requires a lot of memory  | Improving matches from a dating site, handwriting recognition  |
+| Linear regression  | Easy to interpret results, computationally inexpensive  | Poorly models nonlinear data  | Predicting the age of an abalone, forecasting the price of Lego sets  |
 | Logistic regression  | Computationally inexpensive, easy to implement, knowledge representation easy to interpret  | Prone to underfitting, may have low accuracy  | Estimating horse fatalities from colic  |
 | Decision tree  | Computationally cheap to use, easy for humans to understand learned results, missing values OK, can deal with irrelevant features  | Prone to overfitting  | Predicting contact lens type  |
 | Support Vector Machine  | Low generalization error, computationally inexpensive, easy to interpret results  | Sensitive to tuning parameters and kernel choice, natively only handles binary classification  | Handwriting classification (keep the same performance with less memory used)  |
@@ -342,6 +342,7 @@
   - Bagging: Random forest
   - Boosting: Adaboost, XGBoost, Gradient boost
   - [Bagging vs Boosting in Machine Learning](https://www.geeksforgeeks.org/bagging-vs-boosting-in-machine-learning/)
+  - Stacking
 
 - Basic topics
   - Overfitting vs Underfitting
@@ -627,17 +628,9 @@
       - Parameter Server
         - [TensorFlow](https://www.tensorflow.org/tutorials/distribute/parameter_server_training)
         - [PyTorch](https://pytorch.org/tutorials/intermediate/rpc_param_server_tutorial.html)
-      - TensorRT
-      - TensorFlow.js
-      - TensorFlow Lite
-      - [ONNX](https://onnx.ai/)
-      - [MLeap](https://combust.github.io/mleap-docs/)
-      - [Oryx 2](http://oryx.io/)
   - Feature engineering
   - Model operations
-    - Kubeflow
-    - [Metaflow](https://outerbounds.com/)
-    - MLflow
+    - MLflow: tracking, projects, models, model registry
   - Architecture
   - Versioning
   - Job scheduler
