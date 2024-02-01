@@ -164,7 +164,7 @@
   - Scheduler
     - Scheduling algorithms (context switch)
     - Scheduling goals
-    - Scheduler data structure: [Hierarchical timing wheels](https://github.com/apache/kafka/blob/trunk/core/src/main/scala/kafka/utils/timer/TimingWheel.scala)
+    - Scheduler data structure: [Hierarchical timing wheel](https://www.confluent.io/blog/apache-kafka-purgatory-hierarchical-timing-wheels/)
 
 - Linux
   - Linux distribution (/etc/*-release)
@@ -209,7 +209,7 @@
       - Reliable Data Protocol (RDP)
   7. Application Layer -> Message
       - [HTTP](https://www.ruanyifeng.com/blog/2016/08/http.html) (TCP/IP): [HTTPS](http://www.ruanyifeng.com/blog/2016/08/migrate-from-http-to-https.html)
-      - File Transfer Protocol (FTP)
+      - File Transfer Protocol (FTP) - Secure File Transfer Protocol (SFTP)
       - Simple Mail Transfer Protocol (SMTP)
       - Domain Name System (DNS)
       - IP address

@@ -133,7 +133,7 @@
       - Logs can yield metrics
         - Collection -> Transport -> Storage (centralized) -> Analysis
     - [Tools](https://github.com/adriannovegil/awesome-observability)
-      - [Metrics, monitors, alerts decision record](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/examples/metrics-monitors-alerts/index.md)
+      - [Metrics, monitors, alerts decision record](https://github.com/joelparkerhenderson/architecture-decision-record/tree/main/locales/en/examples/metrics-monitors-alerts)
       - ELK (Elastic)
         - Elasticsearch
         - Logstash (vs: Fluentd, Embulk): Data collection pipeline
@@ -382,7 +382,7 @@
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
-    - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake
+    - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake, [Hologres](https://www.alibabacloud.com/help/en/hologres/product-overview/what-is-hologres)
     - On-premises data warehouse: Netezza, Druid, Hive, Teradata, Greenplum
     - Column-oriented (Bitmap encoding vs Run-length encoding)
     - Main read pattern: aggregate over large number of records
@@ -405,6 +405,10 @@
     - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
     - [Star schema vs OBT](https://www.fivetran.com/blog/star-schema-vs-obt)
 
+- Vector database
+  - References
+    - [vecdbs](https://www.vecdbs.com/)
+
 - Others
   - How to Choose: Integration, Scaling, Support(security, budget), Simplicity
   - Types of analyze to structure data
@@ -412,8 +416,9 @@
     - Real time analysis: queues and streams
     - Network analysis: graphs
   - References
+    - [A map of storage options in Google Cloud](https://cloud.google.com/blog/topics/developers-practitioners/map-storage-options-google-cloud)
     - [Lambda or Kappa? The need for a new data processing architecture](https://www.qlik.com/blog/lambda-or-kappa-the-need-for-a-new-data-processing-architecture)
-    - [Modern Data Stack Guide](https://notion.castordoc.com/)
+    - [Modern Data Stack Guide](https://notion.castordoc.com/modern-data-stack-guide)
     - [Big data architectures](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/)
     - [Data Mesh](https://atlan.com/what-is-data-mesh/) [Architecture](https://www.datamesh-architecture.com/): a way of organizing data management that emphasizes collaboration, decentralization, and self-service, data as a product
     - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
@@ -511,10 +516,11 @@
       - [Change data capture](https://www.qlik.com/us/change-data-capture/cdc-change-data-capture) (CDC)
       - Event sourcing
     - Command query responsibility segregation ([CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)): deriving several views from the same event log
+  - Open data storage format
     - [Comparison of Delta Lake, Iceberg and Hudi](https://www.youtube.com/watch?v=Wx8G08jaedo)
-      - Delta Lake (transaction log) -> Lakehouse
-        - [Delta Lake Z Order](https://delta.io/blog/2023-06-03-delta-lake-z-order/)
-      - Hudi (Hadoop Upserts Deletes and Incrementals)
+    - Delta Lake (transaction log) -> Lakehouse
+      - [Delta Lake Z Order](https://delta.io/blog/2023-06-03-delta-lake-z-order/)
+    - Hudi (Hadoop Upserts Deletes and Incrementals)
 
 - Message broker
   - Message: a client's request of a sequence of bytes with some metadata
@@ -622,11 +628,11 @@
           - Relationships types: Independent, Dependent, Associative
       - Validate API
       - References
+        - [Sequence diagram](https://en.wikipedia.org/wiki/Sequence_diagram)
         - [Architectural constraints](https://restfulapi.net/rest-architectural-constraints/)
         - [How We Design Our APIs at Slack](https://slack.engineering/how-we-design-our-apis-at-slack/)
         - [Evolving API Pagination at Slack](https://slack.engineering/evolving-api-pagination-at-slack/)
         - [RESTful API resources](https://github.com/marmelab/awesome-rest)
-        - [API Directory](https://www.programmableweb.com/)
   - GraphQL: asking for specific fields on objects
 
 - Design patterns
@@ -815,6 +821,7 @@
 
 - References
   - [服务端高并发分布式架构演进之路](https://segmentfault.com/a/1190000018626163)
+  - [What is Hub and Spoke Topology](https://www.cbtnuggets.com/blog/technology/networking/what-is-hub-and-spoke-topology)
 
 ### Practice
 

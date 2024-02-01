@@ -6,7 +6,6 @@
 - [Kaggle](https://medium.com/kaggle-blog)
 - [state-of-the-art model](https://paperswithcode.com/sota)
 - [state-of-the-art 模型](https://sota.jiqizhixin.com/)
-- [格物钛公开数据集](https://gas.graviti.cn/open-datasets)
 
 ## Contents
 
@@ -157,12 +156,16 @@
       - [Misleading graph](https://en.wikipedia.org/wiki/Misleading_graph)
       - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
   - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
+    - Hanhattan distance
     - Euclidean distance
-    - Jaccard index
     - Cosine similarity
+    - Dot product
+    - Jaccard index
     - Hamming distance
     - Pearson correlation coefficient
     - Information entropy
+  - Relevance
+    - Maximal marginal relevance (MMR)
   - Ranking (LTR: learning to rank)
     - Approaches
       - Pointwise
@@ -321,6 +324,7 @@
       - Applications
         - Prompt engineering
         - Retrieval augmented generation (RAG)
+          - Workflow: document loading -> splitting -> Storage (vector database) -> Retrieval ([retrievers](https://python.langchain.com/docs/modules/data_connection/retrievers/)) -> Output
         - Fine-tuning open source genAI models
         - Training your own genAI models
   - [Keras Models](https://keras.io/applications/)
