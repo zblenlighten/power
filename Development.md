@@ -406,6 +406,10 @@
     - [Star schema vs OBT](https://www.fivetran.com/blog/star-schema-vs-obt)
 
 - Vector database
+  - Model
+    - Contrastive Language-Image Pre-training ([CLIP](https://huggingface.co/docs/transformers/model_doc/clip)): understand both types of image and text data and can generate vectors for each type which can then be compared
+  - Approximate Nearest Neighbor (ANN)
+    - Hierarchical Navigable Small Worlds (HNSW)
   - References
     - [vecdbs](https://www.vecdbs.com/)
 
@@ -495,9 +499,14 @@
     - Data lineage: [OpenLineage](https://openlineage.io/docs/)
     - Data testing: [Great Expectations](https://docs.greatexpectations.io/docs/)
     - Schema migration: [Liquibase](https://docs.liquibase.com/home.html) (keep database schema in sync with application code)
-  - [Data Migration](https://corporatefinanceinstitute.com/resources/data-science/data-migration/)
-    - Methods: file-based migration, database replication, ETL, cloud-native migration services
-    - Risks: security, data loss or corruption, compliance and regulatory risks, latency and performance issues, vendor lock-in
+  - Data Migration
+    - Strategy: phased migration (vs: bulk migration)
+    - Process
+      - Migration Discovery and Assessment
+      - Architecture and Feature Mapping Workshop
+      - Data Migration
+      - Data Pipeline Migration
+      - Downstream Tools Integration
   - Batch: file (a sequence of bytes)
     - Problems: partitioning, fault tolerance
     - Graph processing: GraphChi, Pregel (PageRank)
@@ -881,6 +890,7 @@
     - Test doubles (unit test): fake, dummy, stub, mock, spy
 
 - Project Management
+  - Quality, Cost, Delivery (QCD)
   - Systems Development Life Cycle (SDLC)
   - Documentation: [mkdocs](https://www.mkdocs.org/), [mkdocs-material](https://squidfunk.github.io/mkdocs-material/)
   - Agile
