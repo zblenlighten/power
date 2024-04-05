@@ -382,7 +382,7 @@
 
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
-    - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake, [Hologres](https://www.alibabacloud.com/help/en/hologres/product-overview/what-is-hologres)
+    - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake ([Unistore](https://www.snowflake.com/en/data-cloud/workloads/unistore/) - [Snowpark](https://www.snowflake.com/en/data-cloud/snowpark/)), [Hologres](https://www.alibabacloud.com/help/en/hologres/product-overview/what-is-hologres)
     - On-premises data warehouse: Netezza, Druid, Hive, Teradata, Greenplum
     - Column-oriented (Bitmap encoding vs Run-length encoding)
     - Main read pattern: aggregate over large number of records
@@ -394,6 +394,7 @@
         - Snowflake Schema: normalized, better data integrity
         - Slowly changing dimension (SCD)
       - Normalization (e.g. third normal form)
+      - [Logical data model vs Physical data model](https://aws.amazon.com/compare/the-difference-between-logical-and-physical-data-model/)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
     - Late Arriving data (late arriving dimensions / early arriving facts)
   - Transaction processing systems (OLTP: online transaction processing)
@@ -463,7 +464,7 @@
     - Spark streaming (work on microbatching)
       - Batch interval vs Slide interval vs Window interval
     - Databricks Optimization
-      - Data: compress, partition, convert to optimized formats (e.g. Parquet), Databricks Delta
+      - Data: compress, partition, convert to optimized formats (e.g. Parquet), Delta Lake
       - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
       - Cluster: add memory / CPU / GPU, increase number of nodes
     - Tez (coordinated by YARN)

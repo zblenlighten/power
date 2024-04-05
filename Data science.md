@@ -107,7 +107,7 @@
   - Data Operations ([DataOps](https://towardsdatascience.com/the-rise-of-dataops-2788958034ee))
   - Data Governance: policies, procedures, and standards that are in place to ensure the availability, usability, integrity, and security of data
   - Data Security
-    - Access control (RBAC, PBAC, centralized vs decentralized)
+    - Access control (RBAC, ABAC/PBAC, centralized vs decentralized)
       - Identity and Access Management (IAM)
       - Privileged Access Management (PAM)
     - Data loss prevention (DLP)
