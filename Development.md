@@ -411,6 +411,7 @@
     - Contrastive Language-Image Pre-training ([CLIP](https://huggingface.co/docs/transformers/model_doc/clip)): understand both types of image and text data and can generate vectors for each type which can then be compared
   - Approximate Nearest Neighbor (ANN)
     - Hierarchical Navigable Small Worlds (HNSW)
+  - Weaviate: [Cross-references](https://weaviate.io/developers/weaviate/manage-data/cross-references), [Hybrid search](https://weaviate.io/developers/weaviate/search/hybrid), 
   - References
     - [vecdbs](https://www.vecdbs.com/)
 
@@ -425,7 +426,7 @@
     - [Lambda or Kappa? The need for a new data processing architecture](https://www.qlik.com/blog/lambda-or-kappa-the-need-for-a-new-data-processing-architecture)
     - [Modern Data Stack Guide](https://notion.castordoc.com/modern-data-stack-guide)
     - [Big data architectures](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/)
-    - [Data Mesh](https://atlan.com/what-is-data-mesh/) [Architecture](https://www.datamesh-architecture.com/): a way of organizing data management that emphasizes collaboration, decentralization, and self-service, data as a product
+    - [Data Mesh](https://atlan.com/what-is-data-mesh/) [Architecture](https://www.datamesh-architecture.com/): unify data access across the company while retaining ownership of the data in distributed domains
     - [List of data engineering tools](https://github.com/igorbarinov/awesome-data-engineering)
     - [Open source data-diff](https://www.datafold.com/blog/open-source-data-diff)
     - Clustered index: [Clustered table in BigQuery](https://cloud.google.com/bigquery/docs/clustered-tables)
@@ -470,6 +471,7 @@
     - Tez (coordinated by YARN)
     - References
       - [Spark — debugging a slow Application](https://blog.devgenius.io/spark-debugging-a-slow-application-7c6e781dc20f)
+      - [PySpark Style Guide](https://github.com/palantir/pyspark-style-guide)
   - Pig (AvroStorage, Skewed Joins)
   - Hive (vs: Impala)
     - Hive Metastore Server (HMS): metadata
@@ -809,6 +811,7 @@
     - [AWS service level agreements](https://aws.amazon.com/legal/service-level-agreements) (SLAs)
   - Map the Components (logic diagram, technical diagram, physical diagram)
   - Select the Technology Stack
+    - [Zalando Tech Radar](https://opensource.zalando.com/tech-radar/)
   - Design the Architecture
   - Write Architecture Document
   - Support the Team

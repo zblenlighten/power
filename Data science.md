@@ -62,6 +62,7 @@
   - Spatiotemporal data
     - Time series data
     - Geographic data
+      - [H3 Index](https://www.snowflake.com/blog/getting-started-with-h3-hexagonal-grid/)
   - Data provenance
     - Structured data vs Unstructured data
     - Raw data vs Processed data
@@ -252,6 +253,7 @@
   - Hyperparameter optimization
 
 - Models
+  - [Keras Models](https://keras.io/applications/)
   - CV
     - Image classification
       - LeNet-5
@@ -314,6 +316,7 @@
     - Large Language Model (LLM)
       - Base LLM: predict next word, based on text training data
       - Instruction Tuned LLM: fine-tuning on instructions and good attempts at following those instructions
+        - Labeling instructions: helpful, truthful, harmless
         - Reinforcement learning with human feedback (RLHF)
       - Efficient Fine-tuning
         - Parameter-efficient fine-tuning (PEFT, vs: full fine-tuning): reduce # of trainable parameters
@@ -327,7 +330,11 @@
           - Workflow: document loading -> splitting -> Storage (vector database) -> Retrieval ([retrievers](https://python.langchain.com/docs/modules/data_connection/retrievers/)) -> Output
         - Fine-tuning open source genAI models
         - Training your own genAI models
-  - [Keras Models](https://keras.io/applications/)
+      - Hallucination
+      - LLM Security: Jailbreak, Prompt injection, Data poisoning
+    - References
+      - [Analysis of AI language models](https://artificialanalysis.ai/)
+      - [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
 
 ### Machine learning
 
