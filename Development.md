@@ -411,7 +411,7 @@
     - Contrastive Language-Image Pre-training ([CLIP](https://huggingface.co/docs/transformers/model_doc/clip)): understand both types of image and text data and can generate vectors for each type which can then be compared
   - Approximate Nearest Neighbor (ANN)
     - Hierarchical Navigable Small Worlds (HNSW)
-  - Weaviate: [Cross-references](https://weaviate.io/developers/weaviate/manage-data/cross-references), [Hybrid search](https://weaviate.io/developers/weaviate/search/hybrid), 
+  - Weaviate: [Cross-references](https://weaviate.io/developers/weaviate/manage-data/cross-references), [Hybrid search](https://weaviate.io/developers/weaviate/search/hybrid) (alpha)
   - References
     - [vecdbs](https://www.vecdbs.com/)
 
@@ -482,10 +482,14 @@
     - Access ways: HBase shell, Java API, Spark, Hive, Pig, Rest API, Thrift, Avro
   - Data ingestion: Sqoop (relational database), Flume (source -> channel -> sink), Kafka
   - Query engine: Hue, Drill (Dremel), Phoenix (HBase), Presto and Trino
+  - Security: Ranger
 
 - Data Stack
   - Data Integration
-    - ELT (Extract, Load, and Transform) vs ETL
+    - Data pipeline patterns
+      - ETL: common data processing tasks are handled after the data is loaded to the DWH
+      - ELT (Extract, Load, Transform) - EL
+      - CDC
     - Data validations: file validations & archival (data source -> staging / data lake & data transformation)
     - Business validations: calculations & aggregations (staging -> data warehouse - data mart)
     - Airflow (web server + scheduler + metadata database + executor + worker, vs: Luigi)
@@ -503,13 +507,23 @@
     - Data testing: [Great Expectations](https://docs.greatexpectations.io/docs/)
     - Schema migration: [Liquibase](https://docs.liquibase.com/home.html) (keep database schema in sync with application code)
   - Data Migration
-    - Strategy: phased migration (vs: bulk migration)
-    - Process
-      - Migration Discovery and Assessment
-      - Architecture and Feature Mapping Workshop
-      - Data Migration
-      - Data Pipeline Migration
-      - Downstream Tools Integration
+    - Main pillars: business outcomes, stakeholders, technology
+    - Steps
+      - Preparation and Discovery
+      - Assessment and Plan
+        - Make the process measurable
+        - Start with MVP/PoC: Quick wins (priority 0 workloads)
+        - Project plan: time, cost, people
+        - Overcommunicate at milestones
+      - Execution
+        - Architecture and Feature Mapping Workshop
+        - Data Migration: schema/data
+        - Data Pipeline Migration: query transpile
+        - Downstream Tools Integration
+      - Optimization
+    - Final checks: functional test, performance test, data integrity check
+    - Others
+      - [Bandwidth Calculator](https://www.calculator.net/bandwidth-calculator.html)
   - Batch: file (a sequence of bytes)
     - Problems: partitioning, fault tolerance
     - Graph processing: GraphChi, Pregel (PageRank)

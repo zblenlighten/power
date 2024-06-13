@@ -87,7 +87,6 @@
         - Externally owned account (EOA, has no associated code, controlled by private keys -> Elliptic Curve Cryptography (ECC))
         - Contract account (has associated code)
         - Ethereum Name Service (ENS)
-      - Initial coin offering (ICO, e.g. KodakCoin) - Initial dex offering (IDO)
       - Development tools
         - Tenderly
         - Truffle
@@ -105,6 +104,9 @@
     - Exchange-traded fund (ETF)
     - [Stablecoin](https://academy.binance.com/en/glossary/stablecoin): collateralized - algorithmic
       - Death spiral: TerraUSD / Luna
+    - Tokenomics
+      - Initial coin offering (ICO, e.g. KodakCoin)
+      - Initial dex offering (IDO)
     - [Crypto Airdrop](https://academy.binance.com/en/articles/what-is-a-crypto-airdrop)
     - [Crypto Tax Guide](https://coinledger.io/crypto-taxes)
 
@@ -179,6 +181,7 @@
     - audius.co
   - Others
     - Helium
+    - [Decentralised Privacy](https://www.tookitaki.com/glossary/tornado-cash)
 
 ### Hyperledger Fabric (Consortium blockchain)
 
