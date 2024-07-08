@@ -362,6 +362,9 @@ Send packet CA -> Netherlands -> CA 150,000,000   ns  150,000 us  150 ms
 ```
 
 - Others
+  - Data compression
+    - lossy
+    - lossless ([zstd](https://facebook.github.io/zstd/), e.g. [zstd_decompress function](https://docs.databricks.com/en/sql/language-manual/functions/zstd_decompress.html))
   - Compiler vs Interpreter (parser)
   - Type system
     - Static vs Dynamic

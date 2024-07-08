@@ -261,6 +261,7 @@
   - Database design
     - Logical structuring: ER diagram (entity–relationship model)
     - Physical design
+    - [Logical data model vs Physical data model](https://aws.amazon.com/compare/the-difference-between-logical-and-physical-data-model/)
     - Database normalization
       - Organizing the columns (attributes) and tables (relations) to ensure that their dependencies are properly enforced by database integrity constraints
       - Normal forms
@@ -276,7 +277,7 @@
       - Distributed lock: provide mutually exclusive access to shared resources
       - Counter and Rate limiter: count the number of times a resource is accessed and also enforce rate limits on our endpoints
       - Leaderboard: Sorted Set is a nice way to implement leaderboard
-    - LevelDB
+    - LevelDB (Riak: CRDTs)
   - Wide-column (row-oriented, reduce disk resources & fast querying and processing: big data store)
     - Cassandra
       - Table - Keyspace
@@ -320,6 +321,9 @@
     - InfluxDB
     - KDB+/Q
     - Chroma
+  - Others
+    - [VoltDB](https://en.wikipedia.org/wiki/VoltDB)
+    - [Spanner](https://cloud.google.com/spanner)
 
 - Search Engine
   - Lucene + Inverted Index
@@ -383,7 +387,7 @@
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
     - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake ([Unistore](https://www.snowflake.com/en/data-cloud/workloads/unistore/) - [Snowpark](https://www.snowflake.com/en/data-cloud/snowpark/)), [Hologres](https://www.alibabacloud.com/help/en/hologres/product-overview/what-is-hologres)
-    - On-premises data warehouse: Netezza, Druid, Hive, Teradata, Greenplum
+    - On-premises data warehouse: Netezza, [Druid](https://druid.apache.org/use-cases/), Hive, Teradata, Greenplum
     - Column-oriented (Bitmap encoding vs Run-length encoding)
     - Main read pattern: aggregate over large number of records
     - Main write pattern: bulk import (ETL) or event stream
@@ -394,7 +398,6 @@
         - Snowflake Schema: normalized, better data integrity
         - Slowly changing dimension (SCD)
       - Normalization (e.g. third normal form)
-      - [Logical data model vs Physical data model](https://aws.amazon.com/compare/the-difference-between-logical-and-physical-data-model/)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
     - Late Arriving data (late arriving dimensions / early arriving facts)
   - Transaction processing systems (OLTP: online transaction processing)
@@ -403,7 +406,8 @@
     - Main read pattern: small number of records per query, fetched by key
     - Main write pattern: random access, low latency writes from user input
   - References
-    - [Inmon vs Kimball](https://www.zentut.com/data-warehouse/kimball-and-inmon-data-warehouse-architectures/)
+    - [Difference between Kimball and Inmon](https://www.geeksforgeeks.org/difference-between-kimball-and-inmon/)
+    - [Data Vault](https://www.databricks.com/glossary/data-vault)
     - [Star schema vs OBT](https://www.fivetran.com/blog/star-schema-vs-obt)
 
 - Vector database
@@ -464,10 +468,6 @@
     - Components: Spark Core - Spark SQL - spark.ml - Spark Streaming - GraphFrames (Pregel API)
     - Spark streaming (work on microbatching)
       - Batch interval vs Slide interval vs Window interval
-    - Databricks Optimization
-      - Data: compress, partition, convert to optimized formats (e.g. Parquet), Delta Lake
-      - Job: Spark configuration, Spark executor count, Spark executor size, machine learning algorithm selection / configuration, hyperparameter selection
-      - Cluster: add memory / CPU / GPU, increase number of nodes
     - Tez (coordinated by YARN)
     - References
       - [Spark — debugging a slow Application](https://blog.devgenius.io/spark-debugging-a-slow-application-7c6e781dc20f)
@@ -500,7 +500,7 @@
       - CI/CD pipeline with Airflow image containing DAGs: Github repo -> Jenkins -> K8s -> Pod
   - Data Transformation
     - dbt: data build tool
-      - [airflow dbt demo](https://github.com/astronomer/airflow-dbt-demo)
+    - SDF ([repo](https://github.com/sdf-labs/sdf-cli))
   - Data Management
     - OpenMetadata
     - Data lineage: [OpenLineage](https://openlineage.io/docs/)
@@ -731,7 +731,7 @@
 
 - [Python](https://github.com/vinta/awesome-python)
   - [cProfile](https://docs.python.org/3/library/profile.html), [timeit](https://docs.python.org/3/library/timeit.html)
-  - [Dask](https://docs.dask.org/en/stable/dataframe.html)
+  - [Dask](https://docs.dask.org/en/stable/dataframe.html) vs Koalas
   - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
   - [Status of Python Versions](https://devguide.python.org/versions/)
 
