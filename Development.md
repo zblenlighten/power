@@ -82,6 +82,8 @@
     - User Interface (UI)
       - MVC: Model-view-controller
       - MVVM: Model–view–viewmodel
+    - Tools
+      - Backstage
 
 - DevOps
   - Version control
@@ -89,6 +91,7 @@
     - dvc: data version control (vs: Git LFS, lakeFS)
   - Infrastructure as code (consider hardware: networks, servers, storage, etc.)
     - Terraform: Write -> Plan -> Apply
+      - [terraformer](https://github.com/GoogleCloudPlatform/terraformer)
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Provision: Dockerfile / Puppet / Chef
     - [checkov](https://raw.githubusercontent.com/bridgecrewio/checkov/master/docs/5.Policy%20Index/all.md)
@@ -489,7 +492,7 @@
     - Data pipeline patterns
       - ETL: common data processing tasks are handled after the data is loaded to the DWH
       - ELT (Extract, Load, Transform) - EL
-      - CDC
+      - CDC ([Change data capture](https://www.qlik.com/us/change-data-capture/cdc-change-data-capture))
     - Data validations: file validations & archival (data source -> staging / data lake & data transformation)
     - Business validations: calculations & aggregations (staging -> data warehouse - data mart)
     - Airflow (web server + scheduler + metadata database + executor + worker, vs: Luigi)
@@ -539,7 +542,7 @@
       - Standalone cluster / YARN on Hadoop / Cloud / Local - Flink runtime - API
   - Database and Stream: keeping systems in sync
     - Capture the changelog (downside: asynchronous)
-      - [Change data capture](https://www.qlik.com/us/change-data-capture/cdc-change-data-capture) (CDC)
+      - CDC
       - Event sourcing
     - Command query responsibility segregation ([CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)): deriving several views from the same event log
   - Open data storage format
@@ -876,12 +879,13 @@
   - TDD (Test driven): state desired outcome as a test
   - BDD (Behavior driven): base tests on natural language descriptions of business functionality
   - FDD (Feature driven)
-  - DDD (Domain driven)
-    - Bounded Context
+  - DDD (Domain driven): force software engineer to understand the business context
+    - Bounded Context: break up complext areas into smaller parts
     - Reactive model (publish subscribe model, vs: Declarative model)
       - Entities communication
       - Message broker
-    - Event storming: design a system that models the structure and flow of activities within the business itself
+    - Domain events
+      - [Event storming](https://en.wikipedia.org/wiki/Event_storming): design a system that models the structure and flow of activities
 
 - Coding
   - System design -> Code development -> System testing -> System monitoring -> Product Rollout

@@ -181,7 +181,7 @@
       - Named-entity recognition: entity insertion and extraction
     - Tasks
       - Text classification
-      - Semantic similarity
+      - Semantic similarity ([semantic search](https://www.elastic.co/what-is/semantic-search))
       - Sentiment analysis
   - Computer Vision (CV)
     - Data processing (OpenCV)
@@ -314,27 +314,57 @@
         - Training: batch size (B), tokens trained on (T)
       - Training foundation model / pre-trained model  (alignment problem)
     - Large Language Model (LLM)
-      - Base LLM: predict next word, based on text training data
-      - Instruction Tuned LLM: fine-tuning on instructions and good attempts at following those instructions
-        - Labeling instructions: helpful, truthful, harmless
-        - Reinforcement learning with human feedback (RLHF)
-      - Efficient Fine-tuning
-        - Parameter-efficient fine-tuning (PEFT, vs: full fine-tuning): reduce # of trainable parameters
-        - LoRA: decompose the weight change matrix into lower-rank matrices
+      - Basic topics
+        - Base LLM: predict next word, based on text training data
+        - Instruction Tuned LLM: fine-tuning on instructions and good attempts at following those instructions
+          - Labeling instructions: helpful, truthful, harmless
+          - Reinforcement learning with human feedback (RLHF)
+        - [What are Large Language Models (LLMs)?](https://www.databricks.com/glossary/large-language-models-llm)
+          - [Context length in LLMs](https://agi-sphere.com/context-length/)
+      - Training
+        - LoRA: decompose the weight change matrix into lower-rank matrices (QLoRA)
+        - Parameter-efficient fine-tuning (PEFT, vs: full parameter fine-tuning): reduce # of trainable parameters
+        - Continued pre-training (CPT)
+        - Train loop: Mosaic [Streaming](https://docs.mosaicml.com/projects/streaming/en/stable/) -> Mosaic [Composer](https://docs.mosaicml.com/projects/composer/en/stable/) (multi-node training, scaling: [distributed training](https://docs.databricks.com/en/machine-learning/train-model/distributed-training/index.html)) -> [MLflow](https://mlflow.org/docs/latest/llms/llm-evaluate/index.html)
+      - Aspects of Performance
+        - Accuracy
+          - Robustness: unexpected or noisy data, adversarial examples and edge cases
+          - Generalizability: new, unseen data, avoid overfitting and adapt to varies situations
+          - Fairness & Bias: no perpetuate bias and equitable across different demographic groups
+          - Interpretability & Explainability: trace and articulate the decision making and operational patterns
+          - Compliance & Ethical considerations: data privacy, security and usage rights
+        - Speed (metrics: latency, throughput)
+          - Scalability: large datasets
+          - Cost effectiveness: economic aspect
+          - Deployment readiness: compatibility
+        - Balancing Accuracy and Speed
+          - Knowledge distillation
+          - Quantization
+        - References
+          - [LLM Inference Performance Engineering: Best Practices](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices)
+      - LLMOps
+        - MLOps: build -> evaluate -> deploy
+        - Retrieval augmented generation (RAG)
+          - Retrieval: load/retrieve documents with vector search (e.g. OpenSearch)
+          - Retriever Evaluation (e.g. MLflow)
+          - Feature store / Feature serving
+        - Fine-tuning
+          - Process: off-the-shelf LLM + labeled data
+        - Guardrails
+        - Chain Orchestrator: LangChain, LlamaIndex
+      - Further topics
+        - Hallucination
+        - LLM Security: Jailbreak, Prompt injection, Data poisoning / Backdoors
+        - Quantization (e.g. [FP8](https://docs.vllm.ai/en/latest/quantization/fp8.html))
       - ChatGPT
         - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
         - [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
-      - Applications
-        - Prompt engineering
-        - Retrieval augmented generation (RAG)
-          - Workflow: document loading -> splitting -> Storage (vector database) -> Retrieval ([retrievers](https://python.langchain.com/docs/modules/data_connection/retrievers/)) -> Output
-        - Fine-tuning open source genAI models
-        - Training your own genAI models
-      - Hallucination
-      - LLM Security: Jailbreak, Prompt injection, Data poisoning
-    - References
-      - [Analysis of AI language models](https://artificialanalysis.ai/)
-      - [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
+      - References
+        - [Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index)
+        - [LangChain Hub](https://smith.langchain.com/hub)
+        - [Training MoEs at Scale with PyTorch](https://pytorch.org/blog/training-moes/)
+        - [Analysis of AI language models](https://artificialanalysis.ai/)
+        - [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
 
 ### Machine learning
 
@@ -437,7 +467,7 @@
 - Fairness and Bias
 - Operation related metrics
   - Resource usage: average serving times, throughput, number of prediction requests, memory / GPU / CPU utilization, etc.
-  - Roofline model ([VGG16和MobileNet实例分析](https://zhuanlan.zhihu.com/p/34204282))
+  - [Roofline model](https://en.wikipedia.org/wiki/Roofline_model)
 
 ### Statistics
 
@@ -521,9 +551,8 @@
     - Pros: utilizes user features, handles new users
     - Cons: slower serving, training is compute-intensive
   - References
-    - [CTR预估模型的演化之路](https://zhuanlan.zhihu.com/p/61154299)
-    - [深度学习在CTR预估中的应用](https://zhuanlan.zhihu.com/p/35484389)
     - [RecBole](https://recbole.io/)
+    - [CTR预估模型的演化之路](https://zhuanlan.zhihu.com/p/61154299), [深度学习在CTR预估中的应用](https://zhuanlan.zhihu.com/p/35484389)
 
 - Evaluation
   - Spot check
@@ -632,7 +661,6 @@
     - PyTorch (a PyTorch Tensor is basically the same as a NumPy array)
       - Computational graph: dynamical
       - Less [data types](https://pytorch.org/docs/stable/tensors.html)
-    - Horovod
     - JAX
     - Others
       - TensorFlow Serving
