@@ -318,7 +318,9 @@
       - Network security services (NSS)
     - Virtual Private Network (VPN)
       - [VPN error code](https://www.paessler.com/help/vpn-errors)
-  - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+  - Others
+    - Principle of least privilege (PoLP)
+    - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 
 - References
   - [一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830)

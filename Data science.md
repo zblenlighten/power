@@ -105,7 +105,9 @@
       - Locality Sensitive Hashing
         - Fuzzy Search
     - Data modeling
-  - Data Operations ([DataOps](https://towardsdatascience.com/the-rise-of-dataops-2788958034ee))
+  - DataOps
+      - DataSecOps
+      - DataGovOps
   - Data Governance: policies, procedures, and standards that are in place to ensure the availability, usability, integrity, and security of data
   - Data Security
     - Access control (RBAC, ABAC/PBAC, centralized vs decentralized)
@@ -175,9 +177,11 @@
     - [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
   - Natural Language Processing (NLP)
     - Data processing
-      - Tokenization: word segmentation, lowercasing
+      - Tokenization ([tiktokenizer](https://github.com/dqbd/tiktokenizer), [sentencepiece](https://github.com/google/sentencepiece))
+        - [SolidGoldMagikarp (plus, prompt generation)](https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation)
       - Remove useless characters, remove stop/rare words
       - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
+      - Chunk ([ChunkViz](https://chunkviz.up.railway.app/))
       - Named-entity recognition: entity insertion and extraction
     - Tasks
       - Text classification
@@ -337,17 +341,18 @@
           - Scalability: large datasets
           - Cost effectiveness: economic aspect
           - Deployment readiness: compatibility
-        - Balancing Accuracy and Speed
+        - Model compression (balancing accuracy and speed)
           - Knowledge distillation
-          - Quantization
+          - Quantization (e.g. [FP8](https://docs.vllm.ai/en/latest/quantization/fp8.html))
         - References
           - [LLM Inference Performance Engineering: Best Practices](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices)
       - LLMOps
-        - MLOps: build -> evaluate -> deploy
+        - MLOps: build -> evaluate ([evals](https://github.com/openai/evals)) -> deploy
         - Retrieval augmented generation (RAG)
           - Retrieval: load/retrieve documents with vector search (e.g. OpenSearch)
           - Retriever Evaluation (e.g. MLflow)
           - Feature store / Feature serving
+        - Agentic Architecture ([swarm](https://github.com/openai/swarm))
         - Fine-tuning
           - Process: off-the-shelf LLM + labeled data
         - Guardrails
@@ -355,7 +360,7 @@
       - Further topics
         - Hallucination
         - LLM Security: Jailbreak, Prompt injection, Data poisoning / Backdoors
-        - Quantization (e.g. [FP8](https://docs.vllm.ai/en/latest/quantization/fp8.html))
+
       - ChatGPT
         - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
         - [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
@@ -698,11 +703,7 @@
 | System management difficulty  | So so  | Easy  | Very hard  | So so  |
 
 - Further topics
-  - **Continual Learning**
-  - Model compression
-    - Knowledge distillation
-    - Pruning
-    - Quantization
+  - Continual Learning
   - Monitoring
     - Drifts: concept drift, data drift, upstream data changes
     - Model's inputs / outputs

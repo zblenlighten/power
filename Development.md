@@ -151,6 +151,7 @@
         - [data pipeline](https://docs.splunk.com/Documentation/Splunk/latest/Deploy/Datapipeline)
         - Components: Forwarder, Indexer, Search head
       - Datadog
+    - [Security Analytics](https://www.paloaltonetworks.com/cyberpedia/security-analytics)
   - Security
     - DevSecOps
       - Toolchain: Pre-commit -> Commit (continuous integration) -> Acceptance (continuous delivery) -> Production (continuous deployment) -> Operations
@@ -212,6 +213,7 @@
     - **Materialized view** (vs: view) - OLAP Cube
   - Filesystem ACL (file vs blob: binary large object)
     - blob storage: relational db, file system, object storage (Ceph), cloud storage
+    - [Signed URLs](https://cloud.google.com/storage/docs/access-control/signed-urls)
   - Replication
     - Approaches
       - Single leader
@@ -270,6 +272,7 @@
       - Normal forms
       - [Denormalization](https://www.geeksforgeeks.org/denormalization-in-databases/)
     - [ORM](http://www.ruanyifeng.com/blog/2019/02/orm-tutorial.html): Object-relational mapping
+  - [Collation and Unicode](https://learn.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver16)
 
 - NoSQL
   - Pros: flexible schemas, distributed (horizontally scalable, designed to be scaled across multiple servers), replication
@@ -322,7 +325,7 @@
     - Hyperledger
   - Time series database / Sequence database
     - InfluxDB
-    - KDB+/Q
+    - q/kdb+ ([PyKX](https://github.com/kxsystems/pykx))
     - Chroma
   - Others
     - [VoltDB](https://en.wikipedia.org/wiki/VoltDB)
@@ -448,7 +451,7 @@
       - Backward compatibility in machine learning
     - Encoding / Serialization: from data structures in memory to self-contained sequence of bytes, **write** to file or send over network (e.g. [Java serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
     - Decoding / Deserialization / Parsing: bytes to string, **read** or receive
-    - Textual formats: JSON, XML, CSV
+    - Textual formats: JSON/JSONL, XML, CSV
     - Binary encoding formats: Thrift, Protocol Buffers, Avro
   - Modes of dataflow
     - ~~Database~~
@@ -546,10 +549,11 @@
       - Event sourcing
     - Command query responsibility segregation ([CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)): deriving several views from the same event log
   - Open data storage format
-    - [Comparison of Delta Lake, Iceberg and Hudi](https://www.youtube.com/watch?v=Wx8G08jaedo)
     - Delta Lake (transaction log) -> Lakehouse
       - [Delta Lake Z Order](https://delta.io/blog/2023-06-03-delta-lake-z-order/)
+      - [Delta UniForm](https://www.databricks.com/blog/delta-uniform-universal-format-lakehouse-interoperability): allow you to read Delta tables with Iceberg and Hudi clients
     - Hudi (Hadoop Upserts Deletes and Incrementals)
+    - [Comparison of Delta Lake, Iceberg and Hudi](https://www.youtube.com/watch?v=Wx8G08jaedo)
 
 - Message broker
   - Message: a client's request of a sequence of bytes with some metadata
@@ -734,6 +738,7 @@
 
 - [Python](https://github.com/vinta/awesome-python)
   - [cProfile](https://docs.python.org/3/library/profile.html), [timeit](https://docs.python.org/3/library/timeit.html)
+  - Command line: [click](https://click.palletsprojects.com/)
   - [Dask](https://docs.dask.org/en/stable/dataframe.html) vs Koalas
   - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
   - [Status of Python Versions](https://devguide.python.org/versions/)
@@ -786,13 +791,15 @@
     - Infrastructure: web container, database connection pooling, MVC framework
       - Moniter the system and use automation tools
     - Architecture (clustered architecture)
-      - Split tiers into individual services
-      - Stateless architecture ([Stateful vs Stateless Architecture: Why Stateless Won](https://www.virtasant.com/blog/stateful-vs-stateless-architecture-why-stateless-won))
-      - Data sharding (shard key, hotspotting)
-      - Global data center (support multiple data center)
+      - Horizontal Scale: split tiers into individual services
+        - Load balancing
+        - Auto scaling policies
+      - Stateless Architecture ([Stateful vs Stateless Architecture: Why Stateless Won](https://www.virtasant.com/blog/stateful-vs-stateless-architecture-why-stateless-won))
+      - Data Sharding (shard key, hotspotting)
+      - Data Replication: global/multiple data center
       - Cache (read-through vs cache-aside, write-through vs write-around vs write-back)
       - Host static assets in CDN
-      - Message broker
+      - Async Processing & Message Broker
     - Programming: algorithms, data structure, design pattern, asynchronous I/O
 
 - Availability
@@ -813,10 +820,11 @@
     - Flow control & degrade
     - Disaster recovery
       - Metrics
-        - Accecptable downtime: Recovery Time Objective (RTO)
         - Data loss: Recovery Point Objective (RPO)
+        - Accecptable downtime: Recovery Time Objective (RTO)
       - References
         - [Disaster recovery options in the cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html)
+        - [Databricks Disaster Recovery](https://learn.microsoft.com/en-us/azure/databricks/admin/disaster-recovery#inside-region-high-availability-guarantees)
 
 - Maintainability: operability, simplicity, evolvability
 
@@ -908,7 +916,7 @@
       - Reviews should be small
       - Reviewing respond in a timely fashion
       - Comments with Why, When and What
-  - Testability: unit test - load test - sanity test - canary test - all active test - regression test, code coverage
+  - Testability: unit test - integration test - system test/functional test/regression test, code coverage
     - Test doubles (unit test): fake, dummy, stub, mock, spy
 
 - Project Management
