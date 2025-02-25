@@ -67,9 +67,6 @@
     - Synchronous
       - REST
       - RPC
-        - Thrift & Avro
-        - [gRPC](https://github.com/grpc-ecosystem/awesome-grpc): HTTP/2 & Protocol Buffers
-        - Finagle: Futures
     - Asynchronous
       - publish–subscribe: WebSocket, MQTT
       - message queue / message broker: RabbitMQ, Kafka
@@ -80,8 +77,11 @@
   - Others
     - Single vs Multi-tenant
     - User Interface (UI)
-      - MVC: Model-view-controller
-      - MVVM: Model–view–viewmodel
+      - MVC: model view controller
+      - MVP: model view presenter
+      - MVVM: model view viewmodel
+      - MVVM-C: model view viewmodel coordinator
+      - VIPER: view interactor presenter entity router
     - Tools
       - Backstage
 
@@ -165,9 +165,10 @@
     - Cybersecurity
       - Penetration test & Vulnerability scan
       - Thread detection & Incident response
-    - Compliance frameworks
-      - [Do you need penetration testing for compliance?](https://www.vanta.com/resources/do-you-need-penetration-testing-for-compliance)
+    - Compliance
+      - [Security Compliance: A Complete Introduction](https://www.splunk.com/en_us/blog/learn/security-compliance.html)
       - [What is NIST CSF and why is it important?](https://www.vanta.com/resources/what-is-nist-csf-and-why-is-it-important)
+      - [Do you need penetration testing for compliance?](https://www.vanta.com/resources/do-you-need-penetration-testing-for-compliance)
     - Vault
       - Data in transit: TLS encrypts data between server and client (asymmetric)
       - Internal data: AES256 (symmetric, faster)
@@ -449,7 +450,7 @@
     - Backward compatibility: newer code read data that was written by older code (vs: Forward compatibility)
       - Full compatibility
       - Backward compatibility in machine learning
-    - Encoding / Serialization: from data structures in memory to self-contained sequence of bytes, **write** to file or send over network (e.g. [Java serialization](https://www.geeksforgeeks.org/serialization-in-java/), [Python pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
+    - Encoding / Serialization: from data structures in memory to self-contained sequence of bytes, **write** to file or send over network (e.g. [Java serialization](https://www.geeksforgeeks.org/serialization-in-java/) & [Kryo](https://github.com/EsotericSoftware/kryo), [Python pickle](https://www.liaoxuefeng.com/wiki/1016959663602400/1017624706151424))
     - Decoding / Deserialization / Parsing: bytes to string, **read** or receive
     - Textual formats: JSON/JSONL, XML, CSV
     - Binary encoding formats: Thrift, Protocol Buffers, Avro
@@ -554,6 +555,8 @@
       - [Delta UniForm](https://www.databricks.com/blog/delta-uniform-universal-format-lakehouse-interoperability): allow you to read Delta tables with Iceberg and Hudi clients
     - Hudi (Hadoop Upserts Deletes and Incrementals)
     - [Comparison of Delta Lake, Iceberg and Hudi](https://www.youtube.com/watch?v=Wx8G08jaedo)
+  - References
+    - [Comprehensive Data Catalog Comparison](https://www.onehouse.ai/blog/comprehensive-data-catalog-comparison)
 
 - Message broker
   - Message: a client's request of a sequence of bytes with some metadata
@@ -627,8 +630,7 @@
 
 ### Backend
 
-- API
-  - RPC: communicates between processes, requests between services owned by the same organization / datacenter
+- API architecture styles
   - [REST](http://www.ruanyifeng.com/blog/2014/05/restful_api.html): public APIs
     - URL = &lt;**scheme**>://&lt;user>:&lt;password>@&lt;**host**>:&lt;port>/&lt;**path**>;&lt;params>?&lt;query>#&lt;fragment>
     - Versioning
@@ -666,7 +668,14 @@
         - [How We Design Our APIs at Slack](https://slack.engineering/how-we-design-our-apis-at-slack/)
         - [Evolving API Pagination at Slack](https://slack.engineering/evolving-api-pagination-at-slack/)
         - [RESTful API resources](https://github.com/marmelab/awesome-rest)
+  - RPC: communicates between processes, requests between services owned by the same organization / datacenter
+    - Thrift & Avro
+    - [gRPC](https://github.com/grpc-ecosystem/awesome-grpc): HTTP/2 & Protocol Buffers
+    - Finagle: Futures
   - GraphQL: asking for specific fields on objects
+  - WebSocket
+  - Webhook
+  - Simple Object Access Protocol (SOAP, [SOAP vs REST](https://aws.amazon.com/compare/the-difference-between-soap-rest/))
 
 - Design patterns
   - Object oriented programming (OOP): Polymorphism
@@ -931,7 +940,7 @@
   - Waterfall: System and software requirements -> Analysis -> Design -> Coding -> Testing -> Operations
   - Project Management Committee ([PMC](https://www.apache.org/foundation/how-it-works.html))
   - [RACI](https://en.wikipedia.org/wiki/Responsibility_assignment_matrix)
-  - Tools: TeamRetro
+  - Tools: TeamRetro, [danswer](https://github.com/danswer-ai/danswer)
 
 - Soft Skills
   - [6 Business Skills Every Engineer Needs](https://online.hbs.edu/blog/post/business-skills-for-engineers)
