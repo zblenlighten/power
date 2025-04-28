@@ -117,10 +117,9 @@
     - Data monitoring & Incident response
       - File integrity monitoring
     - Encryption (data at rest & data in transit), Data masking, Data erasure
-    - Data Privacy and Data Protection: Anonymization vs Pseudonymization
+    - Data Privacy and Data Protection
     - Law and Industry Regulations
       - General Data Protection Regulation (GDPR [checklist](https://www.vanta.com/resources/gdpr-compliance-checklist))
-        - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
         - [What is a DPIA?](https://www.osano.com/articles/dpia-data-protection-impact-assessments)
         - [What Is a RoPA?](https://www.osano.com/articles/what-is-a-ropa-gdpr-requirements-for-record-of-processing-activities)
         - Data Subject Access Request (DSAR)
@@ -346,30 +345,45 @@
           - Quantization (e.g. [FP8](https://docs.vllm.ai/en/latest/quantization/fp8.html))
         - References
           - [LLM Inference Performance Engineering: Best Practices](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices)
-      - LLMOps
-        - MLOps: build -> evaluate ([evals](https://github.com/openai/evals)) -> deploy
-        - Retrieval augmented generation (RAG)
+      - Agent
+        - Agent with documents: Retrieval augmented generation (RAG)
           - Retrieval: load/retrieve documents with vector search (e.g. OpenSearch)
           - Retriever Evaluation (e.g. MLflow)
           - Feature store / Feature serving
-        - Agentic Architecture ([swarm](https://github.com/openai/swarm))
+        - Agent with tables: text-2-sql
+        - Agent with multiple tools + data sources: tool-calling agent
+        - Multi agent system
+          - Key elements
+            - Role playing
+            - Focus
+            - [Tools](https://docs.crewai.com/concepts/tools)
+            - Cooperation
+            - Guardrails
+            - Memory
+          - [Tasks](https://docs.crewai.com/concepts/tasks)
+      - LLMOps
+        - MLOps: build -> evaluate ([evals](https://github.com/openai/evals)) -> deploy
         - Fine-tuning
           - Process: off-the-shelf LLM + labeled data
         - Guardrails
         - Chain Orchestrator: LangChain, LlamaIndex
+        - References:
+          - [ZenML LLMOps Database](https://www.zenml.io/llmops-database)
+          - [LLM and Generative AI Security Solutions Landscape](https://genai.owasp.org/resource/llm-and-generative-ai-security-solutions-landscape/)
       - Further topics
         - Hallucination
         - LLM Security: Jailbreak, Prompt injection, Data poisoning / Backdoors
-
       - ChatGPT
         - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
         - [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
       - References
+        - [LLM Leaderboard](https://llm-stats.com/)
+        - [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
         - [Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index)
         - [LangChain Hub](https://smith.langchain.com/hub)
         - [Training MoEs at Scale with PyTorch](https://pytorch.org/blog/training-moes/)
         - [Analysis of AI language models](https://artificialanalysis.ai/)
-        - [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
+        - [Claude Artifacts Showcase](https://claudeartifacts.com/)
 
 ### Machine learning
 

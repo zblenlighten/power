@@ -153,15 +153,37 @@
       - Datadog
     - [Security Analytics](https://www.paloaltonetworks.com/cyberpedia/security-analytics)
   - Security
-    - DevSecOps
-      - Toolchain: Pre-commit -> Commit (continuous integration) -> Acceptance (continuous delivery) -> Production (continuous deployment) -> Operations
-      - Legacy tools
-        - Static application security testing (SAST): find security bugs
-        - Dynamic application security testing (DAST): ZAP, WebInspect
-        - Interactive application security testing (IAST)
-        - Vulnerability scanning: OpenVAS
-        - Others: sqlmap, Recon-ng, OWASP Glue
-      - [Top 10 CI/CD Security Risks](https://github.com/cider-security-research/top-10-cicd-security-risks)
+    - Considerations
+      - Organization: People, Processes, and Policies
+      - Data & AI
+        - Data & AI Governance
+        - PII Classification / Detection
+          - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
+        - Anonymization Functions (vs: Pseudonymization)
+        - Encryption Options (e.g. Customer Managed Key, CMK)
+      - Platform & Infrastructure
+        - Secure Authentication (e.g. Multi Factor Authentication, MFA)
+        - Secure Data Access Configurations (e.g. Storage Firewalls, [Network Connectivity Configuration](https://docs.databricks.com/api/azure/account/networkconnectivity/createnetworkconnectivityconfiguration))
+        - Data Exfiltration Protection (e.g. Secure Egress Gateway)
+        - Secure Platform Configurations (e.g. Disable Personal Access Tokens)
+        - Automation, Logging, and Monitoring
+        - DevSecOps
+          - Toolchain: Pre-commit -> Commit (continuous integration) -> Acceptance (continuous delivery) -> Production (continuous deployment) -> Operations
+          - Legacy tools
+            - Static application security testing (SAST): find security bugs
+            - Dynamic application security testing (DAST): ZAP, WebInspect
+            - Interactive application security testing (IAST)
+            - Vulnerability scanning: OpenVAS
+            - Others: sqlmap, Recon-ng, OWASP Glue
+          - [Top 10 CI/CD Security Risks](https://github.com/cider-security-research/top-10-cicd-security-risks)
+        - Vault
+          - Data in transit: TLS encrypts data between server and client (asymmetric)
+          - Internal data: AES256 (symmetric, faster)
+          - Key sharding: the master key is split into several unseal keys using Shamir's Secret Sharing (two-man rule)
+          - Authentication: data that must be kept confidential is a secret, access to secret is performed by token
+            - wrap-ttl: generate a wrapping token
+          - Policy (Authorization): policy is associated to tokens and grants capabilities to a secrets engine path
+          - AppRole: Jenkins
     - Cybersecurity
       - Penetration test & Vulnerability scan
       - Thread detection & Incident response
@@ -169,14 +191,6 @@
       - [Security Compliance: A Complete Introduction](https://www.splunk.com/en_us/blog/learn/security-compliance.html)
       - [What is NIST CSF and why is it important?](https://www.vanta.com/resources/what-is-nist-csf-and-why-is-it-important)
       - [Do you need penetration testing for compliance?](https://www.vanta.com/resources/do-you-need-penetration-testing-for-compliance)
-    - Vault
-      - Data in transit: TLS encrypts data between server and client (asymmetric)
-      - Internal data: AES256 (symmetric, faster)
-      - Key sharding: the master key is split into several unseal keys using Shamir's Secret Sharing (two-man rule)
-      - Authentication: data that must be kept confidential is a secret, access to secret is performed by token
-        - wrap-ttl: generate a wrapping token
-      - Policy (Authorization): policy is associated to tokens and grants capabilities to a secrets engine path
-      - AppRole: Jenkins
     - [Web Application Security Checklist](https://www.appsecmonkey.com/blog/web-application-security-checklist)
   - Others
     - OpenStack
