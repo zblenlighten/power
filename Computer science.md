@@ -123,6 +123,7 @@
     - Redundant Array of Independent Disks (RAID): 0, 1, 10, 5, 6
     - Distributed File System
       - Andrew File System (AFS)
+      - Network File System (NFS)
       - InterPlanetary File System (IPFS)
 
 - Process & Thread (task execution)
@@ -192,9 +193,11 @@
   3. Network Layer: Router -> Datagram
       - Internet Protocol (**IP**)
         - Public IP (ISP: Internet service provider) vs Private IP (DHCP server / Router / LAN administrator)
+          - [IPv4 address exhaustion](https://en.wikipedia.org/wiki/IPv4_address_exhaustion)
         - Network address translation (NAT)
-        - Classless Inter-Domain Routing (CIDR)
+        - Classless Inter-Domain Routing (CIDR) = Base IP + Subnet Mask
           - [Visual Subnet Calculator](https://www.davidc.net/sites/default/subnets/subnets.html)
+          - [CIDR to IPv4 Conversion](https://www.ipaddressguide.com/cidr)
       - Routing: Static routing & Dynamic routing
       - Gateway address / Default gateway
   4. Transport Layer -> Segment

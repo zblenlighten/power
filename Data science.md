@@ -109,6 +109,7 @@
       - DataSecOps
       - DataGovOps
   - Data Governance: policies, procedures, and standards that are in place to ensure the availability, usability, integrity, and security of data
+    - [Open Data Contract Standard (ODCS)](https://github.com/bitol-io/open-data-contract-standard)
   - Data Security
     - Access control (RBAC, ABAC/PBAC, centralized vs decentralized)
       - Identity and Access Management (IAM)
@@ -348,6 +349,8 @@
       - Agent
         - Agent with documents: Retrieval augmented generation (RAG)
           - Retrieval: load/retrieve documents with vector search (e.g. OpenSearch)
+            - Dense Embeddings: Suitable for tasks requiring rich semantic understanding and computational efficiency in a lower-dimensional space. More expressive but less interpretable.
+            - Sparse Embeddings: Ideal for tasks where feature interpretability and simple presence-based representations are essential. More interpretable but often less computationally efficient and expressive.
           - Retriever Evaluation (e.g. MLflow)
           - Feature store / Feature serving
         - Agent with tables: text-2-sql
@@ -361,6 +364,7 @@
             - Guardrails
             - Memory
           - [Tasks](https://docs.crewai.com/concepts/tasks)
+      - [Model Context Protocol (MCP) Servers](https://mcp.so/)
       - LLMOps
         - MLOps: build -> evaluate ([evals](https://github.com/openai/evals)) -> deploy
         - Fine-tuning
@@ -680,7 +684,7 @@
     - PyTorch (a PyTorch Tensor is basically the same as a NumPy array)
       - Computational graph: dynamical
       - Less [data types](https://pytorch.org/docs/stable/tensors.html)
-    - JAX
+    - [JAX](https://github.com/jax-ml/jax) - [Flax](https://github.com/google/flax)
     - Others
       - TensorFlow Serving
       - Parameter Server

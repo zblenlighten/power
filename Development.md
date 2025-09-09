@@ -156,7 +156,6 @@
     - Considerations
       - Organization: People, Processes, and Policies
       - Data & AI
-        - Data & AI Governance
         - PII Classification / Detection
           - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
         - Anonymization Functions (vs: Pseudonymization)
@@ -526,7 +525,7 @@
     - OpenMetadata
     - Data lineage: [OpenLineage](https://openlineage.io/docs/)
     - Data testing: [Great Expectations](https://docs.greatexpectations.io/docs/)
-    - Schema migration: [Liquibase](https://docs.liquibase.com/home.html) (keep database schema in sync with application code)
+    - Schema migration (keep database schema in sync with application code): [Liquibase](https://docs.liquibase.com/home.html), [Flyway](https://documentation.red-gate.com/fd)
   - Data Migration
     - Main pillars: business outcomes, stakeholders, technology
     - Steps
@@ -765,6 +764,7 @@
   - [Dask](https://docs.dask.org/en/stable/dataframe.html) vs Koalas
   - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
   - [Status of Python Versions](https://devguide.python.org/versions/)
+  - [PyPI packages](https://pypistats.org/top)
 
 ### Frontend
 
@@ -887,14 +887,10 @@
 ### Practice
 
 - Cloud
+  - [FinOps Framework](https://www.finops.org/framework/)
   - Comparison
-    - [AWS/Azure/GCPサービス比較](https://qiita.com/hayao_k/items/906ac1fba9e239e08ae8)
     - [Compare AWS and Azure services to Google Cloud](https://cloud.google.com/free/docs/aws-azure-gcp-service-comparison)
     - [AWS to Azure services comparison](https://docs.microsoft.com/en-us/azure/architecture/aws-professional/services)
-  - AWS
-    - [A practical guide](https://github.com/open-guides/og-aws)
-    - [Awesome AWS](https://github.com/donnemartin/awesome-aws)
-    - [Security Groups vs Network Access Control List](https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae)
 
 - WBS (Work breakdown structure)
   - RFQ (Request for quotation), RFC(Request for comments), SOW (Statement of work)
@@ -974,3 +970,4 @@
   - Write up report: background, methods, results, conclusion
   - Others
     - [15 Signs Your Boss Likes You](https://www.indeed.com/career-advice/career-development/signs-your-boss-likes-you)
+    - [Getting things "done" in large tech companies](https://www.seangoedecke.com/getting-things-done/)
