@@ -523,8 +523,8 @@
     - SDF ([repo](https://github.com/sdf-labs/sdf-cli))
   - Data Management
     - OpenMetadata
-    - Data lineage: [OpenLineage](https://openlineage.io/docs/)
-    - Data testing: [Great Expectations](https://docs.greatexpectations.io/docs/)
+    - Data lineage
+    - Data quality / testing
     - Schema migration (keep database schema in sync with application code): [Liquibase](https://docs.liquibase.com/home.html), [Flyway](https://documentation.red-gate.com/fd)
   - Data Migration
     - Main pillars: business outcomes, stakeholders, technology
@@ -552,11 +552,13 @@
     - Stream joins: stream-stream, stream-table, table-table
     - Problems: fault tolerance and exactly once semantics
       - Microbatching and Checkpointing, Transaction, Idempotent writes
-    - Storm (work on individual events, truly real-time processing compared with Spark streaming)
-      - Tuples: Topology (Spouts and Bolts)
-      - Nimbus - ZooKeeper - Supervisor
-    - Flink (faster than Storm, work on events, highly scalable, fault tolerant using [state snapshots](https://ci.apache.org/projects/flink/flink-docs-master/docs/learn-flink/fault_tolerance/))
-      - Standalone cluster / YARN on Hadoop / Cloud / Local - Flink runtime - API
+    - Streaming is unbounded data - Continuous is unbounded execution
+    - Applications
+      - Storm (work on individual events, truly real-time processing compared with Spark streaming)
+        - Tuples: Topology (Spouts and Bolts)
+        - Nimbus - ZooKeeper - Supervisor
+      - Flink (faster than Storm, work on events, highly scalable, fault tolerant using [state snapshots](https://ci.apache.org/projects/flink/flink-docs-master/docs/learn-flink/fault_tolerance/))
+        - Standalone cluster / YARN on Hadoop / Cloud / Local - Flink runtime - API
   - Database and Stream: keeping systems in sync
     - Capture the changelog (downside: asynchronous)
       - CDC

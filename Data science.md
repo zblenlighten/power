@@ -2,7 +2,6 @@
 
 ## Blogs
 
-- [Hugging Face](https://huggingface.co/blog)
 - [Kaggle](https://medium.com/kaggle-blog)
 
 ## Contents
@@ -319,13 +318,21 @@
 
 ### Large language model
 
-- Basic topics
-  - [What are Large Language Models (LLMs)?](https://www.databricks.com/glossary/large-language-models-llm)
-    - [Context length in LLMs](https://agi-sphere.com/context-length/)
+- [Large Language Models (LLMs)](https://www.databricks.com/glossary/large-language-models-llm)
+  - Basic topics
+      - [Context length in LLMs](https://agi-sphere.com/context-length/)
     - Base LLM: predict next word, based on text training data
     - Instruction Tuned LLM: fine-tuning on instructions and good attempts at following those instructions
       - Labeling instructions: helpful, truthful, harmless
       - Reinforcement learning with human feedback (RLHF)
+    - References
+      - [LLM Leaderboard](https://llm-stats.com/)
+      - [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
+      - [Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index)
+      - [LangChain Hub](https://smith.langchain.com/hub)
+      - [Training MoEs at Scale with PyTorch](https://pytorch.org/blog/training-moes/)
+      - [Analysis of AI language models](https://artificialanalysis.ai/)
+      - [Claude Artifacts Showcase](https://madewithclaude.com/)
   - Training
     - LoRA: decompose the weight change matrix into lower-rank matrices (QLoRA)
     - Parameter-efficient fine-tuning (PEFT, vs: full parameter fine-tuning): reduce # of trainable parameters
@@ -347,50 +354,45 @@
       - Quantization (e.g. [FP8](https://docs.vllm.ai/en/latest/quantization/fp8.html))
     - References
       - [LLM Inference Performance Engineering: Best Practices](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices)
+  - ChatGPT
+    - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
+    - [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
+  - Security: Jailbreak, Prompt injection, Data poisoning / Backdoors
 
 - Agent
+  - Reasoning (LLMs) + Routing + Action (tools)
   - Agent with documents: Retrieval augmented generation (RAG)
     - Retrieval: load/retrieve documents with vector search (e.g. OpenSearch)
       - Dense Embeddings: Suitable for tasks requiring rich semantic understanding and computational efficiency in a lower-dimensional space. More expressive but less interpretable.
       - Sparse Embeddings: Ideal for tasks where feature interpretability and simple presence-based representations are essential. More interpretable but often less computationally efficient and expressive.
-    - Retriever Evaluation (e.g. MLflow)
+    - Retriever Evaluation
     - Feature store / Feature serving
   - Agent with tables: text-2-sql
   - Agent with multiple tools + data sources: tool-calling agent
   - Multi agent system
-    - Responses Agent
-    - Key elements
-      - Role playing
-      - Focus
-      - [Tools](https://docs.crewai.com/concepts/tools)
-      - Cooperation
-      - Guardrails
-      - Memory
+    - [Responses](https://developers.openai.com/blog/responses-api/) Agent
+    - Role playing + Focus + [Tools](https://docs.crewai.com/concepts/tools) + Cooperation + Guardrails + Memory
     - [Tasks](https://docs.crewai.com/concepts/tasks)
   - [Model Context Protocol (MCP) Servers](https://mcp.so/)
-  - LLMOps
-    - MLOps: build -> evaluate ([evals](https://github.com/openai/evals)) -> deploy
-    - Fine-tuning
-      - Process: off-the-shelf LLM + labeled data
-    - Guardrails
-    - Chain Orchestrator: LangChain, LlamaIndex
-    - References:
-      - [ZenML LLMOps Database](https://www.zenml.io/llmops-database)
-      - [LLM and Generative AI Security Solutions Landscape](https://genai.owasp.org/resource/llm-and-generative-ai-security-solutions-landscape/)
-  - Further topics
-    - Hallucination
-    - LLM Security: Jailbreak, Prompt injection, Data poisoning / Backdoors
-  - ChatGPT
-    - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
-    - [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
-  - References
-    - [LLM Leaderboard](https://llm-stats.com/)
-    - [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
-    - [Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index)
-    - [LangChain Hub](https://smith.langchain.com/hub)
-    - [Training MoEs at Scale with PyTorch](https://pytorch.org/blog/training-moes/)
-    - [Analysis of AI language models](https://artificialanalysis.ai/)
-    - [Claude Artifacts Showcase](https://claudeartifacts.com/)
+  - Evaluation
+    - [Datasets](https://huggingface.co/datasets)
+    - Types
+      - Hallucination
+      - Retrieval relevance
+      - Q&A on retrieved data
+      - Toxicity
+      - Summarization performance
+      - Code writing correctness and readability
+
+- LLMOps
+  - MLOps: build -> evaluate ([evals](https://github.com/openai/evals)) -> deploy
+  - Fine-tuning
+    - Process: off-the-shelf LLM + labeled data
+  - Guardrails
+  - Chain Orchestrator: LangChain, LlamaIndex
+  - References:
+    - [ZenML LLMOps Database](https://www.zenml.io/llmops-database)
+    - [LLM and Generative AI Security Solutions Landscape](https://genai.owasp.org/resource/llm-and-generative-ai-security-solutions-landscape/)
 
 - Multimodal
 
