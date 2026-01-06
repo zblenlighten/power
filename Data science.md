@@ -151,7 +151,6 @@
       - [R Shiny](https://shiny.rstudio.com/gallery)
       - [Story Telling with Data](http://www.storytellingwithdata.com/blog)
       - [Seeing Theory](https://seeing-theory.brown.edu/)
-      - [Travel Visa Inequalities](https://projects.christianlaesser.com/travel-visa-inequality/)
       - [Tupper's self-referential formula](https://en.wikipedia.org/wiki/Tupper%27s_self-referential_formula)
     - Design
       - [Misleading graph](https://en.wikipedia.org/wiki/Misleading_graph)
@@ -175,7 +174,7 @@
     - [Hacker News ranking](http://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html), [Reddit](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_reddit.html), [Stack Overflow](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_stack_overflow.html), [Newton's Law of Cooling](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_newton_s_law_of_cooling.html), [Wilson score interval](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_wilson_score_interval.html), [Bayesian average](http://www.ruanyifeng.com/blog/2012/03/ranking_algorithm_bayesian_average.html)
   - Natural Language Processing (NLP)
     - Data processing
-      - Tokenization ([tiktokenizer](https://github.com/dqbd/tiktokenizer), [sentencepiece](https://github.com/google/sentencepiece))
+      - Tokenization ([tiktokenizer](https://tiktokenizer.vercel.app), [sentencepiece](https://github.com/google/sentencepiece))
         - [SolidGoldMagikarp (plus, prompt generation)](https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation)
       - Remove useless characters, remove stop/rare words
       - Stemming & Lemmatization: extract roots, spell correction, stem extraction, punctuation encoding, pos tagging
@@ -374,6 +373,7 @@
     - Role playing + Focus + [Tools](https://docs.crewai.com/concepts/tools) + Cooperation + Guardrails + Memory
     - [Tasks](https://docs.crewai.com/concepts/tasks)
   - [Model Context Protocol (MCP) Servers](https://mcp.so/)
+  - LLM model decision criteria: privacy, quality, cost, latency
   - Evaluation
     - [Datasets](https://huggingface.co/datasets)
     - Types
@@ -482,6 +482,7 @@
     - RMSE: Root Mean Squared Error (MSE: Mean squared error)
     - MAPE: Mean Absolute Percent Error (MAE: Mean absolute error)
   - [Ranking](http://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples)
+    - Mean Reciprocal Rank (MRR)
   - Others
     - [Data Leakage in Machine Learning](https://machinelearningmastery.com/data-leakage-machine-learning/)
     - Gain and Lift Charts

@@ -28,8 +28,6 @@
     - Microservices
       - Pros: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
       - When not to use: small, intermingled functionality or data, performance sensitive, quick and dirty, no planned updates
-      - Kubernetes
-        - Service Mesh: Istio
       - Componentization via services
         - Service discovery (SDP, Eureka service registry)
         - API Gateway ([WSO2](https://apim.docs.wso2.com/en/latest/get-started/key-concepts/), Kong, Tyk, Zuul)
@@ -114,9 +112,11 @@
         - Dockerfile: multi-stage builds
       - Nvidia docker
     - Kubernetes (vs: Docker Compose, Apache Mesos)
+      - Service Mesh: Istio
       - Pod - Node - Cluster
       - ReplicaSet
       - etcd
+      - Network: ClusterIP, services, CoreDNS, kube-proxy
       - GitOps: ArgoCD
       - Tools: [lens](https://k8slens.dev/), [starboard](https://aquasecurity.github.io/starboard/), [karpenter](https://karpenter.sh/), [infra](https://infrahq.com/), [argo](https://argoproj.github.io/)
   - Observability
@@ -582,7 +582,7 @@
       - [Dead Lettering](https://www.rabbitmq.com/dlx.html)
   - Log based message broker
     - Situation: high message throughput, each message is fast to process, and message ordering is important
-    - Kafka
+    - Kafka (vs. [iggy](https://github.com/apache/iggy))
       - Storage layer: cluster -> brokers -> topics -> partitions -> segments -> records with offsets
         - Topics: append-only, immutable logs of events
         - Record Schema: [Schema registry](https://docs.confluent.io/platform/current/schema-registry/avro.html)

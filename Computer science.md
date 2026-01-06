@@ -82,7 +82,7 @@
     - Count–min sketch (estimate frequencies of items)
 
 - Time complexity
-  - General [Big-O](https://linux.cn/article-7480-1.html) ([Java](https://www.baeldung.com/java-collections-complexity), [Python](https://wiki.python.org/moin/TimeComplexity))
+  - General [Big-O](https://www.bigocheatsheet.com) ([Java](https://www.baeldung.com/java-collections-complexity), [Python](https://wiki.python.org/moin/TimeComplexity))
 
 ### Operating system
 
@@ -195,9 +195,10 @@
         - Public IP (ISP: Internet service provider) vs Private IP (DHCP server / Router / LAN administrator)
           - [IPv4 address exhaustion](https://en.wikipedia.org/wiki/IPv4_address_exhaustion)
         - Network address translation (NAT)
-        - Classless Inter-Domain Routing (CIDR) = Base IP + Subnet Mask
+        - Classless Inter-Domain Routing (CIDR) = Base IP + Subnet Mask (i.e. Netmask)
           - [Visual Subnet Calculator](https://www.davidc.net/sites/default/subnets/subnets.html)
           - [CIDR to IPv4 Conversion](https://www.ipaddressguide.com/cidr)
+      - Internet Control Message Protocol (ICMP)
       - Routing: Static routing & Dynamic routing
       - Gateway address / Default gateway
   4. Transport Layer -> Segment
@@ -215,8 +216,9 @@
       - File Transfer Protocol (FTP) - Secure File Transfer Protocol (SFTP)
       - Simple Mail Transfer Protocol (SMTP)
       - Domain Name System (DNS)
+        - [Fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN)
       - IP address
-        - Static IP: IP + Subnet mask + Gateway + DNS
+        - Static IP: IP + Subnet Mask (i.e. Netmask) + Gateway + DNS
         - Dynamic IP: Dynamic Host Configuration Protocol (DHCP)
 
 - Knowledge
