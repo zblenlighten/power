@@ -55,7 +55,7 @@
     - Transactions are bundled together into a block
     - Miners verify transactions within each block are legitimate
     - Miners solve proof-of-work problem (inverse hashing) by computational resources
-    - A cryptocurrency prize provided by the protocol (reward) is given to the first miner who solves each blocks problem
+    - A cryptocurrency prize provided by the protocol (reward) is given to the first miner who solves each block's problem
     - Verified transactions are stored in the public blockchain
   - Proof of Stake (PoS: validate blocks)
     - Validators take turns proposing and voting on the next block
@@ -203,14 +203,14 @@
     - Certification authorities (CAs)
     - Private & permissioned
   - Ordering service: channels
-    - solo, Kafka
+    - Raft (deprecated: solo, Kafka)
   - Peer gossip
     - The communication layer for gossip is based on gRPC and utilizes TLS with mutual authentication
   - Ledger: block store, peer transaction manager (PTM)
     - world state (Key-Value Store of current values): Merkle Patricia tries (Radix tree)
     - blockchain (transaction log, immutable)
   - Chaincode (execution of smart contracts): Go, Java and Node.js
-    - Channel: indentify each of the chaincode in the network
+    - Channel: identify each of the chaincode in the network
     - Shim API
     - Interface
     - Stub

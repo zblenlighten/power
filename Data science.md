@@ -53,7 +53,7 @@
         - Interval (no true zero)
         - Ratio (there is a true zero and ratios make sense)
   - Multivariate data
-    - Scaler
+    - Scalar
     - Vector
     - Matrix (image)
     - Tensor
@@ -90,6 +90,8 @@
       - [Active learning](https://en.wikipedia.org/wiki/Active_learning_(machine_learning))
       - GAN (Generative Adversarial Network)
       - Data security, privacy, and compliance requirements
+    - Resampling
+      - Bootstrapping
     - Data transformation
       - Categorical variable encoding ([Category Encoders](https://contrib.scikit-learn.org/category_encoders/))
       - Variable transformation
@@ -156,7 +158,7 @@
       - [Misleading graph](https://en.wikipedia.org/wiki/Misleading_graph)
       - [Color](http://www.ruanyifeng.com/blog/2019/03/coloring-scheme.html)
   - Similarity measure ([scipy distance](https://docs.scipy.org/doc/scipy/reference/spatial.distance.html))
-    - Hanhattan distance
+    - Manhattan distance
     - Euclidean distance
     - Cosine similarity
     - Dot product
@@ -252,6 +254,7 @@
     - Adam: Momentum + RMSprop / AdaGrad
   - Residual block & Batch normalization (Normalization vs Standardization)
   - Hyperparameter optimization
+    - Tree-structured Parzen Estimator (TPE)
 
 - Models
   - [Keras Models](https://keras.io/applications/)
@@ -305,7 +308,7 @@
             - Allow for the building-up of enriched vectors with more context and logic
           - Calculation
             - Input vector is used to create: Query vector (Q), Key vector (K), Value vector (V)
-            - A scale dot-production on Q and K = Attention score -> Attention Weights
+            - A scaled dot-product on Q and K = Attention score -> Attention Weights
             - V * Attention Weight -> Output for the self-attention layer
         - position-wise feed-forward networks
         - residual connections & layer normalization
@@ -494,7 +497,7 @@
   - Ad click prediction: Click-through rate (CTR), revenue lift, etc.
   - Harmful content detection: Prevalence, valid appeals, etc.
   - Video recommendation: CTR, total watch time, number of completed videos, etc.
-  - Friend recommendation: Number of requests sent per day, number, number pf requests accepted per day, etc.
+  - Friend recommendation: Number of requests sent per day, number of requests accepted per day, etc.
 - Fairness and Bias
 - Operation related metrics
   - Resource usage: average serving times, throughput, number of prediction requests, memory / GPU / CPU utilization, etc.
@@ -673,7 +676,7 @@
 | Revenue  | Business outcomes (which vary by your business model: purchases, ad clicks, content creation, subscriptions, etc.)  | Customer lifetime value, conversion rate, shopping cart size, click-through revenue  |
 | Referral  | Viral and word-of-mouth invitations to other potential users  | Invites sent, viral coefficient, viral cycle time  |
 
-- Acquisition mediums: Organic, CPC / CPM (Cost Per Click / Cost Per Mille), Referreal, Email, None
+- Acquisition mediums: Organic, CPC / CPM (Cost Per Click / Cost Per Mille), Referral, Email, None
 
 - References
   - [Good Data Analysis](https://developers.google.com/machine-learning/guides/good-data-analysis)

@@ -248,9 +248,10 @@
     - 4xx (Client error): The request contains bad syntax or cannot be fulfilled
       - 400 - Bad request
       - 401 - Unauthorized
+      - 402 - Payment Required
       - 404 - Not found
     - 5xx (Server error): The server failed to fulfill an apparently valid request
-      - 500 - Interval server error
+      - 500 - Internal server error
   - A typical HTTP [session](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
   - Cookie: HTTP state management mechanism (first party cookie vs third party cookie)
     - Intelligent Tracking Prevention (ITP)

@@ -39,7 +39,7 @@
         - Asynchronous - One-to-many: Publish and subscribe, Publish and asynchronous responses
       - Challenges
         - Design and runtime complexity
-        - Network are slow compared to monolith
+        - Networks are slow compared to monolith
       - [Microservices Patterns](https://microservices.io/patterns/)
     - Serverless (run in stateless compute containers that are event triggered)
       - Principles: Invisible infrastructure, Automatic scaling, No paying for unused CPU cycles
@@ -206,7 +206,7 @@
       - All major relational databases and some nonrelational ones
   - Index
     - Primary key & Secondary index
-      - Secondary index: Gloabl secondary index (asynchronous updating), Local secondary index
+      - Secondary index: Global secondary index (asynchronous updating), Local secondary index
     - clustered index - covered index - only reference index (write amplification)
     - Multi-column index: Geohash, R tree
     - Fuzzy index (full-text search)
@@ -484,7 +484,7 @@
       - Partitioned hash joins
   - Spark (Livy)
     - Resilient Distributed Dataset (RDD) - DataSet
-      - Fault tolerance: tracking the the intermediate states of the data
+      - Fault tolerance: tracking the intermediate states of the data
     - Components: Spark Core - Spark SQL - spark.ml - Spark Streaming - GraphFrames (Pregel API)
     - Spark streaming (work on microbatching)
       - Batch interval vs Slide interval vs Window interval
@@ -745,7 +745,7 @@
     - Spring Cloud
     - Projects: [link](https://spring.io/projects)
   - RxJava (Reactive programming)
-    - Obeservable and Observers (vs: Iterator)
+    - Observable and Observers (vs: Iterator)
       - Variants: Single, Maybe, Completable
     - Operators
       - types: Suppressing, transforming, reducing, collection, error recovery, action
@@ -814,7 +814,7 @@
     - Operating system (Linux: transparent huge page)
     - JVM
     - Infrastructure: web container, database connection pooling, MVC framework
-      - Moniter the system and use automation tools
+      - Monitor the system and use automation tools
     - Architecture (clustered architecture)
       - Horizontal Scale: split tiers into individual services
         - Load balancing
@@ -846,7 +846,7 @@
     - Disaster recovery
       - Metrics
         - Data loss: Recovery Point Objective (RPO)
-        - Accecptable downtime: Recovery Time Objective (RTO)
+        - Acceptable downtime: Recovery Time Objective (RTO)
       - References
         - [Disaster recovery options in the cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html)
         - [Databricks Disaster Recovery](https://learn.microsoft.com/en-us/azure/databricks/admin/disaster-recovery#inside-region-high-availability-guarantees)
@@ -909,7 +909,7 @@
   - BDD (Behavior driven): base tests on natural language descriptions of business functionality
   - FDD (Feature driven)
   - DDD (Domain driven): force software engineer to understand the business context
-    - Bounded Context: break up complext areas into smaller parts
+    - Bounded Context: break up complex areas into smaller parts
     - Reactive model (publish subscribe model, vs: Declarative model)
       - Entities communication
       - Message broker
@@ -918,6 +918,7 @@
 
 - Coding
   - System design -> Code development -> System testing -> System monitoring -> Product Rollout
+    - 4 Cs: [C4 model](https://c4model.com/diagrams)
   - Packages
     - Maven Helper (IntelliJ plugin): dependency analyzer
     - JFrog Artifactory
