@@ -68,7 +68,7 @@
     - Asynchronous
       - publish–subscribe: WebSocket, MQTT
       - message queue / message broker: RabbitMQ, Kafka
-      - stream: server-sent events, WebRTC
+      - stream: Server-Sent Events (SSE), WebRTC
     - Event-driven
       - webhooks (an HTTP callback, vs: API polling)
       - event-based architectures: Event sourcing, Event-driven microservices
@@ -88,7 +88,7 @@
     - Git (tag - branch)
     - dvc: data version control (vs: Git LFS, lakeFS)
   - Infrastructure as code (consider hardware: networks, servers, storage, etc.)
-    - Terraform: Write -> Plan -> Apply
+    - Terraform: Write -> Plan -> Apply (vs: [Pulumi](https://www.pulumi.com/))
       - [terraformer](https://github.com/GoogleCloudPlatform/terraformer)
     - Ansible ([YAML](http://www.ruanyifeng.com/blog/2016/07/yaml.html))
     - Provision: Dockerfile / Puppet / Chef
@@ -653,18 +653,6 @@
       - HTTP Accept header
     - Media Type & Content-Type
     - Identity Access Management (IAM)
-      - Authentication (AuthN: who you are)
-        - Basic authentication & Digest authentication
-        - Login form, HTTP authentication
-        - Key management (cryptographic keys)
-      - Authorization (AuthZ: what you can do)
-        - Role-based access control (RBAC)
-        - URL access controls
-        - Access control list (ACL)
-          - Filesystem ACL
-          - Network ACL
-          - SQL ACL
-      - References: [Intro to IAM](https://auth0.com/intro-to-iam/), [What is IAM](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)
     - Design of REST APIs
       - Identify participants
       - Identify activities

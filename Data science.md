@@ -63,8 +63,8 @@
       - [H3 Index](https://www.snowflake.com/blog/getting-started-with-h3-hexagonal-grid/)
   - Data provenance
     - Structured data vs Unstructured data
-    - Raw data vs Processed data
-    - Primary data vs [Inherited data](https://towardsdatascience.com/how-to-work-with-someone-elses-data-f33485d79ed4)
+    - Record data vs Derived data
+    - Primary data vs Inherited data
   - Data type in computer science
     - String
     - Character
@@ -356,10 +356,10 @@
       - Quantization (e.g. [FP8](https://docs.vllm.ai/en/latest/quantization/fp8.html))
     - References
       - [LLM Inference Performance Engineering: Best Practices](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices)
+  - Security: Jailbreak, Prompt injection, Data poisoning / Backdoors
   - ChatGPT
     - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
     - [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
-  - Security: Jailbreak, Prompt injection, Data poisoning / Backdoors
 
 - Agent
   - Reasoning (LLMs) + Routing + Action (tools)
@@ -375,7 +375,6 @@
     - [Responses](https://developers.openai.com/blog/responses-api/) Agent
     - Role playing + Focus + [Tools](https://docs.crewai.com/concepts/tools) + Cooperation + Guardrails + Memory
     - [Tasks](https://docs.crewai.com/concepts/tasks)
-  - [Model Context Protocol (MCP) Servers](https://mcp.so/)
   - LLM model decision criteria: privacy, quality, cost, latency
   - Evaluation
     - [Datasets](https://huggingface.co/datasets)
@@ -386,6 +385,18 @@
       - Toxicity
       - Summarization performance
       - Code writing correctness and readability
+  - Model Context Protocol (MCP)
+    - Tool - Resource - Prompt Template
+    - Transport: stdio, HTTP, Streamable HTTP
+    - Client-Server Architecture
+      - Sampling + Composability
+      - Registry API + Server Discovery
+  - [Skill](https://context7.com/skills) (an open standard)
+    - Filesystem: Domain expertise + Repeatable workflow + New capabilities
+    - Progressive disclosure: resources are loaded as needed (metadata -> instructions)
+    - References
+      - [Claude Skill Creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md)
+      - [Cybersecurity Skills for AI Agents](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)
 
 - LLMOps
   - MLOps: build -> evaluate ([evals](https://github.com/openai/evals)) -> deploy

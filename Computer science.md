@@ -5,6 +5,7 @@
 - [Algorithms and Data structure](#algorithms-and-data-structure)
 - [Operating system](#operating-system)
 - [Network](#network)
+- [Security](#security)
 - [Wiki](#wiki)
 
 ## Computer science
@@ -296,40 +297,65 @@
       - **TCP four-way handshake**
   6. Browser -> LCD screen
 
-- Security
-  - Cryptography
-    - Cryptographic hash function
-      - Common functions: MD5 (rainbow table), bcrypt (salt), Secure Hash Algorithm (SHA)
-      - MAC functions: Hash-based message authentication code (HMAC)
-    - Symmetric-key algorithm
-    - Public-key cryptography
-      - Integer factorization: RSA, Rabin
-      - Discrete logarithm: ElGamal
-      - Digital signature (Electronic signature: DocuSign)
-      - Public key infrastructure (PKI)
-        - Certificate authority (CA)
-    - Zero-knowledge proof
-    - Post-quantum cryptography
-  - Protocols
-    - Central Authentication Service (CAS): single sign-on (SSO)
-    - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
-    - OpenID
-    - [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
-    - System for Cross-domain Identity Management (SCIM)
-    - Kerberos
-  - Secure Communication
-    - SSH
-    - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
-      - OpenSSL
-      - Network security services (NSS)
-    - Virtual Private Network (VPN)
-      - [VPN error code](https://www.paessler.com/help/vpn-errors)
-  - Others
-    - Principle of least privilege (PoLP)
-    - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-
 - References
   - [一个 TCP 连接上面能发多少个 HTTP 请求](https://zhuanlan.zhihu.com/p/61423830)
+
+### Security
+
+- Cryptography
+  - Cryptographic hash function
+    - MD5 (rainbow table) - bcrypt (salt) - Secure Hash Algorithm (SHA)
+  - MAC functions: Hash-based message authentication code (HMAC)
+  - Symmetric-key algorithm
+  - Public-key cryptography
+    - Integer factorization: RSA, Rabin
+    - Discrete logarithm: ElGamal
+    - Digital signature (Electronic signature: DocuSign)
+    - Public key infrastructure (PKI)
+      - Certificate authority (CA)
+  - Advanced cryptography
+    - Zero-knowledge proof
+    - Post-quantum cryptography
+
+- Identity and Access Management (IAM)
+  - Basic topics: [Intro to IAM](https://auth0.com/intro-to-iam/), [What is IAM](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)
+  - Authentication (AuthN: who you are)
+    - Basic authentication & Digest authentication
+    - Login form, HTTP authentication
+    - Key management (cryptographic keys)
+  - Authorization (AuthZ: what you can do)
+    - Role-based access control (RBAC)
+    - URL access controls
+    - Access control list (ACL)
+      - Filesystem ACL
+      - Network ACL
+      - SQL ACL
+  - [Identity Brokering](https://docs.redhat.com/en/documentation/red_hat_single_sign-on/7.1/html/server_administration_guide/identity_broker#identity_broker_overview) vs User Federation
+  - System for Cross-domain Identity Management (SCIM)
+  - [Zero trust](https://cloud.google.com/learn/what-is-zero-trust)
+
+- Protocols
+  - Central Authentication Service (CAS): single sign-on (SSO)
+  - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
+    - OpenID Connect (OIDC)
+    - Token Formats: [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
+    - Token delegation
+      - On-Behalf-Of (OBO) flow (Microsoft Entra ID specific)
+      - Token Exchange (standard, cross-platform)
+  - SAML 2.0 (Security Assertion Markup Language)
+  - Kerberos
+
+- Secure Communication
+  - SSH
+  - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
+    - OpenSSL
+    - Network security services (NSS)
+  - Virtual Private Network (VPN)
+    - [VPN error code](https://www.paessler.com/help/vpn-errors)
+
+- Application Security
+  - Principle of least privilege (PoLP)
+  - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 
 ### Wiki
 
