@@ -357,12 +357,9 @@
     - References
       - [LLM Inference Performance Engineering: Best Practices](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices)
   - Security: Jailbreak, Prompt injection, Data poisoning / Backdoors
-  - ChatGPT
-    - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
-    - [Azure OpenAI Service REST API reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
 
-- Agent
-  - Reasoning (LLMs) + Routing + Action (tools)
+- Applications
+  - Agent: Reasoning (LLMs) + Routing + Action (tools)
   - Agent with documents: Retrieval augmented generation (RAG)
     - Retrieval: load/retrieve documents with vector search (e.g. OpenSearch)
       - Dense Embeddings: Suitable for tasks requiring rich semantic understanding and computational efficiency in a lower-dimensional space. More expressive but less interpretable.
@@ -385,15 +382,20 @@
       - Toxicity
       - Summarization performance
       - Code writing correctness and readability
+  - ChatGPT
+    - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
+    - [Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses) (e.g. [ResponsesAgent](https://mlflow.org/docs/latest/genai/flavors/responses-agent-intro))
   - Model Context Protocol (MCP)
     - Tool - Resource - Prompt Template
     - Transport: stdio, HTTP, Streamable HTTP
     - Client-Server Architecture
       - Sampling + Composability
       - Registry API + Server Discovery
-  - [Skill](https://context7.com/skills) (an open standard)
-    - Filesystem: Domain expertise + Repeatable workflow + New capabilities
-    - Progressive disclosure: resources are loaded as needed (metadata -> instructions)
+  - Claude Code
+    - [CLAUDE.md](https://code.claude.com/docs/en/memory)
+    - [Skill](https://context7.com/skills) (an open standard)
+      - Filesystem: Domain expertise + Repeatable workflow + New capabilities
+      - Progressive disclosure: resources are loaded as needed (metadata -> instructions)
     - References
       - [Claude Skill Creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md)
       - [Cybersecurity Skills for AI Agents](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)
