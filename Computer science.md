@@ -181,6 +181,7 @@
     - Networking: scp, curl, ssh, ifconfig, traceroute, telnet
     - Pipe: xargs
     - Job scheduler
+  - [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy#Mike_Gancarz:_The_UNIX_Philosophy)
 
 ### Network
 

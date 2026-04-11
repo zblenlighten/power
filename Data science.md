@@ -405,7 +405,7 @@
   - Fine-tuning
     - Process: off-the-shelf LLM + labeled data
   - Guardrails
-  - Chain Orchestrator: LangChain, LlamaIndex
+  - Chain Orchestrator: LangGraph, LlamaIndex
   - References:
     - [ZenML LLMOps Database](https://www.zenml.io/llmops-database)
     - [LLM and Generative AI Security Solutions Landscape](https://genai.owasp.org/resource/llm-and-generative-ai-security-solutions-landscape/)
