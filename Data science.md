@@ -105,9 +105,7 @@
       - Locality Sensitive Hashing
         - Fuzzy Search
     - Data modeling
-  - DataOps
-      - DataSecOps
-      - DataGovOps
+  - DataOps (e.g. DataSecOps, DataGovOps)
   - Data Governance: policies, procedures, and standards that are in place to ensure the availability, usability, integrity, and security of data
     - [Open Data Contract Standard (ODCS)](https://github.com/bitol-io/open-data-contract-standard)
   - Data Security
@@ -138,13 +136,7 @@
   - Reference and Master Data
   - Document and Content
   - Metadata
-  - Data Quality
-    - Completeness: whole picture
-    - Accuracy
-    - Age: how often is data updated
-    - Consistency: rules and naming convention
-    - Usage
-    - Data Maturity
+  - [Data Quality](https://www.databricks.com/discover/pages/data-quality-management)
 
 - Applications
   - Data visualization
@@ -354,24 +346,22 @@
     - Model compression (balancing accuracy and speed)
       - Knowledge distillation
       - Quantization (e.g. [FP8](https://docs.vllm.ai/en/latest/quantization/fp8.html))
-    - References
-      - [LLM Inference Performance Engineering: Best Practices](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices)
   - Security: Jailbreak, Prompt injection, Data poisoning / Backdoors
 
 - Applications
   - Agent: Reasoning (LLMs) + Routing + Action (tools)
-  - Agent with documents: Retrieval augmented generation (RAG)
-    - Retrieval: load/retrieve documents with vector search (e.g. OpenSearch)
-      - Dense Embeddings: Suitable for tasks requiring rich semantic understanding and computational efficiency in a lower-dimensional space. More expressive but less interpretable.
-      - Sparse Embeddings: Ideal for tasks where feature interpretability and simple presence-based representations are essential. More interpretable but often less computationally efficient and expressive.
-    - Retriever Evaluation
-    - Feature store / Feature serving
-  - Agent with tables: text-2-sql
-  - Agent with multiple tools + data sources: tool-calling agent
-  - Multi agent system
-    - [Responses](https://developers.openai.com/blog/responses-api/) Agent
-    - Role playing + Focus + [Tools](https://docs.crewai.com/concepts/tools) + Cooperation + Guardrails + Memory
-    - [Tasks](https://docs.crewai.com/concepts/tasks)
+    - Agent with documents: Retrieval augmented generation (RAG)
+      - Retrieval: load/retrieve documents with vector search (e.g. OpenSearch)
+        - Dense Embeddings: Suitable for tasks requiring rich semantic understanding and computational efficiency in a lower-dimensional space. More expressive but less interpretable.
+        - Sparse Embeddings: Ideal for tasks where feature interpretability and simple presence-based representations are essential. More interpretable but often less computationally efficient and expressive.
+      - Retriever Evaluation
+      - Feature store / Feature serving
+    - Agent with tables: text-2-sql
+    - Agent with multiple tools + data sources: tool-calling agent
+    - Multi agent system
+      - [Responses](https://developers.openai.com/blog/responses-api/) Agent
+      - Role playing + Focus + [Tools](https://docs.crewai.com/concepts/tools) + Cooperation + Guardrails + Memory
+      - [Tasks](https://docs.crewai.com/concepts/tasks)
   - LLM model decision criteria: privacy, quality, cost, latency
   - Evaluation
     - [Datasets](https://huggingface.co/datasets)
@@ -392,13 +382,23 @@
       - Sampling + Composability
       - Registry API + Server Discovery
   - Claude Code
+    - Task decomposition strategies
+      - Prompt chaining: fixed, linear tasks
+      - Dynamic adaptive: tasks that are unpredictable or have conditional branches
+    - Tool description: Clear purpose, Input specifications, Examples, Edge cases, When not to use
     - [CLAUDE.md](https://code.claude.com/docs/en/memory)
-    - [Skill](https://context7.com/skills) (an open standard)
+    - [Skill](https://context7.com/skills) (an open standard, vs: Custom Commands)
       - Filesystem: Domain expertise + Repeatable workflow + New capabilities
       - Progressive disclosure: resources are loaded as needed (metadata -> instructions)
+    - Hooks (e.g. PreToolUse, PostToolUse)
+    - Workflows
+      - Direct execution
+      - Plan mode
+      - TDD iteration (write test, implement, verify)
     - References
       - [Claude Skill Creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md)
       - [Cybersecurity Skills for AI Agents](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)
+      - [rtk](https://github.com/rtk-ai/rtk)
 
 - LLMOps
   - MLOps: build -> evaluate ([evals](https://github.com/openai/evals)) -> deploy

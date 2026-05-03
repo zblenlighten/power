@@ -197,8 +197,10 @@
       - Cybersecurity Operations
         - Offensive Testing: Penetration testing & Vulnerability scanning
         - Defensive Operations: Threat detection & Incident response
+        - Just-in-Time (JIT) access
       - Open Cybersecurity Schema Framework (OCSF)
       - [MITRE ATT&CK](https://attack.mitre.org/)
+        - [Sigma detection format](https://github.com/SigmaHQ/sigma)
   - Others
     - OpenStack
     - Vagrant: synced folder, networking, provider (hypervisor), provisioner
