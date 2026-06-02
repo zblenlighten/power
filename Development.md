@@ -4,6 +4,7 @@
 
 - [Engineering Blogs](https://github.com/kilimchoi/engineering-blogs)
 - [Top 100 on GitHub](https://twosigmaventures.com/open-source-index/)
+- [OSSInsight](https://ossinsight.io/)
 
 ## Contents
 
@@ -135,6 +136,12 @@
       - Platform logs (AWS CloudTrail)
       - Logs can yield metrics
         - Collection -> Transport -> Storage (centralized) -> Analysis
+    - Tracing: traces follow a request as it propagates through a distributed system, breaking it into timed spans, traces are great for latency analysis and root-cause across services (where is the problem)
+      - Trace -> Spans (parent/child), context propagation across service boundaries
+      - Tools: Jaeger, AWS X-Ray, Grafana Tempo
+    - [OpenTelemetry](https://opentelemetry.io/) (OTel)
+      - [newrelic-opentelemetry-examples](https://github.com/newrelic/newrelic-opentelemetry-examples)
+      - [Claude Code Observability with OpenTelemetry](https://code.claude.com/docs/en/agent-sdk/observability)
     - [Tools](https://github.com/adriannovegil/awesome-observability)
       - [Metrics, monitors, alerts decision record](https://github.com/joelparkerhenderson/architecture-decision-record/tree/main/locales/en/examples/metrics-monitors-alerts)
       - ELK (Elastic)
@@ -145,8 +152,6 @@
         - Kibana: Viewer with filter capabilities
           - Kibana Query Language (KQL)
         - [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html): Data shipping
-      - New Relic
-        - [OpenTelemetry](https://github.com/newrelic/newrelic-opentelemetry-examples)
       - Splunk
         - [data pipeline](https://docs.splunk.com/Documentation/Splunk/latest/Deploy/Datapipeline)
         - Components: Forwarder, Indexer, Search head
@@ -350,7 +355,6 @@
   - Time series database / Sequence database
     - InfluxDB
     - q/kdb+ ([PyKX](https://github.com/kxsystems/pykx))
-    - Chroma
   - Others
     - [VoltDB](https://en.wikipedia.org/wiki/VoltDB)
     - [Spanner](https://cloud.google.com/spanner)
@@ -430,7 +434,7 @@
       - Normalization (e.g. third normal form)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
     - Late Arriving data (late arriving dimensions / early arriving facts)
-  - Transaction processing systems (OLTP: online transaction processing)
+  - Transaction processing systems (OLTP: online transaction processing, HTAP: hybrid transactional/analytical processing)
     - Database: MySQL, PostgreSQL, etc.
     - Row-oriented
     - Main read pattern: small number of records per query, fetched by key
@@ -446,6 +450,7 @@
   - Approximate Nearest Neighbor (ANN)
     - Hierarchical Navigable Small Worlds (HNSW)
   - Weaviate: [Cross-references](https://weaviate.io/developers/weaviate/manage-data/cross-references), [Hybrid search](https://weaviate.io/developers/weaviate/search/hybrid) (alpha)
+  - Chroma
   - References
     - [vecdbs](https://www.vecdbs.com/)
 
@@ -567,14 +572,14 @@
       - Storm (work on individual events, truly real-time processing compared with Spark streaming)
         - Tuples: Topology (Spouts and Bolts)
         - Nimbus - ZooKeeper - Supervisor
-      - Flink (faster than Storm, work on events, highly scalable, fault tolerant using [state snapshots](https://ci.apache.org/projects/flink/flink-docs-master/docs/learn-flink/fault_tolerance/))
+      - Flink (faster than Storm, work on events, highly scalable, fault tolerant using [state snapshots](https://nightlies.apache.org/flink/flink-docs-stable/docs/learn-flink/fault_tolerance/))
         - Standalone cluster / YARN on Hadoop / Cloud / Local - Flink runtime - API
   - Database and Stream: keeping systems in sync
     - Capture the changelog (downside: asynchronous)
       - CDC
       - Event sourcing
     - Command query responsibility segregation ([CQRS](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)): deriving several views from the same event log
-  - Open data storage format
+  - Open table formats (OTFs)
     - Delta Lake (transaction log) -> Lakehouse
       - [Delta Lake Z Order](https://delta.io/blog/2023-06-03-delta-lake-z-order/)
       - [Delta UniForm](https://www.databricks.com/blog/delta-uniform-universal-format-lakehouse-interoperability): allow you to read Delta tables with Iceberg and Hudi clients

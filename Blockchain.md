@@ -23,7 +23,7 @@
       - Mine a new block (verified by Bitcoin network) and plus a new nonce
       - A single history of the order of transactions
     5. Distributed computer: Ethereum Virtual Machine and smart contracts -> DApps
-  - Blocks cryptographically linked together ([demo](https://tools.superdatascience.com/blockchain/blockchain))
+  - Blocks cryptographically linked together ([demo](https://andersbrownworth.com/blockchain/))
     - Immutable ledger: Merkle tree -> Hash cryptography
     - A block stores multiple transactions
   - Decentralization (centralized example: client-server model)
@@ -112,7 +112,7 @@
 
 - Transaction
   - Unspent Transaction Output (UTXO)
-  - Signatures ([demo](https://tools.superdatascience.com/blockchain/public-private-keys/signatures))
+  - Signatures ([demo](https://andersbrownworth.com/blockchain/public-private-keys/signatures))
     - private key (send money) -> public key (verification function) -> address (for additional security, receive money)
   - [Crypto Wallets vs Exchanges](https://www.coingecko.com/learn/crypto-wallet-vs-exchange)
     - Hierarchical Deterministic (HD) Wallet
@@ -207,7 +207,7 @@
   - Peer gossip
     - The communication layer for gossip is based on gRPC and utilizes TLS with mutual authentication
   - Ledger: block store, peer transaction manager (PTM)
-    - world state (Key-Value Store of current values): Merkle Patricia tries (Radix tree)
+    - world state (Key-Value Store of current values): LevelDB (default) or CouchDB
     - blockchain (transaction log, immutable)
   - Chaincode (execution of smart contracts): Go, Java and Node.js
     - Channel: identify each of the chaincode in the network
