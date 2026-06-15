@@ -109,13 +109,14 @@
   - Data Governance: policies, procedures, and standards that are in place to ensure the availability, usability, integrity, and security of data
     - [Open Data Contract Standard (ODCS)](https://github.com/bitol-io/open-data-contract-standard)
   - Data Security
-    - Access control (RBAC, ABAC/PBAC, centralized vs decentralized)
+    - Access control *(see [Shared > IAM](Shared.md#identity-and-access-management-iam))*
+      - RBAC, ABAC/PBAC, centralized vs decentralized
       - Identity and Access Management (IAM)
       - Privileged Access Management (PAM)
     - Data loss prevention (DLP)
     - Data monitoring & Incident response
       - File integrity monitoring
-    - Encryption (data at rest & data in transit), Data masking, Data erasure
+    - Encryption *(see [Shared > Application Security](Shared.md#application-security))*, Data masking, Data erasure
     - Data Privacy and Data Protection
     - Law and Industry Regulations
       - General Data Protection Regulation (GDPR [checklist](https://www.vanta.com/resources/gdpr-compliance-checklist))

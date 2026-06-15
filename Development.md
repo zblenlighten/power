@@ -8,10 +8,10 @@
 
 ## Contents
 
-- [Infrastructure](#infrastructure)
+- [Infrastructure](#infrastructure) *(see also [Shared > Distributed Systems](Shared.md#distributed-systems))*
 - [Data storage](#data-storage)
 - [Dataflow](#dataflow)
-- [Backend](#backend)
+- [Backend](#backend) *(see also [Shared > Communication Patterns](Shared.md#communication-patterns))*
 - [Frontend](#frontend)
 - [System design](#system-design)
 - [Practice](#practice)
@@ -49,30 +49,18 @@
         - Google Cloud Functions
       - Backend as a Service
         - Firebase
-    - Peer-to-peer
+    - Peer-to-peer *(see [Shared > Peer-to-peer Networks](Shared.md#peer-to-peer-networks))*
       - Peer-to-peer file sharing: BitTorrent
   - Distributed system (storage + computation + messaging)
-    - Fault-tolerant Consensus: for solving consensus in a network
+    - Fault-tolerant Consensus *(see [Shared > Consensus](Shared.md#consensus))*
       - Properties: uniform agreement, integrity, validity, termination
       - Consensus algorithms: Paxos, Raft, Zab (ZooKeeper)
-      - [ZooKeeper](https://zookeeper.apache.org/doc/current/zookeeperInternals.html) (vs: Chubby)
-        - Features: linearizable atomic operations, total ordering operations, failure detection, change notifications
-        - Central coordinator: manage state and hold configuration (ZooKeeper ensemble)
-        - Recover from partial failures: master crashes, worker crashes, network trouble
-        - Service discovery: leader election
-        - Membership / coordination service
+      - ZooKeeper *(see [Shared > ZooKeeper](Shared.md#key-technologies))*
     - [Thrashing in Distributed Shared Memory](https://www.geeksforgeeks.org/distributed-system-thrashing-in-distributed-shared-memory/)
-  - Communication patterns
-    - Synchronous
-      - REST
-      - RPC
-    - Asynchronous
-      - publish–subscribe: WebSocket, MQTT
-      - message queue / message broker: RabbitMQ, Kafka
-      - stream: Server-Sent Events (SSE), WebRTC
-    - Event-driven
-      - webhooks (an HTTP callback, vs: API polling)
-      - event-based architectures: Event sourcing, Event-driven microservices
+  - Communication patterns *(see [Shared > Messaging Patterns](Shared.md#messaging-patterns))*
+    - Synchronous: REST, RPC
+    - Asynchronous: publish–subscribe (WebSocket, MQTT), message queue (RabbitMQ, Kafka), stream (SSE, WebRTC)
+    - Event-driven: webhooks, Event sourcing, Event-driven microservices
   - Others
     - Single vs Multi-tenant
     - User Interface (UI)
@@ -157,7 +145,7 @@
         - Components: Forwarder, Indexer, Search head
       - Datadog
     - [Security Analytics](https://www.paloaltonetworks.com/cyberpedia/security-analytics)
-  - Security
+  - Security *(see [Shared > Security & Cryptography](Shared.md#security--cryptography) for fundamentals)*
     - Governance, Risk, and Compliance (GRC)
       - Organization: People, Processes, and Policies
       - Compliance
@@ -168,22 +156,14 @@
       - PII Classification / Detection
         - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
       - Anonymization (vs: Pseudonymization)
-      - Encryption Options (e.g. Customer Managed Key, CMK)
+      - Encryption Options *(see [Shared > Application Security](Shared.md#application-security))*
     - Platform & Infrastructure
       - Secure Authentication (e.g. Multi Factor Authentication, MFA)
       - Secure Data Access Configurations (e.g. Storage Firewalls, [Network Connectivity Configuration](https://docs.databricks.com/api/azure/account/networkconnectivity/createnetworkconnectivityconfiguration))
       - Data Exfiltration Protection (e.g. Secure Egress Gateway)
       - Secure Platform Configurations (e.g. Disable Personal Access Tokens)
-      - Vault (Secrets Management)
-        - Data in transit: TLS encrypts data between server and client (asymmetric)
-        - Internal data: AES256 (symmetric, faster)
-        - Key sharding: the master key is split into several unseal keys using Shamir's Secret Sharing (two-man rule)
-        - Authentication: data that must be kept confidential is a secret, access to secret is performed by token
-          - wrap-ttl: generate a wrapping token
-        - Policy (Authorization): policy is associated to tokens and grants capabilities to a secrets engine path
-        - AppRole: Jenkins
+      - Vault (Secrets Management) *(see [Shared > Application Security](Shared.md#application-security))*
     - Application
-      - [Web Application Security Checklist](https://www.appsecmonkey.com/blog/web-application-security-checklist)
       - DevSecOps
         - Toolchain: Pre-commit -> Commit (continuous integration) -> Acceptance (continuous delivery) -> Production (continuous deployment) -> Operations
         - Legacy tools
@@ -223,7 +203,7 @@
     - Primary key & Secondary index
       - Secondary index: Global secondary index (asynchronous updating), Local secondary index
     - clustered index - covered index - only reference index (write amplification)
-    - Multi-column index: Geohash, R tree
+    - Multi-column index: Geohash *(see [Shared > GeoHash](Shared.md#key-technologies))*, R tree
     - Fuzzy index (full-text search)
   - Query Tuning
     - Index types
@@ -393,7 +373,7 @@
   - In-memory database (Cache + Processing / Querying)
     - Types
       - Application server cache: placing a cache on request layer node enables the local storage of response data
-      - Distribute cache: each of its nodes own part of cached data, the cache is divided up using consistent hashing
+      - Distribute cache: each of its nodes own part of cached data, the cache is divided up using consistent hashing *(see [Shared > Consistent hashing](Shared.md#key-technologies))*
       - Global cache: all nodes use the same single cache space
     - Client-side cache: Varnish
     - Cache coherence / invalidation
@@ -666,7 +646,7 @@
       - Version number in the URL
       - HTTP Accept header
     - Media Type & Content-Type
-    - Identity Access Management (IAM)
+    - Identity Access Management (IAM) *(see [Shared > IAM](Shared.md#identity-and-access-management-iam))*
     - Design of REST APIs
       - Identify participants
       - Identify activities
@@ -685,12 +665,12 @@
         - [How We Design Our APIs at Slack](https://slack.engineering/how-we-design-our-apis-at-slack/)
         - [Evolving API Pagination at Slack](https://slack.engineering/evolving-api-pagination-at-slack/)
         - [RESTful API resources](https://github.com/marmelab/awesome-rest)
-  - RPC: communicates between processes, requests between services owned by the same organization / datacenter
+  - RPC *(see [Shared > Messaging Patterns](Shared.md#messaging-patterns))*: communicates between processes, requests between services owned by the same organization / datacenter
     - Thrift & Avro
     - [gRPC](https://github.com/grpc-ecosystem/awesome-grpc): HTTP/2 & Protocol Buffers
     - Finagle: Futures
   - GraphQL: asking for specific fields on objects
-  - WebSocket
+  - WebSocket *(see [Shared > Messaging Patterns](Shared.md#messaging-patterns))*
   - Webhook
   - Simple Object Access Protocol (SOAP, [SOAP vs REST](https://aws.amazon.com/compare/the-difference-between-soap-rest/))
 

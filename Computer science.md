@@ -5,7 +5,7 @@
 - [Algorithms and Data structure](#algorithms-and-data-structure)
 - [Operating system](#operating-system)
 - [Network](#network)
-- [Security](#security)
+- [Security](#security) *(see also [Shared > Security & Cryptography](Shared.md#security--cryptography))*
 - [Wiki](#wiki)
 
 ## Computer science
@@ -39,7 +39,7 @@
       - Fingerprint
         - Pseudorandom number generator (PRNG): Mersenne Twister
         - [Content ID system](https://en.wikipedia.org/wiki/Content_ID_(system))
-      - SimHash, **GeoHash** (location based service)
+      - SimHash, **GeoHash** *(see [Shared > GeoHash](Shared.md#key-technologies))*
 
 - Trees
   1. Binary search trees
@@ -50,7 +50,7 @@
       - B+ tree
   4. **Trie** (search autocomplete, [implementation](https://leetcode.com/problems/implement-trie-prefix-tree/solutions/127843/official-solution/))
   5. **Quadtree** (location based service)
-  6. Merkle tree (identify inconsistencies between nodes)
+  6. Merkle tree *(see [Shared > Merkle tree](Shared.md#key-technologies))*
   7. Heap
   8. traversals: preorder, inorder, postorder, BFS, DFS
 
@@ -125,7 +125,7 @@
     - Distributed File System
       - Andrew File System (AFS)
       - Network File System (NFS)
-      - InterPlanetary File System (IPFS)
+      - InterPlanetary File System (IPFS) *(see [Shared > IPFS](Shared.md#key-technologies))*
 
 - Process & Thread (task execution)
   - CPU bound, Memory bound, I/O bound
@@ -138,7 +138,7 @@
     - Coroutine ([协程](https://www.liaoxuefeng.com/wiki/1016959663602400/1017968846697824))
   - Inter process communication (IPC)
     - Shared memory, Pipe, Message queue, Semaphore
-    - Remote procedure call (**RPC**)
+    - Remote procedure call (**RPC**) *(see [Shared > IPC](Shared.md#inter-process-communication-ipc))*
     - Sockets
   - Concurrency
     - Achieved via context switching in a single core or parallelism in a multi-core
@@ -224,11 +224,11 @@
         - Dynamic IP: Dynamic Host Configuration Protocol (DHCP)
 
 - Knowledge
-  - Messaging pattern
+  - Messaging pattern *(see [Shared > Messaging Patterns](Shared.md#messaging-patterns))*
     - request–response (in-out): HTTP, RPC
     - one-way (in-only): UDP
     - publish–subscribe: [WebSocket](https://www.ruanyifeng.com/blog/2017/05/websocket.html), Message Queuing Telemetry Transport (MQTT)
-  - Network model
+  - Network model *(see [Shared > Peer-to-peer Networks](Shared.md#peer-to-peer-networks))*
     - client–server
     - peer-to-peer
   - Traffic shaping algorithms
@@ -280,7 +280,7 @@
       - **HTTP request**
   3. Browser -> NIC -> Wifi router -> Global IP Network (Internet) -> NIC -> Host server
   4. Host server:
-      - Load balancing ([**Consistent hashing**](https://www.toptal.com/big-data/consistent-hashing))
+      - Load balancing ([**Consistent hashing**](https://www.toptal.com/big-data/consistent-hashing)) *(see [Shared > Consistent hashing](Shared.md#key-technologies))*
         - Reverse proxy (vs: forward proxy)
       - Web application firewall (WAF)
       - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview): Apache
@@ -303,60 +303,13 @@
 
 ### Security
 
-- Cryptography
-  - Cryptographic hash function
-    - MD5 (rainbow table) - bcrypt (salt) - Secure Hash Algorithm (SHA)
-  - MAC functions: Hash-based message authentication code (HMAC)
-  - Symmetric-key algorithm
-  - Public-key cryptography
-    - Integer factorization: RSA, Rabin
-    - Discrete logarithm: ElGamal
-    - Digital signature (Electronic signature: DocuSign)
-    - Public key infrastructure (PKI)
-      - Certificate authority (CA)
-  - Advanced cryptography
-    - Zero-knowledge proof
-    - Post-quantum cryptography
+> Consolidated in [Shared > Security & Cryptography](Shared.md#security--cryptography). Below are CS-specific references.
 
-- Identity and Access Management (IAM)
-  - Basic topics: [Intro to IAM](https://auth0.com/intro-to-iam/), [What is IAM](https://www.cloudflare.com/learning/access-management/what-is-identity-and-access-management/)
-  - Authentication (AuthN: who you are)
-    - Basic authentication & Digest authentication
-    - Login form, HTTP authentication
-    - Key management (cryptographic keys)
-  - Authorization (AuthZ: what you can do)
-    - Role-based access control (RBAC)
-    - URL access controls
-    - Access control list (ACL)
-      - Filesystem ACL
-      - Network ACL
-      - SQL ACL
-  - [Identity Brokering](https://docs.redhat.com/en/documentation/red_hat_single_sign-on/7.1/html/server_administration_guide/identity_broker#identity_broker_overview) vs User Federation
-  - System for Cross-domain Identity Management (SCIM)
-  - [Zero trust](https://cloud.google.com/learn/what-is-zero-trust)
-
-- Protocols
-  - Central Authentication Service (CAS): single sign-on (SSO)
-  - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
-    - OpenID Connect (OIDC)
-    - Token Formats: [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)
-    - Token delegation
-      - On-Behalf-Of (OBO) flow (Microsoft Entra ID specific)
-      - Token Exchange (standard, cross-platform)
-  - SAML 2.0 (Security Assertion Markup Language)
-  - Kerberos
-
-- Secure Communication
-  - SSH
-  - [SSL/TLS](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
-    - OpenSSL
-    - Network security services (NSS)
-  - Virtual Private Network (VPN)
-    - [VPN error code](https://www.paessler.com/help/vpn-errors)
-
-- Application Security
-  - Principle of least privilege (PoLP)
-  - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+- Cryptography *(see [Shared > Cryptography](Shared.md#cryptography))*
+- Identity and Access Management *(see [Shared > IAM](Shared.md#identity-and-access-management-iam))*
+- Security Protocols *(see [Shared > Security Protocols](Shared.md#security-protocols))*
+- Secure Communication *(see [Shared > Secure Communication](Shared.md#secure-communication))*
+- Application Security *(see [Shared > Application Security](Shared.md#application-security))*
 
 ### Wiki
 

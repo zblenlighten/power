@@ -6,7 +6,7 @@
 
 ## Contents
 
-- [Knowledge](#knowledge)
+- [Knowledge](#knowledge) *(see also [Shared > Distributed Systems](Shared.md#distributed-systems))*
 - [Web3](#web3)
 - [Hyperledger Fabric](#hyperledger-fabric-consortium-blockchain)
 
@@ -15,7 +15,7 @@
 ### Knowledge
 
 - Blockchain
-  - History
+  - History *(see [Shared > Cryptography](Shared.md#cryptography) for fundamentals)*
     1. Hash function: one-way
     2. Public-key cryptography: one-way but can be reversed with private key
     3. Digital signature: prove who encrypted
@@ -24,9 +24,9 @@
       - A single history of the order of transactions
     5. Distributed computer: Ethereum Virtual Machine and smart contracts -> DApps
   - Blocks cryptographically linked together ([demo](https://andersbrownworth.com/blockchain/))
-    - Immutable ledger: Merkle tree -> Hash cryptography
+    - Immutable ledger: Merkle tree *(see [Shared > Merkle tree](Shared.md#key-technologies))* -> Hash cryptography
     - A block stores multiple transactions
-  - Decentralization (centralized example: client-server model)
+  - Decentralization *(see [Shared > Peer-to-peer Networks](Shared.md#peer-to-peer-networks))*
     - Distributed peer-to-peer network (nodes: light client, full node, miner node)
     - Best-effort delivery (vs: reliable delivery)
   - Mining
@@ -45,24 +45,9 @@
     - Bitcoin and Ethereum chose decentralization and security, which makes them fairly slow
   - Blockchain types: Public, Private, Consortium
 
-- Consensus Protocol
+- Consensus Protocol *(see [Shared > Consensus](Shared.md#consensus) for full details)*
   - Byzantine Fault
-  - Challenges: Attackers, Competing chains
-  - Cryptographic puzzles (hard to solve & easy to verify)
-    - Verify the legitimacy of a transaction, ensure all participating nodes come to an agreement about the true and valid state of the network, avoid double-spending
-    - Create new digital currencies by rewarding miners
-  - Proof of Work (PoW: mine blocks)
-    - Transactions are bundled together into a block
-    - Miners verify transactions within each block are legitimate
-    - Miners solve proof-of-work problem (inverse hashing) by computational resources
-    - A cryptocurrency prize provided by the protocol (reward) is given to the first miner who solves each block's problem
-    - Verified transactions are stored in the public blockchain
-  - Proof of Stake (PoS: validate blocks)
-    - Validators take turns proposing and voting on the next block
-    - The weight of each validator's vote depends on the size of its deposit (i.e. stake)
-    - Energy efficiency, security and reduced risk of centralization
-  - Proof of Burn
-    - The more coins burned by the miner, the bigger the ensuing virtual mining rig
+  - Proof of Work (PoW), Proof of Stake (PoS), Proof of Burn
 
 - Cryptocurrency
   - Layer 1 blockchains
@@ -162,7 +147,7 @@
 - Applications
   - KYC: [Crypto KYC Guide](https://sumsub.com/blog/crypto-kyc-guide/) - [What Is a KYC Analyst](https://sumsub.com/blog/kyc-analyst/)
   - Decentralized storage
-    - InterPlanetary File System (IPFS)
+    - InterPlanetary File System (IPFS) *(see [Shared > IPFS](Shared.md#key-technologies))*
     - Filecoin
   - Blockchain node services
   - DApp
