@@ -136,6 +136,7 @@
   - Reference and Master Data
   - Document and Content
   - Metadata
+    - Semantic metadata: [Ossie](https://ossie.apache.org/)
   - [Data Quality](https://www.databricks.com/discover/pages/data-quality-management)
 
 - Applications
@@ -293,7 +294,7 @@
         - DeepWalk
         - Node2vec
     - Transformer -> BERT vs GPT
-      - Transformer block
+      - Transformer block ([Transformer Explainer](https://poloclub.github.io/transformer-explainer/))
         - Attention
           - Role
             - Measure the importance and relevance of each word relative to each other
@@ -320,6 +321,7 @@
       - Labeling instructions: helpful, truthful, harmless
       - Reinforcement learning with human feedback (RLHF)
     - References
+      - [AI Model & API Providers Analysis](https://artificialanalysis.ai/)
       - [LLM Leaderboard](https://llm-stats.com/)
       - [LMSYS Chatbot Arena Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard)
       - [Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index)
@@ -364,6 +366,7 @@
       - [Tasks](https://docs.crewai.com/concepts/tasks)
   - LLM model decision criteria: privacy, quality, cost, latency
   - Evaluation
+    - [RAGAS](https://mlflow.org/docs/latest/genai/eval-monitor/scorers/third-party/ragas/)
     - [Datasets](https://huggingface.co/datasets)
     - Types
       - Hallucination
@@ -381,6 +384,7 @@
     - Client-Server Architecture
       - Sampling + Composability
       - Registry API + Server Discovery
+    - [Authentication and authorization in Model Context Protocol](https://stackoverflow.blog/2026/01/21/is-that-allowed-authentication-and-authorization-in-model-context-protocol/)
   - Claude Code
     - Task decomposition strategies
       - Prompt chaining: fixed, linear tasks
@@ -404,6 +408,7 @@
   - MLOps: build -> evaluate ([evals](https://github.com/openai/evals)) -> deploy
   - Fine-tuning
     - Process: off-the-shelf LLM + labeled data
+    - [Fine-Tuning Techniques - Choosing Between SFT, DPO, and RFT](https://developers.openai.com/cookbook/examples/fine_tuning_direct_preference_optimization_guide)
   - Guardrails
   - Chain Orchestrator: LangGraph, LlamaIndex
   - References:
@@ -730,7 +735,7 @@
   - What size of data are you dealing with?
   - What sort(s) of algorithms do you expect to use (and do you really need them)
   - Are you in a regulated environment where the ability to audit your system is important?
-  - Does your company have product-market fit? (i.e. do you need to prepare for the system’s original purpose to radically change)
+  - Does your company have [product-market fit](https://en.wikipedia.org/wiki/Product-market_fit)? (i.e. do you need to prepare for the system’s original purpose to radically change)
   - Can this task be done without ML?
   - How large and experienced is your team - including data scientists, engineers and DevOps?
 

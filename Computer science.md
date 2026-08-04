@@ -187,17 +187,18 @@
 
 - Internet Protocol Suite
   1. Physical Layer: Hub -> Bit
-  2. Data Link Layer: Switch -> Frame
+  2. Data Link Layer: **Switch** -> Frame
       - Network Interface Card (NIC)
       - **MAC** (media access control) address
       - Address Resolution Protocol (ARP)
       - Bridging
-  3. Network Layer: Router -> Datagram
+  3. Network Layer: **Router** -> Datagram
       - Internet Protocol (**IP**)
         - Public IP (ISP: Internet service provider) vs Private IP (DHCP server / Router / LAN administrator)
           - [IPv4 address exhaustion](https://en.wikipedia.org/wiki/IPv4_address_exhaustion)
         - Network address translation (NAT)
-        - Classless Inter-Domain Routing (CIDR) = Base IP + Subnet Mask (i.e. Netmask)
+        - IP Address = Network Prefix (= network + subnet) + Host ID
+        - Classless Inter-Domain Routing (CIDR) notation = network address / prefix length (i.e. Netmask)
           - [Visual Subnet Calculator](https://www.davidc.net/sites/default/subnets/subnets.html)
           - [CIDR to IPv4 Conversion](https://www.ipaddressguide.com/cidr)
       - Internet Control Message Protocol (ICMP)
@@ -337,6 +338,7 @@
 
 - Protocols
   - Central Authentication Service (CAS): single sign-on (SSO)
+    - [Keycloak](https://www.keycloak.org/documentation): central Identity Provider (IdP)
   - [OAuth 2.0](http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html)
     - OpenID Connect (OIDC)
     - Token Formats: [JSON Web Token](http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html) (JWT)

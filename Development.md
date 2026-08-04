@@ -119,6 +119,7 @@
       - etcd
       - Network: ClusterIP, services, CoreDNS, kube-proxy
       - GitOps: ArgoCD
+      - Package management: Helm
       - Tools: [lens](https://k8slens.dev/), [starboard](https://aquasecurity.github.io/starboard/), [karpenter](https://karpenter.sh/), [infra](https://infrahq.com/), [argo](https://argoproj.github.io/)
   - Observability
     - Metrics: metrics are measurements at a point in time in a system, they can be visualized in various types of graphs such as gauges, counters, and timers, metrics are great for monitoring, profiling, and alerting (do I have a problem)
