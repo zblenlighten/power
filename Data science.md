@@ -104,7 +104,6 @@
       - Singular Value Decomposition (SVD)
       - Locality Sensitive Hashing
         - Fuzzy Search
-    - Data modeling
   - DataOps (e.g. DataSecOps, DataGovOps)
   - Data Governance: policies, procedures, and standards that are in place to ensure the availability, usability, integrity, and security of data
     - [Open Data Contract Standard (ODCS)](https://github.com/bitol-io/open-data-contract-standard)
@@ -403,6 +402,8 @@
       - [Claude Skill Creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md)
       - [Cybersecurity Skills for AI Agents](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)
       - [rtk](https://github.com/rtk-ai/rtk)
+  - Others
+    - [Open Knowledge Format](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) (OKF)
 
 - LLMOps
   - MLOps: build -> evaluate ([evals](https://github.com/openai/evals)) -> deploy

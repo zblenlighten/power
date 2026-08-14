@@ -428,11 +428,22 @@
     - Main write pattern: bulk import (ETL) or event stream
     - Vectorized Processing in CPU cache
     - Data modeling
-      - Dimensional model (fact + dimension)
-        - Star Schema: denormalized, better query performance
-        - Snowflake Schema: normalized, better data integrity
-        - Slowly changing dimension (SCD)
-      - Normalization (e.g. third normal form)
+      - Layers
+        - Information model: conceptual, implementation-independent
+          - [Semantic Data Model](https://en.wikipedia.org/wiki/Semantic_data_model)
+        - Logical data model: relational / dimensional / graph / document
+          - Normalization (e.g. 3rd normal form)
+            - Removes redundancy -> fewer update anomalies, more joins
+            - 3NF-centric warehouse = Inmon CIF
+          - Dimensional model (fact + dimension)
+            - Star Schema: denormalized dimensions, fewer joins
+            - Snowflake Schema: normalized dimensions, less storage, reusable hierarchies
+            - Slowly changing dimension (SCD)
+              - SCD2 -> uni-temporal (valid time) -> see temporal axis
+        - Physical schema: DDL, indexes, partitioning, storage
+      - Logical Data Model = Semantic axis + Temporal axis
+        - Temporal database
+          - Bitemporal modeling: [XTDB](https://github.com/xtdb/xtdb)
     - High availability and low latency (business Intelligence: optimization for analytic access patterns)
     - Late Arriving data (late arriving dimensions / early arriving facts)
   - Transaction processing systems (OLTP: online transaction processing, HTAP: hybrid transactional/analytical processing)
