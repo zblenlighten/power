@@ -24,7 +24,7 @@
   - Application Landscape
     - Monolith
       - Cons: agility, scalability, fault tolerance, single framework
-    - Multitier architecture (N-tier): an MVC design is often implemented using an 3-tier architecture
+    - Multitier architecture (N-tier): an MVC design is often implemented using a 3-tier architecture
     - Service-oriented architecture (SOA)
     - Microservices
       - Pros: single capabilities, independent as product, decoupling, continuous delivery, componentization, autonomy, scalability
@@ -342,14 +342,14 @@
       - Node discovery and cluster management: [built-in subsystem](https://www.elastic.co/blog/a-new-era-for-cluster-coordination-in-elasticsearch)
   - Graph database
     - Neo4j (property graph model, vs: triple-store model)
-      - Graph: hierarchical or nonhierarchical, number of nodes and edged, the longest distance between nodes
+      - Graph: hierarchical or nonhierarchical, number of nodes and edges, the longest distance between nodes
       - Nodes (entity) - Properties (columns in a relational database table)
       - Edges (relationship): directed or undirected, symmetric or asymmetric
       - Cypher query language
       - Tips
         - Traverse paths instead of joins
         - Identify important nodes
-        - Consider the weigh of edges
+        - Consider the weight of edges
         - Beware of cycles: it's possible to visit same node repeatedly
   - Ledger database
     - Hyperledger
@@ -385,7 +385,7 @@
             - Term modifiers: wildcard search, fuzzy search, range search, boosting
         - Faceted search: field faceting, query faceting, range faceting
       - Node discovery and cluster management: ZooKeeper
-    - Elasticsearch
+    - Elasticsearch (also under NoSQL > Document)
       - [Similarity](https://www.elastic.co/guide/en/elasticsearch/reference/current/similarity.html): BM25
   - Image search
     - Thumbnail
@@ -414,7 +414,7 @@
       - Reducing bandwidth costs
       - Increasing content availability and redundancy
       - Improving website security
-      - Time to live (TTL) features for certain uses cases
+      - Time to live (TTL) features for certain use cases
     - Fastly, Cloudflare, Amazon CloudFront
       - [How is AWS Global Accelerator different from Amazon CloudFront](https://aws.amazon.com/global-accelerator/faqs/)
     - [CDN工作原理及其在淘宝图片业务中的应用](https://blog.csdn.net/taobaojishu/article/details/110458820)
@@ -422,6 +422,7 @@
 - Data Warehouse
   - Analytic systems (OLAP: online analytical processing)
     - Cloud data warehouse: Redshift, BigQuery, Ads Data Hub, Azure Synapse Analytics, Snowflake ([Unistore](https://www.snowflake.com/en/data-cloud/workloads/unistore/) - [Snowpark](https://www.snowflake.com/en/data-cloud/snowpark/)), [Hologres](https://www.alibabacloud.com/help/en/hologres/product-overview/what-is-hologres)
+      - [Databricks Well-Architected Framework](https://github.com/databricks-solutions/databricks-waf)
     - On-premises data warehouse: Netezza, [Druid](https://druid.apache.org/use-cases/), Hive, Teradata, Greenplum
     - Column-oriented (Bitmap encoding vs Run-length encoding)
     - Main read pattern: aggregate over large number of records
@@ -515,10 +516,10 @@
     - Components: Spark Core - Spark SQL - spark.ml - Spark Streaming - GraphFrames (Pregel API)
     - Spark streaming (work on microbatching)
       - Batch interval vs Slide interval vs Window interval
-    - Tez (coordinated by YARN)
     - References
       - [Spark — debugging a slow Application](https://blog.devgenius.io/spark-debugging-a-slow-application-7c6e781dc20f)
       - [PySpark Style Guide](https://github.com/palantir/pyspark-style-guide)
+  - Tez (YARN DAG execution engine, backs Hive / Pig)
   - Pig (AvroStorage, Skewed Joins)
   - Hive (vs: Impala)
     - Hive Metastore Server (HMS): metadata
@@ -615,9 +616,9 @@
         - Record Schema: [Schema registry](https://docs.confluent.io/platform/current/schema-registry/avro.html)
         - Topic partitioning: what if a topic gets too big for one computer or one computer is not reliable
           - Partitions count (each partition for a single topic runs at a throughput of about 10 MB/s)
-          - Replication factor (set to 3 as default)
+          - Replication factor (recommend 3)
             - Data Plane: Replication Protocol
-          - It is recommended that each broker to have up to 4K partitions and each cluster to have up to 200K partitions
+          - ZooKeeper-era limits: up to 4K partitions per broker, 200K per cluster (KRaft scales far higher)
           - Log compaction
           - Advertised Host: advertised.host.name, advertised.listeners (private IP or public IP)
         - Bootstrap server (connection + metadata request)
@@ -648,12 +649,12 @@
           - CDC connector -> Search index (e.g. Solr) / Database / Data warehouse / Cache
         - Kafka Streams (ksqlDB)
       - Control Plane
-        - KRaft
+        - KRaft (default since 3.3, only mode since 4.0)
           - Scale to millions of partitions, easier to maintain and set-up
           - Improve stability, easier to monitor, support and administer
           - Single security model
           - Faster controller shutdown and recovery time
-        - ZooKeeper (leader + followers)
+        - ZooKeeper (leader + followers, legacy, removed in Kafka 4.0)
           - Manages brokers
           - Performs leader election for partitions
           - Sends notifications
@@ -678,7 +679,7 @@
       - Version number in the URL
       - HTTP Accept header
     - Media Type & Content-Type
-    - Identity Access Management (IAM)
+    - Identity & Access Management (IAM)
     - Design of REST APIs
       - Identify participants
       - Identify activities
@@ -777,10 +778,13 @@
 - [Python](https://github.com/vinta/awesome-python)
   - [cProfile](https://docs.python.org/3/library/profile.html), [timeit](https://docs.python.org/3/library/timeit.html)
   - Command line: [click](https://click.palletsprojects.com/)
-  - [Dask](https://docs.dask.org/en/stable/dataframe.html) vs Koalas
+  - [Dask](https://docs.dask.org/en/stable/dataframe.html) vs pandas API on Spark (pyspark.pandas, formerly Koalas)
   - Concurrent and parallel programming: Celery, Pyro5, RPyC, mpi4py, PyCUDA
   - [Status of Python Versions](https://devguide.python.org/versions/)
   - [PyPI packages](https://pypistats.org/top)
+
+- [Rust](https://github.com/rust-unofficial/awesome-rust): Rust's ownership system and compile-time checks eliminate dangling references and use-after-free, and its bounds checking prevents buffer overflows from corrupting memory by converting them into safe panics, memory leaks remain possible.
+  - [crates](https://crates.io/)
 
 ### Frontend
 
@@ -794,7 +798,7 @@
   - JavaScript
     - Vue.js
       - Vue Instance - Virtual DOM - DOM
-      - VueResource, VueRouter, Vuex
+      - VueRouter, Pinia (Vuex now maintenance-mode)
         - MVVM: two-way data bindings ([双向绑定](https://www.liaoxuefeng.com/wiki/1022910821149312/1109527162256416))
       - Developer Tools: Vue.js devtools
     - Electron
@@ -836,7 +840,7 @@
       - Stateless Architecture ([Stateful vs Stateless Architecture: Why Stateless Won](https://www.virtasant.com/blog/stateful-vs-stateless-architecture-why-stateless-won))
       - Data Sharding (shard key, hotspotting)
       - Data Replication: global/multiple data center
-      - Cache (read-through vs cache-aside, write-through vs write-around vs write-back)
+      - Cache (read-through vs cache-aside, write-through vs write-around vs write-back, detail in Data storage > Caching)
       - Host static assets in CDN
       - Async Processing & Message Broker
     - Programming: algorithms, data structure, design pattern, asynchronous I/O

@@ -109,7 +109,7 @@
     - [Open Data Contract Standard (ODCS)](https://github.com/bitol-io/open-data-contract-standard)
   - Data Security
     - Access control (RBAC, ABAC/PBAC, centralized vs decentralized)
-      - Identity and Access Management (IAM)
+      - Identity & Access Management (IAM)
       - Privileged Access Management (PAM)
     - Data loss prevention (DLP)
     - Data monitoring & Incident response
@@ -210,7 +210,7 @@
       - Pooling: max pooling & average pooling
     - Fully connected layer
     - Upsampling: uppooling, interpolation, transposed convolution
-  - RNN (Recurrent Neural Network)
+  - RNN (Recurrent Neural Network): sequential, the original seq2seq encoder-decoder, weak long-range memory and no parallelism -> Transformers replaced recurrence with attention
     - LSTM (Long short-term memory)
       - Cell state: forget gate -> input gate -> output gate
   - Training (one epoch = batch size * iteration)
@@ -238,7 +238,7 @@
   - Learning rate ([how to adjust learning rate](https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate))
   - Prevent over-fitting
     - L1 & L2 Regularization (Lasso regression & Ridge regression -> Linear regression)
-      - Regularization significantly reduces variance without substantial increase in bias
+      - Regularization trades a small increase in bias for a larger reduction in variance (bias–variance tradeoff)
     - Dropout
     - Data augmentation
     - Early stopping
@@ -271,11 +271,11 @@
         - FPN (Feature Pyramid Networks)
       - Anchor free
       - CRNN + ctc (text recognition)
-    - Semantic segmentation / Lane detection
-      - Backbone (feature extractor): ResNet
-      - U-Net
-      - DeepLab (vs: FCN)
-        - Encoder (Backbone + ASPP: atrous spatial pyramid pooling) - Decoder
+    - Semantic segmentation / Lane detection (per-pixel classification)
+      - Encoder-decoder: backbone encoder (e.g. ResNet) downsamples -> decoder upsamples to full-resolution mask
+        - FCN: fully-convolutional (drops FC layers), pioneered dense prediction
+        - U-Net: skip connections concat encoder features into the decoder
+        - DeepLab: atrous (dilated) convolution + ASPP (atrous spatial pyramid pooling), decoder added in v3+
     - Object Tracking
   - NLP
     - Bag of Words(BoW) & N-gram: term frequency — inverse document frequency (TF-IDF)
@@ -284,37 +284,46 @@
       - pLSA (Probabilistic Latent Semantic Analysis)
       - LDA (Latent Dirichlet Allocation)
     - Embedding
-      - Word2Vec (Continues bag of words: CBOW vs Skip-gram)
+      - Word2Vec (static, Continuous Bag of Words (CBOW) vs Skip-gram)
         - Word Mover's distance (WMD) / Cosine distance / Euclidean distance
         - Out-of-vocabulary (OOV)
         - Negative sampling
         - Visualization: t-SNE
+      - Contextual embeddings: Transformer encoders (e.g. BERT, sentence-transformers) -> dense retrieval
       - Graph Embedding
         - DeepWalk
         - Node2vec
-    - Transformer -> BERT vs GPT
-      - Transformer block ([Transformer Explainer](https://poloclub.github.io/transformer-explainer/))
-        - Attention
-          - Role
-            - Measure the importance and relevance of each word relative to each other
-            - Allow for the building-up of enriched vectors with more context and logic
-          - Calculation
-            - Input vector is used to create: Query vector (Q), Key vector (K), Value vector (V)
-            - A scaled dot-product on Q and K = Attention score -> Attention Weights
-            - V * Attention Weight -> Output for the self-attention layer
-        - position-wise feed-forward networks
-        - residual connections & layer normalization
-      - Important variables in Transformers
-        - Input: vocabulary size (V), embedding / model size (D), sequence / context length (L)
-        - Internal: number of attention heads (H), intermediate size(I), number of layers (N)
-        - Training: batch size (B), tokens trained on (T)
-      - Training foundation model / pre-trained model  (alignment problem)
+    - Transformer ([Transformer Explainer](https://poloclub.github.io/transformer-explainer/))
+      - Architecture (self-attention replaces recurrence -> parallel training + long-range context)
+        - Encoder-only: bidirectional attention, masked language modeling -> understanding, classification, embeddings (e.g. BERT)
+        - Decoder-only: causal attention, next-token prediction -> autoregressive generation, and the dominant design for modern LLMs (e.g. GPT, Llama, Claude)
+        - Encoder-decoder (seq2seq): encoder reads input, decoder generates via cross-attention -> translation, summarization (e.g. original Transformer, T5)
+      - Transformer block
+        - Multi-head self-attention
+          - Role: weigh how strongly each token attends to every other -> context-enriched representations
+          - Q, K, V: project input into Query, Key, Value
+          - Scaled dot-product attention: softmax(QKᵀ / √dₖ)·V (÷√dₖ keeps gradients stable)
+          - Multi-head: parallel heads attend to different subspaces / relations
+          - Attention is quadratic: O(n²) compute & memory in sequence length n -> long-context bottleneck
+          - Masking: decoder self-attention is causal (no look-ahead), while cross-attention lets the decoder read the encoder output
+        - Position-wise feed-forward network (FFN), which Mixture of Experts (MoE) replaces with sparse experts
+        - Residual connections & layer normalization (pre-norm, RMSNorm)
+        - Positional encoding (attention is order-agnostic): sinusoidal -> learned, RoPE, ALiBi
+      - Efficient attention / serving (tame the quadratic cost)
+        - KV cache: reuse past K/V during decoding (grows linearly with context)
+        - Multi-Query / Grouped-Query Attention (MQA / GQA): shrink KV cache
+        - FlashAttention: IO-aware exact attention (minimizes GPU memory traffic)
+        - Sparse / sliding-window / linear attention: sub-quadratic approximations
+      - Key hyperparameters
+        - Input: vocabulary size (V), model dim (D), context length (L)
+        - Internal: attention heads (H), FFN intermediate size (I), layers (N)
+        - Training: batch size (B), tokens trained (T)
 
 ### Large language model
 
 - [Large Language Models (LLMs)](https://www.databricks.com/glossary/large-language-models-llm)
   - Basic topics
-      - [Context length in LLMs](https://agi-sphere.com/context-length/)
+    - [Context length in LLMs](https://agi-sphere.com/context-length/)
     - Base LLM: predict next word, based on text training data
     - Instruction Tuned LLM: fine-tuning on instructions and good attempts at following those instructions
       - Labeling instructions: helpful, truthful, harmless
@@ -326,7 +335,6 @@
       - [Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/index)
       - [LangChain Hub](https://smith.langchain.com/hub)
       - [Training MoEs at Scale with PyTorch](https://pytorch.org/blog/training-moes/)
-      - [Analysis of AI language models](https://artificialanalysis.ai/)
       - [Claude Artifacts Showcase](https://madewithclaude.com/)
   - Training
     - LoRA: decompose the weight change matrix into lower-rank matrices (QLoRA)
@@ -336,7 +344,7 @@
   - Aspects of Performance
     - Accuracy
       - Robustness: unexpected or noisy data, adversarial examples and edge cases
-      - Generalizability: new, unseen data, avoid overfitting and adapt to varies situations
+      - Generalizability: new, unseen data, avoid overfitting and adapt to various situations
       - Fairness & Bias: no perpetuate bias and equitable across different demographic groups
       - Interpretability & Explainability: trace and articulate the decision making and operational patterns
       - Compliance & Ethical considerations: data privacy, security and usage rights
@@ -353,8 +361,9 @@
   - Agent: Reasoning (LLMs) + Routing + Action (tools)
     - Agent with documents: Retrieval augmented generation (RAG)
       - Retrieval: load/retrieve documents with vector search (e.g. OpenSearch)
-        - Dense Embeddings: Suitable for tasks requiring rich semantic understanding and computational efficiency in a lower-dimensional space. More expressive but less interpretable.
-        - Sparse Embeddings: Ideal for tasks where feature interpretability and simple presence-based representations are essential. More interpretable but often less computationally efficient and expressive.
+        - Dense: semantic meaning in low-dim vectors, more expressive but less interpretable
+        - Sparse: keyword/term presence (e.g. BM25, SPLADE), more interpretable but less expressive
+        - Hybrid: dense + sparse, then rerank
       - Retriever Evaluation
       - Feature store / Feature serving
     - Agent with tables: text-2-sql
@@ -375,7 +384,7 @@
       - Summarization performance
       - Code writing correctness and readability
   - ChatGPT
-    - Generative Pre-trained Transformer 3.5 (GPT-3.5): a type of decoder based transformer models
+    - Generative Pre-trained Transformer (GPT): OpenAI's decoder-only model family
     - [Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses) (e.g. [ResponsesAgent](https://mlflow.org/docs/latest/genai/flavors/responses-agent-intro))
   - Model Context Protocol (MCP)
     - Tool - Resource - Prompt Template
@@ -453,7 +462,7 @@
     - Bayesian Network (directed graph)
       - Hidden Markov Model (HMM): transition matrix
     - Markov Network (undirected graph)
-      - Markov random filed (MRF)
+      - Markov random field (MRF)
       - Conditional random field (CRF)
     - Sampling
       - Markov chain Monte Carlo (MCMC)
@@ -530,8 +539,8 @@
 
 - Statistical significance
   - [Type I and type II errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Examples)
-    - Type I error: occurs when you reject a **null hypothesis** that is actually true（False Positive = FP / (FP + TN), convict an innocent defendant)
-    - Type II error: non-rejection of a false **null hypothesis**（False Negative = FN / (FN + TP), acquit a criminal)
+    - Type I error: occurs when you reject a **null hypothesis** that is actually true (False Positive = FP / (FP + TN), convict an innocent defendant)
+    - Type II error: non-rejection of a false **null hypothesis** (False Negative = FN / (FN + TP), acquit a criminal)
   - Confidence levels & Confidence intervals
   - Statistical power
   - Steps in Hypothesis Testing

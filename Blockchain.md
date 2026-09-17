@@ -39,7 +39,7 @@
     - Intentional fork
       - Hard fork: not backwards compatible, resulting in permanent splits of the blockchain
         - Ethereum (DAO attack): Ethereum (ETH) and Ethereum Classic (ETC)
-        - Bitcoin (SegWit): Bitcoin (BTC) and Bitcoin Cash (BCH)
+        - Bitcoin (block-size debate: BCH rejected SegWit for bigger blocks): Bitcoin (BTC) and Bitcoin Cash (BCH)
       - Soft fork: new rules are a subgroup of old rules, a temporary divergence
   - Blockchain trilemma: Decentralization, Security, Scalability
     - Bitcoin and Ethereum chose decentralization and security, which makes them fairly slow
