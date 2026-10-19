@@ -393,6 +393,7 @@
       - Sampling + Composability
       - Registry API + Server Discovery
     - [Authentication and authorization in Model Context Protocol](https://stackoverflow.blog/2026/01/21/is-that-allowed-authentication-and-authorization-in-model-context-protocol/)
+    - [MCP Gateway](https://github.com/microsoft/mcp-gateway)
   - Claude Code
     - Task decomposition strategies
       - Prompt chaining: fixed, linear tasks
