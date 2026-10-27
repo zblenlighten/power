@@ -165,11 +165,7 @@
         - [Security Compliance: A Complete Introduction](https://www.splunk.com/en_us/blog/learn/security-compliance.html)
         - [What is NIST CSF and why is it important?](https://www.vanta.com/resources/what-is-nist-csf-and-why-is-it-important)
         - [Do you need penetration testing for compliance?](https://www.vanta.com/resources/do-you-need-penetration-testing-for-compliance)
-    - Data & AI
-      - PII Classification / Detection
-        - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
-      - Anonymization (vs: Pseudonymization)
-      - Encryption Options (e.g. Customer Managed Key, CMK)
+    - Data Security
     - Platform & Infrastructure
       - Secure Authentication (e.g. Multi Factor Authentication, MFA)
       - Secure Data Access Configurations (e.g. Storage Firewalls, [Network Connectivity Configuration](https://docs.databricks.com/api/azure/account/networkconnectivity/createnetworkconnectivityconfiguration))
@@ -202,6 +198,7 @@
         - User and Entity Behavior Analytics (UEBA)
       - Cybersecurity Operations
         - Offensive Testing: Penetration testing & Vulnerability scanning
+          - [Common Vulnerability Scoring System](https://en.wikipedia.org/wiki/Common_Vulnerability_Scoring_System)
         - Defensive Operations: Threat detection & Incident response
         - Just-in-Time (JIT) access
       - Open Cybersecurity Schema Framework (OCSF)

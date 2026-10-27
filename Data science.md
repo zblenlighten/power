@@ -84,6 +84,7 @@
         - Selenium, Scrapy
       - Devices: Laser radar, 3D human pose machine
     - Data cleaning: OpenRefine
+    - Identity Resolution
     - Data labeling / Data generating
       - Tools: LabelImg, LabelMe
       - Image augmentation
@@ -107,27 +108,6 @@
   - DataOps (e.g. DataSecOps, DataGovOps)
   - Data Governance: policies, procedures, and standards that are in place to ensure the availability, usability, integrity, and security of data
     - [Open Data Contract Standard (ODCS)](https://github.com/bitol-io/open-data-contract-standard)
-  - Data Security
-    - Access control (RBAC, ABAC/PBAC, centralized vs decentralized)
-      - Identity & Access Management (IAM)
-      - Privileged Access Management (PAM)
-    - Data loss prevention (DLP)
-    - Data monitoring & Incident response
-      - File integrity monitoring
-    - Encryption (data at rest & data in transit), Data masking, Data erasure
-    - Data Privacy and Data Protection
-    - Law and Industry Regulations
-      - General Data Protection Regulation (GDPR [checklist](https://www.vanta.com/resources/gdpr-compliance-checklist))
-        - [What is a DPIA?](https://www.osano.com/articles/dpia-data-protection-impact-assessments)
-        - [What Is a RoPA?](https://www.osano.com/articles/what-is-a-ropa-gdpr-requirements-for-record-of-processing-activities)
-        - Data Subject Access Request (DSAR)
-      - Others
-        - Anti-Money Laundering (AML)
-        - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
-        - Payment Card Industry Data Security Standard (PCI DSS)
-    - Data breach scandals
-      - Facebook–Cambridge Analytica data scandal
-      - Uber 2016 Data Security Incident
   - Data Warehouse
   - Business Intelligence
     - [Tableau Public](https://public.tableau.com/en-us/gallery)
@@ -137,6 +117,39 @@
   - Metadata
     - Semantic metadata: [Ossie](https://ossie.apache.org/)
   - [Data Quality](https://www.databricks.com/discover/pages/data-quality-management)
+
+- Data Security
+  - Discovery / Classification
+    - [What is the difference between personally identifiable information (PII) and personal data?](https://techgdpr.com/blog/difference-between-pii-and-personal-data/)
+  - Identity & Access Management (IAM)
+    - AuthZ models: RBAC, ABAC/PBAC, (centralized vs decentralized)
+    - Privileged Access Management (PAM)
+  - Encryption (data at rest & data in transit)
+    - Encryption Options (e.g. Customer Managed Key, CMK)
+  - Data Privacy and Data Protection
+    - Data masking
+    - Anonymization (vs: Pseudonymization)
+    - Aggregation thresholds
+    - Differential Privacy (DP): differencing attack
+  - Detect and Respond
+    - Data loss prevention (DLP)
+    - Data monitoring & Incident response
+      - File integrity monitoring
+  - Data erasure
+  - Law and Industry Regulations
+    - General Data Protection Regulation (GDPR [checklist](https://www.vanta.com/resources/gdpr-compliance-checklist))
+      - [What is a DPIA?](https://www.osano.com/articles/dpia-data-protection-impact-assessments)
+      - [What Is a RoPA?](https://www.osano.com/articles/what-is-a-ropa-gdpr-requirements-for-record-of-processing-activities)
+      - Data Subject Access Request (DSAR)
+    - Others
+      - Anti-Money Laundering (AML)
+      - FTC fair information practice principles: Notice, Choice, Access, Security and Enforcement
+      - Payment Card Industry Data Security Standard (PCI DSS)
+  - References
+    - [LLM and Generative AI Security Solutions Landscape](https://genai.owasp.org/resource/llm-and-generative-ai-security-solutions-landscape/)
+    - Data breach scandals
+      - Facebook–Cambridge Analytica data scandal
+      - Uber 2016 Data Security Incident
 
 - Applications
   - Data visualization
@@ -356,9 +369,14 @@
       - Knowledge distillation
       - Quantization (e.g. [FP8](https://docs.vllm.ai/en/latest/quantization/fp8.html))
   - Security: Jailbreak, Prompt injection, Data poisoning / Backdoors
+    - [LLM red teaming](https://www.promptfoo.dev/docs/red-team/)
 
 - Applications
   - Agent: Reasoning (LLMs) + Routing + Action (tools)
+    - 3 layers of data maturity (to provide context)
+      - Data: The raw values, such as a number in a field
+      - Metadata: The structure that defines those values, such as an opportunity amount
+      - Semantics: The logic that provides meaning and business context, such as defining an opportunity as hot if the amount exceeds a specific threshold
     - Agent with documents: Retrieval augmented generation (RAG)
       - Retrieval: load/retrieve documents with vector search (e.g. OpenSearch)
         - Dense: semantic meaning in low-dim vectors, more expressive but less interpretable
@@ -368,6 +386,8 @@
       - Feature store / Feature serving
     - Agent with tables: text-2-sql
     - Agent with multiple tools + data sources: tool-calling agent
+    - Action loop: listen -> reason -> plan -> act -> respond -> learn
+      - ReAct: Reason -> Act -> Observe
     - Multi agent system
       - [Responses](https://developers.openai.com/blog/responses-api/) Agent
       - Role playing + Focus + [Tools](https://docs.crewai.com/concepts/tools) + Cooperation + Guardrails + Memory
@@ -387,6 +407,9 @@
     - Generative Pre-trained Transformer (GPT): OpenAI's decoder-only model family
     - [Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses) (e.g. [ResponsesAgent](https://mlflow.org/docs/latest/genai/flavors/responses-agent-intro))
   - Model Context Protocol (MCP)
+    - MCP vs Agent-to-Agent (A2A)
+      - MCP: Model to tools, APIs, and data sources (vertical), Client-Server (hierarchical, one-way request), Stateless
+      - A2A: Agent to agent for collaboration (horizontal), Peer-to-Peer / Decentralized (fluid roles), Stateful
     - Tool - Resource - Prompt Template
     - Transport: stdio, HTTP, Streamable HTTP
     - Client-Server Architecture
@@ -412,6 +435,7 @@
       - [Claude Skill Creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md)
       - [Cybersecurity Skills for AI Agents](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)
       - [rtk](https://github.com/rtk-ai/rtk)
+  - Chain Orchestrator: LangGraph, LlamaIndex
   - Others
     - [Open Knowledge Format](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) (OKF)
 
@@ -421,10 +445,16 @@
     - Process: off-the-shelf LLM + labeled data
     - [Fine-Tuning Techniques - Choosing Between SFT, DPO, and RFT](https://developers.openai.com/cookbook/examples/fine_tuning_direct_preference_optimization_guide)
   - Guardrails
-  - Chain Orchestrator: LangGraph, LlamaIndex
-  - References:
+    - Preventative guardrails (pre-execution): strict data access, block injection attacks
+    - Runtime guardrails (during execution): toxicity detection scans inputs and outputs in real-time
+    - Auditability (post-execution): logs every interaction
+  - Agent Development Lifecycle (ADLC)
+  - References
     - [ZenML LLMOps Database](https://www.zenml.io/llmops-database)
-    - [LLM and Generative AI Security Solutions Landscape](https://genai.owasp.org/resource/llm-and-generative-ai-security-solutions-landscape/)
+    - Monitoring
+      - [Semantic Conventions GenAI Reference](https://github.com/open-telemetry/semantic-conventions-genai/blob/main/reference/README.md)
+      - [OpenInference](https://arize-ai.github.io/openinference/)
+      - Langfuse: data model of sessions, traces and observations
 
 - Multimodal
 
